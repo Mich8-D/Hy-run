@@ -1,0 +1,16 @@
+
+*.gdx
+*.csv
+*.log~3
+*.log~2
+*.log~1
+*.log
+*.lst
+*.lxi
+.Rproj.user
+
+*.Rproj
+
+*./225*/*
+
+.Rhistory
