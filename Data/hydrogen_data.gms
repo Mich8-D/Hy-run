@@ -1,6 +1,6 @@
 $include "Data/germany_no_ren_data.gms"
 $include "Data/renewables_data.gms"
-$eolcom #
+
 
 SET TECHNOLOGY /HEL   "Hydrogen Electrolyzers",
                 HFC   "Hydrogen fuel cells" /;

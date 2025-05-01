@@ -1,5 +1,5 @@
 $include "Data/germany_no_ren_data.gms"
-$eolcom #
+
 
 set TECHNOLOGY /
 * new technologies
