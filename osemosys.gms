@@ -30,7 +30,7 @@ $onmulti
 $onrecurse
 $setglobal mip
 $if not set scen $setglobal scen base
-$if not set data $setglobal data hydrogen
+$if not set data $setglobal data germany_no_ren
 $if not set value $setglobal value ""
 $include "Model/osemosys_dec.gms"
 * specify Model data
