@@ -49,7 +49,7 @@ option lp = conopt;
 
 * first, solve the model without any constraints
 $ifthen.solvermode set mip
-solve osemosys minimizing z using mip;
+solve osemosys minimizing z using mip; 
 $else.solvermode
 solve osemosys minimizing z using lp;
 $endif.solvermode
