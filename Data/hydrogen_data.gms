@@ -1,6 +1,6 @@
-$include "Data/utopia_data.gms"
+$include "Data/germany_no_ren_data.gms"
 $include "Data/renewables_data.gms"
-
+$eolcom #
 
 SET TECHNOLOGY /HEL   "Hydrogen Electrolyzers",
                 HFC   "Hydrogen fuel cells" /;
@@ -8,7 +8,7 @@ SET TECHNOLOGY /HEL   "Hydrogen Electrolyzers",
 SET STORAGE / HYDROGEN "HYDROGEN"/;
 
 
-# Characterize ELECTROLIZERS
+# Characterize ELECTROLYZERS
 CapacityFactor(r,'HEL',l,y) = 1;
 AvailabilityFactor(r,'HEL',y) = 0.9;
 InputActivityRatio(r,'HEL','ELC',"1",y) = 1; #IEA convention

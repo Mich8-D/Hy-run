@@ -1,4 +1,5 @@
-$include "Data/utopia_data.gms"
+$include "Data/germany_no_ren_data.gms"
+$eolcom #
 
 set TECHNOLOGY /
 * new technologies
@@ -7,10 +8,10 @@ set TECHNOLOGY /
         SUN 'Energy input from the sun'
         WIN 'Energy input from the wind'/;
 
-set FUEL / 
+# set FUEL / 
 * new fuels 
-        SOL 'Solar'
-        WND 'Wind' /;
+#        SOL 'Solar'
+#       WND 'Wind' /;
 
 set renewable_tech(TECHNOLOGY) /SPV,WPP/; 
 set renewable_fuel(FUEL) /SOL,WND/; 

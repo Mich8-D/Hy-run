@@ -22,11 +22,12 @@
 *------------------------------------------------------------------------	
 * Sets       
 *------------------------------------------------------------------------
+$eolcom #
 
 set     YEAR    / 1990*2010 /;
 set     TECHNOLOGY      /
         COAL 'Coal power plants'
-        // NUCLEAR 'Nuclear power plants'
+        NUCLEAR 'Nuclear power plants'
         ROR 'run-of-river hydroelectric power plants'
         STOR_HYDRO 'Pumped storage'
         DIESEL_GEN 'Diesel power plants'
@@ -75,7 +76,7 @@ set     DAYTYPE / 1 /;
 set     DAILYTIMEBRACKET / 1, 2 /;
 set     STORAGE / DAM /;
 
-# characterize technologies 
+# characterize technologies
 set power_plants(TECHNOLOGY) / COAL, NUCLEAR, ROR, DIESEL_GEN /;
 set storage_plants(TECHNOLOGY) / STOR_HYDRO /;
 set fuel_transformation(TECHNOLOGY) / SRE /;
@@ -92,7 +93,7 @@ set fuel_production(TECHNOLOGY);
 set fuel_production_fict(TECHNOLOGY) /RIV/;
 set secondary_production(TECHNOLOGY) /COAL, NUCLEAR, ROR, STOR_HYDRO, DIESEL_GEN, SRE/;
 
-#Characterize fuels 
+# Characterize fuels 
 set primary_fuel(FUEL) / HCO, OIL, URN, HYD /;
 set secondary_carrier(FUEL) / DSL, GSL, ELC /;
 set final_demand(FUEL) / RH, RL, TX /;
@@ -144,7 +145,7 @@ WD.1 1
 WN.2 1
 /;
 
-DaysInDayType(y,ls,ld) = 7;
+DaysInDayType(y,ls,ld) = 7; #what the fuck is this 
 
 TradeRoute(r,rr,f,y) = 0;
 
@@ -243,7 +244,7 @@ parameter AccumulatedAnnualDemand(r,f,y) /
 * Parameters - Performance       
 *------------------------------------------------------------------------
 
-CapacityToActivityUnit(r,t)$power_plants(t) = 31.536;
+CapacityToActivityUnit(r,t)$power_plants(t) = 31.536; #check to understand unit of measurement 
 
 CapacityToActivityUnit(r,t)$(CapacityToActivityUnit(r,t) = 0) = 1;
 
@@ -277,7 +278,7 @@ parameter OperationalLife(r,t) /
 /;
 OperationalLife(r,t)$(OperationalLife(r,t) = 0) = 1;
 
-parameter ResidualCapacity(r,t,y) /
+parameter ResidualCapacity(r,t,y) / #could be defined with a discount rate formulation
   GERMANY.COAL.1990  .5
   GERMANY.COAL.1991  .5
   GERMANY.COAL.1992  .5
