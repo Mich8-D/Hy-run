@@ -32,7 +32,6 @@ set     TECHNOLOGY      /
         STOR_HYDRO 'Pumped storage'
         HFO_GEN 'Heavy Fuel Oil power plants'
         IMPHFO1 'Heavy Fuel Oil imports'
-        IMPGSL1 'Gasoline imports'
         IMPHCO1 'Coal imports'
         IMPGAS1 'Gas imports'
         IHE 'Industrial heaters - electric'
@@ -81,7 +80,7 @@ set appliances(TECHNOLOGY) / IHE, IHG, FEU, TXD, TXE, TXG /;
 set unmet_demand(TECHNOLOGY) / /;
 set transport(TECHNOLOGY) / TXD, TXE, TXG /;
 set primary_imports(TECHNOLOGY) / IMPHCO1, IMPGAS1 /;
-set secondary_imports(TECHNOLOGY) / IMPHFO1, IMPGSL1 /;
+set secondary_imports(TECHNOLOGY) / IMPHFO1 /;
 
 set renewable_tech(TECHNOLOGY) /ROR/; 
 set renewable_fuel(FUEL) /HYD/; 
@@ -409,7 +408,6 @@ parameter OutputActivityRatio(r,t,f,m,y) /
   GERMANY.STOR_HYDRO.ELC.1.(2024*2050)  1
   GERMANY.HFO_GEN.ELC.1.(2024*2050)  1
   GERMANY.IMPHFO1.HFO.1.(2024*2050)  1
-  GERMANY.IMPGSL1.GSL.1.(2024*2050)  1
   GERMANY.IMPHCO1.HCO.1.(2024*2050)  1
   GERMANY.IMPGAS1.GAS.1.(2024*2050)  1
   GERMANY.IHE.IH.1.(2024*2050)  1
@@ -458,7 +456,6 @@ parameter CapitalCost /
   GERMANY.STOR_HYDRO.(2024*2050)  900
   GERMANY.HFO_GEN.(2024*2050)  1000
   GERMANY.IMPHFO1.(2024*2050)  0
-  GERMANY.IMPGSL1.(2024*2050)  0
   GERMANY.IMPHCO1.(2024*2050)  0
   GERMANY.IMPGAS1.(2024*2050)  0
   GERMANY.IHE.(2024*2050)  90
@@ -496,7 +493,6 @@ parameter VariableCost(r,t,m,y) /
   GERMANY.GASF.1.(2024*2050)  1.5
   GERMANY.HFO_GEN.1.(2024*2050)  .4
   GERMANY.IMPHFO1.1.(2024*2050)  10
-  GERMANY.IMPGSL1.1.(2024*2050)  15
   GERMANY.IMPHCO1.1.(2024*2050)  2
   GERMANY.IMPGAS1.1.(2024*2050)  2
   GERMANY.SRE.1.(2024*2050)  10
@@ -743,7 +739,6 @@ REMinProductionTarget(r,y) = 0;
 
 parameter EmissionActivityRatio(r,t,e,m,y) /
   GERMANY.IMPHFO1.CO2.1.(2024*2050)  .075
-  GERMANY.IMPGSL1.CO2.1.(2024*2050)  .075
   GERMANY.IMPHCO1.CO2.1.(2024*2050)  .089
   GERMANY.TXD.NOX.1.(2024*2050)  1
   GERMANY.TXG.NOX.1.(2024*2050)  1
