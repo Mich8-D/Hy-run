@@ -361,7 +361,7 @@ parameter OutputActivityRatio(r,t,f,m,y) /
   GERMANY.IHG.IH.1.(1990*2010)  1
   GERMANY.RIV.HYD.1.(1990*2010)  1
   GERMANY.FEU.ED.1.(1990*2010)  1
-
+/;
 # By default, assume for imported secondary fuels the same efficiency of the internal refineries
 #InputActivityRatio(r,'IMPHFO1','OIL',m,y)$(not OutputActivityRatio(r,'SRE','HFO',m,y) eq 0) = 1/OutputActivityRatio(r,'SRE','HFO',m,y); 
 #InputActivityRatio(r,'IMPGSL1','OIL',m,y)$(not OutputActivityRatio(r,'SRE','GSL',m,y) eq 0) = 1/OutputActivityRatio(r,'SRE','GSL',m,y); 
