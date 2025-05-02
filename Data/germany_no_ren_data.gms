@@ -34,12 +34,10 @@ set     TECHNOLOGY      /
         IMPDSL1 'Diesel imports'
         IMPGSL1 'Gasoline imports'
         IMPHCO1 'Coal imports'
-        IMPOIL1 'Crude oil imports'
         IMPGAS1 'Gas imports'
         IHE 'Industrial heaters - electric'
         IHG 'Industrial heaters - gas'
         FEU 'Final Electric Usages'
-        SRE 'Crude oil refinery'
         TXD 'Personal vehicles - diesel'
         TXE 'Personal vehicles - electric'
         TXG 'Personal vehicles - gasoline'
@@ -61,7 +59,6 @@ set     FUEL    /
         GSL 'Gasoline'
         HCO 'Coal'
         HYD 'Hydro'
-        OIL 'Crude oil'
         GAS 'Gas'
         IH 'Demand for Industrial heating'
         ED 'Electric Demand'
@@ -83,7 +80,7 @@ set fuel_transformation(TECHNOLOGY) / SRE /;
 set appliances(TECHNOLOGY) / IHE, IHG, FEU, TXD, TXE, TXG /;
 set unmet_demand(TECHNOLOGY) / /;
 set transport(TECHNOLOGY) / TXD, TXE, TXG /;
-set primary_imports(TECHNOLOGY) / IMPHCO1, IMPOIL1, IMPGAS1 /;
+set primary_imports(TECHNOLOGY) / IMPHCO1, IMPGAS1 /;
 set secondary_imports(TECHNOLOGY) / IMPDSL1, IMPGSL1 /;
 
 set renewable_tech(TECHNOLOGY) /ROR/; 
@@ -94,7 +91,7 @@ set fuel_production_fict(TECHNOLOGY) /RIV/;
 set secondary_production(TECHNOLOGY) /COAL, GASF, ROR, STOR_HYDRO, DIESEL_GEN, SRE/;
 
 # Characterize fuels 
-set primary_fuel(FUEL) / HCO, OIL, GAS, HYD /;
+set primary_fuel(FUEL) / HCO, GAS, HYD /;
 set secondary_carrier(FUEL) / DSL, GSL, ELC /;
 set final_demand(FUEL) / IH, ED, TX /;
 
@@ -400,7 +397,6 @@ parameter InputActivityRatio(r,t,f,m,y) /
   GERMANY.IHE.ELC.1.(2024*2050)  1
   GERMANY.IHG.DSL.1.(2024*2050)  1.428571
   GERMANY.FEU.ELC.1.(2024*2050)  1
-  GERMANY.SRE.OIL.1.(2024*2050)  1
   GERMANY.TXD.DSL.1.(2024*2050)  1
   GERMANY.TXE.ELC.1.(2024*2050)  1
   GERMANY.TXG.GSL.1.(2024*2050)  1
@@ -415,7 +411,6 @@ parameter OutputActivityRatio(r,t,f,m,y) /
   GERMANY.IMPDSL1.DSL.1.(2024*2050)  1
   GERMANY.IMPGSL1.GSL.1.(2024*2050)  1
   GERMANY.IMPHCO1.HCO.1.(2024*2050)  1
-  GERMANY.IMPOIL1.OIL.1.(2024*2050)  1
   GERMANY.IMPGAS1.GAS.1.(2024*2050)  1
   GERMANY.IHE.IH.1.(2024*2050)  1
   GERMANY.IHG.IH.1.(2024*2050)  1
@@ -429,8 +424,8 @@ parameter OutputActivityRatio(r,t,f,m,y) /
 /;
 
 # By default, assume for imported secondary fuels the same efficiency of the internal refineries
-InputActivityRatio(r,'IMPDSL1','OIL',m,y)$(not OutputActivityRatio(r,'SRE','DSL',m,y) eq 0) = 1/OutputActivityRatio(r,'SRE','DSL',m,y); 
-InputActivityRatio(r,'IMPGSL1','OIL',m,y)$(not OutputActivityRatio(r,'SRE','GSL',m,y) eq 0) = 1/OutputActivityRatio(r,'SRE','GSL',m,y); 
+#InputActivityRatio(r,'IMPDSL1','OIL',m,y)$(not OutputActivityRatio(r,'SRE','DSL',m,y) eq 0) = 1/OutputActivityRatio(r,'SRE','DSL',m,y); 
+#InputActivityRatio(r,'IMPGSL1','OIL',m,y)$(not OutputActivityRatio(r,'SRE','GSL',m,y) eq 0) = 1/OutputActivityRatio(r,'SRE','GSL',m,y); 
 
 *------------------------------------------------------------------------	
 * Parameters - Technology costs       
@@ -465,7 +460,6 @@ parameter CapitalCost /
   GERMANY.IMPDSL1.(2024*2050)  0
   GERMANY.IMPGSL1.(2024*2050)  0
   GERMANY.IMPHCO1.(2024*2050)  0
-  GERMANY.IMPOIL1.(2024*2050)  0
   GERMANY.IMPGAS1.(2024*2050)  0
   GERMANY.IHE.(2024*2050)  90
   GERMANY.IHG.(2024*2050)  100
@@ -504,7 +498,6 @@ parameter VariableCost(r,t,m,y) /
   GERMANY.IMPDSL1.1.(2024*2050)  10
   GERMANY.IMPGSL1.1.(2024*2050)  15
   GERMANY.IMPHCO1.1.(2024*2050)  2
-  GERMANY.IMPOIL1.1.(2024*2050)  8
   GERMANY.IMPGAS1.1.(2024*2050)  2
   GERMANY.SRE.1.(2024*2050)  10
 /;
@@ -752,7 +745,6 @@ parameter EmissionActivityRatio(r,t,e,m,y) /
   GERMANY.IMPDSL1.CO2.1.(2024*2050)  .075
   GERMANY.IMPGSL1.CO2.1.(2024*2050)  .075
   GERMANY.IMPHCO1.CO2.1.(2024*2050)  .089
-  GERMANY.IMPOIL1.CO2.1.(2024*2050)  .075
   GERMANY.TXD.NOX.1.(2024*2050)  1
   GERMANY.TXG.NOX.1.(2024*2050)  1
 /;
