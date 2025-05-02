@@ -5,8 +5,10 @@ require(witchtools)
 require(ggpubr)
 
 ####### here you select your results for your plot
-complete_directory <- here::here()
-all_gdx <- c(Sys.glob(here::here("Results/results_*.gdx")))
+current_directory <- getwd()
+results_directory <- file.path(current_directory, "Results")
+
+all_gdx <- Sys.glob(file.path(results_directory, "results*.gdx"))
 
 osemosys_sanitize <- function(.x) {
   .x[, file := basename(gdx)]
@@ -44,7 +46,7 @@ YearSplit <-  batch_extract("YearSplit",all_gdx)[[1]] |> setDT() |> osemosys_san
 DaySplit <-  batch_extract("DaySplit",all_gdx)[[1]] |> setDT() |> osemosys_sanitize() %>% as_tibble()
 
 year_map <- unique(YearSplit %>% select(-file,-scen,-data, -YEAR)) %>% 
-  filter(TIMESLICE !="ALLYEAR") %>%
+  dplyr::filter(TIMESLICE !="ALLYEAR") %>%
   mutate(day = str_sub(TIMESLICE,2),
          season = str_sub(TIMESLICE,1,1)) 
 

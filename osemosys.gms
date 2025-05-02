@@ -40,7 +40,6 @@ $include "Model/compute_data.gms"
 * define model equations
 $include "Model/osemosys_equ.gms"
 
-
 * some model options
 model osemosys /all/;
 option limrow=0, limcol=0, solprint=on;
@@ -56,8 +55,9 @@ $endif.solvermode
 
 $include "Model/osemosys_res.gms"
 *$include "Model/report.gms"
-$if not set storage execute_unload 'Results/results_SCENbase_DATA%data%_STORno.gdx';
-$if set storage execute_unload 'Results/results_SCENbase_DATA%data%_STORyes.gdx';
+
+$if not set storage execute_unload "Results/results.gdx";
+$if set storage execute_unload "Results/results.gdx";
 
 $ifthen.scen %scen%=="ctax" 
 EmissionsPenalty(r,'CO2',y) = %value%;
@@ -81,7 +81,7 @@ $endif.solvermode
 * create results in file SelResults.CSV
 $include "Model/osemosys_res.gms"
 *$include "Model/report.gms"
-$if not set storage execute_unload 'Results/results_SCEN%scen%%value%_DATA%data%_STORno.gdx';
-$if set storage execute_unload 'Results/results_SCEN%scen%%value%_DATA%data%_STORyes.gdx';
+$if not set storage execute_unload 'Results/results.gdx';
+$if set storage execute_unload 'Results/results.gdx';
 
 $endif.notbase
