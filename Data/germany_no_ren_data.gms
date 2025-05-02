@@ -541,13 +541,13 @@ TotalAnnualMinCapacityInvestment(r,t,y) = 0;
 * Parameters - Activity constraints       
 *------------------------------------------------------------------------
 
-TotalTechnologyAnnualActivityUppeEDimit(r,t,y) = 99999;
+TotalTechnologyAnnualActivityUpperLimit(r,t,y) = 99999;
 
-TotalTechnologyAnnualActivityLoweEDimit(r,t,y) = 0;
+TotalTechnologyAnnualActivityLowerLimit(r,t,y) = 0;
 
-TotalTechnologyModelPeriodActivityUppeEDimit(r,t) = 99999;
+TotalTechnologyModelPeriodActivityUpperLimit(r,t) = 99999;
 
-TotalTechnologyModelPeriodActivityLoweEDimit(r,t) = 0;
+TotalTechnologyModelPeriodActivityLowerLimit(r,t) = 0;
 
 
 *------------------------------------------------------------------------	
