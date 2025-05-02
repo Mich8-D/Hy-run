@@ -23,7 +23,6 @@
 * Sets       
 *------------------------------------------------------------------------
 
-
 set     YEAR    / 1990*2010 /;
 set     TECHNOLOGY      /
         COAL 'Coal power plants'
@@ -52,7 +51,6 @@ set     TIMESLICE       /
 set     FUEL    /
         HFO 'Diesel'
         ELC 'Electricity'
-        GSL 'Gasoline'
         HCO 'Coal'
         HYD 'Hydro'
         GAS 'Gas'
@@ -87,7 +85,7 @@ set secondary_production(TECHNOLOGY) /COAL, GASF, ROR, STOR_HYDRO, HFO_GEN/;
 
 # Characterize fuels 
 set primary_fuel(FUEL) / HCO, GAS, HYD /;
-set secondary_carrier(FUEL) / HFO, GSL, ELC /;
+set secondary_carrier(FUEL) / HFO, ELC /;
 set final_demand(FUEL) / IH, ED/;
 
 *$include "Model/osemosys_init.gms"
@@ -208,8 +206,8 @@ parameter SpecifiedDemandProfile(r,f,l,y) /
   GERMANY.ED.WN.(1990*2010)  .1
 /;
 
-# parameter AccumulatedAnnualDemand(r,f,y) /
-# /;
+parameter AccumulatedAnnualDemand(r,f,y) /
+/;
 
 *------------------------------------------------------------------------	
 * Parameters - Performance       
@@ -370,7 +368,7 @@ parameter OutputActivityRatio(r,t,f,m,y) /
 * Parameters - Technology costs       
 *------------------------------------------------------------------------
 
-parameter CapitalCost /
+parameter CapitalCost(r,t,y) /
   GERMANY.COAL.1990  1400
   GERMANY.COAL.1991  1390
   GERMANY.COAL.1992  1380
