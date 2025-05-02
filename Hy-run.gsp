@@ -68,13 +68,6 @@
         {
             "codecMib": 106,
             "encoding": "UTF-8",
-            "file": ".gitignore",
-            "name": ".gitignore",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
             "file": "baseline.R",
             "name": "baseline.R",
             "type": ""
@@ -103,6 +96,27 @@
         {
             "codecMib": 106,
             "encoding": "UTF-8",
+            "file": "gams1.gdx",
+            "name": "gams1.gdx",
+            "type": "gdx"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": "Hy-run.gsp",
+            "name": "Hy-run.gsp",
+            "type": "gsp"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": "Hy-run.log",
+            "name": "Hy-run.log",
+            "type": "txt"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
             "file": "LICENSE",
             "name": "LICENSE",
             "type": ""
@@ -120,6 +134,41 @@
             "file": "osemosys.lst",
             "name": "osemosys.lst",
             "type": "lst"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": "osemosys.lxi",
+            "name": "osemosys.lxi",
+            "type": "lxi"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": "osemosys_dec.lst",
+            "name": "osemosys_dec.lst",
+            "type": "lst"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": "osemosys_dec.lxi",
+            "name": "osemosys_dec.lxi",
+            "type": "lxi"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": "osemosys_init.lst",
+            "name": "osemosys_init.lst",
+            "type": "lst"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": "osemosys_init.lxi",
+            "name": "osemosys_init.lxi",
+            "type": "lxi"
         },
         {
             "codecMib": 106,
@@ -147,6 +196,13 @@
             "encoding": "UTF-8",
             "file": "results_analysis.R",
             "name": "results_analysis.R",
+            "type": ""
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": "SelResults.CSV",
+            "name": "SelResults.CSV",
             "type": ""
         }
     ],
