@@ -117,6 +117,13 @@
         {
             "codecMib": 106,
             "encoding": "UTF-8",
+            "file": "osemosys.lst",
+            "name": "osemosys.lst",
+            "type": "lst"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
             "file": "README.md",
             "name": "README.md",
             "type": ""
