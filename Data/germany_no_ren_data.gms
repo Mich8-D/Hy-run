@@ -83,7 +83,7 @@ set renewable_fuel(FUEL) /HYD/;
 
 set fuel_production(TECHNOLOGY);
 set fuel_production_fict(TECHNOLOGY) /RIV/;
-set secondary_production(TECHNOLOGY) /COAL, GASF, ROR, STOR_HYDRO, HFO_GEN, SRE/;
+set secondary_production(TECHNOLOGY) /COAL, GASF, ROR, STOR_HYDRO, HFO_GEN/;
 
 # Characterize fuels 
 set primary_fuel(FUEL) / HCO, GAS, HYD /;
@@ -242,7 +242,6 @@ parameter OperationalLife(r,t) /
   GERMANY.IHE  30
   GERMANY.IHG  30
   GERMANY.FEU  10
-  GERMANY.SRE  50
 /;
 OperationalLife(r,t)$(OperationalLife(r,t) = 0) = 1;
 
@@ -362,8 +361,6 @@ parameter OutputActivityRatio(r,t,f,m,y) /
   GERMANY.IHG.IH.1.(1990*2010)  1
   GERMANY.RIV.HYD.1.(1990*2010)  1
   GERMANY.FEU.ED.1.(1990*2010)  1
-  GERMANY.SRE.HFO.1.(1990*2010)  .7
-  GERMANY.SRE.GSL.1.(1990*2010)  .3
 
 # By default, assume for imported secondary fuels the same efficiency of the internal refineries
 #InputActivityRatio(r,'IMPHFO1','OIL',m,y)$(not OutputActivityRatio(r,'SRE','HFO',m,y) eq 0) = 1/OutputActivityRatio(r,'SRE','HFO',m,y); 
@@ -406,7 +403,6 @@ parameter CapitalCost /
   GERMANY.IHG.(1990*2010)  100
   GERMANY.RIV.(1990*2010)  0
   GERMANY.FEU.(1990*2010)  0
-  GERMANY.SRE.(1990*2010)  100
   /;
 
 parameter VariableCost(r,t,m,y) /
@@ -416,7 +412,6 @@ parameter VariableCost(r,t,m,y) /
   GERMANY.IMPHFO1.1.(1990*2010)  10
   GERMANY.IMPHCO1.1.(1990*2010)  2
   GERMANY.IMPGAS1.1.(1990*2010)  2
-  GERMANY.SRE.1.(1990*2010)  10
 /;
 VariableCost(r,t,m,y)$(VariableCost(r,t,m,y) = 0) = 1e-5;
 
@@ -509,27 +504,6 @@ parameter TotalAnnualMaxCapacity /
   GERMANY.IHE.2008  99999
   GERMANY.IHE.2009  99999
   GERMANY.IHE.2010  99999
-  GERMANY.SRE.1990  .1001
-  GERMANY.SRE.1991  .1001
-  GERMANY.SRE.1992  .1001
-  GERMANY.SRE.1993  .1001
-  GERMANY.SRE.1994  .1001
-  GERMANY.SRE.1995  .1001
-  GERMANY.SRE.1996  .1001
-  GERMANY.SRE.1997  .1001
-  GERMANY.SRE.1998  .1001
-  GERMANY.SRE.1999  .1001
-  GERMANY.SRE.2000  99999
-  GERMANY.SRE.2001  99999
-  GERMANY.SRE.2002  99999
-  GERMANY.SRE.2003  99999
-  GERMANY.SRE.2004  99999
-  GERMANY.SRE.2005  99999
-  GERMANY.SRE.2006  99999
-  GERMANY.SRE.2007  99999
-  GERMANY.SRE.2008  99999
-  GERMANY.SRE.2009  99999
-  GERMANY.SRE.2010  99999
 /;
 TotalAnnualMaxCapacity(r,t,y)$(TotalAnnualMaxCapacity(r,t,y) = 0) = 99999;
 TotalAnnualMaxCapacity(r,'IHE','1990') = 0;
@@ -556,27 +530,6 @@ parameter TotalAnnualMinCapacity(r,t,y) /
   GERMANY.ROR.2008  .2
   GERMANY.ROR.2009  .2
   GERMANY.ROR.2010  .21
-  GERMANY.SRE.1990  .1
-  GERMANY.SRE.1991  .1
-  GERMANY.SRE.1992  .1
-  GERMANY.SRE.1993  .1
-  GERMANY.SRE.1994  .1
-  GERMANY.SRE.1995  .1
-  GERMANY.SRE.1996  .1
-  GERMANY.SRE.1997  .1
-  GERMANY.SRE.1998  .1
-  GERMANY.SRE.1999  .1
-  GERMANY.SRE.2000  0
-  GERMANY.SRE.2001  0
-  GERMANY.SRE.2002  0
-  GERMANY.SRE.2003  0
-  GERMANY.SRE.2004  0
-  GERMANY.SRE.2005  0
-  GERMANY.SRE.2006  0
-  GERMANY.SRE.2007  0
-  GERMANY.SRE.2008  0
-  GERMANY.SRE.2009  0
-  GERMANY.SRE.2010  0
 /;
 
 TotalAnnualMaxCapacityInvestment(r,t,y) = 99999;
