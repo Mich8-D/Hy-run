@@ -30,8 +30,8 @@ set     TECHNOLOGY      /
         GASF 'Gas fired power plants'
         ROR 'run-of-river hydroelectric power plants'
         STOR_HYDRO 'Pumped storage'
-        DIESEL_GEN 'Diesel power plants'
-        IMPDSL1 'Diesel imports'
+        HFO_GEN 'Heavy Fuel Oil power plants'
+        IMPHFO1 'Heavy Fuel Oil imports'
         IMPGSL1 'Gasoline imports'
         IMPHCO1 'Coal imports'
         IMPGAS1 'Gas imports'
@@ -54,7 +54,7 @@ set     TIMESLICE       /
 /;
 
 set     FUEL    /
-        DSL 'Diesel'
+        HFO 'Diesel'
         ELC 'Electricity'
         GSL 'Gasoline'
         HCO 'Coal'
@@ -74,25 +74,25 @@ set     DAILYTIMEBRACKET / 1, 2 /;
 set     STORAGE / DAM /;
 
 # characterize technologies
-set power_plants(TECHNOLOGY) / COAL, GASF, ROR, DIESEL_GEN /;
+set power_plants(TECHNOLOGY) / COAL, GASF, ROR, HFO_GEN /;
 set storage_plants(TECHNOLOGY) / STOR_HYDRO /;
 set fuel_transformation(TECHNOLOGY) / SRE /;
 set appliances(TECHNOLOGY) / IHE, IHG, FEU, TXD, TXE, TXG /;
 set unmet_demand(TECHNOLOGY) / /;
 set transport(TECHNOLOGY) / TXD, TXE, TXG /;
 set primary_imports(TECHNOLOGY) / IMPHCO1, IMPGAS1 /;
-set secondary_imports(TECHNOLOGY) / IMPDSL1, IMPGSL1 /;
+set secondary_imports(TECHNOLOGY) / IMPHFO1, IMPGSL1 /;
 
 set renewable_tech(TECHNOLOGY) /ROR/; 
 set renewable_fuel(FUEL) /HYD/; 
 
 set fuel_production(TECHNOLOGY);
 set fuel_production_fict(TECHNOLOGY) /RIV/;
-set secondary_production(TECHNOLOGY) /COAL, GASF, ROR, STOR_HYDRO, DIESEL_GEN, SRE/;
+set secondary_production(TECHNOLOGY) /COAL, GASF, ROR, STOR_HYDRO, HFO_GEN, SRE/;
 
 # Characterize fuels 
 set primary_fuel(FUEL) / HCO, GAS, HYD /;
-set secondary_carrier(FUEL) / DSL, GSL, ELC /;
+set secondary_carrier(FUEL) / HFO, GSL, ELC /;
 set final_demand(FUEL) / IH, ED, TX /;
 
 *$include "Model/osemosys_init.gms"
@@ -254,7 +254,7 @@ CapacityFactor(r,'STOR_HYDRO',"SD",y) = 0.3;
 CapacityFactor(r,'STOR_HYDRO',"SN",y) = 0.3;
 CapacityFactor(r,'STOR_HYDRO',"WD",y) = 0.5;
 CapacityFactor(r,'STOR_HYDRO',"WN",y) = 0.5;
-AvailabilityFactor(r,'DIESEL_GEN',y) = 0.8;
+AvailabilityFactor(r,'HFO_GEN',y) = 0.8;
 CapacityFactor(r,t,l,y)$(CapacityFactor(r,t,l,y) = 0) = 1;
 AvailabilityFactor(r,t,y)$(AvailabilityFactor(r,t,y) = 0) = 1;
 
@@ -264,7 +264,7 @@ parameter OperationalLife(r,t) /
   GERMANY.GASF  40
   GERMANY.ROR  100
   GERMANY.STOR_HYDRO  100
-  GERMANY.DIESEL_GEN  40
+  GERMANY.HFO_GEN  40
   GERMANY.IHE  30
   GERMANY.IHG  30
   GERMANY.FEU  10
@@ -300,27 +300,27 @@ parameter ResidualCapacity(r,t,y) / #could be defined with a discount rate formu
   GERMANY.GASF.(2024*2050)  0
   GERMANY.ROR.(2024*2050)  .1
   GERMANY.STOR_HYDRO.(2024*2050)  .5
-  GERMANY.DIESEL_GEN.2024  .3
-  GERMANY.DIESEL_GEN.1991  .3
-  GERMANY.DIESEL_GEN.1992  .29
-  GERMANY.DIESEL_GEN.1993  .29
-  GERMANY.DIESEL_GEN.1994  .28
-  GERMANY.DIESEL_GEN.1995  .28
-  GERMANY.DIESEL_GEN.1996  .27
-  GERMANY.DIESEL_GEN.1997  .27
-  GERMANY.DIESEL_GEN.1998  .26
-  GERMANY.DIESEL_GEN.1999  .26
-  GERMANY.DIESEL_GEN.2000  .25
-  GERMANY.DIESEL_GEN.2001  .25
-  GERMANY.DIESEL_GEN.2002  .24
-  GERMANY.DIESEL_GEN.2003  .24
-  GERMANY.DIESEL_GEN.2004  .23
-  GERMANY.DIESEL_GEN.2005  .23
-  GERMANY.DIESEL_GEN.2006  .22
-  GERMANY.DIESEL_GEN.2007  .22
-  GERMANY.DIESEL_GEN.2008  .21
-  GERMANY.DIESEL_GEN.2009  .21
-  GERMANY.DIESEL_GEN.2050  .2
+  GERMANY.HFO_GEN.2024  .3
+  GERMANY.HFO_GEN.1991  .3
+  GERMANY.HFO_GEN.1992  .29
+  GERMANY.HFO_GEN.1993  .29
+  GERMANY.HFO_GEN.1994  .28
+  GERMANY.HFO_GEN.1995  .28
+  GERMANY.HFO_GEN.1996  .27
+  GERMANY.HFO_GEN.1997  .27
+  GERMANY.HFO_GEN.1998  .26
+  GERMANY.HFO_GEN.1999  .26
+  GERMANY.HFO_GEN.2000  .25
+  GERMANY.HFO_GEN.2001  .25
+  GERMANY.HFO_GEN.2002  .24
+  GERMANY.HFO_GEN.2003  .24
+  GERMANY.HFO_GEN.2004  .23
+  GERMANY.HFO_GEN.2005  .23
+  GERMANY.HFO_GEN.2006  .22
+  GERMANY.HFO_GEN.2007  .22
+  GERMANY.HFO_GEN.2008  .21
+  GERMANY.HFO_GEN.2009  .21
+  GERMANY.HFO_GEN.2050  .2
   GERMANY.IHE.(2024*2050)  0
   GERMANY.IHG.2024  25
   GERMANY.IHG.1991  23.8
@@ -393,11 +393,11 @@ parameter InputActivityRatio(r,t,f,m,y) /
   GERMANY.GASF.GAS.1.(2024*2050)  3.5
   GERMANY.ROR.HYD.1.(2024*2050)  3.125
   GERMANY.STOR_HYDRO.ELC.2.(2024*2050)  1.3889
-  GERMANY.DIESEL_GEN.DSL.1.(2024*2050)  3.4
+  GERMANY.HFO_GEN.HFO.1.(2024*2050)  3.4
   GERMANY.IHE.ELC.1.(2024*2050)  1
-  GERMANY.IHG.DSL.1.(2024*2050)  1.428571
+  GERMANY.IHG.HFO.1.(2024*2050)  1.428571
   GERMANY.FEU.ELC.1.(2024*2050)  1
-  GERMANY.TXD.DSL.1.(2024*2050)  1
+  GERMANY.TXD.HFO.1.(2024*2050)  1
   GERMANY.TXE.ELC.1.(2024*2050)  1
   GERMANY.TXG.GSL.1.(2024*2050)  1
 /;
@@ -407,8 +407,8 @@ parameter OutputActivityRatio(r,t,f,m,y) /
   GERMANY.GASF.ELC.1.(2024*2050)  1
   GERMANY.ROR.ELC.1.(2024*2050)  1
   GERMANY.STOR_HYDRO.ELC.1.(2024*2050)  1
-  GERMANY.DIESEL_GEN.ELC.1.(2024*2050)  1
-  GERMANY.IMPDSL1.DSL.1.(2024*2050)  1
+  GERMANY.HFO_GEN.ELC.1.(2024*2050)  1
+  GERMANY.IMPHFO1.HFO.1.(2024*2050)  1
   GERMANY.IMPGSL1.GSL.1.(2024*2050)  1
   GERMANY.IMPHCO1.HCO.1.(2024*2050)  1
   GERMANY.IMPGAS1.GAS.1.(2024*2050)  1
@@ -416,7 +416,7 @@ parameter OutputActivityRatio(r,t,f,m,y) /
   GERMANY.IHG.IH.1.(2024*2050)  1
   GERMANY.RIV.HYD.1.(2024*2050)  1
   GERMANY.FEU.ED.1.(2024*2050)  1
-  GERMANY.SRE.DSL.1.(2024*2050)  .7
+  GERMANY.SRE.HFO.1.(2024*2050)  .7
   GERMANY.SRE.GSL.1.(2024*2050)  .3
   GERMANY.TXD.TX.1.(2024*2050)  1
   GERMANY.TXE.TX.1.(2024*2050)  1
@@ -424,7 +424,7 @@ parameter OutputActivityRatio(r,t,f,m,y) /
 /;
 
 # By default, assume for imported secondary fuels the same efficiency of the internal refineries
-#InputActivityRatio(r,'IMPDSL1','OIL',m,y)$(not OutputActivityRatio(r,'SRE','DSL',m,y) eq 0) = 1/OutputActivityRatio(r,'SRE','DSL',m,y); 
+#InputActivityRatio(r,'IMPHFO1','OIL',m,y)$(not OutputActivityRatio(r,'SRE','HFO',m,y) eq 0) = 1/OutputActivityRatio(r,'SRE','HFO',m,y); 
 #InputActivityRatio(r,'IMPGSL1','OIL',m,y)$(not OutputActivityRatio(r,'SRE','GSL',m,y) eq 0) = 1/OutputActivityRatio(r,'SRE','GSL',m,y); 
 
 *------------------------------------------------------------------------	
@@ -456,8 +456,8 @@ parameter CapitalCost /
   GERMANY.GASF.(2024*2050)  5000
   GERMANY.ROR.(2024*2050)  3000
   GERMANY.STOR_HYDRO.(2024*2050)  900
-  GERMANY.DIESEL_GEN.(2024*2050)  1000
-  GERMANY.IMPDSL1.(2024*2050)  0
+  GERMANY.HFO_GEN.(2024*2050)  1000
+  GERMANY.IMPHFO1.(2024*2050)  0
   GERMANY.IMPGSL1.(2024*2050)  0
   GERMANY.IMPHCO1.(2024*2050)  0
   GERMANY.IMPGAS1.(2024*2050)  0
@@ -494,8 +494,8 @@ parameter CapitalCost /
 parameter VariableCost(r,t,m,y) /
   GERMANY.COAL.1.(2024*2050)  .3
   GERMANY.GASF.1.(2024*2050)  1.5
-  GERMANY.DIESEL_GEN.1.(2024*2050)  .4
-  GERMANY.IMPDSL1.1.(2024*2050)  10
+  GERMANY.HFO_GEN.1.(2024*2050)  .4
+  GERMANY.IMPHFO1.1.(2024*2050)  10
   GERMANY.IMPGSL1.1.(2024*2050)  15
   GERMANY.IMPHCO1.1.(2024*2050)  2
   GERMANY.IMPGAS1.1.(2024*2050)  2
@@ -508,7 +508,7 @@ parameter FixedCost /
   GERMANY.GASF.(2024*2050)  500
   GERMANY.ROR.(2024*2050)  75
   GERMANY.STOR_HYDRO.(2024*2050)  30
-  GERMANY.DIESEL_GEN.(2024*2050)  30
+  GERMANY.HFO_GEN.(2024*2050)  30
   GERMANY.IHG.(2024*2050)  1
   GERMANY.FEU.(2024*2050)  9.46
   GERMANY.TXD.(2024*2050)  52
@@ -714,7 +714,7 @@ parameter ReserveMarginTagTechnology(r,t,y) /
   GERMANY.GASF.(2024*2050)  1
   GERMANY.ROR.(2024*2050)  1
   GERMANY.STOR_HYDRO.(2024*2050)  1
-  GERMANY.DIESEL_GEN.(2024*2050)  1
+  GERMANY.HFO_GEN.(2024*2050)  1
 /;
 
 parameter ReserveMarginTagFuel(r,f,y) /
@@ -742,7 +742,7 @@ REMinProductionTarget(r,y) = 0;
 *------------------------------------------------------------------------
 
 parameter EmissionActivityRatio(r,t,e,m,y) /
-  GERMANY.IMPDSL1.CO2.1.(2024*2050)  .075
+  GERMANY.IMPHFO1.CO2.1.(2024*2050)  .075
   GERMANY.IMPGSL1.CO2.1.(2024*2050)  .075
   GERMANY.IMPHCO1.CO2.1.(2024*2050)  .089
   GERMANY.TXD.NOX.1.(2024*2050)  1
