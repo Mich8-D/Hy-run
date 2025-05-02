@@ -37,9 +37,6 @@ set     TECHNOLOGY      /
         IHE 'Industrial heaters - electric'
         IHG 'Industrial heaters - gas'
         FEU 'Final Electric Usages'
-        TXD 'Personal vehicles - diesel'
-        TXE 'Personal vehicles - electric'
-        TXG 'Personal vehicles - gasoline'
         RIV 'River'
 /;
 
@@ -61,7 +58,6 @@ set     FUEL    /
         GAS 'Gas'
         IH 'Demand for Industrial heating'
         ED 'Electric Demand'
-        TX 'Demand for personal transport'
 /;
 
 set     EMISSION        / CO2, NOX /;
@@ -76,9 +72,9 @@ set     STORAGE / DAM /;
 set power_plants(TECHNOLOGY) / COAL, GASF, ROR, HFO_GEN /;
 set storage_plants(TECHNOLOGY) / STOR_HYDRO /;
 set fuel_transformation(TECHNOLOGY) / SRE /;
-set appliances(TECHNOLOGY) / IHE, IHG, FEU, TXD, TXE, TXG /;
+set appliances(TECHNOLOGY) / IHE, IHG, FEU/;
 set unmet_demand(TECHNOLOGY) / /;
-set transport(TECHNOLOGY) / TXD, TXE, TXG /;
+# set transport(TECHNOLOGY) / TXE, TXG /;
 set primary_imports(TECHNOLOGY) / IMPHCO1, IMPGAS1 /;
 set secondary_imports(TECHNOLOGY) / IMPHFO1 /;
 
@@ -92,7 +88,7 @@ set secondary_production(TECHNOLOGY) /COAL, GASF, ROR, STOR_HYDRO, HFO_GEN, SRE/
 # Characterize fuels 
 set primary_fuel(FUEL) / HCO, GAS, HYD /;
 set secondary_carrier(FUEL) / HFO, GSL, ELC /;
-set final_demand(FUEL) / IH, ED, TX /;
+set final_demand(FUEL) / IH, ED/;
 
 *$include "Model/osemosys_init.gms"
 
@@ -212,29 +208,8 @@ parameter SpecifiedDemandProfile(r,f,l,y) /
   GERMANY.ED.WN.(2024*2050)  .1
 /;
 
-parameter AccumulatedAnnualDemand(r,f,y) /
-  GERMANY.TX.2024  5.2
-  GERMANY.TX.1991  5.46
-  GERMANY.TX.1992  5.72
-  GERMANY.TX.1993  5.98
-  GERMANY.TX.1994  6.24
-  GERMANY.TX.1995  6.5
-  GERMANY.TX.1996  6.76
-  GERMANY.TX.1997  7.02
-  GERMANY.TX.1998  7.28
-  GERMANY.TX.1999  7.54
-  GERMANY.TX.2000  7.8
-  GERMANY.TX.2001  8.189
-  GERMANY.TX.2002  8.578
-  GERMANY.TX.2003  8.967
-  GERMANY.TX.2004  9.356
-  GERMANY.TX.2005  9.745
-  GERMANY.TX.2006  10.134
-  GERMANY.TX.2007  10.523
-  GERMANY.TX.2008  10.912
-  GERMANY.TX.2009  11.301
-  GERMANY.TX.2050  11.69
-/;
+# parameter AccumulatedAnnualDemand(r,f,y) /
+# /;
 
 *------------------------------------------------------------------------	
 * Parameters - Performance       
@@ -268,9 +243,6 @@ parameter OperationalLife(r,t) /
   GERMANY.IHG  30
   GERMANY.FEU  10
   GERMANY.SRE  50
-  GERMANY.TXD  15
-  GERMANY.TXE  15
-  GERMANY.TXG  15
 /;
 OperationalLife(r,t)$(OperationalLife(r,t) = 0) = 1;
 
@@ -363,27 +335,6 @@ parameter ResidualCapacity(r,t,y) / #could be defined with a discount rate formu
   GERMANY.FEU.2008  0
   GERMANY.FEU.2009  0
   GERMANY.FEU.2050  0
-  GERMANY.TXD.2024  .6
-  GERMANY.TXD.1991  .6
-  GERMANY.TXD.1992  .5
-  GERMANY.TXD.1993  .5
-  GERMANY.TXD.1994  .4
-  GERMANY.TXD.1995  .4
-  GERMANY.TXD.1996  .4
-  GERMANY.TXD.1997  .3
-  GERMANY.TXD.1998  .3
-  GERMANY.TXD.1999  .2
-  GERMANY.TXD.2000  .2
-  GERMANY.TXD.2001  .2
-  GERMANY.TXD.2002  .2
-  GERMANY.TXD.2003  .1
-  GERMANY.TXD.2004  .1
-  GERMANY.TXD.2005  .1
-  GERMANY.TXD.2006  .1
-  GERMANY.TXD.2007  .1
-  GERMANY.TXD.2008  0
-  GERMANY.TXD.2009  0
-  GERMANY.TXD.2050  0
 /;
 $if set no_initial_capacity ResidualCapacity(r,t,y) = 0;
 
@@ -396,9 +347,6 @@ parameter InputActivityRatio(r,t,f,m,y) /
   GERMANY.IHE.ELC.1.(2024*2050)  1
   GERMANY.IHG.HFO.1.(2024*2050)  1.428571
   GERMANY.FEU.ELC.1.(2024*2050)  1
-  GERMANY.TXD.HFO.1.(2024*2050)  1
-  GERMANY.TXE.ELC.1.(2024*2050)  1
-  GERMANY.TXG.GSL.1.(2024*2050)  1
 /;
 
 parameter OutputActivityRatio(r,t,f,m,y) /
@@ -416,10 +364,6 @@ parameter OutputActivityRatio(r,t,f,m,y) /
   GERMANY.FEU.ED.1.(2024*2050)  1
   GERMANY.SRE.HFO.1.(2024*2050)  .7
   GERMANY.SRE.GSL.1.(2024*2050)  .3
-  GERMANY.TXD.TX.1.(2024*2050)  1
-  GERMANY.TXE.TX.1.(2024*2050)  1
-  GERMANY.TXG.TX.1.(2024*2050)  1
-/;
 
 # By default, assume for imported secondary fuels the same efficiency of the internal refineries
 #InputActivityRatio(r,'IMPHFO1','OIL',m,y)$(not OutputActivityRatio(r,'SRE','HFO',m,y) eq 0) = 1/OutputActivityRatio(r,'SRE','HFO',m,y); 
@@ -463,30 +407,7 @@ parameter CapitalCost /
   GERMANY.RIV.(2024*2050)  0
   GERMANY.FEU.(2024*2050)  0
   GERMANY.SRE.(2024*2050)  100
-  GERMANY.TXD.(2024*2050)  1044
-  GERMANY.TXE.2024  2000
-  GERMANY.TXE.1991  1975
-  GERMANY.TXE.1992  1950
-  GERMANY.TXE.1993  1925
-  GERMANY.TXE.1994  1900
-  GERMANY.TXE.1995  1875
-  GERMANY.TXE.1996  1850
-  GERMANY.TXE.1997  1825
-  GERMANY.TXE.1998  1800
-  GERMANY.TXE.1999  1775
-  GERMANY.TXE.2000  1750
-  GERMANY.TXE.2001  1725
-  GERMANY.TXE.2002  1700
-  GERMANY.TXE.2003  1675
-  GERMANY.TXE.2004  1650
-  GERMANY.TXE.2005  1625
-  GERMANY.TXE.2006  1600
-  GERMANY.TXE.2007  1575
-  GERMANY.TXE.2008  1550
-  GERMANY.TXE.2009  1525
-  GERMANY.TXE.2050  1500
-  GERMANY.TXG.(2024*2050)  1044
-/;
+  /;
 
 parameter VariableCost(r,t,m,y) /
   GERMANY.COAL.1.(2024*2050)  .3
@@ -507,9 +428,6 @@ parameter FixedCost /
   GERMANY.HFO_GEN.(2024*2050)  30
   GERMANY.IHG.(2024*2050)  1
   GERMANY.FEU.(2024*2050)  9.46
-  GERMANY.TXD.(2024*2050)  52
-  GERMANY.TXE.(2024*2050)  100
-  GERMANY.TXG.(2024*2050)  48
 /;
 
 
@@ -612,30 +530,8 @@ parameter TotalAnnualMaxCapacity /
   GERMANY.SRE.2008  99999
   GERMANY.SRE.2009  99999
   GERMANY.SRE.2050  99999
-  GERMANY.TXE.2024  EPS
-  GERMANY.TXE.1991  .4
-  GERMANY.TXE.1992  .8
-  GERMANY.TXE.1993  1.2
-  GERMANY.TXE.1994  1.6
-  GERMANY.TXE.1995  2
-  GERMANY.TXE.1996  2.4
-  GERMANY.TXE.1997  2.8
-  GERMANY.TXE.1998  3.2
-  GERMANY.TXE.1999  3.6
-  GERMANY.TXE.2000  4
-  GERMANY.TXE.2001  4.6
-  GERMANY.TXE.2002  5.2
-  GERMANY.TXE.2003  5.8
-  GERMANY.TXE.2004  6.4
-  GERMANY.TXE.2005  7
-  GERMANY.TXE.2006  7.6
-  GERMANY.TXE.2007  8.2
-  GERMANY.TXE.2008  8.8
-  GERMANY.TXE.2009  9.4
-  GERMANY.TXE.2050  10
 /;
 TotalAnnualMaxCapacity(r,t,y)$(TotalAnnualMaxCapacity(r,t,y) = 0) = 99999;
-TotalAnnualMaxCapacity(r,'TXE','2024') = 0;
 TotalAnnualMaxCapacity(r,'IHE','2024') = 0;
 
 parameter TotalAnnualMinCapacity(r,t,y) /
@@ -740,8 +636,6 @@ REMinProductionTarget(r,y) = 0;
 parameter EmissionActivityRatio(r,t,e,m,y) /
   GERMANY.IMPHFO1.CO2.1.(2024*2050)  .075
   GERMANY.IMPHCO1.CO2.1.(2024*2050)  .089
-  GERMANY.TXD.NOX.1.(2024*2050)  1
-  GERMANY.TXG.NOX.1.(2024*2050)  1
 /;
 
 EmissionsPenalty(r,e,y) = 0;
