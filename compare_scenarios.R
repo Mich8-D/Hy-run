@@ -1,6 +1,6 @@
 #### require results_analysis.R to run 
-select_multiple_scens <- " " #type of policy you want plotted
-data_select <- "hydrogen"
+select_multiple_scens <- "base" #type of policy you want plotted
+data_select <- "germany"
 want_storage <- "no" #do you want to consider want_storage?
 
 #################### MULTIPLE scenarios

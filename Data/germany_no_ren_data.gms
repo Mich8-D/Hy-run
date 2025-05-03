@@ -60,6 +60,9 @@ set     FUEL    /
         GAS 'Delivered Gas'
         IH 'Demand for Industrial heating'
         ED 'Electric Demand'
+        GAS 'Gas'
+        IH 'Demand for Industrial heating'
+        ED 'Electric Demand'
 /;
 
 set     EMISSION        / CO2, NOX /;
@@ -245,6 +248,8 @@ CapacityFactor(r,'STOR_HYDRO',"WD",y) = 0.5;
 CapacityFactor(r,'STOR_HYDRO',"WN",y) = 0.5;
 CapacityFactor(r,'GAS_PIPES',y) = 0.98;
 CapacityFactor(r,'GRID_ELC',y) = 0.98;
+CapacityFactor(r,'GAS_PIPES',TIMESLICE, y) = 0.98;
+CapacityFactor(r,'ELC_GRID', TIMESLICE, y) = 0.98;
 AvailabilityFactor(r,'HFO_GEN',y) = 0.8;
 CapacityFactor(r,t,l,y)$(CapacityFactor(r,t,l,y) = 0) = 1;
 AvailabilityFactor(r,t,y)$(AvailabilityFactor(r,t,y) = 0) = 1;

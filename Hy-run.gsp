@@ -96,13 +96,6 @@
         {
             "codecMib": 106,
             "encoding": "UTF-8",
-            "file": "gams1.gdx",
-            "name": "gams1.gdx",
-            "type": "gdx"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
             "file": "Hy-run.gsp",
             "name": "Hy-run.gsp",
             "type": "gsp"
