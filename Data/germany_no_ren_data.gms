@@ -60,9 +60,6 @@ set     FUEL    /
         GAS 'Delivered Gas'
         IH 'Demand for Industrial heating'
         ED 'Electric Demand'
-        GAS 'Gas'
-        IH 'Demand for Industrial heating'
-        ED 'Electric Demand'
 /;
 
 set     EMISSION        / CO2, NOX /;
