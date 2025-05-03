@@ -38,7 +38,7 @@ set     TECHNOLOGY      /
         FEU 'Final Electric Usages'
         RIV 'River'
         GAS_PIPES 'Gas pipelines'
-        ELC_GRID 'Electricity grid'
+        GRID_ELC 'Electricity grid'
 /;
 
 set     TIMESLICE       /
@@ -52,12 +52,14 @@ set     TIMESLICE       /
 
 set     FUEL    /
         HFO 'Diesel'
-        ELC 'Electricity'
+        ELC_GEN 'Generated Electricity'
+        ELC 'Delivered Electricity'
         HCO 'Coal'
         HYD 'Hydro'
-        GAS 'Gas'
-        # IH 'Demand for Industrial heating'
-        # ED 'Electric Demand'
+        GAS_IMP 'Imported Gas'
+        GAS 'Delivered Gas'
+        IH 'Demand for Industrial heating'
+        ED 'Electric Demand'
 /;
 
 set     EMISSION        / CO2, NOX /;
@@ -77,7 +79,7 @@ set unmet_demand(TECHNOLOGY) / /;
 # set transport(TECHNOLOGY) / TXE, TXG /;
 set primary_imports(TECHNOLOGY) / IMPHCO1, IMPGAS1 /;
 set secondary_imports(TECHNOLOGY) / IMPHFO1 /;
-# set fuel_transportation(TECHNOLOGY) / GAS_PIPES, ELC_GRID /;
+# set fuel_transportation(TECHNOLOGY) / GAS_PIPES, GRID_ELC /;
 
 set renewable_tech(TECHNOLOGY) /ROR/; 
 set renewable_fuel(FUEL) /HYD/; 
@@ -242,7 +244,7 @@ CapacityFactor(r,'STOR_HYDRO',"SN",y) = 0.3;
 CapacityFactor(r,'STOR_HYDRO',"WD",y) = 0.5;
 CapacityFactor(r,'STOR_HYDRO',"WN",y) = 0.5;
 CapacityFactor(r,'GAS_PIPES',y) = 0.98;
-CapacityFactor(r,'ELC_GRID',y) = 0.98;
+CapacityFactor(r,'GRID_ELC',y) = 0.98;
 AvailabilityFactor(r,'HFO_GEN',y) = 0.8;
 CapacityFactor(r,t,l,y)$(CapacityFactor(r,t,l,y) = 0) = 1;
 AvailabilityFactor(r,t,y)$(AvailabilityFactor(r,t,y) = 0) = 1;
@@ -254,11 +256,11 @@ parameter OperationalLife(r,t) /
   GERMANY.ROR  100
   GERMANY.STOR_HYDRO  100
   GERMANY.HFO_GEN  40
-  GERMANY.IHE  30
-  GERMANY.IHG  30
-  GERMANY.FEU  10
-  # GERMANY.GAS_PIPES 40
-  # GERMANY.ELC_GRID 40
+  GERMANY.IHE  100
+  GERMANY.IHG  100
+  GERMANY.FEU  100
+  GERMANY.GAS_PIPES 40
+  GERMANY.GRID_ELC 40
 /;
 OperationalLife(r,t)$(OperationalLife(r,t) = 0) = 1;
 
@@ -375,6 +377,8 @@ parameter ResidualCapacity(r,t,y) / #could be defined with a discount rate formu
   GERMANY.FEU.2048  0
   GERMANY.FEU.2049  0
   GERMANY.FEU.2050  0 
+  GERMANY.GRID_ELC.(2024*2050)  1000
+  GERMANY.GAS_PIPES.(2024*2050)  1000
 /;
 $if set no_initial_capacity ResidualCapacity(r,t,y) = 0;
 
@@ -385,24 +389,29 @@ parameter InputActivityRatio(r,t,f,m,y) /
   GERMANY.STOR_HYDRO.ELC.2.(2024*2050)  1.3889
   GERMANY.HFO_GEN.HFO.1.(2024*2050)  3.4
   GERMANY.IHE.ELC.1.(2024*2050)  1
-  GERMANY.IHG.HFO.1.(2024*2050)  1.428571
+  GERMANY.IHG.GAS.1.(2024*2050)  1.428571
   GERMANY.FEU.ELC.1.(2024*2050)  1
+  GERMANY.GRID_ELC.ELC_GEN.1.(2024*2050)  1/0.95
+  GERMANY.GAS_PIPES.GAS_IMP.1.(2024*2050)  1
 /;
 
 parameter OutputActivityRatio(r,t,f,m,y) /
-  GERMANY.COAL.ELC.1.(2024*2050)  1
-  GERMANY.GASF.ELC.1.(2024*2050)  1
-  GERMANY.ROR.ELC.1.(2024*2050)  1
-  GERMANY.STOR_HYDRO.ELC.1.(2024*2050)  1
-  GERMANY.HFO_GEN.ELC.1.(2024*2050)  1
+  GERMANY.COAL.ELC_GEN.1.(2024*2050)  1
+  GERMANY.GASF.ELC_GEN.1.(2024*2050)  1
+  GERMANY.ROR.ELC_GEN.1.(2024*2050)  1
+  GERMANY.STOR_HYDRO.ELC_GEN.1.(2024*2050)  1
+  GERMANY.HFO_GEN.ELC_GEN.1.(2024*2050)  1
   GERMANY.IMPHFO1.HFO.1.(2024*2050)  1
   GERMANY.IMPHCO1.HCO.1.(2024*2050)  1
-  GERMANY.IMPGAS1.GAS.1.(2024*2050)  1
+  GERMANY.IMPGAS1.GAS_IMP.1.(2024*2050)  1
   GERMANY.IHE.IH.1.(2024*2050)  1
   GERMANY.IHG.IH.1.(2024*2050)  1
   GERMANY.RIV.HYD.1.(2024*2050)  1
   GERMANY.FEU.ED.1.(2024*2050)  1
+  GERMANY.GRID_ELC.ELC.1.(2024*2050)  1
+  GERMANY.GAS_PIPES.GAS.1.(2024*2050)  1
 /;
+
 # By default, assume for imported secondary fuels the same efficiency of the internal refineries
 #InputActivityRatio(r,'IMPHFO1','OIL',m,y)$(not OutputActivityRatio(r,'SRE','HFO',m,y) eq 0) = 1/OutputActivityRatio(r,'SRE','HFO',m,y); 
 #InputActivityRatio(r,'IMPGSL1','OIL',m,y)$(not OutputActivityRatio(r,'SRE','GSL',m,y) eq 0) = 1/OutputActivityRatio(r,'SRE','GSL',m,y); 
@@ -450,6 +459,8 @@ parameter CapitalCost(r,t,y) /
   GERMANY.IHG.(2024*2050)  0 #IHG as a pure accounting technology
   GERMANY.RIV.(2024*2050)  0 
   GERMANY.FEU.(2024*2050)  0 #FEU as a pure accounting technology
+  GERMANY.GRID_ELC.(2024*2050)  0 
+  GERMANY.GAS_PIPES.(2024*2050)  0
   /;
 
 parameter VariableCost(r,t,m,y) /
@@ -459,6 +470,8 @@ parameter VariableCost(r,t,m,y) /
   GERMANY.IMPHFO1.1.(2024*2050)  10
   GERMANY.IMPHCO1.1.(2024*2050)  2
   GERMANY.IMPGAS1.1.(2024*2050)  2
+  GERMANY.GRID_ELC.1.(2024*2050)  0
+  GERMANY.GAS_PIPES.1.(2024*2050)  0
 /;
 VariableCost(r,t,m,y)$(VariableCost(r,t,m,y) = 0) = 1e-5;
 
@@ -471,6 +484,8 @@ parameter FixedCost /
   GERMANY.IHG.(2024*2050)  0.00 #IHG as a pure accounting technology
   GERMANY.IHE.(2024*2050)  0.00 #IHE as a pure accounting technology
   GERMANY.FEU.(2024*2050)  0.00 #FEU as a pure accounting technology
+  GERMANY.GRID_ELC.(2024*2050)  0.00 
+  GERMANY.GAS_PIPES.(2024*2050)  0.00
 /;
 
 
@@ -629,7 +644,7 @@ parameter ReserveMarginTagTechnology(r,t,y) /
 /;
 
 parameter ReserveMarginTagFuel(r,f,y) /
-  GERMANY.ELC.(2024*2050)  1
+  GERMANY.ELC_GEN.(2024*2050)  1
 /;
 
 parameter ReserveMargin(r,y) /
