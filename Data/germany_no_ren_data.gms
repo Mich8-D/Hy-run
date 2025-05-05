@@ -246,7 +246,7 @@ CapacityFactor(r,'STOR_HYDRO',"WN",y) = 0.5;
 CapacityFactor(r,'GAS_PIPES',y) = 0.98;
 CapacityFactor(r,'GRID_ELC',y) = 0.98;
 CapacityFactor(r,'GAS_PIPES',TIMESLICE, y) = 0.98;
-CapacityFactor(r,'ELC_GRID', TIMESLICE, y) = 0.98;
+CapacityFactor(r,'GRID_ELC', TIMESLICE, y) = 0.98;
 AvailabilityFactor(r,'HFO_GEN',y) = 0.8;
 CapacityFactor(r,t,l,y)$(CapacityFactor(r,t,l,y) = 0) = 1;
 AvailabilityFactor(r,t,y)$(AvailabilityFactor(r,t,y) = 0) = 1;
