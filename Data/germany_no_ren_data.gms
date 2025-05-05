@@ -22,7 +22,6 @@
 *------------------------------------------------------------------------	
 * Sets       
 *------------------------------------------------------------------------
-
 set     YEAR    / 2024*2050 /;
 set     TECHNOLOGY      /
         COAL 'Coal power plants'
@@ -243,8 +242,8 @@ CapacityFactor(r,'STOR_HYDRO',"SD",y) = 0.3;
 CapacityFactor(r,'STOR_HYDRO',"SN",y) = 0.3;
 CapacityFactor(r,'STOR_HYDRO',"WD",y) = 0.5;
 CapacityFactor(r,'STOR_HYDRO',"WN",y) = 0.5;
-CapacityFactor(r,'GAS_PIPES',y) = 0.98;
-CapacityFactor(r,'GRID_ELC',y) = 0.98;
+CapacityFactor(r,'GAS_PIPES',l,y) = 0.98;
+CapacityFactor(r,'GRID_ELC',l,y) = 0.98;
 CapacityFactor(r,'GAS_PIPES',TIMESLICE, y) = 0.98;
 CapacityFactor(r,'GRID_ELC', TIMESLICE, y) = 0.98;
 AvailabilityFactor(r,'HFO_GEN',y) = 0.8;
@@ -393,7 +392,7 @@ parameter InputActivityRatio(r,t,f,m,y) /
   GERMANY.IHE.ELC.1.(2024*2050)  1
   GERMANY.IHG.GAS.1.(2024*2050)  1.428571
   GERMANY.FEU.ELC.1.(2024*2050)  1
-  GERMANY.GRID_ELC.ELC_GEN.1.(2024*2050)  1/0.95
+  GERMANY.GRID_ELC.ELC_GEN.1.(2024*2050)  1.05
   GERMANY.GAS_PIPES.GAS_IMP.1.(2024*2050)  1
 /;
 
