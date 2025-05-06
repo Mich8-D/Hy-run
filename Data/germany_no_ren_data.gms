@@ -26,7 +26,6 @@ set     YEAR    / 2024*2050 /;
 set     TECHNOLOGY      /
         COAL 'Coal power plants'
         GASF 'Gas fired power plants'
-        ROR 'run-of-river hydroelectric power plants'
         STOR_HYDRO 'Pumped storage'
         HFO_GEN 'Heavy Fuel Oil power plants'
         IMPHFO1 'Heavy Fuel Oil imports'
@@ -70,7 +69,7 @@ set     DAILYTIMEBRACKET / 1, 2 /;
 set     STORAGE / DAM /;
 
 # characterize technologies
-set power_plants(TECHNOLOGY) / COAL, GASF, ROR, HFO_GEN /;
+set power_plants(TECHNOLOGY) / COAL, GASF, HFO_GEN /;
 set storage_plants(TECHNOLOGY) / STOR_HYDRO /;
 set fuel_transformation(TECHNOLOGY) / /;
 set appliances(TECHNOLOGY) / IHE, IHG, FEU/;
@@ -80,12 +79,12 @@ set primary_imports(TECHNOLOGY) / /;
 set secondary_imports(TECHNOLOGY) / IMPHFO1, IMPHCO1, IMPGAS1 /;
 set transmission(TECHNOLOGY) / GAS_PIPES, GRID_ELC /;
 
-set renewable_tech(TECHNOLOGY) /ROR/; 
+set renewable_tech(TECHNOLOGY) / /; 
 set renewable_fuel(FUEL) /HYD/; 
 
 set fuel_production(TECHNOLOGY);
 set fuel_production_fict(TECHNOLOGY) /RIV/;
-set secondary_production(TECHNOLOGY) /COAL, GASF, ROR, STOR_HYDRO, HFO_GEN/;
+set secondary_production(TECHNOLOGY) /COAL, GASF, STOR_HYDRO, HFO_GEN/;
 
 # Characterize fuels 
 set primary_fuel(FUEL) / HCO, GAS, HYD, HFO /;
@@ -235,7 +234,6 @@ CapacityToActivityUnit(r,t)$(CapacityToActivityUnit(r,t) = 0) = 1;
 
 AvailabilityFactor(r,'COAL',y) = 0.8;
 AvailabilityFactor(r,'GASF',y) = 0.9;
-CapacityFactor(r,'ROR',l,y) = 0.27;
 CapacityFactor(r,'STOR_HYDRO',"ID",y) = 0.7;
 CapacityFactor(r,'STOR_HYDRO',"IN",y) = 0.7;
 CapacityFactor(r,'STOR_HYDRO',"SD",y) = 0.3;
@@ -254,7 +252,6 @@ AvailabilityFactor(r,t,y)$(AvailabilityFactor(r,t,y) = 0) = 1;
 parameter OperationalLife(r,t) /
   GERMANY.COAL  40
   GERMANY.GASF  40
-  GERMANY.ROR  100
   GERMANY.STOR_HYDRO  100
   GERMANY.HFO_GEN  40
   GERMANY.IHE  100
@@ -294,7 +291,6 @@ parameter ResidualCapacity(r,t,y) / #could be defined with a discount rate formu
   GERMANY.COAL.2049  .15
   GERMANY.COAL.2050  .15
   GERMANY.GASF.(2024*2050)  0
-  GERMANY.ROR.(2024*2050)  .1
   GERMANY.STOR_HYDRO.(2024*2050)  .5
   GERMANY.HFO_GEN.2024  .3
   GERMANY.HFO_GEN.2025  .3
@@ -386,7 +382,6 @@ $if set no_initial_capacity ResidualCapacity(r,t,y) = 0;
 parameter InputActivityRatio(r,t,f,m,y) /
   GERMANY.COAL.HCO.1.(2024*2050)  3.125
   GERMANY.GASF.GAS.1.(2024*2050)  3.5
-  GERMANY.ROR.HYD.1.(2024*2050)  3.125
   GERMANY.STOR_HYDRO.ELC.2.(2024*2050)  1.3889
   GERMANY.HFO_GEN.HFO.1.(2024*2050)  3.4
   GERMANY.IHE.ELC.1.(2024*2050)  1
@@ -399,7 +394,6 @@ parameter InputActivityRatio(r,t,f,m,y) /
 parameter OutputActivityRatio(r,t,f,m,y) /
   GERMANY.COAL.ELC_GEN.1.(2024*2050)  1
   GERMANY.GASF.ELC_GEN.1.(2024*2050)  1
-  GERMANY.ROR.ELC_GEN.1.(2024*2050)  1
   GERMANY.STOR_HYDRO.ELC_GEN.1.(2024*2050)  1
   GERMANY.HFO_GEN.ELC_GEN.1.(2024*2050)  1
   GERMANY.IMPHFO1.HFO.1.(2024*2050)  1
@@ -450,7 +444,6 @@ parameter CapitalCost(r,t,y) /
   GERMANY.COAL.2049  1200
   GERMANY.COAL.2050  1200
   GERMANY.GASF.(2024*2050)  5000
-  GERMANY.ROR.(2024*2050)  3000
   GERMANY.STOR_HYDRO.(2024*2050)  900
   GERMANY.HFO_GEN.(2024*2050)  1000
   GERMANY.IMPHFO1.(2024*2050)  0
@@ -479,7 +472,6 @@ VariableCost(r,t,m,y)$(VariableCost(r,t,m,y) = 0) = 1e-5;
 parameter FixedCost /
   GERMANY.COAL.(2024*2050)  40
   GERMANY.GASF.(2024*2050)  500
-  GERMANY.ROR.(2024*2050)  75
   GERMANY.STOR_HYDRO.(2024*2050)  30
   GERMANY.HFO_GEN.(2024*2050)  30
   GERMANY.IHG.(2024*2050)  0.00 #IHG as a pure accounting technology
@@ -525,33 +517,6 @@ ResidualStorageCapacity(r,s,y) = 999;
 CapacityOfOneTechnologyUnit(r,t,y) = 0;
 
 parameter TotalAnnualMaxCapacity /
-  GERMANY.ROR.2024  .1301
-  GERMANY.ROR.2025  .1401
-  GERMANY.ROR.2026  .1401
-  GERMANY.ROR.2027  .1501
-  GERMANY.ROR.2028  .1501
-  GERMANY.ROR.2029  .1501
-  GERMANY.ROR.2030  .1601
-  GERMANY.ROR.2031  .1601
-  GERMANY.ROR.2032  .1601
-  GERMANY.ROR.2033  .1601
-  GERMANY.ROR.2034  .1701
-  GERMANY.ROR.2035  .201
-  GERMANY.ROR.2036  .201
-  GERMANY.ROR.2037  .201
-  GERMANY.ROR.2038  .201
-  GERMANY.ROR.2039  .201
-  GERMANY.ROR.2040  .201
-  GERMANY.ROR.2041  .201
-  GERMANY.ROR.2042  .201
-  GERMANY.ROR.2043  .201
-  GERMANY.ROR.2044  .201  
-  GERMANY.ROR.2045  .201
-  GERMANY.ROR.2046  .201
-  GERMANY.ROR.2047  .201
-  GERMANY.ROR.2048  .201
-  GERMANY.ROR.2049  .2101
-  GERMANY.ROR.2050  .2101
   GERMANY.STOR_HYDRO.(2024*2050)  3
   GERMANY.IHE.2024  EPS
   GERMANY.IHE.2025  EPS
@@ -584,35 +549,7 @@ parameter TotalAnnualMaxCapacity /
 TotalAnnualMaxCapacity(r,t,y)$(TotalAnnualMaxCapacity(r,t,y) = 0) = 99999;
 TotalAnnualMaxCapacity(r,'IHE','2024') = 0;
 
-parameter TotalAnnualMinCapacity(r,t,y) /
-  GERMANY.ROR.2024  .13
-  GERMANY.ROR.2025  .14
-  GERMANY.ROR.2026  .14
-  GERMANY.ROR.2027  .15
-  GERMANY.ROR.2028  .15
-  GERMANY.ROR.2029  .15
-  GERMANY.ROR.2030  .16
-  GERMANY.ROR.2031  .16
-  GERMANY.ROR.2032  .16
-  GERMANY.ROR.2033  .16
-  GERMANY.ROR.2034  .17
-  GERMANY.ROR.2035  .2
-  GERMANY.ROR.2036  .2
-  GERMANY.ROR.2037  .2
-  GERMANY.ROR.2038  .2
-  GERMANY.ROR.2039  .2
-  GERMANY.ROR.2040  .2
-  GERMANY.ROR.2041  .2
-  GERMANY.ROR.2042  .2
-  GERMANY.ROR.2043  .2
-  GERMANY.ROR.2044  .2
-  GERMANY.ROR.2045  .2
-  GERMANY.ROR.2046  .2  
-  GERMANY.ROR.2047  .2
-  GERMANY.ROR.2048  .2
-  GERMANY.ROR.2049  .21
-  GERMANY.ROR.2050  .21
-/;
+parameter TotalAnnualMinCapacity(r,t,y) / /;
 
 TotalAnnualMaxCapacityInvestment(r,t,y) = 99999;
 
@@ -639,7 +576,6 @@ TotalTechnologyModelPeriodActivityLowerLimit(r,t) = 0;
 parameter ReserveMarginTagTechnology(r,t,y) /
   GERMANY.COAL.(2024*2050)  1
   GERMANY.GASF.(2024*2050)  1
-  GERMANY.ROR.(2024*2050)  1
   GERMANY.STOR_HYDRO.(2024*2050)  1
   GERMANY.HFO_GEN.(2024*2050)  1
 /;
@@ -651,17 +587,6 @@ parameter ReserveMarginTagFuel(r,f,y) /
 parameter ReserveMargin(r,y) /
   GERMANY.(2024*2050)  1.18
 /;
-
-
-*------------------------------------------------------------------------	
-* Parameters - RE Generation Target       
-*------------------------------------------------------------------------
-
-RETagTechnology(r,t,y) = 0;
-
-RETagFuel(r,f,y) = 0;
-
-REMinProductionTarget(r,y) = 0;
 
 
 *------------------------------------------------------------------------	

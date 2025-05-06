@@ -45,7 +45,7 @@ GERMANY.SPV.(2024*2050) = 15
 GERMANY.WPP_ON.(2024*2050) = 15
 GERMANY.WPP_OFF.(2024*2050) = 15
 GERMANY.BMPP.(2024*2050) = 15
-GERMANY.ROR.(2024*2050) = 15
+GERMANY.ROR.(2024*2050) = 100
 GERMANY.GEOTH.(2024*2050) = 15
 /;
 
@@ -110,29 +110,29 @@ AvailabilityFactor(r,t,y)$(AvailabilityFactor(r,t,y) eq 0) = 1;
 ### INPUT TO ACTIVITY RATIOS
 
 Parameter InputActivityRatio(r,t,f,m,y) /
-  GERMANY.SPV.SOL."1".(2024*2050) = 1  #IEA convention
-  GERMANY.WPP_ON.WND."1".(2024*2050) = 1  
-  GERMANY.WPP_OFF.WND."1".(2024*2050) = 1  
-  GERMANY.BMPP.BIO."1".(2024*2050) = 1  
-  GERMANY.ROR.HYD."1".(2024*2050) = 1  
-  GERMANY.GEOTH.GEOTHEN."1".(2024*2050) = 1
+  GERMANY.SPV.SOL.1.(2024*2050) = 1  #IEA convention
+  GERMANY.WPP_ON.WND.1.(2024*2050) = 1  
+  GERMANY.WPP_OFF.WND.1.(2024*2050) = 1  
+  GERMANY.BMPP.BIO.1.(2024*2050) = 1  
+  GERMANY.ROR.HYD.1.(2024*2050) = 3.125
+  GERMANY.GEOTH.GEOTHEN.1.(2024*2050) = 1
 /;
 
 
 ### OUTPUT TO ACTIVITY RATIOS
 
 Parameter OutputActivityRatio(r,t,f,m,y) /
-GERMANY.SPV.ELC."1".(2024*2050) = 1
-GERMANY.SOL.SUN."1".(2024*2050) = 1
-GERMANY.WPP_ON.ELC."1".(2024*2050) = 1
-GERMANY.WPP_OFF.ELC."1".(2024*2050) = 1
-GERMANY.WND.WIN."1".(2024*2050) = 1
-GERMANY.BMPP.ELC."1".(2024*2050) = 1
-GERMANY.INP_BIOM.BIO."1".(2024*2050) = 1
-GERMANY.ROR.ELC."1".(2024*2050) = 1
-GERMANY.RIV.HYD."1".(2024*2050) = 1
-GERMANY.GEOTH.ELC."1".(2024*2050) = 1
-GERMANY.SOIL.GEOTHEN."1".(2024*2050) = 1
+GERMANY.SPV.ELC_GEN.1.(2024*2050) = 1
+GERMANY.SOL.SUN.1.(2024*2050) = 1
+GERMANY.WPP_ON.ELC_GEN.1.(2024*2050) = 1
+GERMANY.WPP_OFF.ELC_GEN.1.(2024*2050) = 1
+GERMANY.WND.WIN.1.(2024*2050) = 1
+GERMANY.BMPP.ELC_GEN.1.(2024*2050) = 1
+GERMANY.INP_BIOM.BIO.1.(2024*2050) = 1
+GERMANY.ROR.ELC_GEN.1.(2024*2050) = 1
+GERMANY.RIV.HYD.1.(2024*2050) = 1
+GERMANY.GEOTH.ELC_GEN.1.(2024*2050) = 1
+GERMANY.SOIL.GEOTHEN.1.(2024*2050) = 1
 /;
 
 
@@ -158,12 +158,12 @@ CapitalCost(r,t,y)$(CapitalCost(r,t,y) eq 0) = 0; #sources of RES are free (what
 ### VARIABLE O&M COSTS
 
 Parameter VariableCost(r,t,m,y) /       
-GERMANY.SPV."1".(2024*2050) = 1e-5
-GERMANY.WPP_ON."1".(2024*2050) = 1e-5
-GERMANY.WPP_OFF."1".(2024*2050) = 1e-5
-GERMANY.BMPP."1".(2024*2050) = 1e-5 #not that free actually....
-GERMANY.ROR."1".(2024*2050) = 1e-5
-GERMANY.GEOTH."1".(2024*2050) = 1e-5
+GERMANY.SPV.1.(2024*2050) = 1e-5
+GERMANY.WPP_ON.1.(2024*2050) = 1e-5
+GERMANY.WPP_OFF.1.(2024*2050) = 1e-5
+GERMANY.BMPP.1.(2024*2050) = 1e-5 #not that free actually....
+GERMANY.ROR.1.(2024*2050) = 1e-5
+GERMANY.GEOTH.1.(2024*2050) = 1e-5
 /;
 
 
@@ -179,4 +179,44 @@ GERMANY.GEOTH.(2024*2050) = 40
 /;
 
 
+*----------------------------------------------------------------------------------------------------
+*                                    RESERVE MARGINS
+*----------------------------------------------------------------------------------------------------
 
+parameter ReserveMarginTagTechnology(r,t,y) /
+  GERMANY.ROR.(2024*2050)  1
+  GERMANY.BMPP.(2024*2050)  1
+/;
+
+parameter ReserveMarginTagFuel(r,f,y) /
+  GERMANY.ELC_GEN.(2024*2050)  1
+/;
+
+
+#------------------------------------------------------------------------------------------------------------------
+#                                          CAPACITY CONSTRAINTS
+#------------------------------------------------------------------------------------------------------------------
+
+### TOTAL ANNUAL MAX CAPACITY
+
+Parameter TotalAnnualMaxCapacity(r,t,y) / 
+
+/;
+TotalAnnualMaxCapacity(r,t,y)$(TotalAnnualMaxCapacity(r,t,y) = 0) = 99999;
+TotalAnnualMaxCapacity(r,t,'2024') = 0;
+
+parameter TotalAnnualMinCapacity(r,t,y) /
+
+/;
+
+
+#------------------------------------------------------------------------------------------------------------------
+#                                          RENEWABLE GENERATION TARGETS
+#------------------------------------------------------------------------------------------------------------------
+
+RETagTechnology(r, t, y)$(renewable_tech(t)) = 1;
+
+RETagFuel(r, f, y)$(renewable_fuel(f)) = 1;
+
+REMinProductionTarget('GERMANY', 2030) = 0.5;
+REMinProductionTarget('GERMANY', (2035*2035)) = 1.0;
