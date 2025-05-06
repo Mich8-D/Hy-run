@@ -416,33 +416,7 @@ parameter OutputActivityRatio(r,t,f,m,y) /
 *------------------------------------------------------------------------
 
 parameter CapitalCost(r,t,y) /
-  GERMANY.COAL.2024  1400
-  GERMANY.COAL.2025  1390
-  GERMANY.COAL.2026  1380
-  GERMANY.COAL.2027  1370
-  GERMANY.COAL.2028  1360
-  GERMANY.COAL.2029  1350
-  GERMANY.COAL.2030  1340
-  GERMANY.COAL.2031  1330
-  GERMANY.COAL.2032  1320
-  GERMANY.COAL.2033  1310
-  GERMANY.COAL.2034  1300
-  GERMANY.COAL.2035  1290
-  GERMANY.COAL.2036  1280
-  GERMANY.COAL.2037  1270
-  GERMANY.COAL.2038  1260
-  GERMANY.COAL.2039  1250
-  GERMANY.COAL.2040  1240
-  GERMANY.COAL.2041  1230
-  GERMANY.COAL.2042  1220
-  GERMANY.COAL.2043  1210
-  GERMANY.COAL.2044  1200
-  GERMANY.COAL.2045  1200
-  GERMANY.COAL.2046  1200
-  GERMANY.COAL.2047  1200
-  GERMANY.COAL.2048  1200  
-  GERMANY.COAL.2049  1200
-  GERMANY.COAL.2050  1200
+  GERMANY.COAL.(2024*2050)  1400
   GERMANY.GASF.(2024*2050)  5000
   GERMANY.STOR_HYDRO.(2024*2050)  900
   GERMANY.HFO_GEN.(2024*2050)  1000
@@ -455,7 +429,14 @@ parameter CapitalCost(r,t,y) /
   GERMANY.FEU.(2024*2050)  0 #FEU as a pure accounting technology
   GERMANY.GRID_ELC.(2024*2050)  0 
   GERMANY.GAS_PIPES.(2024*2050)  0
-  /;
+/;
+scalar initcoalCost /1400/;
+loop(y$(ord(y) <= 21),
+    CapitalCost("GERMANY", "COAL", y) = initcoalCost - 10*(ord(y)-1); # equation to represent depreciation (over hardcoding)
+);
+loop(y$(ord(y) > 21),
+    CapitalCost("GERMANY", "COAL", y) = 1200;
+);
 
 parameter VariableCost(r,t,m,y) /
   GERMANY.COAL.1.(2024*2050)  .3
