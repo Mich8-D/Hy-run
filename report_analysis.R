@@ -4,7 +4,7 @@ require(gdxtools)
 require(witchtools)
 require(ggpubr)
 
-file_directory <- "Utopia"
+file_directory <- "Results"
 complete_directory <- here::here()
 all_gdx <- c(Sys.glob(here::here("Results/report_*.gdx")))
 

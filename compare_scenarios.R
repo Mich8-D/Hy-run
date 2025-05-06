@@ -1,7 +1,7 @@
 #### require results_analysis.R to run 
-select_multiple_scens <- "base" #type of policy you want plotted
+select_multiple_scens <- "base|nocoal" #type of policy you want plotted
 data_select <- "germany"
-want_storage <- "no" #do you want to consider want_storage?
+want_storage <- "yes" #do you want to consider want_storage?
 
 #################### MULTIPLE scenarios
 ggplot(Production %>% 
@@ -51,7 +51,7 @@ ggplot(Demand %>%
          filter((str_detect(scen,paste(select_multiple_scens,collapse="|") )|scen=="base") & 
                   data==data_select & 
                   storage==want_storage & 
-                  YEAR==2010) %>% 
+                  YEAR==2025) %>% 
          inner_join(hourly_split) %>%
          filter(yearly_hours <= 8760)) +
   geom_line(aes(x=yearly_hours,

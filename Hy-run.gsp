@@ -119,6 +119,10 @@
             "encoding": "UTF-8",
             "file": "osemosys.gms",
             "name": "osemosys.gms",
+            "options": [
+                "",
+                "--scen=batteries"
+            ],
             "type": "gms"
         },
         {
@@ -200,7 +204,8 @@
         }
     ],
     "options": [
-        ""
+        "",
+        "--scen=batteries"
     ],
     "path": ".",
     "pf": "",

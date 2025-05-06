@@ -549,6 +549,8 @@ TotalTechnologyModelPeriodActivityUpperLimit(r,t) = 99999;
 
 TotalTechnologyModelPeriodActivityLowerLimit(r,t) = 0;
 
+# minimum production target for renewables - required for equation RE4_EnergyConstraint(REGION,YEAR); l603 osemosys_eq.gms 
+REMinProductionTarget(r,y) = 0; 
 
 *------------------------------------------------------------------------	
 * Parameters - Reserve margin
