@@ -1,7 +1,8 @@
+require(ggpubr)
 #### require results_analysis.R to run 
-select_multiple_scens <- "cheapres" #type of policy you want plotted
-data_select <- c("renewables","hydrogen")
-want_storage <- "yes" #do you want to consider storage?
+select_multiple_scens <- "base" #type of policy you want plotted
+data_select <- c("germany_no_ren","batteries")
+want_storage <- "no" #do you want to consider storage?
 
 ggplot(Production %>% 
          filter( (str_detect(scen,select_multiple_scens)|scen=="base") & 
