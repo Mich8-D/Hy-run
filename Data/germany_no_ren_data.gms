@@ -75,10 +75,10 @@ set storage_plants(TECHNOLOGY) / STOR_HYDRO /;
 set fuel_transformation(TECHNOLOGY) / /;
 set appliances(TECHNOLOGY) / IHE, IHG, FEU/;
 set unmet_demand(TECHNOLOGY) / /;
-# set transport(TECHNOLOGY) / TXE, TXG /;
-set primary_imports(TECHNOLOGY) / IMPHCO1, IMPGAS1 /;
-set secondary_imports(TECHNOLOGY) / IMPHFO1 /;
-# set fuel_transportation(TECHNOLOGY) / GAS_PIPES, GRID_ELC /;
+set transport(TECHNOLOGY) / /;
+set primary_imports(TECHNOLOGY) / /;
+set secondary_imports(TECHNOLOGY) / IMPHFO1, IMPHCO1, IMPGAS1 /;
+set transmission(TECHNOLOGY) / GAS_PIPES, GRID_ELC /;
 
 set renewable_tech(TECHNOLOGY) /ROR/; 
 set renewable_fuel(FUEL) /HYD/; 
@@ -88,8 +88,8 @@ set fuel_production_fict(TECHNOLOGY) /RIV/;
 set secondary_production(TECHNOLOGY) /COAL, GASF, ROR, STOR_HYDRO, HFO_GEN/;
 
 # Characterize fuels 
-set primary_fuel(FUEL) / HCO, GAS, HYD /;
-set secondary_carrier(FUEL) / HFO, ELC /;
+set primary_fuel(FUEL) / HCO, GAS, HYD, HFO /;
+set secondary_carrier(FUEL) / ELC /;
 set final_demand(FUEL) / IH, ED/;
 
 *$include "Model/osemosys_init.gms"
