@@ -4,16 +4,15 @@ $set phase %1
 $ifthen.ph %phase%=='sets'
 
 set     TECHNOLOGY      /
-        IMPGSL1 'Gasoline imports' 
+        IMPGAS 'Gas imports' 
+        GRIDGAS 'Gas grid' 
+
         IMPHCO1 'Coal imports' 
         IMPOIL1 'Crude oil imports' 
         IMPBIO1 'Biomass supply'
-        GRIDGAS 'Gas grid' 
-        GRID_ELC 'Electricity grid' #GRID_ELC
 
         #renewable technologies
         VIR_SUN 'Virtual sun technology' 
-        
         VIR_WIN 'Virtual wind technology' 
         VIR_GTH 'Virtual geothermal technology' #GTH
        # BMPP 'Biomass Power Plants' - secondary?
@@ -46,13 +45,13 @@ $elseif.ph %phase%=='data'
 *** characterize technologies
 
 #IMPGAS1
-CapitalCost(r,'IMPGSL1',y) = 0;
-VariableCost(r,'IMPGSL1',m,y) = 2; # cost of gasoline in $/MWh
-FixedCost(r,'IMPGSL1',y) = 0;
-OperationalLife(r,'IMPGSL1') = 999;
-AvailabilityFactor(r,'IMPGSL1',y) = 1;
-EmissionActivityRatio(r,'IMPGSL1','CO2','1',y) = 0.075;
-ResidualCapacity(r,"IMPGSL1",y) = 999;
+CapitalCost(r,'IMPGAS',y) = 0;
+VariableCost(r,'IMPGAS',m,y) = 2; # cost of gasoline in $/MWh
+FixedCost(r,'IMPGAS',y) = 0;
+OperationalLife(r,'IMPGAS') = 999;
+AvailabilityFactor(r,'IMPGAS',y) = 1;
+EmissionActivityRatio(r,'IMPGAS','CO2','1',y) = 0.075;
+ResidualCapacity(r,"IMPGAS",y) = 999;
 
 #IMPHCO1
 CapitalCost(r,'IMPHCO1',y) = 0;
@@ -123,15 +122,13 @@ OutputActivityRatio(r,'VIR_WIN','WIN',"1",y) = 1;
 OutputActivityRatio(r,'VIR_GTH','GTH',"1",y) = 1;
 OutputActivityRatio(r,'VIR_HYD','HYD',"1",y) = 1;
 
-OutputActivityRatio(r,'PRODWST','WST',"1",y) = 1;
-OutputActivityRatio(r,'IMPBIO1','WBM',"1",y) = 1;
+#OutputActivityRatio(r,'PRODWST','WST',"1",y) = 1; prodwst undefined?
+#OutputActivityRatio(r,'IMPBIO1','WBM',"1",y) = 1; WBM fuel undefined?
+OutputActivityRatio(r, 'IMPBIO1','BIO',"1",y) = 1; #above line modified to BIO energy
 OutputActivityRatio(r,'IMPHCO1','HCO',"1",y) = 1;
-OutputActivityRatio(r,'IMPGAS1','GAS',"1",y) = 1;
-OutputActivityRatio(r,'IMPDSL1','DSL',"1",y) = 1;
-OutputActivityRatio(r,'IMPGSL1','GSL',"1",y) = 1;
-
-
-#####
+OutputActivityRatio(r,'IMPGAS','GAS',"1",y) = 1; #imported gas turns into gas
+InputActivityRatio(r, 'GAS_GRID', 'GAS', "1", y) = 1; #incorrect value, ratio as grid turns into gas
+OutputActivityRatio(r, "GAS_GRID", 'GAS2', "1", y) = 1; #conversion to gas usable from gas grid
 
 
 
