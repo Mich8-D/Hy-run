@@ -28,18 +28,18 @@ SpecifiedAnnualDemand(r,"ED",y) = fel_2025;
 SpecifiedAnnualDemand(r,"IH",y) = fith_2025;
 
 parameter SpecifiedDemandProfile(r,f,l,y) /
-  ITALY.ED.ID.(%yearstart%*%yearend% )  .15
-  ITALY.ED.IN.(%yearstart%*%yearend% )  .05
-  ITALY.ED.SD.(%yearstart%*%yearend% )  .15
-  ITALY.ED.SN.(%yearstart%*%yearend% )  .05
-  ITALY.ED.WD.(%yearstart%*%yearend% )  .5
-  ITALY.ED.WN.(%yearstart%*%yearend% )  .1
-  ITALY.IH.ID.(%yearstart%*%yearend% )  .3
-  ITALY.IH.IN.(%yearstart%*%yearend% )  .033
-  ITALY.IH.SD.(%yearstart%*%yearend% )  .3
-  ITALY.IH.SN.(%yearstart%*%yearend% )  .033
-  ITALY.IH.WD.(%yearstart%*%yearend% )  .3
-  ITALY.IH.WN.(%yearstart%*%yearend% )  .034
+  GERMANY.ED.ID.(%yearstart%*%yearend% )  .15
+  GERMANY.ED.IN.(%yearstart%*%yearend% )  .05
+  GERMANY.ED.SD.(%yearstart%*%yearend% )  .15
+  GERMANY.ED.SN.(%yearstart%*%yearend% )  .05
+  GERMANY.ED.WD.(%yearstart%*%yearend% )  .5
+  GERMANY.ED.WN.(%yearstart%*%yearend% )  .1
+  GERMANY.IH.ID.(%yearstart%*%yearend% )  .3
+  GERMANY.IH.IN.(%yearstart%*%yearend% )  .033
+  GERMANY.IH.SD.(%yearstart%*%yearend% )  .3
+  GERMANY.IH.SN.(%yearstart%*%yearend% )  .033
+  GERMANY.IH.WD.(%yearstart%*%yearend% )  .3
+  GERMANY.IH.WN.(%yearstart%*%yearend% )  .034
 /;
 
 
@@ -77,11 +77,11 @@ $elseif.ph %phase%=='popol'
 #template (efficiencies should be populated correctly)
 
 ** electricity 
-InputActivityRatio(r,"FEU","ELC","1",y) = 1;
+InputActivityRatio(r,"FEU","ELC2","1",y) = 1;
 OutputActivityRatio(r,"FEU","ED","1",y) = 1;
 
 ** industrial heating technologies
-InputActivityRatio(r,"IHE","ELC","1",y) = 1;
+InputActivityRatio(r,"IHE","ELC2","1",y) = 1;
 InputActivityRatio(r,"IHG","GAS","1",y) = 1;
 InputActivityRatio(r,"IHC","HCO","1",y) = 1;
 # demand for industrial heating is thermal
