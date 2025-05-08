@@ -10,7 +10,6 @@ set     TECHNOLOGY      /
         OIL_GEN 'Oil power plants'
         BIO 'Biomass power plants'
         GEO 'Geothermal power plants'
-        WTE 'Waste-to-energy power plants'
         SPV 'Solar power plants'
         WPP_ON 'Wind power plants - onshore' 
         WPP_OFF  'Wind power plants - offshore' 
@@ -20,10 +19,10 @@ set    FUEL            /
         ELC1 'Electricity-to-Grid'
         ELC2 'Electricity-from-grid'/; 
 
-set power_plants(TECHNOLOGY)   / COAL, GFPP, ROR, OIL_GEN, BIO, GEO, WTE, SPV, WPP /;
+set power_plants(TECHNOLOGY)   / COAL, GFPP, ROR, OIL_GEN, BIO, GEO, SPV, WPP /;
 set fuel_transformation(TECHNOLOGY) / /;
 set fuel_transmission(TECHNOLOGY) / GRID_ELC /;
-set renewable_tech(TECHNOLOGY) / SPV, WPP, WTE, BIO, GEO, ROR /;
+set renewable_tech(TECHNOLOGY) / SPV, WPP, BIO, GEO, ROR /;
 
 set secondary_carrier(FUEL) / ELC1, ELC2 /;
 
@@ -68,13 +67,6 @@ CapitalCost(r,'WPP_OFF',y) = 1200;
 VariableCost(r,'WPP_OFF',m,y) = 1e-5;
 FixedCost(r,'WPP_OFF',y) = 7;
 ResidualCapacity(r,"WPP_OFF",y) = 12;
-
-# Characterize WASTE-TO-ENERGY technology
-OperationalLife(r,'WTE') = 25;
-CapitalCost(r,'WTE',y) = 2000;
-VariableCost(r,'WTE',m,y) = 1e-5;
-FixedCost(r,'WTE',y) = 10;
-ResidualCapacity(r,"WTE",y) = 0.67;
 
 # Characterize BIOMASS technology
 OperationalLife(r,'BIO') = 25;
@@ -137,11 +129,11 @@ $elseif.ph %phase%=='popol'
 InputActivityRatio(r,'SPV','SUN',"1",y) = 1; #IEA convention
 OutputActivityRatio(r,'SPV','ELC1',"1",y) = 1; 
 
-InputActivityRatio(r,'WPP','WIN',"1",y) = 1; #IEA convention
-OutputActivityRatio(r,'WPP','ELC1',"1",y) = 1; 
+InputActivityRatio(r,'WPP_ON','WIN',"1",y) = 1; #IEA convention
+OutputActivityRatio(r,'WPP_ON','ELC1',"1",y) = 1; 
 
-InputActivityRatio(r,'WTE','WST',"1",y) = 1/0.25; 
-OutputActivityRatio(r,'WTE','ELC1',"1",y) = 1;
+InputActivityRatio(r,'WPP_OFF','WIN',"1",y) = 1; #IEA convention
+OutputActivityRatio(r,'WPP_OFF','ELC1',"1",y) = 1; 
 
 InputActivityRatio(r,'BIO','WBM',"1",y) = 1/0.25;
 OutputActivityRatio(r,'BIO','ELC1',"1",y) = 1;

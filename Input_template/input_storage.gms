@@ -34,6 +34,7 @@ FixedCost(r,'STOR_HYDRO',y) = 0;
 OperationalLife(r,'STOR_HYDRO') = 60;
 ResidualCapacity(r,'STOR_HYDRO',y) = 7.25;
 TotalAnnualMaxCapacityInvestment(r,'STOR_HYDRO',y) = 0;
+
 CapitalCostStorage(r,'BATTERIES',y) = 100;
 ResidualStorageCapacity(r,'BATTERIES',y) = 0;
 StorageLevelStart(r,'BATTERIES') = 0;
