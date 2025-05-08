@@ -1,7 +1,7 @@
 ** configuration options
 $setglobal storage 1
 $setglobal yearstart 2025
-$setglobal yearend 2026
+$setglobal yearend 2050
 
 *------------------------------------------------------------------------	
 * Sets       
@@ -9,7 +9,7 @@ $setglobal yearend 2026
 set     YEAR    / %yearstart%*%yearend% /;
 set     EMISSION        / CO2 /;
 set     MODE_OF_OPERATION       / 1, 2 /;
-set     REGION  / ITALY /;
+set     REGION  / GERMANY /;
 set     TIMESLICE  / ID, IN, SD, SN, WD, WN /;
 set     SEASON / 1, 2, 3 /;
 set     DAYTYPE / 1 /;
