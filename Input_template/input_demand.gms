@@ -82,7 +82,7 @@ OutputActivityRatio(r,"FEU","ED","1",y) = 1;
 
 ** industrial heating technologies
 InputActivityRatio(r,"IHE","ELC2","1",y) = 1;
-InputActivityRatio(r,"IHG","GAS","1",y) = 1;
+InputActivityRatio(r,"IHG","GAS2","1",y) = 1;
 InputActivityRatio(r,"IHC","HCO","1",y) = 1;
 # demand for industrial heating is thermal
 OutputActivityRatio(r,"IHE","IH","1",y) = 1;
