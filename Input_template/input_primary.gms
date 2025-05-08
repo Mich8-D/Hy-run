@@ -4,22 +4,22 @@ $set phase %1
 $ifthen.ph %phase%=='sets'
 
 set     TECHNOLOGY      /
-        IMPGSL1 'Gasoline imports'
-        IMPHCO1 'Coal imports'
-        IMPOIL1 'Crude oil imports'
-        #IMPGAS1 'Natural gas imports' ?? how this differs from gasoline?
+        IMPGSL1 'Gasoline imports' 
+        IMPHCO1 'Coal imports' 
+        IMPOIL1 'Crude oil imports' 
         IMPBIO1 'Biomass supply'
-        GRIDGAS 'Gas grid'
+        GRIDGAS 'Gas grid' 
+        GRID_ELC 'Electricity grid' #GRID_ELC
 
         #renewable technologies
-        VIR_SUN 'Virtual sun technology'
-        WPP_ON 'Onshore wind power plants'
-        WPP_OFF 'Offshore wind power plants'
-        VIR_WIN 'Virtual wind technology'
-        BMPP 'Biomass Power Plants'
-        INP_BIOM 'Energy input from biomass'
-        RIV 'River'
-        SOIL 'Geothermal Energy input'
+        VIR_SUN 'Virtual sun technology' 
+        
+        VIR_WIN 'Virtual wind technology' 
+        VIR_GTH 'Virtual geothermal technology' #GTH
+       # BMPP 'Biomass Power Plants' - secondary?
+        INP_BIOM 'Energy input from biomass' 
+        RIV 'River' #RIV
+        SOIL 'Geothermal Energy input' #SOIL
 /;
 
 
@@ -27,72 +27,71 @@ set     FUEL    /
         ELC 'Electricity'
 
         # fossil fuels
-        HCO 'Coal'
-        GAS 'Import gas'
-        GAS2 'Grid gas' #we must force the gas through the gas grid first, so we convert GAS to GAS2 to force gas into the gas grid first
-        OIL 'Crude oil'
+        HCO 'Coal' #HCO
+        GAS 'Import gas' #GAS_IMP
+        GAS2 'Grid gas' #GAS #we must force the gas through the gas grid first, so we convert GAS to GAS2 to force gas into the gas grid first
+        OIL 'Crude oil' #HFO (?)
 
         #renewables
-        GTH 'Geothermal energy'
-        SUN 'Solar energy'
-        WIN 'Wind energy'
-        HYD 'Hydro energy'
-        BIO 'Biomass energy'
+        GTH 'Geothermal energy' #GEOTHEN
+        SUN 'Solar energy' #SOL
+        WIN 'Wind energy' #WND
+        HYD 'Hydro energy' #HYD
+        BIO 'Biomass energy' #BIO
 /;
 
 ** ----------------------------------------------------------------
 $elseif.ph %phase%=='data'
 
 *** characterize technologies
-CapitalCost(r,'IMPDSL1',y) = 0;
-VariableCost(r,'IMPDSL1',m,y) = 50; # cost of diesel in $/MWh
-FixedCost(r,'IMPDSL1',y) = 0;
-OperationalLife(r,'IMPDSL1') = 999;
-AvailabilityFactor(r,'IMPDSL1',y) = 1;
-EmissionActivityRatio(r,'IMPDSL1','CO2','1',y) = 0.075;
-ResidualCapacity(r,"IMPDSL1",y) = 999;
 
+#IMPGAS1
 CapitalCost(r,'IMPGSL1',y) = 0;
-VariableCost(r,'IMPGSL1',m,y) = 70; # cost of gasoline in $/MWh
+VariableCost(r,'IMPGSL1',m,y) = 2; # cost of gasoline in $/MWh
 FixedCost(r,'IMPGSL1',y) = 0;
 OperationalLife(r,'IMPGSL1') = 999;
 AvailabilityFactor(r,'IMPGSL1',y) = 1;
 EmissionActivityRatio(r,'IMPGSL1','CO2','1',y) = 0.075;
 ResidualCapacity(r,"IMPGSL1",y) = 999;
 
+#IMPHCO1
 CapitalCost(r,'IMPHCO1',y) = 0;
-VariableCost(r,'IMPHCO1',m,y) = 30; # cost of coal in $/MWh
+VariableCost(r,'IMPHCO1',m,y) = 2; # cost of coal in $/MWh
 FixedCost(r,'IMPHCO1',y) = 0;
 OperationalLife(r,'IMPHCO1') = 999;
 AvailabilityFactor(r,'IMPHCO1',y) = 1;
 EmissionActivityRatio(r,'IMPHCO1','CO2','1',y) = 0.089;
 ResidualCapacity(r,"IMPHCO1",y) = 999;
 
+#IMPHF01
 CapitalCost(r,'IMPOIL1',y) = 0;
-VariableCost(r,'IMPOIL1',m,y) = 60; # cost of oil in $/MWh
+VariableCost(r,'IMPOIL1',m,y) = 10; # cost of oil in $/MWh
 FixedCost(r,'IMPOIL1',y) = 0;
 OperationalLife(r,'IMPOIL1') = 999;
 AvailabilityFactor(r,'IMPOIL1',y) = 1;
 EmissionActivityRatio(r,'IMPOIL1','CO2','1',y) = 0.075;
 ResidualCapacity(r,"IMPOIL1",y) = 999;
 
-CapitalCost(r,'IMPGAS1',y) = 0;
-VariableCost(r,'IMPGAS1',m,y) = 40; # cost of gas in $/MWh
-FixedCost(r,'IMPGAS1',y) = 0;
-OperationalLife(r,'IMPGAS1') = 999;
-AvailabilityFactor(r,'IMPGAS1',y) = 1;
-EmissionActivityRatio(r,'IMPGAS1','CO2','1',y) = 0.055;
-ResidualCapacity(r,"IMPGAS1",y) = 999;
+#GAS_PIPES
+CapitalCost(r,'GRIDGAS',y) = 0;
+VariableCost(r,'GRIDGAS',m,y) = 0; # cost of gas in $/MWh
+FixedCost(r,'GRIDGAS',y) = 0;
+OperationalLife(r,'GRIDGAS') = 40;
+AvailabilityFactor(r,'GRIDGAS',y) = 1;
+EmissionActivityRatio(r,'GRIDGAS','CO2','1',y) = 0.055;
+ResidualCapacity(r,"GRIDGAS",y) = 999;
 
+###RENEWABLES
+#INP_BIOM
 CapitalCost(r,'IMPBIO1',y) = 0;
-VariableCost(r,'IMPBIO1',m,y) = 20; # cost of biomass in $/MWh  
+VariableCost(r,'IMPBIO1',m,y) = 1e-5; #pasted cmt: not that free actually | cost of biomass in $/MWh  
 FixedCost(r,'IMPBIO1',y) = 0;
 OperationalLife(r,'IMPBIO1') = 999;
 AvailabilityFactor(r,'IMPBIO1',y) = 1;
 EmissionActivityRatio(r,'IMPBIO1','CO2','1',y) = 0;
 ResidualCapacity(r,"IMPBIO1",y) = 999;
 
-
+#SUN
 CapitalCost(r,'VIR_SUN',y) = 0;
 VariableCost(r,'VIR_SUN',m,y) = 0; 
 FixedCost(r,'VIR_SUN',y) = 0;
@@ -100,13 +99,7 @@ OperationalLife(r,'VIR_SUN') = 999;
 AvailabilityFactor(r,'VIR_SUN',y) = 1;
 ResidualCapacity(r,"VIR_SUN",y) = 999;
 
-CapitalCost(r,'VIR_GTH',y) = 0;
-VariableCost(r,'VIR_GTH',m,y) = 0; 
-FixedCost(r,'VIR_GTH',y) = 0;
-OperationalLife(r,'VIR_GTH') = 999;
-AvailabilityFactor(r,'VIR_GTH',y) = 1;
-ResidualCapacity(r,"VIR_GTH",y) = 999;
-
+#WIN
 CapitalCost(r,'VIR_WIN',y) = 0;
 VariableCost(r,'VIR_WIN',m,y) = 0; 
 FixedCost(r,'VIR_WIN',y) = 0;
@@ -114,6 +107,7 @@ OperationalLife(r,'VIR_WIN') = 999;
 AvailabilityFactor(r,'VIR_WIN',y) = 1;
 ResidualCapacity(r,"VIR_WIN",y) = 999;
 
+#HYD (technology non existent in previous files)
 CapitalCost(r,'VIR_HYD',y) = 0;
 VariableCost(r,'VIR_HYD',m,y) = 0; 
 FixedCost(r,'VIR_HYD',y) = 0;
