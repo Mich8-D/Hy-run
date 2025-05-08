@@ -34,7 +34,11 @@ $if not set data $setglobal data germany_no_ren
 $if not set value $setglobal value ""
 $include "Model/osemosys_dec.gms"
 * specify Model data
-$include "Data/%data%_data.gms"
+#$include "Data/%data%_data.gms"
+
+$include "Input_template/template_data.gms"
+* we use the
+
 * perform data computations when needed
 $include "Model/compute_data.gms"
 * define model equations

@@ -4,29 +4,40 @@ $set phase %1
 $ifthen.ph %phase%=='sets'
 
 set     TECHNOLOGY      /
-        IMPDSL1 'Diesel imports'
         IMPGSL1 'Gasoline imports'
         IMPHCO1 'Coal imports'
         IMPOIL1 'Crude oil imports'
-        IMPGAS1 'Natural gas imports'
+        #IMPGAS1 'Natural gas imports' ?? how this differs from gasoline?
         IMPBIO1 'Biomass supply'
+        GRIDGAS 'Gas grid'
+
+        #renewable technologies
         VIR_SUN 'Virtual sun technology'
+        WPP_ON 'Onshore wind power plants'
+        WPP_OFF 'Offshore wind power plants'
         VIR_WIN 'Virtual wind technology'
-        VIR_GTH 'Virtual geothermal source'
-        VIR_HYD 'Virtual hydro technology (ror)'
-        PRODWST 'Waste production'
+        BMPP 'Biomass Power Plants'
+        INP_BIOM 'Energy input from biomass'
+        RIV 'River'
+        SOIL 'Geothermal Energy input'
 /;
 
+
 set     FUEL    /
+        ELC 'Electricity'
+
+        # fossil fuels
         HCO 'Coal'
-        GAS 'Natural gas'
+        GAS 'Import gas'
+        GAS2 'Grid gas' #we must force the gas through the gas grid first, so we convert GAS to GAS2 to force gas into the gas grid first
         OIL 'Crude oil'
-        WBM 'Woody biomass'
-        WST 'Waste'
+
+        #renewables
         GTH 'Geothermal energy'
         SUN 'Solar energy'
         WIN 'Wind energy'
         HYD 'Hydro energy'
+        BIO 'Biomass energy'
 /;
 
 ** ----------------------------------------------------------------
@@ -124,6 +135,10 @@ OutputActivityRatio(r,'IMPHCO1','HCO',"1",y) = 1;
 OutputActivityRatio(r,'IMPGAS1','GAS',"1",y) = 1;
 OutputActivityRatio(r,'IMPDSL1','DSL',"1",y) = 1;
 OutputActivityRatio(r,'IMPGSL1','GSL',"1",y) = 1;
+
+
+#####
+
 
 
 $endif.ph

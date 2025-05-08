@@ -15,3 +15,6 @@
 
 .Rhistory
 ./Results/*
+
+.RData
+.DS_Store
