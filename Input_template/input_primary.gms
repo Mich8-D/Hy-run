@@ -10,8 +10,7 @@ set     TECHNOLOGY      /
         IMPHCO1 'Coal imports' 
         IMPOIL1 'Crude oil imports' 
         IMPBIO1 'Biomass supply'
-
-        #renewable technologies
+        #renewable supply fictional technologies
         VIR_SUN 'Virtual sun technology' 
         VIR_WIN 'Virtual wind technology' 
         VIR_GTH 'Virtual geothermal technology'
