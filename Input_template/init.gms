@@ -172,6 +172,6 @@ CapacityFactor(r,t,l,y)$(CapacityFactor(r,t,l,y) = 0) = 1;
 
 AvailabilityFactor(r,t,y)$(AvailabilityFactor(r,t,y) = 0) = 1;
 
-ReserveMarginTagFuel(r,"ELC",y) = 1;  #electricity
+ReserveMarginTagFuel(r,"ELC1",y) = 1;  #electricity
 
 $endif.ph

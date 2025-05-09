@@ -1,5 +1,4 @@
 $set phase %1
-
 **------------------------------------------------------------------------	
 $ifthen.ph %phase%=='sets'
 
@@ -31,10 +30,10 @@ Loop(y,
         + d_fel;
 );
 
-scalar fith_2024 /515/;  # TWh # Industrial thermal demand 
+scalar fith_2024 /520/;  # TWh # Industrial thermal demand 
 scalar a_fith /0.0088/;
 scalar b_fith /-0.1333/;
-scalar c_fith /7.9555/;
+scalar c_fith /-7.9555/;
 scalar d_fith /0.6666/;
 
 Loop(y,
@@ -63,13 +62,15 @@ parameter SpecifiedDemandProfile(r,f,l,y) /
 /;
 
 
+AccumulatedAnnualDemand(r,f,y) = 0;
+
 *------------------------------------------------------------------------	
 * Parameters - technologies       
 *------------------------------------------------------------------------
 
 ##### END-USE TECHNOLOGIES
 
-** electricity 
+* electricity 
 CapitalCost(r,"FEU",y) = 1000;
 VariableCost(r,"FEU",m,y) = 1e-5;
 FixedCost(r,"FEU",y) = 0.1;

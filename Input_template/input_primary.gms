@@ -2,38 +2,34 @@ $set phase %1
 
 ** ----------------------------------------------------------------
 $ifthen.ph %phase%=='sets'
-
 set     TECHNOLOGY      /
-        #fossil fuels
+# fossil fuels import
         IMPGAS 'Gas imports' 
         GRIDGAS 'Gas grid' 
         IMPHCO1 'Coal imports' 
         IMPOIL1 'Crude oil imports' 
+# renewable fuel "import"    
         IMPBIO1 'Biomass supply'
-        #renewable supply fictional technologies
         VIR_SUN 'Virtual sun technology' 
         VIR_WIN 'Virtual wind technology' 
         VIR_GTH 'Virtual geothermal technology'
-        RIV 'River'
-        SOIL 'Geothermal Energy input'
+        VIR_HYD 'Virtual hydro technology'
 /;
 
 
 set     FUEL    /
-        # fossil fuels
         HCO 'Coal' #HCO
         GAS 'Import gas'
         GAS2 'Grid gas' ##we must force the gas through the gas grid first, so we convert GAS to GAS2 to force gas into the gas grid first
         OIL 'Crude oil'
-
-        #renewables
         GTH 'Geothermal energy'
         SUN 'Solar energy'
         WIN 'Wind energy'
         HYD 'Hydro energy'
-        BIO 'Biomass energy'
+        WBM 'Biomass energy'
 /;
 
+set renewable_fuel(FUEL) /GTH, SUN, WIN, HYD, WBM/;
 ** ----------------------------------------------------------------
 $elseif.ph %phase%=='data'
 
@@ -106,6 +102,14 @@ OperationalLife(r,'VIR_HYD') = 999;
 AvailabilityFactor(r,'VIR_HYD',y) = 1;
 ResidualCapacity(r,"VIR_HYD",y) = 999;
 
+#GGTH
+CapitalCost(r,'VIR_GTH',y) = 0;
+VariableCost(r,'VIR_GTH',m,y) = 0; 
+FixedCost(r,'VIR_GTH',y) = 0;
+OperationalLife(r,'VIR_GTH') = 999;
+AvailabilityFactor(r,'VIR_GTH',y) = 1;
+ResidualCapacity(r,"VIR_GTH",y) = 999;
+
 ** ----------------------------------------------------------------
 $elseif.ph %phase%=="popol"
 #Fossil fuels + gas grid
@@ -113,16 +117,14 @@ OutputActivityRatio(r,'IMPHCO1','HCO',"1",y) = 1;
 OutputActivityRatio(r,'IMPGAS','GAS',"1",y) = 1; #imported gas turns into gas
 InputActivityRatio(r, 'GRIDGAS', 'GAS', "1", y) = 1; #incorrect value, ratio as grid turns into gas
 OutputActivityRatio(r, "GRIDGAS", 'GAS2', "1", y) = 1; #conversion to gas usable from gas grid
-InputActivityRatio(r, "IMPOIL1", "OIL", "1", y) = 1; #conversion to oil
-OutputActivityRatio(r, 'IMPBIO1','BIO',"1",y) = 1; #conversion to bio energy
+OutputActivityRatio(r, "IMPOIL1", "OIL", "1", y) = 1; #conversion to oil
+OutputActivityRatio(r, 'IMPBIO1','WBM',"1",y) = 1; #conversion to bio energy
 
 #Renewables
 OutputActivityRatio(r,'VIR_SUN','SUN',"1",y) = 1;
 OutputActivityRatio(r,'VIR_WIN','WIN',"1",y) = 1;
 OutputActivityRatio(r,'VIR_GTH','GTH',"1",y) = 1;
 OutputActivityRatio(r,'VIR_HYD','HYD',"1",y) = 1;
-InputActivityRatio(r, "RIV", "HYD", "1", y) = 1; #conversion to hydro energy
-InputActivityRatio(r, "SOIL", "GTH", "1", y) = 1; #conversion to geothermal energy
 
 
 $endif.ph
