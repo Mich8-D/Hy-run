@@ -6,8 +6,7 @@ $ifthen.ph %phase%=='sets'
 set     STORAGE / HYDROGEN /;
 
 SET TECHNOLOGY /HEL   "Hydrogen Electrolyzers",
-                FUEL_CELL
-                REV_DEV "Reversible Electrochemical Devices"
+                FUEL_CELL "Fuel Cells",
                 SMR_CCS "Steam Methane Reforming + CCS" 
                 IHH "Industrial Heating - Hydrogen" 
                 GRID_H2 "Hydrogen Grid" 
@@ -38,6 +37,7 @@ $elseif.ph %phase%=='popol'
 
 InputActivityRatio(r,'REV_DEV','ELC2',"1",y) = 2; #IEA convention
 OutputActivityRatio(r,'REV_DEV','H2',"1",y) = 1; #IEA convention
+
 InputActivityRatio(r,'REV_DEV','H2',"2",y) = 1; #IEA convention
 OutputActivityRatio(r,'REV_DEV','ELC1',"2",y) = 0.6; #IEA convention
 
