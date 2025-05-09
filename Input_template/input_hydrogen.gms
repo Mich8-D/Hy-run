@@ -94,7 +94,7 @@ CapitalCost(r,'SMR_CCS',2046) = 1990;
 CapitalCost(r,'SMR_CCS',2047) = 1950;
 CapitalCost(r,'SMR_CCS',2048) = 1920;
 CapitalCost(r,'SMR_CCS',2049) = 1880;
-CapitalCost(r,'SMR_CCS',2050) = 1850; (converted from USD)
+CapitalCost(r,'SMR_CCS',2050) = 1850; #converted from USD
 VariableCost(r,'SMR_CCS',m,y) = 0;
 FixedCost(r,'SMR_CCS',y) = 0;
 
@@ -239,10 +239,6 @@ TechnologyFromStorage(r,'2','UHS','HYDROGEN') = 1;
 # Storage flows for TANKS
 TechnologyToStorage(r,'1','TANKS','HYDROGEN') = 1;
 TechnologyFromStorage(r,'2','TANKS','HYDROGEN') = 1;
-
-# Industrial Heating with Hydrogen
-InputActivityRatio(r,'IHH','H2','1',y) = 1;   # Consumes hydrogen
-OutputActivityRatio(r,'IHH','IH','1',y) = 1;   # Delivers industrial heating service
 
 # Industrial Heating with Hydrogen
 InputActivityRatio(r,'IHH','H2','1',y) = 1;   # Consumes hydrogen
