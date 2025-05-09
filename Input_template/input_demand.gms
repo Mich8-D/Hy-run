@@ -17,15 +17,35 @@ $elseif.ph %phase%=='data'
 *------------------------------------------------------------------------	
 * Parameters - Demands       
 *------------------------------------------------------------------------
-scalar fel_2024; 
-fen_2025 = 1400; #TWh
-scalar fith_2024:
-fitn = 400; #TWh
+scalar fel_2024 /466/;  # TWh # Final electricity demand: Industrial, residential
+scalar a_fel /-0.023/;
+scalar b_fel /0.742/;
+scalar c_fel /1.001/;
+scalar d_fel /1.920/;
 
-** germany: residential and commercial -> 26% + 12.5% OF FEN.
-** assume: 50% heating, 20% cooling, 30% lighting
-SpecifiedAnnualDemand(r,"ED",y) = fel_2025;
-SpecifiedAnnualDemand(r,"IH",y) = fith_2025;
+Loop(y,
+    SpecifiedAnnualDemand("GERMANY","ED",y) = fel_2024
+        + a_fel * (ord(y) - 1)**3
+        + b_fel * (ord(y) - 1)**2
+        + c_fel * (ord(y) - 1)
+        + d_fel;
+);
+
+scalar fith_2024 /515/;  # TWh # Industrial thermal demand 
+scalar a_fith /0.0088/;
+scalar b_fith /-0.1333/;
+scalar c_fith /7.9555/;
+scalar d_fith /0.6666/;
+
+Loop(y,
+    SpecifiedAnnualDemand("GERMANY","IH",y) = fith_2024
+                + a_fith * (ord(y) - 1)**3
+                + b_fith * (ord(y) - 1)**2
+                + c_fith * (ord(y) - 1)
+                + d_fith;
+);
+
+
 
 parameter SpecifiedDemandProfile(r,f,l,y) /
   GERMANY.ED.ID.(%yearstart%*%yearend% )  .15
