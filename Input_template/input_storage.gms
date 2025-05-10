@@ -38,10 +38,19 @@ TotalAnnualMaxCapacityInvestment(r,'STOR_HYDRO',y) = 0;
 CapitalCostStorage(r,'BATTERIES',y) = 100;
 ResidualStorageCapacity(r,'BATTERIES',y) = 0;
 StorageLevelStart(r,'BATTERIES') = 0;
+StorageMaxChargeRate(r, 'BATTERIES',y) = 0.5;
+StorageMaxDischargeRate(r, 'BATTERIES',y) = 0.5;
+MinStorageCharge(r,'BATTERIES',y);
+OperationalLifeStorage(r,'BATTERIES') = 10;
+
 
 CapitalCostStorage(r,'DAM',y) = 100;
 ResidualStorageCapacity(r,'DAM',y) = 999;
 StorageLevelStart(r,'DAM') = 999;
+StorageMaxChargeRate(r, 'DAM',y) = 0.5;
+StorageMaxDischargeRate(r, 'DAM',y) = 0.5;
+MinStorageCharge(r,'DAM',y);
+OperationalLifeStorage(r,'DAM') = 60;
 
 
 ** ------------------------------------------------
@@ -51,13 +60,13 @@ $elseif.ph %phase%=='popol'
 InputActivityRatio(r,'BEES','ELC2',"1",y) = 2; #IEA convention
 OutputActivityRatio(r,'BEES','ELC1',"2",y) = 0.6; #IEA convention
 
-InputActivityRatio(r,'STOR_HYDRO','ELC2',"2",y) = 1; #IEA convention
-OutputActivityRatio(r,'STOR_HYDRO','ELC1',"1",y) = 1; #IEA convention
+InputActivityRatio(r,'STOR_HYDRO','ELC2',"1",y) = 1; #IEA convention
+OutputActivityRatio(r,'STOR_HYDRO','ELC1',"2",y) = 1; #IEA convention
 
 TechnologyToStorage(r,"1",'BEES','BATTERIES') = 1;
 TechnologyFromStorage(r,"2",'BEES','BATTERIES') = 1;
 
-TechnologyToStorage(r,"2",'STOR_HYDRO','DAM') = 1;
-TechnologyFromStorage(r,"1",'STOR_HYDRO','DAM') = 1;
+TechnologyToStorage(r,"1",'STOR_HYDRO','DAM') = 1;
+TechnologyFromStorage(r,"2",'STOR_HYDRO','DAM') = 1;
 
 $endif.ph

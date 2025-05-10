@@ -4,21 +4,22 @@ $set phase %1
 $ifthen.ph %phase%=='sets'
 
 * Define hydrogen-related technologies and storage
-set     STORAGE / HYDROGEN /;
+set     STORAGE / UHS, TANKS /;
 
 SET TECHNOLOGY /
-    HEL       "Hydrogen Electrolyzers",
-    SMR_CCS   "Steam Methane Reforming + CCS",
-    IHH       "Industrial Heating - Hydrogen",
-    GRID_H2   "Hydrogen Grid",
-    UHS       "Underground Hydrogen Storage",
-    TANKS     "Hydrogen Tanks" /;
+    HEL          "Hydrogen Electrolyzers",
+    SMR_CCS      "Steam Methane Reforming + CCS",
+    IHH          "Industrial Heating - Hydrogen",
+    GRID_H2      "Hydrogen Grid",
+    UHS_CHARGE   "Underground Hydrogen Storage Charge", #just accounting technology/compression stage(?)
+    TANKS_CHARGE "Hydrogen Tanks Discharge", #just accounting technology/compression stage(?)
+    FC           "Fuel Cells" /;
 
 set FUEL / 
-    H2_stored "Hydrogen stored",
-    H2        "Hydrogen" /;
+    H2,      "Hydrogen",
+    H2_TH    "Hydrogen Thermal Usages" /;
 
-set storage_plants(TECHNOLOGY) / UHS, TANKS /;
+set storage_plants(TECHNOLOGY) / UHS_CHARGE, TANKS_CHARGE /;
 
 ** ------------------------------------------------
 $elseif.ph %phase%=='data'
@@ -28,10 +29,13 @@ $elseif.ph %phase%=='data'
 * Source: Hydrogen Inputs for OSeMOSYS and cost assessment sheets
 *------------------------------------------------------------
 
+*----------H2 PRODUCTION TECHNOLOGIES-------------------
+
+###### WATCH OUT! The capacity factor for conversion technologies should be defined over the capacity!!!!!!
 # Hydrogen Electrolyzers (HEL)
 AvailabilityFactor(r,'HEL',y) = 0.9;
 OperationalLife(r,'HEL') = 10;
-* CapitalCost defined yearly below from 'H2 Production Cost Assessment' (Green H2 €/kg)
+* CapitalCost defined yearly below from 'H2 Production Cost Assessment' (Green H2 €/kg) 
 CapitalCost(r,'HEL',2023) = 5120;
 CapitalCost(r,'HEL',2024) = 4960;
 CapitalCost(r,'HEL',2025) = 4810;
@@ -60,7 +64,7 @@ CapitalCost(r,'HEL',2047) = 1290;
 CapitalCost(r,'HEL',2048) = 1130;
 CapitalCost(r,'HEL',2049) = 970;
 CapitalCost(r,'HEL',2050) = 810;
-VariableCost(r,'HEL',m,y) = 0;
+VariableCost(r,'HEL',m,y) = 1e-5;
 FixedCost(r,'HEL',y) = 0;
 
 # Steam Methane Reforming with CCS (SMR_CCS)
@@ -95,85 +99,25 @@ CapitalCost(r,'SMR_CCS',2047) = 1950;
 CapitalCost(r,'SMR_CCS',2048) = 1920;
 CapitalCost(r,'SMR_CCS',2049) = 1880;
 CapitalCost(r,'SMR_CCS',2050) = 1850; #converted from USD
-VariableCost(r,'SMR_CCS',m,y) = 0;
+VariableCost(r,'SMR_CCS',m,y) = 1e-5;
 FixedCost(r,'SMR_CCS',y) = 0;
+EmissionActivityRatio(r,'SMR_CCS','CO2','1',y) = - 0.075; # here you have to put how many kg of CO2 you are captured for each activity unit(energy) of H2 produced
 
-# Underground Hydrogen Storage (UHS)
-AvailabilityFactor(r,'UHS',y) = 0.9;
-OperationalLife(r,'UHS') = 30;
-* CapitalCost defined yearly below from 'H2 Storage Cost Assessment' (€/kg * 1000)
-CapitalCost(r,'UHS',2023) = 2140;
-CapitalCost(r,'UHS',2024) = 2100;
-CapitalCost(r,'UHS',2025) = 2060;
-CapitalCost(r,'UHS',2026) = 2030;
-CapitalCost(r,'UHS',2027) = 1990;
-CapitalCost(r,'UHS',2028) = 1950;
-CapitalCost(r,'UHS',2029) = 1910;
-CapitalCost(r,'UHS',2030) = 1880;
-CapitalCost(r,'UHS',2031) = 1840;
-CapitalCost(r,'UHS',2032) = 1800;
-CapitalCost(r,'UHS',2033) = 1760;
-CapitalCost(r,'UHS',2034) = 1730;
-CapitalCost(r,'UHS',2035) = 1690;
-CapitalCost(r,'UHS',2036) = 1650;
-CapitalCost(r,'UHS',2037) = 1610;
-CapitalCost(r,'UHS',2038) = 1580;
-CapitalCost(r,'UHS',2039) = 1540;
-CapitalCost(r,'UHS',2040) = 1500;
-CapitalCost(r,'UHS',2041) = 1460;
-CapitalCost(r,'UHS',2042) = 1430;
-CapitalCost(r,'UHS',2043) = 1390;
-CapitalCost(r,'UHS',2044) = 1350;
-CapitalCost(r,'UHS',2045) = 1310;
-CapitalCost(r,'UHS',2046) = 1280;
-CapitalCost(r,'UHS',2047) = 1240;
-CapitalCost(r,'UHS',2048) = 1200;
-CapitalCost(r,'UHS',2049) = 1160;
-CapitalCost(r,'UHS',2050) = 1130;
-VariableCost(r,'UHS',m,y) = 0;
-FixedCost(r,'UHS',y) = 0;
-
-# Hydrogen Tanks (TANKS)
-AvailabilityFactor(r,'TANKS',y) = 0.9;
-OperationalLife(r,'TANKS') = 20;  # Assumed
-* CapitalCost defined yearly below from 'H2 Storage Cost Assessment' (Compressed Gas €/kg * 1000)
-CapitalCost(r,'TANKS',2023) = 9300;
-CapitalCost(r,'TANKS',2024) = 9160;
-CapitalCost(r,'TANKS',2025) = 9020;
-CapitalCost(r,'TANKS',2026) = 8890;
-CapitalCost(r,'TANKS',2027) = 8750;
-CapitalCost(r,'TANKS',2028) = 8610;
-CapitalCost(r,'TANKS',2029) = 8470;
-CapitalCost(r,'TANKS',2030) = 8340;
-CapitalCost(r,'TANKS',2031) = 8200;
-CapitalCost(r,'TANKS',2032) = 8060;
-CapitalCost(r,'TANKS',2033) = 7920;
-CapitalCost(r,'TANKS',2034) = 7790;
-CapitalCost(r,'TANKS',2035) = 7650;
-CapitalCost(r,'TANKS',2036) = 7510;
-CapitalCost(r,'TANKS',2037) = 7370;
-CapitalCost(r,'TANKS',2038) = 7240;
-CapitalCost(r,'TANKS',2039) = 7100;
-CapitalCost(r,'TANKS',2040) = 6960;
-CapitalCost(r,'TANKS',2041) = 6820;
-CapitalCost(r,'TANKS',2042) = 6690;
-CapitalCost(r,'TANKS',2043) = 6550;
-CapitalCost(r,'TANKS',2044) = 6410;
-CapitalCost(r,'TANKS',2045) = 6270;
-CapitalCost(r,'TANKS',2046) = 6140;
-CapitalCost(r,'TANKS',2047) = 6000;
-CapitalCost(r,'TANKS',2048) = 5860;
-CapitalCost(r,'TANKS',2049) = 5720;
-CapitalCost(r,'TANKS',2050) = 5590;
-VariableCost(r,'TANKS',m,y) = 0;
-FixedCost(r,'TANKS',y) = 0;
+*--------------------H2 CONSUMPTION TECHNOLOGIES-------------------
 
 # Industrial Heating - Hydrogen (IHH)
 AvailabilityFactor(r,'IHH',y) = 0.9;
 OperationalLife(r,'IHH') = 15;  # Assumed lifetime for industrial heating
 CapitalCost(r,'IHH',y) = 1000;   # Rough estimate based on heating techs
-VariableCost(r,'IHH',m,y) = 0;
+VariableCost(r,'IHH',m,y) = 1e-5;
 FixedCost(r,'IHH',y) = 0;
+
+# Fuel Cells (FC) #### dummy data
+AvailabilityFactor(r,'FC',y) = 0.9;
+OperationalLife(r,'FC') = 10;  
+CapitalCost(r,'FC',y) = 1000; 
+VariableCost(r,'FC',m,y) = 1e-5;
+FixedCost(r,'FC',y) = 0;  
 
 # Hydrogen Grid (GRID_H2) represents hydrogen pipelines and distribution network
 AvailabilityFactor(r,'GRID_H2',y) = 0.9;
@@ -212,8 +156,101 @@ CapitalCost(r,'GRID_H2',2047) = 60;
 CapitalCost(r,'GRID_H2',2048) = 56;
 CapitalCost(r,'GRID_H2',2049) = 52;
 CapitalCost(r,'GRID_H2',2050) = 48;  # Conservative grid infrastructure cost (€/kW)
-VariableCost(r,'GRID_H2',m,y) = 0;
+VariableCost(r,'GRID_H2',m,y) = 1e-5;
 FixedCost(r,'GRID_H2',y) = 0;
+
+*--------------------H2 STORAGE TECHNOLOGIES-------------------
+
+# UHS charge technology #dummy data
+AvailabilityFactor(r,'UHS_CHARGE',y) = 0.9; 
+OperationalLife(r,'UHS_CHARGE') = 30; 
+CapitalCost(r,'UHS_CHARGE',y) = 0; # Assumed to be negligible
+VariableCost(r,'UHS_CHARGE',m,y) = 1e-5;
+FixedCost(r,'UHS_CHARGE',y) = 0;
+
+# TANKS charge technology #dummy data
+AvailabilityFactor(r,'TANKS_CHARGE',y) = 0.9;   
+OperationalLife(r,'TANKS_CHARGE') = 20;
+CapitalCost(r,'TANKS_CHARGE',y) = 0; # Assumed to be negligible
+VariableCost(r,'TANKS_CHARGE',m,y) = 1e-5;
+FixedCost(r,'TANKS_CHARGE',y) = 0;
+
+# UHS storage Technology
+ResidualStorageCapacity(r,'UHS',y) = 0;
+StorageLevelStart(r,'UHS') = 0;
+StorageMaxChargeRate(r, 'UHS',y) = 0.5;
+StorageMaxDischargeRate(r, 'UHS',y) = 0.5;
+MinStorageCharge(r,'UHS',y);
+OperationalLifeStorage(r,'UHS') = 30;
+* CapitalCost defined yearly below from 'H2 Storage Cost Assessment' (€/kg * 1000)
+CapitalCostStorage(r,'UHS',2023) = 2140;
+CapitalCostStorage(r,'UHS',2024) = 2100;
+CapitalCostStorage(r,'UHS',2025) = 2060;
+CapitalCostStorage(r,'UHS',2026) = 2030;
+CapitalCostStorage(r,'UHS',2027) = 1990;
+CapitalCostStorage(r,'UHS',2028) = 1950;
+CapitalCostStorage(r,'UHS',2029) = 1910;
+CapitalCostStorage(r,'UHS',2030) = 1880;
+CapitalCostStorage(r,'UHS',2031) = 1840;
+CapitalCostStorage(r,'UHS',2032) = 1800;
+CapitalCostStorage(r,'UHS',2033) = 1760;
+CapitalCostStorage(r,'UHS',2034) = 1730;
+CapitalCostStorage(r,'UHS',2035) = 1690;
+CapitalCostStorage(r,'UHS',2036) = 1650;
+CapitalCostStorage(r,'UHS',2037) = 1610;
+CapitalCostStorage(r,'UHS',2038) = 1580;
+CapitalCostStorage(r,'UHS',2039) = 1540;
+CapitalCostStorage(r,'UHS',2040) = 1500;
+CapitalCostStorage(r,'UHS',2041) = 1460;
+CapitalCostStorage(r,'UHS',2042) = 1430;
+CapitalCostStorage(r,'UHS',2043) = 1390;
+CapitalCostStorage(r,'UHS',2044) = 1350;
+CapitalCostStorage(r,'UHS',2045) = 1310;
+CapitalCostStorage(r,'UHS',2046) = 1280;
+CapitalCostStorage(r,'UHS',2047) = 1240;
+CapitalCostStorage(r,'UHS',2048) = 1200;
+CapitalCostStorage(r,'UHS',2049) = 1160;
+CapitalCostStorage(r,'UHS',2050) = 1130;
+
+# Hydrogen Tanks (TANKS)
+ResidualStorageCapacity(r,'TANKS',y) = 0;
+StorageLevelStart(r,'TANKS') = 0;
+StorageMaxChargeRate(r, 'TANKS',y) = 0.5;
+StorageMaxDischargeRate(r, 'TANKS',y) = 0.5;
+MinStorageCharge(r,'TANKS',y);
+OperationalLifeStorage(r,'TANKS') = 20; # Assumed
+* CapitalCostStorage defined yearly below from 'H2 Storage Cost Assessment' (Compressed Gas €/kg * 1000)
+CapitalCostStorage(r,'TANKS',2023) = 9300;
+CapitalCostStorage(r,'TANKS',2024) = 9160;
+CapitalCostStorage(r,'TANKS',2025) = 9020;
+CapitalCostStorage(r,'TANKS',2026) = 8890;
+CapitalCostStorage(r,'TANKS',2027) = 8750;
+CapitalCostStorage(r,'TANKS',2028) = 8610;
+CapitalCostStorage(r,'TANKS',2029) = 8470;
+CapitalCostStorage(r,'TANKS',2030) = 8340;
+CapitalCostStorage(r,'TANKS',2031) = 8200;
+CapitalCostStorage(r,'TANKS',2032) = 8060;
+CapitalCostStorage(r,'TANKS',2033) = 7920;
+CapitalCostStorage(r,'TANKS',2034) = 7790;
+CapitalCostStorage(r,'TANKS',2035) = 7650;
+CapitalCostStorage(r,'TANKS',2036) = 7510;
+CapitalCostStorage(r,'TANKS',2037) = 7370;
+CapitalCostStorage(r,'TANKS',2038) = 7240;
+CapitalCostStorage(r,'TANKS',2039) = 7100;
+CapitalCostStorage(r,'TANKS',2040) = 6960;
+CapitalCostStorage(r,'TANKS',2041) = 6820;
+CapitalCostStorage(r,'TANKS',2042) = 6690;
+CapitalCostStorage(r,'TANKS',2043) = 6550;
+CapitalCostStorage(r,'TANKS',2044) = 6410;
+CapitalCostStorage(r,'TANKS',2045) = 6270;
+CapitalCostStorage(r,'TANKS',2046) = 6140;
+CapitalCostStorage(r,'TANKS',2047) = 6000;
+CapitalCostStorage(r,'TANKS',2048) = 5860;
+CapitalCostStorage(r,'TANKS',2049) = 5720;
+CapitalCostStorage(r,'TANKS',2050) = 5590;
+VariableCost(r,'TANKS',m,y) = 1e-5;
+FixedCost(r,'TANKS',y) = 0;
+
 
 ** ------------------------------------------------
 $elseif.ph %phase%=='popol'
@@ -225,28 +262,30 @@ $elseif.ph %phase%=='popol'
 # HEL: Electricity to Hydrogen
 InputActivityRatio(r,'HEL','ELC','1',y) = 1;   # IEA convention
 OutputActivityRatio(r,'HEL','H2','1',y) = 1;   # IEA convention
-TechnologyToStorage(r,'1','HEL','HYDROGEN') = 1;
 
 # SMR_CCS: Gas to Hydrogen
-InputActivityRatio(r,'SMR_CCS','GAS','1',y) = 1;
+InputActivityRatio(r,'SMR_CCS','GAS2','1',y) = 1;
 OutputActivityRatio(r,'SMR_CCS','H2','1',y) = 1;
-TechnologyToStorage(r,'1','SMR_CCS','HYDROGEN') = 1;
 
 # Storage flows for UHS
-TechnologyToStorage(r,'1','UHS','HYDROGEN') = 1;
-TechnologyFromStorage(r,'2','UHS','HYDROGEN') = 1;
+InputActivityRatio(r,'UHS_CHARGE','H2','1',y) = 1;   # Charge phase
+OutputActivityRatio(r,'UHS_CHARGE','H2','2',y) = 1;   # Discharge phase
+TechnologyToStorage(r,'1','UHS_CHARGE','UHS') = 1;
+TechnologyFromStorage(r,'2','UHS_CHARGE','UHS') = 0.9;
 
 # Storage flows for TANKS
-TechnologyToStorage(r,'1','TANKS','HYDROGEN') = 1;
-TechnologyFromStorage(r,'2','TANKS','HYDROGEN') = 1;
+InputActivityRatio(r,'TANKS_CHARGE','H2','1',y) = 1;   # Charge phase
+OutputActivityRatio(r,'TANKS_CHARGE','H2','2',y) = 1;   # Discharge phase
+TechnologyToStorage(r,'1','TANKS_CHARGE','TANKS') = 1;
+TechnologyFromStorage(r,'2','TANKS_CHARGE','TANKS') = 0.9;
 
 # Industrial Heating with Hydrogen
-InputActivityRatio(r,'IHH','H2','1',y) = 1;   # Consumes hydrogen
+InputActivityRatio(r,'IHH','H2_TH','1',y) = 1;   # Consumes hydrogen
 OutputActivityRatio(r,'IHH','IH','1',y) = 1;   # Delivers industrial heating service
 
 # Hydrogen Grid (GRID_H2)
 InputActivityRatio(r,'GRID_H2','H2','1',y) = 1;
-OutputActivityRatio(r,'GRID_H2','H2','1',y) = 1;   # Assumes grid redistributes H2 without losses
+OutputActivityRatio(r,'GRID_H2','H2_TH','1',y) = 1;   # Assumes grid redistributes H2 without losses
 
 # Note: Reversible tech 'REV_DEV' intentionally excluded
 
