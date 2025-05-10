@@ -38,18 +38,18 @@ TotalAnnualMaxCapacityInvestment(r,'STOR_HYDRO',y) = 0;
 CapitalCostStorage(r,'BATTERIES',y) = 100;
 ResidualStorageCapacity(r,'BATTERIES',y) = 0;
 StorageLevelStart(r,'BATTERIES') = 0;
-StorageMaxChargeRate(r, 'BATTERIES',y) = 0.5;
-StorageMaxDischargeRate(r, 'BATTERIES',y) = 0.5;
-MinStorageCharge(r,'BATTERIES',y);
+StorageMaxChargeRate(r,'BATTERIES') = 0.5;
+StorageMaxDischargeRate(r, 'BATTERIES') = 0.5;
+MinStorageCharge(r,'BATTERIES',y) = 0.2;
 OperationalLifeStorage(r,'BATTERIES') = 10;
 
 
 CapitalCostStorage(r,'DAM',y) = 100;
 ResidualStorageCapacity(r,'DAM',y) = 999;
 StorageLevelStart(r,'DAM') = 999;
-StorageMaxChargeRate(r, 'DAM',y) = 0.5;
-StorageMaxDischargeRate(r, 'DAM',y) = 0.5;
-MinStorageCharge(r,'DAM',y);
+StorageMaxChargeRate(r, 'DAM') = 0.5;
+StorageMaxDischargeRate(r, 'DAM') = 0.5;
+MinStorageCharge(r,'DAM',y) = 0.2;
 OperationalLifeStorage(r,'DAM') = 60;
 
 

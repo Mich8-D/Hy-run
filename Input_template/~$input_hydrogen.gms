@@ -40,9 +40,9 @@ $elseif.ph %phase%=='data'
 AvailabilityFactor(r,'HEL',y) = 0.9;
 OperationalLife(r,'HEL') = 10;
 * CapitalCost defined yearly below from 'H2 Production Cost Assessment' (Green H2 €/kg) 
-CapitalCost(r,'HEL',2024) = 4960;
-CapitalCost(r,'HEL',2025) = 4810;
-CapitalCost(r,'HEL',2026) = 4650;
+CapitalCost(r,'HEL','2024') = 4960;
+CapitalCost(r,'HEL','2025') = 4810;
+CapitalCost(r,'HEL','2026') = 4650;
 CapitalCost(r,'HEL',2027) = 4490;
 CapitalCost(r,'HEL',2028) = 4330;
 CapitalCost(r,'HEL',2029) = 4170;
