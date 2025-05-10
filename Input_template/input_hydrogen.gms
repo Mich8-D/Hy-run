@@ -103,7 +103,7 @@ CapitalCost(r,'SMR_CCS','2049') = 1880000;  # Converted from €/kg to €/kW (�
 CapitalCost(r,'SMR_CCS','2050') = 1850000;  # Converted from €/kg to €/kW (×1000) #converted from USD
 VariableCost(r,'SMR_CCS',m,y) = 1e-5;
 FixedCost(r,'SMR_CCS',y) = 0;
-EmissionActivityRatio(r,'SMR_CCS','CO2','1',y) = - 0.075; # here you have to put how many kg of CO2 you are captured for each activity unit(energy) of H2 produced
+EmissionActivityRatio(r,'SMR_CCS','CO2','1',y) = - 0.075; # Unit: kg CO₂ per PJ of H₂ produced (negative = captured)
 
 *--------------------H2 CONSUMPTION TECHNOLOGIES-------------------
 
