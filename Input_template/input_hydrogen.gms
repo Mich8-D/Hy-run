@@ -186,7 +186,7 @@ OperationalLifeStorage(r,'UHS') = 30;
 * CapitalCost defined yearly below from 'H2 Storage Cost Assessment' (€/kg * 1000)
 CapitalCostStorage(r,'UHS','2024') = 2100;
 CapitalCostStorage(r,'UHS','2025') = 2060;
-CapitalCostStorage(r,'UHS','2026') = '2030';
+CapitalCostStorage(r,'UHS','2026') = 2030;
 CapitalCostStorage(r,'UHS','2027') = 1990;
 CapitalCostStorage(r,'UHS','2028') = 1950;
 CapitalCostStorage(r,'UHS','2029') = 1910;
@@ -247,8 +247,6 @@ CapitalCostStorage(r,'TANKS','2047') = 6000;
 CapitalCostStorage(r,'TANKS','2048') = 5860;
 CapitalCostStorage(r,'TANKS','2049') = 5720;
 CapitalCostStorage(r,'TANKS','2050') = 5590;
-VariableCost(r,'TANKS',m,y) = 1e-5;
-FixedCost(r,'TANKS',y) = 0;
 
 
 ** ------------------------------------------------
@@ -259,7 +257,7 @@ $elseif.ph %phase%=='popol'
 *------------------------------------------------------------
 
 # HEL: Electricity to Hydrogen
-InputActivityRatio(r,'HEL','ELC','1',y) = 1;   # IEA convention
+InputActivityRatio(r,'HEL','ELC2','1',y) = 1;   # IEA convention
 OutputActivityRatio(r,'HEL','H2','1',y) = 1;   # IEA convention
 
 # SMR_CCS: Gas to Hydrogen

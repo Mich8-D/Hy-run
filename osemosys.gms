@@ -71,6 +71,9 @@ $elseif.scen %scen%=="nocoal"
 TotalAnnualMaxCapacity(r,'COAL',y) = .5;
 $elseif.scen %scen%=="cheapres" 
 CapitalCost(r,t,y)$renewable_tech(t) = %value%/100 * CapitalCost(r,t,y);
+$elseif.scen %scen%=="cheapH2tech"
+CapitalCost(r,t,y)$hydrogen_tech(t) = %value%/100 * CapitalCost(r,t,y);
+CapitalCostStorage(r,s,y)$hydrogen_storages(s) = %value%/100 * CapitalCostStorage(r,s,y);
 $endif.scen
 
 * solve the model with the constraints

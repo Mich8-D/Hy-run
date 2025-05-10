@@ -233,7 +233,8 @@
             "name": "osemosys.gms",
             "options": [
                 "",
-                "--data = template --storage=1"
+                "--data = template --storage=1",
+                "--data = template"
             ],
             "type": "gms"
         },
@@ -296,7 +297,8 @@
     ],
     "options": [
         "",
-        "--data = template --storage=1"
+        "--data = template --storage=1",
+        "--data = template"
     ],
     "path": ".",
     "pf": "",
