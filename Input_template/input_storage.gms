@@ -35,13 +35,13 @@ OperationalLife(r,'STOR_HYDRO') = 60;
 ResidualCapacity(r,'STOR_HYDRO',y) = 7.25;
 TotalAnnualMaxCapacityInvestment(r,'STOR_HYDRO',y) = 0;
 
-CapitalCostStorage(r,'BATTERIES',y) = 100;
-ResidualStorageCapacity(r,'BATTERIES',y) = 0;
-StorageLevelStart(r,'BATTERIES') = 0;
+CapitalCostStorage(r,'BATTERIES',y) = 100;  # Unit: €/kW (as per hydrogen unit standard)
+ResidualStorageCapacity(r,'BATTERIES',y) = 0;  # Unit: PJ (explicitly zero)
+StorageLevelStart(r,'BATTERIES') = 0;  # Unit: PJ (explicitly zero)
 
-CapitalCostStorage(r,'DAM',y) = 100;
-ResidualStorageCapacity(r,'DAM',y) = 999;
-StorageLevelStart(r,'DAM') = 999;
+CapitalCostStorage(r,'DAM',y) = 100;  # Unit: €/kW (as per hydrogen unit standard)
+ResidualStorageCapacity(r,'DAM',y) = 3.5964;  # Unit: PJ (converted from 999 GWh using 1 GWh = 0.0036 PJ)
+StorageLevelStart(r,'DAM') = 3.5964;  # Unit: PJ (converted from 999 GWh using 1 GWh = 0.0036 PJ)
 
 
 ** ------------------------------------------------
