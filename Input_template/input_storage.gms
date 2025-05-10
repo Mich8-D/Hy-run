@@ -9,7 +9,7 @@ SET TECHNOLOGY /BEES "Battery Energy Storage System"
                 STOR_HYDRO 'Pumped storage'/;
 
 set storage_plants(TECHNOLOGY) / BEES, STOR_HYDRO /;
-
+set batteries(TECHNOLOGY) / BEES /;
 
 ** ------------------------------------------------
 $elseif.ph %phase%=='data' 
