@@ -19,7 +19,11 @@ set FUEL /
     H2,      "Hydrogen",
     H2_TH    "Hydrogen Thermal Usages" /;
 
+set hydrogen_tech(TECHNOLOGY) / HEL, SMR_CCS, IHH, GRID_H2, FC /;
 set storage_plants(TECHNOLOGY) / UHS_CHARGE, TANKS_CHARGE /;
+set hydrogen_production_tech(TECHNOLOGY) / HEL, SMR_CCS /;
+set hydrogen_consumption_tech(TECHNOLOGY) / IHH, FC /;
+set hydrogen_storages(TECHNOLOGY) / UHS , TANKS /;
 
 ** ------------------------------------------------
 $elseif.ph %phase%=='data'
