@@ -1,6 +1,6 @@
 ** configuration options
 $setglobal storage 1
-$setglobal yearstart 2025
+$setglobal yearstart 2024
 $setglobal yearend 2050
 
 *------------------------------------------------------------------------	
@@ -43,6 +43,7 @@ $batinclude "Input_%data%/input_primary.gms" "sets"
 $batinclude "Input_%data%/input_secondary.gms" "sets"
 $batinclude "Input_%data%/input_storage.gms" "sets"
 $batinclude "Input_%data%/input_demand.gms" "sets"
+#$batinclude "Input_%data%/input_hydrogen.gms" "sets"
 
 $batinclude "Input_%data%/init.gms" "pre"
 
@@ -50,10 +51,12 @@ $batinclude "Input_%data%/input_primary.gms" "data"
 $batinclude "Input_%data%/input_secondary.gms" "data"
 $batinclude "Input_%data%/input_storage.gms" "data"
 $batinclude "Input_%data%/input_demand.gms" "data"
+#$batinclude "Input_%data%/input_hydrogen.gms" "data"
 
 $batinclude "Input_%data%/input_primary.gms" "popol"
 $batinclude "Input_%data%/input_secondary.gms" "popol"
 $batinclude "Input_%data%/input_storage.gms" "popol"
 $batinclude "Input_%data%/input_demand.gms" "popol"
+#$batinclude "Input_%data%/input_hydrogen.gms" "popol"
 
 $batinclude "Input_%data%/init.gms" "post"

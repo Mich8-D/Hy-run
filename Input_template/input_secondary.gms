@@ -19,10 +19,10 @@ set    FUEL            /
         ELC1 'Electricity-to-Grid'
         ELC2 'Electricity-from-grid'/; 
 
-set power_plants(TECHNOLOGY)   / COAL, GFPP, ROR, OIL_GEN, BIO, GEO, SPV, WPP /;
+set power_plants(TECHNOLOGY)   / COAL, GFPP, ROR, OIL_GEN, BIO, GEO, SPV, WPP_ON, WPP_OFF /;
 set fuel_transformation(TECHNOLOGY) / /;
 set fuel_transmission(TECHNOLOGY) / GRID_ELC /;
-set renewable_tech(TECHNOLOGY) / SPV, WPP, BIO, GEO, ROR /;
+set renewable_tech(TECHNOLOGY) / SPV, WPP_ON, WPP_OFF, BIO, GEO, ROR /;
 
 set secondary_carrier(FUEL) / ELC1, ELC2 /;
 

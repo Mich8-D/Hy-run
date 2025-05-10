@@ -5,6 +5,13 @@
         {
             "codecMib": 106,
             "encoding": "UTF-8",
+            "file": "Data/batteries_data.gms",
+            "name": "batteries_data.gms",
+            "type": "gms"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
             "file": "Data/germany_no_ren_data.gms",
             "name": "germany_no_ren_data.gms",
             "type": "gms"
@@ -21,6 +28,62 @@
             "encoding": "UTF-8",
             "file": "Data/renewables_data.gms",
             "name": "renewables_data.gms",
+            "type": "gms"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": "Data/storage_trad_data.gms",
+            "name": "storage_trad_data.gms",
+            "type": "gms"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": "Input_template/init.gms",
+            "name": "init.gms",
+            "type": "gms"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": "Input_template/input_demand.gms",
+            "name": "input_demand.gms",
+            "type": "gms"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": "Input_template/input_hydrogen.gms",
+            "name": "input_hydrogen.gms",
+            "type": "gms"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": "Input_template/input_primary.gms",
+            "name": "input_primary.gms",
+            "type": "gms"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": "Input_template/input_secondary.gms",
+            "name": "input_secondary.gms",
+            "type": "gms"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": "Input_template/input_storage.gms",
+            "name": "input_storage.gms",
+            "type": "gms"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": "Input_template/template_data.gms",
+            "name": "template_data.gms",
             "type": "gms"
         },
         {
@@ -68,6 +131,48 @@
         {
             "codecMib": 106,
             "encoding": "UTF-8",
+            "file": "Results/.DS_Store",
+            "name": ".DS_Store",
+            "type": ""
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": "Results/results_SCENbase_DATAgermany_no_ren_STORno.gdx",
+            "name": "results_SCENbase_DATAgermany_no_ren_STORno.gdx",
+            "type": "gdx"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": "Results/results_SCENbase_DATAtemplate_STORyes.gdx",
+            "name": "results_SCENbase_DATAtemplate_STORyes.gdx",
+            "type": "gdx"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": ".DS_Store",
+            "name": ".DS_Store",
+            "type": ""
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": ".gitignore",
+            "name": ".gitignore",
+            "type": ""
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": ".RData",
+            "name": ".RData",
+            "type": ""
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
             "file": "baseline.R",
             "name": "baseline.R",
             "type": ""
@@ -92,6 +197,13 @@
             "file": "Data Scource",
             "name": "Data Scource",
             "type": ""
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
+            "file": "gams1.gdx",
+            "name": "gams1.gdx",
+            "type": "gdx"
         },
         {
             "codecMib": 106,
@@ -121,7 +233,8 @@
             "name": "osemosys.gms",
             "options": [
                 "",
-                "--scen=batteries"
+                "--data = template --storage=1",
+                "--data = template"
             ],
             "type": "gms"
         },
@@ -142,30 +255,9 @@
         {
             "codecMib": 106,
             "encoding": "UTF-8",
-            "file": "osemosys_dec.lst",
-            "name": "osemosys_dec.lst",
-            "type": "lst"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "osemosys_dec.lxi",
-            "name": "osemosys_dec.lxi",
-            "type": "lxi"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "osemosys_init.lst",
-            "name": "osemosys_init.lst",
-            "type": "lst"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "osemosys_init.lxi",
-            "name": "osemosys_init.lxi",
-            "type": "lxi"
+            "file": "osemosys1.log",
+            "name": "osemosys1.log",
+            "type": "txt"
         },
         {
             "codecMib": 106,
@@ -205,7 +297,8 @@
     ],
     "options": [
         "",
-        "--scen=batteries"
+        "--data = template --storage=1",
+        "--data = template"
     ],
     "path": ".",
     "pf": "",
