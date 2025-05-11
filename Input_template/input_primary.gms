@@ -41,7 +41,7 @@ VariableCost(r,'IMPGAS',m,y) = 20;  # Unit: €/MWh # cost of imported natural g
 FixedCost(r,'IMPGAS',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'IMPGAS') = 999;  # Unit: years
 AvailabilityFactor(r,'IMPGAS',y) = 1;  # Unit: dimensionless
-EmissionActivityRatio(r,'IMPGAS','CO2','1',y) = 0.075;  # Unit: kg CO2 per PJ
+EmissionActivityRatio(r,'IMPGAS','CO2','1',y) = 0.075;  # Unit: kton CO2 per PJ
 ResidualCapacity(r,"IMPGAS",y) = 999;  # Unit: GW
 
 CapitalCost(r,'IMPHCO1',y) = 0;  # Unit: €/kW
@@ -49,7 +49,7 @@ VariableCost(r,'IMPHCO1',m,y) = 15;  # Unit: €/MWh # cost of imported coal in 
 FixedCost(r,'IMPHCO1',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'IMPHCO1') = 999;  # Unit: years
 AvailabilityFactor(r,'IMPHCO1',y) = 1;  # Unit: dimensionless
-EmissionActivityRatio(r,'IMPHCO1','CO2','1',y) = 0.089;  # Unit: kg CO2 per PJ
+EmissionActivityRatio(r,'IMPHCO1','CO2','1',y) = 0.089;  # Unit: kton CO2 per PJ
 ResidualCapacity(r,"IMPHCO1",y) = 999;  # Unit: GW
 
 CapitalCost(r,'IMPOIL1',y) = 0;  # Unit: €/kW
@@ -57,7 +57,7 @@ VariableCost(r,'IMPOIL1',m,y) = 35;  # Unit: €/MWh # cost of imported oil in �
 FixedCost(r,'IMPOIL1',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'IMPOIL1') = 999;  # Unit: years
 AvailabilityFactor(r,'IMPOIL1',y) = 1;  # Unit: dimensionless
-EmissionActivityRatio(r,'IMPOIL1','CO2','1',y) = 0.075;  # Unit: kg CO2 per PJ
+EmissionActivityRatio(r,'IMPOIL1','CO2','1',y) = 0.075;  # Unit: kton CO2 per PJ
 ResidualCapacity(r,"IMPOIL1",y) = 999;  # Unit: GW
 
 CapitalCost(r,'GRIDGAS',y) = 0;  # Unit: €/kW
