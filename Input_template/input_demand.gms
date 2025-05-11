@@ -16,11 +16,11 @@ $elseif.ph %phase%=='data'
 *------------------------------------------------------------------------	
 * Parameters - Demands       
 *------------------------------------------------------------------------
-scalar fel_2024 /1.6776/;  # Converted from 466 TWh to PJ   # Final electricity demand: Industrial, residential
-scalar a_fel /-0.023/;
-scalar b_fel /0.742/;
-scalar c_fel /1.001/;
-scalar d_fel /1.920/;
+scalar fel_2024 /1677.6/;  # Converted from 466 TWh to PJ   # Final electricity demand: Industrial, residential
+scalar a_fel /-0.083/;
+scalar b_fel /2.673/;
+scalar c_fel /3.604/;
+scalar d_fel /6.914/;
 
 # Demand is in PJ as per unit standardization guide
 Loop(y,
@@ -31,11 +31,11 @@ Loop(y,
         + d_fel;
 );
 
-scalar fith_2024 /1.872/;  # Converted from 520 TWh to PJ   # Industrial thermal demand 
-scalar a_fith /0.0088/;
-scalar b_fith /-0.1333/;
-scalar c_fith /-7.9555/;
-scalar d_fith /0.6666/;
+scalar fith_2024 /1872/;  # Converted from 520 TWh to PJ   # Industrial thermal demand 
+scalar a_fith /0.0320/;
+scalar b_fith /-0.4780/;
+scalar c_fith /-28.6400/;
+scalar d_fith /2.3999/;
 
 Loop(y,
     SpecifiedAnnualDemand("GERMANY","IH",y) = fith_2024
