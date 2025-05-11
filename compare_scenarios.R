@@ -1,6 +1,6 @@
 #### require results_analysis.R to run 
-select_multiple_scens <- "base|nocoal" #type of policy you want plotted
-data_select <- "germany"
+select_multiple_scens <- "base" #type of policy you want plotted
+data_select <- "template"
 want_storage <- "yes" #do you want to consider want_storage?
 
 #################### MULTIPLE scenarios
@@ -75,7 +75,7 @@ ggplot(Demand %>%
             linewidth=1.2) +
   xlab("") + ylab("MW") + facet_wrap(season~.,)
 
-techs <- c("SPV")
+techs <- c("SPV") #change
 ggplot(Activity %>%
          filter((str_detect(scen,paste(select_multiple_scens,collapse="|") )|scen=="base") & 
                   data==data_select & 

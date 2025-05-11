@@ -70,6 +70,7 @@ ResidualCapacity(r,"GRIDGAS",y) = 999;
 
 
 ###RENEWABLES
+#BIO
 CapitalCost(r,'IMPBIO1',y) = 0;
 VariableCost(r,'IMPBIO1',m,y) = 1e-5; #pasted cmt: not that free actually | cost of biomass in $/MWh  
 FixedCost(r,'IMPBIO1',y) = 0;
