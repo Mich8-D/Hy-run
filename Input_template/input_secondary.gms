@@ -40,7 +40,7 @@ CapacityFactor(r,'SPV','WN',y) = 0;
 CapitalCost(r,'SPV',y) = 1000;
 VariableCost(r,'SPV',m,y) = 1e-5;
 FixedCost(r,'SPV',y) = 5;
-ResidualCapacity(r,"SPV",y) = 9;
+ResidualCapacity(r,"SPV",y) = 102.3;  # Unit: GW (from Excel)
 
 # Characterize WIND-ONSHORE technology
 OperationalLife(r,'WPP_ON') = 15;
@@ -53,7 +53,7 @@ CapacityFactor(r,'WPP_ON','WN',y) = 0.4;
 CapitalCost(r,'WPP_ON',y) = 1200;
 VariableCost(r,'WPP_ON',m,y) = 1e-5;
 FixedCost(r,'WPP_ON',y) = 7;
-ResidualCapacity(r,"WPP_ON",y) = 12;
+ResidualCapacity(r,"WPP_ON",y) = 66.3;  # Unit: GW (from Excel)
 
 # Characterize WIND-OFFSHORE technology
 OperationalLife(r,'WPP_OFF') = 15;
@@ -74,14 +74,14 @@ AvailabilityFactor(r,'BIO',y) = 0.85;
 CapitalCost(r,'BIO',y) = 2000;
 VariableCost(r,'BIO',m,y) = 1e-5;
 FixedCost(r,'BIO',y) = 10;
-ResidualCapacity(r,"BIO",y) = 1.54;
+ResidualCapacity(r,"BIO",y) = 9.19;  # Unit: GW (from Excel)
 
 # Characterize GEOTHERMAL technology
 OperationalLife(r,'GEO') = 25;
 CapitalCost(r,'GEO',y) = 2000;
 VariableCost(r,'GEO',m,y) = 1e-5;
 FixedCost(r,'GEO',y) = 10;
-ResidualCapacity(r,"GEO",y) = 0.87;
+ResidualCapacity(r,"GEO",y) = 42;  # Unit: GW (from Excel)
 
 # Characterize RUN-OF-RIVER technology
 OperationalLife(r,'ROR') = 80;
@@ -89,39 +89,39 @@ AvailabilityFactor(r,'ROR',y) = 0.27;
 CapitalCost(r,'ROR',y) = 3000;
 VariableCost(r,'ROR',m,y) = 1e-5;
 FixedCost(r,'ROR',y) = 10;
-ResidualCapacity(r,"ROR",y) = 12;
+ResidualCapacity(r,"ROR",y) = 6.4;  # Unit: GW (from Excel)
 
 # Characterize COAL technology
 OperationalLife(r,'COAL') = 50;
 AvailabilityFactor(r,'COAL',y) = 0.8;
-CapitalCost(r,'COAL',y) = 1200;
+CapitalCost(r,'COAL',y) = 1200;  # Unit: €/kW
 VariableCost(r,'COAL',m,y) = 1e-5;
 FixedCost(r,'COAL',y) = 10;
-ResidualCapacity(r,"COAL",y) = 5;
+ResidualCapacity(r,"COAL",y) = 5;  # Unit: GW
 
 # Characterize GFPP technology
 OperationalLife(r,'GFPP') = 25;
 AvailabilityFactor(r,'GFPP',y) = 0.75;
-CapitalCost(r,'GFPP',y) = 2000;
+CapitalCost(r,'GFPP',y) = 2000;  # Unit: €/kW
 VariableCost(r,'GFPP',m,y) = 1e-5;
 FixedCost(r,'GFPP',y) = 10;
-ResidualCapacity(r,"GFPP",y) = 15;
+ResidualCapacity(r,"GFPP",y) = 15;  # Unit: GW
 
 # Characterize OIL technology
 OperationalLife(r,'OIL_GEN') = 40;
 AvailabilityFactor(r,'OIL_GEN',y) = 0.85;
-CapitalCost(r,'OIL_GEN',y) = 2000;
+CapitalCost(r,'OIL_GEN',y) = 2000;  # Unit: €/kW
 VariableCost(r,'OIL_GEN',m,y) = 1e-5;
 FixedCost(r,'OIL_GEN',y) = 10;
-ResidualCapacity(r,"OIL_GEN",y) = 1.55;
+ResidualCapacity(r,"OIL_GEN",y) = 1.55;  # Unit: GW
 
 # Characterize ELECTRIC GRID technology
 OperationalLife(r,'GRID_ELC') = 40;
 AvailabilityFactor(r,'GRID_ELC',y) = 0.85;
-CapitalCost(r,'GRID_ELC',y) = 2000;
+CapitalCost(r,'GRID_ELC',y) = 2000;  # Unit: €/kW
 VariableCost(r,'GRID_ELC',m,y) = 1e-5;
 FixedCost(r,'GRID_ELC',y) = 10;
-ResidualCapacity(r,"GRID_ELC",y) = 1.55;
+ResidualCapacity(r,"GRID_ELC",y) = 1.55;  # Unit: GW
 
 ** ----------------------------------------------------------------
 $elseif.ph %phase%=='popol'
