@@ -14,10 +14,9 @@ set batteries(TECHNOLOGY) / BEES /;
 ** ------------------------------------------------
 $elseif.ph %phase%=='data' 
 
-# Characterize ELECTROLIZERS
+# Characterize Battery Energy Storage System (BEES)
 AvailabilityFactor(r,'BEES',y) = 0.9;
 OperationalLife(r,'BEES') = 10;
-CapitalCost(r,'BEES',y) = 1;
 VariableCost(r,'BEES',m,y) = 0;
 FixedCost(r,'BEES',y) = 0;
 
@@ -28,28 +27,27 @@ CapacityFactor(r,'STOR_HYDRO',"SD",y) = 0.3;
 CapacityFactor(r,'STOR_HYDRO',"SN",y) = 0.3;
 CapacityFactor(r,'STOR_HYDRO',"WD",y) = 0.5;
 CapacityFactor(r,'STOR_HYDRO',"WN",y) = 0.5;
-CapitalCost(r,'STOR_HYDRO',y) = 1000;
 VariableCost(r,'STOR_HYDRO',m,y) = 0;
 FixedCost(r,'STOR_HYDRO',y) = 0;
 OperationalLife(r,'STOR_HYDRO') = 60;
 ResidualCapacity(r,'STOR_HYDRO',y) = 7.25;
 TotalAnnualMaxCapacityInvestment(r,'STOR_HYDRO',y) = 0;
 
-CapitalCostStorage(r,'BATTERIES',y) = 100;  # Unit: €/kW (as per hydrogen unit standard)
-ResidualStorageCapacity(r,'BATTERIES',y) = 0;  # Unit: PJ (explicitly zero)
-StorageLevelStart(r,'BATTERIES') = 0;  # Unit: PJ (explicitly zero)
+CapitalCostStorage(r,'BATTERIES',y) = 30000000;  # Unit: €/PJ
+ResidualStorageCapacity(r,'BATTERIES',y) = 0;     # Unit: PJ
+StorageLevelStart(r,'BATTERIES') = 0;             # Unit: PJ
 
-CapitalCostStorage(r,'DAM',y) = 100;  # Unit: €/kW (as per hydrogen unit standard)
-ResidualStorageCapacity(r,'DAM',y) = 3.5964;  # Unit: PJ (converted from 999 GWh using 1 GWh = 0.0036 PJ)
-StorageLevelStart(r,'DAM') = 3.5964;  # Unit: PJ (converted from 999 GWh using 1 GWh = 0.0036 PJ)
+CapitalCostStorage(r,'DAM',y) = 10000000;          # Unit: €/PJ
+ResidualStorageCapacity(r,'DAM',y) = 3.596;        # Unit: PJ
+StorageLevelStart(r,'DAM') = 3.596;  # Match capacity to avoid validation issues
 
 
 ** ------------------------------------------------
 $elseif.ph %phase%=='popol'
 
 
-InputActivityRatio(r,'BEES','ELC2',"1",y) = 2; #IEA convention
-OutputActivityRatio(r,'BEES','ELC1',"2",y) = 0.6; #IEA convention
+InputActivityRatio(r,'BEES','ELC2',"1",y) = 1;
+OutputActivityRatio(r,'BEES','ELC1',"2",y) = 0.9;
 
 InputActivityRatio(r,'STOR_HYDRO','ELC2',"1",y) = 1; #IEA convention
 OutputActivityRatio(r,'STOR_HYDRO','ELC1',"2",y) = 1; #IEA convention
