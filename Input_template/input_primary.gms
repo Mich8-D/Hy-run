@@ -37,31 +37,31 @@ $elseif.ph %phase%=='data'
 
 #FOSSIL FUELS
 CapitalCost(r,'IMPGAS',y) = 0;  # Unit: €/kW
-VariableCost(r,'IMPGAS',m,y) = 20;  # Unit: €/MWh # cost of imported natural gas in €/MWh
+VariableCost(r,'IMPGAS',m,y) = 10;  # Unit: €/GJ <-> mln€/PJ
 FixedCost(r,'IMPGAS',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'IMPGAS') = 999;  # Unit: years
 AvailabilityFactor(r,'IMPGAS',y) = 1;  # Unit: dimensionless
-EmissionActivityRatio(r,'IMPGAS','CO2','1',y) = 0.075;  # Unit: Gton CO2 per PJ
+EmissionActivityRatio(r,'IMPGAS','CO2','1',y) = 0.055;  # Unit: Mton CO2 per PJ
 ResidualCapacity(r,"IMPGAS",y) = 999;  # Unit: GW
 
 CapitalCost(r,'IMPHCO1',y) = 0;  # Unit: €/kW
-VariableCost(r,'IMPHCO1',m,y) = 15;  # Unit: €/MWh # cost of imported coal in €/MWh
+VariableCost(r,'IMPHCO1',m,y) = 3.5;  # Unit: €/GJ <-> mln€/PJ
 FixedCost(r,'IMPHCO1',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'IMPHCO1') = 999;  # Unit: years
 AvailabilityFactor(r,'IMPHCO1',y) = 1;  # Unit: dimensionless
-EmissionActivityRatio(r,'IMPHCO1','CO2','1',y) = 0.089;  # Unit: Gton CO2 per PJ
+EmissionActivityRatio(r,'IMPHCO1','CO2','1',y) = 0.089;  # Unit: Mton CO2 per PJ
 ResidualCapacity(r,"IMPHCO1",y) = 999;  # Unit: GW
 
 CapitalCost(r,'IMPOIL1',y) = 0;  # Unit: €/kW
-VariableCost(r,'IMPOIL1',m,y) = 35;  # Unit: €/MWh # cost of imported oil in €/MWh
+VariableCost(r,'IMPOIL1',m,y) = 8.5;  # Unit: €/MWh # cost of imported oil in €/MWh
 FixedCost(r,'IMPOIL1',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'IMPOIL1') = 999;  # Unit: years
 AvailabilityFactor(r,'IMPOIL1',y) = 1;  # Unit: dimensionless
-EmissionActivityRatio(r,'IMPOIL1','CO2','1',y) = 0.075;  # Unit: Gton CO2 per PJ
+EmissionActivityRatio(r,'IMPOIL1','CO2','1',y) = 0.075;  # Unit: Mton CO2 per PJ
 ResidualCapacity(r,"IMPOIL1",y) = 999;  # Unit: GW
 
 CapitalCost(r,'GRIDGAS',y) = 0;  # Unit: €/kW
-VariableCost(r,'GRIDGAS',m,y) = 0;  # Unit: €/MWh # cost of gas in $/MWh
+VariableCost(r,'GRIDGAS',m,y) = 1e-5;  
 FixedCost(r,'GRIDGAS',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'GRIDGAS') = 40;  # Unit: years
 AvailabilityFactor(r,'GRIDGAS',y) = 1;  # Unit: dimensionless
@@ -71,7 +71,7 @@ ResidualCapacity(r,"GRIDGAS",y) = 999;  # Unit: GW
 
 ###RENEWABLES
 CapitalCost(r,'IMPBIO1',y) = 0;  # Unit: €/kW
-VariableCost(r,'IMPBIO1',m,y) = 5;  # Unit: €/MWh # estimated cost of biomass (€/MWh)  
+VariableCost(r,'IMPBIO1',m,y) = 3;  # Unit: €/MWh # estimated cost of biomass (€/MWh)  
 FixedCost(r,'IMPBIO1',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'IMPBIO1') = 999;  # Unit: years
 AvailabilityFactor(r,'IMPBIO1',y) = 1;  # Unit: dimensionless
