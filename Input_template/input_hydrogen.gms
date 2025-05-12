@@ -110,7 +110,7 @@ EmissionActivityRatio(r,'SMR_CCS','CO2','1',y) = - 0.075; # Unit: kg CO₂ per P
 # Industrial Heating - Hydrogen (IHH)
 AvailabilityFactor(r,'IHH',y) = 0.9;
 OperationalLife(r,'IHH') = 15;  # Assumed lifetime for industrial heating
-CapitalCost(r,'IHH',y) = 1000;   # Rough estimate based on heating techs
+CapitalCost(r,'IHH',y) = 1000;  # Rough estimate based on heating techs
 VariableCost(r,'IHH',m,y) = 1e-5;
 FixedCost(r,'IHH',y) = 0;
 
