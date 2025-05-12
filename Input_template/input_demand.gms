@@ -72,23 +72,23 @@ AccumulatedAnnualDemand(r,f,y) = 0;
 ##### END-USE TECHNOLOGIES
 
 * electricity 
-CapitalCost(r,"FEU",y) = 1000;
+CapitalCost(r,"FEU",y) = 0;
 VariableCost(r,"FEU",m,y) = 1e-5;
 FixedCost(r,"FEU",y) = 0.1;
 OperationalLife(r,"FEU") = 10;
 
 ** industrial heating technologies
-CapitalCost(r,"IHE",y) = 1000;
+CapitalCost(r,"IHE",y) = 0;
 VariableCost(r,"IHE",m,y) = 1e-5;
 FixedCost(r,"IHE",y) = 0.1;
 OperationalLife(r,"IHE") = 10;
 
-CapitalCost(r,"IHG",y) = 1000;
+CapitalCost(r,"IHG",y) = 0;
 VariableCost(r,"IHG",m,y) = 1e-5;
 FixedCost(r,"IHG",y) = 0.1;
 OperationalLife(r,"IHG") = 10;
 
-CapitalCost(r,"IHC",y) = 1000;
+CapitalCost(r,"IHC",y) = 0;
 VariableCost(r,"IHC",m,y) = 1e-5;
 FixedCost(r,"IHC",y) = 0.1;
 OperationalLife(r,"IHC") = 10;

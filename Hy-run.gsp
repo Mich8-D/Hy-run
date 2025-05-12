@@ -138,13 +138,6 @@
         {
             "codecMib": 106,
             "encoding": "UTF-8",
-            "file": "Results/results_SCENbase_DATAgermany_no_ren_STORno.gdx",
-            "name": "results_SCENbase_DATAgermany_no_ren_STORno.gdx",
-            "type": "gdx"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
             "file": "Results/results_SCENbase_DATAtemplate_STORyes.gdx",
             "name": "results_SCENbase_DATAtemplate_STORyes.gdx",
             "type": "gdx"
