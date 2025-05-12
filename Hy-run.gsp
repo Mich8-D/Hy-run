@@ -234,7 +234,8 @@
             "options": [
                 "",
                 "--data = template --storage=1",
-                "--data = template"
+                "--data = template",
+                "--data=template"
             ],
             "type": "gms"
         },
@@ -298,7 +299,8 @@
     "options": [
         "",
         "--data = template --storage=1",
-        "--data = template"
+        "--data = template",
+        "--data=template"
     ],
     "path": ".",
     "pf": "",
