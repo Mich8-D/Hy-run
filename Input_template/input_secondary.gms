@@ -143,7 +143,7 @@ OutputActivityRatio(r,'WPP_OFF','ELC1',"1",y) = 1;
 InputActivityRatio(r,'BIO','WBM',"1",y) = 1/0.25;
 OutputActivityRatio(r,'BIO','ELC1',"1",y) = 1;
 
-InputActivityRatio(r,'GEO','GTH',"1",y) = 1/0.25;
+InputActivityRatio(r,'GEO','GTH',"1",y) = 1;
 OutputActivityRatio(r,'GEO','ELC1',"1",y) = 1;
 
 InputActivityRatio(r,'COAL','HCO',"1",y) = 1/0.45;
@@ -161,7 +161,7 @@ InputActivityRatio(r,'OIL_GEN','OIL',"1",y) = 1/0.2;
 OutputActivityRatio(r,'OIL_GEN','ELC1',"1",y) = 1;
 
 ** electric grid
-InputActivityRatio(r,'GRID_ELC','ELC1',"1",y) = 1;
+InputActivityRatio(r,'GRID_ELC','ELC1',"1",y) = 1/0.93;
 OutputActivityRatio(r,'GRID_ELC','ELC2',"1",y) = 1;
 
 $endif.ph

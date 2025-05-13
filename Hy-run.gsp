@@ -228,7 +228,8 @@
                 "",
                 "--data = template --storage=1",
                 "--data = template",
-                "--data=template"
+                "--data=template",
+                "--data=template --storage=1"
             ],
             "type": "gms"
         },
@@ -293,7 +294,8 @@
         "",
         "--data = template --storage=1",
         "--data = template",
-        "--data=template"
+        "--data=template",
+        "--data=template --storage=1"
     ],
     "path": ".",
     "pf": "",
