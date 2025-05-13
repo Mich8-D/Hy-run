@@ -99,7 +99,7 @@ CapitalCost(r,'COAL',y) = 1200;  # Unit: €/kW
 VariableCost(r,'COAL',m,y) = 0.25; # Unit: €/GJ
 FixedCost(r,'COAL',y) = 50;
 ResidualCapacity(r,"COAL",y) = 16;  # Unit: GW
-EmissionActivityRatio(r,'COAL','CO2','1',y) = 0.089/0.45;  # Unit: kg CO2 per GJ
+EmissionActivityRatio(r,'COAL','CO2_PP','1',y) = 0.089/0.45;  # Unit: kg CO2 per GJ
 
 # Characterize GFPP technology
 OperationalLife(r,'GFPP') = 25;
@@ -108,7 +108,7 @@ CapitalCost(r,'GFPP',y) = 600;  # Unit: €/kW
 VariableCost(r,'GFPP',m,y) = 1e-5;
 FixedCost(r,'GFPP',y) = 20;
 ResidualCapacity(r,"GFPP",y) = 37;  # Unit: GW
-EmissionActivityRatio(r,'GFPP','CO2','1',y) = 0.055/0.35;  # Unit: kg CO2 per GJ
+EmissionActivityRatio(r,'GFPP','CO2_PP','1',y) = 0.055/0.35;  # Unit: kg CO2 per GJ
 
 # Characterize OIL technology
 OperationalLife(r,'OIL_GEN') = 40;
@@ -117,7 +117,7 @@ CapitalCost(r,'OIL_GEN',y) = 1400;  # Unit: €/kW
 VariableCost(r,'OIL_GEN',m,y) = 1e-5;
 FixedCost(r,'OIL_GEN',y) = 80;
 ResidualCapacity(r,"OIL_GEN",y) = 4.44;  # Unit: GW
-EmissionActivityRatio(r,'OIL_GEN','CO2','1',y) = 0.075/0.2;  # Unit: kg CO2 per GJ
+EmissionActivityRatio(r,'OIL_GEN','CO2_PP','1',y) = 0.075/0.2;  # Unit: kg CO2 per GJ
 
 # Characterize ELECTRIC GRID technology
 OperationalLife(r,'GRID_ELC') = 40;
