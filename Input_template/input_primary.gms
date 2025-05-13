@@ -42,7 +42,7 @@ VariableCost(r,'IMPGAS',m,y) = 10;  # Unit: €/GJ <-> mln€/PJ
 FixedCost(r,'IMPGAS',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'IMPGAS') = 999;  # Unit: years
 AvailabilityFactor(r,'IMPGAS',y) = 1;  # Unit: dimensionless
-# EmissionActivityRatio(r,'IMPGAS','CO2','1',y) = 0.055;  # Unit: Mton CO2 per PJ
+EmissionActivityRatio(r,'IMPGAS','CO2','1',y) = 0.055;  # Unit: Mton CO2 per PJ
 ResidualCapacity(r,"IMPGAS",y) = 999;  # Unit: GW
 
 CapitalCost(r,'IMPHCO1',y) = 0;  # Unit: €/kW
@@ -50,7 +50,7 @@ VariableCost(r,'IMPHCO1',m,y) = 3.5;  # Unit: €/GJ <-> mln€/PJ
 FixedCost(r,'IMPHCO1',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'IMPHCO1') = 999;  # Unit: years
 AvailabilityFactor(r,'IMPHCO1',y) = 1;  # Unit: dimensionless
-#EmissionActivityRatio(r,'IMPHCO1','CO2','1',y) = 0.089;  # Unit: Mton CO2 per PJ
+EmissionActivityRatio(r,'IMPHCO1','CO2','1',y) = 0.089;  # Unit: Mton CO2 per PJ
 ResidualCapacity(r,"IMPHCO1",y) = 999;  # Unit: GW
 
 CapitalCost(r,'IMPOIL1',y) = 0;  # Unit: €/kW
@@ -58,7 +58,7 @@ VariableCost(r,'IMPOIL1',m,y) = 8.5;  # Unit: €/GJ <-> mln€/PJ
 FixedCost(r,'IMPOIL1',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'IMPOIL1') = 999;  # Unit: years
 AvailabilityFactor(r,'IMPOIL1',y) = 1;  # Unit: dimensionless
-#EmissionActivityRatio(r,'IMPOIL1','CO2','1',y) = 0.075;  # Unit: Mton CO2 per PJ
+EmissionActivityRatio(r,'IMPOIL1','CO2','1',y) = 0.075;  # Unit: Mton CO2 per PJ
 ResidualCapacity(r,"IMPOIL1",y) = 999;  # Unit: GW
 
 CapitalCost(r,'GRIDGAS',y) = 0;  # Unit: €/kW
