@@ -3,7 +3,7 @@ $set phase %1
 $ifthen.ph %phase%=='sets'
 
 set     TECHNOLOGY      /
-        FEU 'Final Electricity Usages'
+        FEU 'Final Electricity Usages' #just accounting for the demand
         IHE 'Industrial heating - electric'
         IHG 'Industrial heating - gas'
         IHC 'Industrial heating - coal' /;
@@ -11,6 +11,8 @@ set     TECHNOLOGY      /
 set    FUEL            /
         ED 'Demand for electricity'
         IH 'Demand for industrial heating'/;
+
+set fuel_cosumption(TECHNOLOGY) / IHE, IHG, IHC /;
 
 $elseif.ph %phase%=='data' 
 *------------------------------------------------------------------------	
@@ -76,6 +78,7 @@ CapitalCost(r,"FEU",y) = 0;
 VariableCost(r,"FEU",m,y) = 1e-5;
 FixedCost(r,"FEU",y) = 0.1;
 OperationalLife(r,"FEU") = 10;
+ResidualCapacity(r,"FEU",y) = 76;  
 
 ** industrial heating technologies
 CapitalCost(r,"IHE",y) = 0;

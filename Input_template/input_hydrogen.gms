@@ -28,13 +28,20 @@ set hydrogen_storages(STORAGE) / UHS , TANKS /;
 ** ------------------------------------------------
 $elseif.ph %phase%=='data'
 
+*------------------------------------------------------------------------	
+* Parameters - Demands       
+*------------------------------------------------------------------------
+* we are going to impose in some of the scenarios the hydrogen demand for industrial heating,
+* accordingliy to Germany development goals
+
+SpecifiedAnnualDemand("GERMANY","H2_TH","2050") = 0; # Unit: PJ
+
 *------------------------------------------------------------
 * Technical and economic parameters for hydrogen production tech
 * Source: Hydrogen Inputs for OSeMOSYS and cost assessment sheets
 *------------------------------------------------------------
 
 *----------H2 PRODUCTION TECHNOLOGIES-------------------
-
 ###### WATCH OUT! The capacity factor for conversion technologies should be defined over the capacity!!!!!!
 # Hydrogen Electrolyzers (HEL)
 AvailabilityFactor(r,'HEL',y) = 0.9;
