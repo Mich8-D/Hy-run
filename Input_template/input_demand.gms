@@ -90,13 +90,13 @@ CapitalCost(r,"IHG",y) = 0;
 VariableCost(r,"IHG",m,y) = 1e-5;
 FixedCost(r,"IHG",y) = 0.1;
 OperationalLife(r,"IHG") = 10;
-# EmissionActivityRatio(r,"IHG","CO2","1",y) = 0.055;  # Unit: Mton CO2 per PJ
+EmissionActivityRatio(r,"IHG","CO2","1",y) = 0.055*1.1;  # Unit: Mton CO2 per PJ
 
 CapitalCost(r,"IHC",y) = 0;
 VariableCost(r,"IHC",m,y) = 1e-5;
 FixedCost(r,"IHC",y) = 0.1;
 OperationalLife(r,"IHC") = 10;
-# EmissionActivityRatio(r,"IHC","CO2","1",y) = 0.089;  # Unit: Mton CO2 per PJ
+EmissionActivityRatio(r,"IHC","CO2","1",y) = 0.089*1.1;  # Unit: Mton CO2 per PJ
 
 *------------------------------------------------------------------------
 $elseif.ph %phase%=='popol'
@@ -109,8 +109,8 @@ OutputActivityRatio(r,"FEU","ED","1",y) = 1;
 
 ** industrial heating technologies
 InputActivityRatio(r,"IHE","ELC2","1",y) = 1;
-InputActivityRatio(r,"IHG","GAS2","1",y) = 1;
-InputActivityRatio(r,"IHC","HCO","1",y) = 1;
+InputActivityRatio(r,"IHG","GAS2","1",y) = 1.1;
+InputActivityRatio(r,"IHC","HCO","1",y) = 1.1;
 # demand for industrial heating is thermal
 OutputActivityRatio(r,"IHE","IH","1",y) = 1;
 OutputActivityRatio(r,"IHG","IH","1",y) = 1;
