@@ -90,11 +90,13 @@ CapitalCost(r,"IHG",y) = 0;
 VariableCost(r,"IHG",m,y) = 1e-5;
 FixedCost(r,"IHG",y) = 0.1;
 OperationalLife(r,"IHG") = 10;
+EmissionActivityRatio(r,"IHG","CO2","1",y) = 0.055;  # Unit: Mton CO2 per PJ
 
 CapitalCost(r,"IHC",y) = 0;
 VariableCost(r,"IHC",m,y) = 1e-5;
 FixedCost(r,"IHC",y) = 0.1;
 OperationalLife(r,"IHC") = 10;
+EmissionActivityRatio(r,"IHC","CO2","1",y) = 0.089;  # Unit: Mton CO2 per PJ
 
 *------------------------------------------------------------------------
 $elseif.ph %phase%=='popol'

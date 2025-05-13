@@ -7,7 +7,7 @@ $setglobal yearend 2050
 * Sets       
 *------------------------------------------------------------------------
 set     YEAR    / %yearstart%*%yearend% /;
-set     EMISSION        / CO2_POWER, CO2_IND, CO2_TOT /;
+set     EMISSION        / CO2 /;
 set     MODE_OF_OPERATION       / 1, 2 /;
 set     REGION  / GERMANY /;
 set     TIMESLICE  / ID, IN, SD, SN, WD, WN /;
