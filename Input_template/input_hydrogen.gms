@@ -115,19 +115,11 @@ EmissionActivityRatio(r,'SMR_CCS','CO2','1',y) = - 0.075; # Unit: kg CO₂ per P
 *--------------------H2 CONSUMPTION TECHNOLOGIES-------------------
 
 # Industrial Heating - Hydrogen (IHH)
-<<<<<<< HEAD
 AvailabilityFactor(r,'IHH',y) = 0.9;          # assumed
 OperationalLife(r,'IHH') = 15;                # years
 CapitalCost(r,'IHH',y) = 1200;                # €/kW - slightly higher due to hydrogen tech maturity
 VariableCost(r,'IHH',m,y) = 0.002;            # €/kWh - minor O&M (H2 fuel cost modeled separately)
 FixedCost(r,'IHH',y) = 20;                    # €/kW/year - ~1.7% of CAPEX
-=======
-AvailabilityFactor(r,'IHH',y) = 0.9;
-OperationalLife(r,'IHH') = 15;  # Assumed lifetime for industrial heating
-CapitalCost(r,'IHH',y) = 1000;  # Rough estimate based on heating techs
-VariableCost(r,'IHH',m,y) = 1e-5;
-FixedCost(r,'IHH',y) = 0;
->>>>>>> 55d9d2d67569b4b76b0939101265696726085881
 
 # Fuel Cells (FC) #### dummy data
 AvailabilityFactor(r,'FC',y) = 0.9;
