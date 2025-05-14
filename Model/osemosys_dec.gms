@@ -299,6 +299,11 @@ parameter ResidualStorageCapacity(REGION,STORAGE,YEAR);
 * Defines fastest discharge duration in hours for each technology
 parameter StorageDuration(TECHNOLOGY);
 
+* Fraction of stored energy lost per time slice
+parameter SelfDischargeRate(STORAGE,l);
+
+parameter SeasonSelfDischargeRate(STORAGE, SEASON);
+
 
 *------------------------------------------------------------------------	
 * * Capacity constraints       

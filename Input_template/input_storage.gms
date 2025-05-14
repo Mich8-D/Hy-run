@@ -37,9 +37,24 @@ ResidualCapacity(r,'STOR_HYDRO',y) = 7.25;
 TotalAnnualMaxCapacityInvestment(r,'STOR_HYDRO',y) = 0;
 StorageDuration('STOR_HYDRO') = 500;
 
+
+
 CapitalCostStorage(r,'BATTERIES',y) = 30000000;  # Unit: €/PJ
 ResidualStorageCapacity(r,'BATTERIES',y) = 0;     # Unit: PJ
 StorageLevelStart(r,'BATTERIES') = 0;             # Unit: PJ
+
+# parameter needed to compute self-discharge of batteries
+scalar BEES_monthly_discharge /0.02/; # 2% monthly self-discharge
+loop (l,
+    SelfDischargeRate('BATTERIES',l) =  1 - (1 - BEES_monthly_discharge) ** (12 * YearSplit(l,yfirst));
+);
+
+loop(ls,
+    SeasonSelfDischargeRate('BATTERIES', ls) = 
+        1 - product(l$(Conversionls(l, ls)), 1 - SelfDischargeRate('BATTERIES', l));
+);
+
+
 
 CapitalCostStorage(r,'DAM',y) = 10000000;          # Unit: €/PJ
 ResidualStorageCapacity(r,'DAM',y) = 3.596;        # Unit: PJ

@@ -15,6 +15,8 @@ set     SEASON / 1, 2, 3 /;
 set     DAYTYPE / 1 /;
 set     DAILYTIMEBRACKET / 1, 2 /;
 
+scalar yfirst / %yearstart% /;
+
 # characterize technologies 
 set power_plants(TECHNOLOGY);
 set storage_plants(TECHNOLOGY);
