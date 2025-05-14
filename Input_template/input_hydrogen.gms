@@ -108,11 +108,11 @@ EmissionActivityRatio(r,'SMR_CCS','CO2','1',y) = - 0.075; # Unit: kg CO₂ per P
 *--------------------H2 CONSUMPTION TECHNOLOGIES-------------------
 
 # Industrial Heating - Hydrogen (IHH)
-AvailabilityFactor(r,'IHH',y) = 0.9;
-OperationalLife(r,'IHH') = 15;  # Assumed lifetime for industrial heating
-CapitalCost(r,'IHH',y) = 1000;   # Rough estimate based on heating techs
-VariableCost(r,'IHH',m,y) = 1e-5;
-FixedCost(r,'IHH',y) = 0;
+AvailabilityFactor(r,'IHH',y) = 0.9;          # assumed
+OperationalLife(r,'IHH') = 15;                # years
+CapitalCost(r,'IHH',y) = 1200;                # €/kW - slightly higher due to hydrogen tech maturity
+VariableCost(r,'IHH',m,y) = 0.002;            # €/kWh - minor O&M (H2 fuel cost modeled separately)
+FixedCost(r,'IHH',y) = 20;                    # €/kW/year - ~1.7% of CAPEX
 
 # Fuel Cells (FC) #### dummy data
 AvailabilityFactor(r,'FC',y) = 0.9;
@@ -282,8 +282,8 @@ TechnologyToStorage(r,'1','TANKS_CHARGE','TANKS') = 1;
 TechnologyFromStorage(r,'2','TANKS_CHARGE','TANKS') = 0.9;
 
 # Industrial Heating with Hydrogen
-InputActivityRatio(r,'IHH','H2_TH','1',y) = 1;   # Consumes hydrogen
-OutputActivityRatio(r,'IHH','IH','1',y) = 1;   # Delivers industrial heating service
+InputActivityRatio(r,'IHH','H2_TH','1',y) = 1.11;   # ~90% efficiency
+OutputActivityRatio(r,'IHH','IH','1',y) = 1;
 
 # Hydrogen Grid (GRID_H2)
 InputActivityRatio(r,'GRID_H2','H2','1',y) = 1;

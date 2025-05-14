@@ -94,34 +94,94 @@ ResidualCapacity(r,"ROR",y) = 6.4;  # Unit: GW (from Excel)
 # Characterize COAL technology
 OperationalLife(r,'COAL') = 50;
 AvailabilityFactor(r,'COAL',y) = 0.8;
-CapitalCost(r,'COAL',y) = 1200;  # Unit: €/kW
+CapitalCost(r,'COAL',y) = 1200;             # €/kW
 VariableCost(r,'COAL',m,y) = 1e-5;
 FixedCost(r,'COAL',y) = 10;
-ResidualCapacity(r,"COAL",y) = 5;  # Unit: GW
+ResidualCapacity(r,"COAL","2030") = 18.9;
+ResidualCapacity(r,"COAL","2031") = 17.95;
+ResidualCapacity(r,"COAL","2032") = 17.01;
+ResidualCapacity(r,"COAL","2033") = 16.06;
+ResidualCapacity(r,"COAL","2034") = 15.12;
+ResidualCapacity(r,"COAL","2035") = 14.18;
+ResidualCapacity(r,"COAL","2036") = 13.23;
+ResidualCapacity(r,"COAL","2037") = 12.28;
+ResidualCapacity(r,"COAL","2038") = 11.34;
+ResidualCapacity(r,"COAL","2039") = 10.4;
+ResidualCapacity(r,"COAL","2040") = 9.45;
+ResidualCapacity(r,"COAL","2041") = 8.5;
+ResidualCapacity(r,"COAL","2042") = 7.56;
+ResidualCapacity(r,"COAL","2043") = 6.61;
+ResidualCapacity(r,"COAL","2044") = 5.67;
+ResidualCapacity(r,"COAL","2045") = 4.72;
+ResidualCapacity(r,"COAL","2046") = 3.78;
+ResidualCapacity(r,"COAL","2047") = 2.84;
+ResidualCapacity(r,"COAL","2048") = 1.89;
+ResidualCapacity(r,"COAL","2049") = 0.95;
+ResidualCapacity(r,"COAL","2050") = 0.0;
 
 # Characterize GFPP technology
 OperationalLife(r,'GFPP') = 25;
 AvailabilityFactor(r,'GFPP',y) = 0.75;
-CapitalCost(r,'GFPP',y) = 2000;  # Unit: €/kW
+CapitalCost(r,'GFPP',y) = 2000;             # €/kW
 VariableCost(r,'GFPP',m,y) = 1e-5;
 FixedCost(r,'GFPP',y) = 10;
-ResidualCapacity(r,"GFPP",y) = 15;  # Unit: GW
+ResidualCapacity(r,"GFPP","2030") = 22.5;
+ResidualCapacity(r,"GFPP","2031") = 22.5;
+ResidualCapacity(r,"GFPP","2032") = 22.5;
+ResidualCapacity(r,"GFPP","2033") = 22.5;
+ResidualCapacity(r,"GFPP","2034") = 22.5;
+ResidualCapacity(r,"GFPP","2035") = 22.5;
+ResidualCapacity(r,"GFPP","2036") = 22.5;
+ResidualCapacity(r,"GFPP","2037") = 22.5;
+ResidualCapacity(r,"GFPP","2038") = 22.5;
+ResidualCapacity(r,"GFPP","2039") = 22.5;
+ResidualCapacity(r,"GFPP","2040") = 22.5;
+ResidualCapacity(r,"GFPP","2041") = 22.5;
+ResidualCapacity(r,"GFPP","2042") = 22.5;
+ResidualCapacity(r,"GFPP","2043") = 22.5;
+ResidualCapacity(r,"GFPP","2044") = 22.5;
+ResidualCapacity(r,"GFPP","2045") = 22.5;
+ResidualCapacity(r,"GFPP","2046") = 22.5;
+ResidualCapacity(r,"GFPP","2047") = 22.5;
+ResidualCapacity(r,"GFPP","2048") = 22.5;
+ResidualCapacity(r,"GFPP","2049") = 22.5;
+ResidualCapacity(r,"GFPP","2050") = 22.5;
 
 # Characterize OIL technology
 OperationalLife(r,'OIL_GEN') = 40;
 AvailabilityFactor(r,'OIL_GEN',y) = 0.85;
-CapitalCost(r,'OIL_GEN',y) = 2000;  # Unit: €/kW
+CapitalCost(r,'OIL_GEN',y) = 2000;          // €/kW
 VariableCost(r,'OIL_GEN',m,y) = 1e-5;
 FixedCost(r,'OIL_GEN',y) = 10;
-ResidualCapacity(r,"OIL_GEN",y) = 1.55;  # Unit: GW
+ResidualCapacity(r,"OIL_GEN","2030") = 0;
+ResidualCapacity(r,"OIL_GEN","2031") = 0;
+ResidualCapacity(r,"OIL_GEN","2032") = 0;
+ResidualCapacity(r,"OIL_GEN","2033") = 0;
+ResidualCapacity(r,"OIL_GEN","2034") = 0;
+ResidualCapacity(r,"OIL_GEN","2035") = 0;
+ResidualCapacity(r,"OIL_GEN","2036") = 0;
+ResidualCapacity(r,"OIL_GEN","2037") = 0;
+ResidualCapacity(r,"OIL_GEN","2038") = 0;
+ResidualCapacity(r,"OIL_GEN","2039") = 0;
+ResidualCapacity(r,"OIL_GEN","2040") = 0;
+ResidualCapacity(r,"OIL_GEN","2041") = 0;
+ResidualCapacity(r,"OIL_GEN","2042") = 0;
+ResidualCapacity(r,"OIL_GEN","2043") = 0;
+ResidualCapacity(r,"OIL_GEN","2044") = 0;
+ResidualCapacity(r,"OIL_GEN","2045") = 0;
+ResidualCapacity(r,"OIL_GEN","2046") = 0;
+ResidualCapacity(r,"OIL_GEN","2047") = 0;
+ResidualCapacity(r,"OIL_GEN","2048") = 0;
+ResidualCapacity(r,"OIL_GEN","2049") = 0;
+ResidualCapacity(r,"OIL_GEN","2050") = 0;
 
 # Characterize ELECTRIC GRID technology
 OperationalLife(r,'GRID_ELC') = 40;
 AvailabilityFactor(r,'GRID_ELC',y) = 0.85;
-CapitalCost(r,'GRID_ELC',y) = 2000;  # Unit: €/kW
-VariableCost(r,'GRID_ELC',m,y) = 1e-5;
-FixedCost(r,'GRID_ELC',y) = 10;
-ResidualCapacity(r,"GRID_ELC",y) = 1.55;  # Unit: GW
+CapitalCost(r,'GRID_ELC',y) = 1.5;        # €/kW - Based on midpoint of 2023 cost range
+VariableCost(r,'GRID_ELC',m,y) = 0.00001; # €/kWh - minor O&M
+FixedCost(r,'GRID_ELC',y) = 0.02;         # €/kW/year - 1.5% of CAPEX as fixed O&M
+ResidualCapacity(r,"GRID_ELC",y) = 1.55;  # GW 
 
 ** ----------------------------------------------------------------
 $elseif.ph %phase%=='popol'
