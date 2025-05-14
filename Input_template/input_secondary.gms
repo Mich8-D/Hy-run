@@ -126,7 +126,7 @@ AvailabilityFactor(r,'GFPP',y) = 0.75;
 CapitalCost(r,'GFPP',y) = 2000;             # €/kW
 VariableCost(r,'GFPP',m,y) = 1e-5;
 FixedCost(r,'GFPP',y) = 10;
-ResidualCapacity(r,"GFPP","2030") = 22.5;
+ResidualCapacity(r,"GFPP",y)$(ord(y)=b=) = 22.5;
 ResidualCapacity(r,"GFPP","2031") = 22.5;
 ResidualCapacity(r,"GFPP","2032") = 22.5;
 ResidualCapacity(r,"GFPP","2033") = 22.5;

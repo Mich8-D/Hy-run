@@ -63,6 +63,6 @@ TechnologyToStorage(r,"1",'STOR_HYDRO','DAM') = 1;
 TechnologyFromStorage(r,"2",'STOR_HYDRO','DAM') = 1;
 
 TechnologyToStorageMap('BEES', 'BATTERIES') = yes;
-#TechnologyToStorageMap('STOR_HYDRO', 'DAM') = yes;
+*TechnologyToStorageMap('STOR_HYDRO', 'DAM') = yes;
 
 $endif.ph
