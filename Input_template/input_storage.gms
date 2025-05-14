@@ -11,7 +11,7 @@ SET TECHNOLOGY /BEES "Battery Energy Storage System"
 set storage_plants(TECHNOLOGY) / BEES, STOR_HYDRO /;
 set batteries(TECHNOLOGY) / BEES /;
 
-set TechnologyToSorageMap(r,t,s,y)
+
 
 ** ------------------------------------------------
 $elseif.ph %phase%=='data' 
@@ -35,7 +35,7 @@ FixedCost(r,'STOR_HYDRO',y) = 0;
 OperationalLife(r,'STOR_HYDRO') = 60;
 ResidualCapacity(r,'STOR_HYDRO',y) = 7.25;
 TotalAnnualMaxCapacityInvestment(r,'STOR_HYDRO',y) = 0;
-StorageDuration('STOR_HYDRO') = 6;
+StorageDuration('STOR_HYDRO') = 500;
 
 CapitalCostStorage(r,'BATTERIES',y) = 30000000;  # Unit: €/PJ
 ResidualStorageCapacity(r,'BATTERIES',y) = 0;     # Unit: PJ
