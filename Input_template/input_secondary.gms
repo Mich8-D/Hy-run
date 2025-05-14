@@ -95,7 +95,6 @@ ResidualCapacity(r,"ROR",y) = 6.4;  # Unit: GW (from Excel)
 # Characterize COAL technology
 OperationalLife(r,'COAL') = 50;
 AvailabilityFactor(r,'COAL',y) = 0.8;
-<<<<<<< HEAD
 CapitalCost(r,'COAL',y) = 1200;             # €/kW
 VariableCost(r,'COAL',m,y) = 1e-5;
 FixedCost(r,'COAL',y) = 10;
@@ -120,18 +119,10 @@ ResidualCapacity(r,"COAL","2047") = 2.84;
 ResidualCapacity(r,"COAL","2048") = 1.89;
 ResidualCapacity(r,"COAL","2049") = 0.95;
 ResidualCapacity(r,"COAL","2050") = 0.0;
-=======
-CapitalCost(r,'COAL',y) = 1200;  # Unit: €/kW
-VariableCost(r,'COAL',m,y) = 0.25; # Unit: €/GJ
-FixedCost(r,'COAL',y) = 50;
-ResidualCapacity(r,"COAL",y) = 16;  # Unit: GW
-EmissionActivityRatio(r,'COAL','CO2_PP','1',y) = 0.089/0.45;  # Unit: kg CO2 per GJ
->>>>>>> 55d9d2d67569b4b76b0939101265696726085881
 
 # Characterize GFPP technology
 OperationalLife(r,'GFPP') = 25;
 AvailabilityFactor(r,'GFPP',y) = 0.75;
-<<<<<<< HEAD
 CapitalCost(r,'GFPP',y) = 2000;             # €/kW
 VariableCost(r,'GFPP',m,y) = 1e-5;
 FixedCost(r,'GFPP',y) = 10;
@@ -156,18 +147,10 @@ ResidualCapacity(r,"GFPP","2047") = 22.5;
 ResidualCapacity(r,"GFPP","2048") = 22.5;
 ResidualCapacity(r,"GFPP","2049") = 22.5;
 ResidualCapacity(r,"GFPP","2050") = 22.5;
-=======
-CapitalCost(r,'GFPP',y) = 600;  # Unit: €/kW
-VariableCost(r,'GFPP',m,y) = 1e-5;
-FixedCost(r,'GFPP',y) = 20;
-ResidualCapacity(r,"GFPP",y) = 37;  # Unit: GW
-EmissionActivityRatio(r,'GFPP','CO2_PP','1',y) = 0.055/0.35;  # Unit: kg CO2 per GJ
->>>>>>> 55d9d2d67569b4b76b0939101265696726085881
 
 # Characterize OIL technology
 OperationalLife(r,'OIL_GEN') = 40;
 AvailabilityFactor(r,'OIL_GEN',y) = 0.85;
-<<<<<<< HEAD
 CapitalCost(r,'OIL_GEN',y) = 2000;          // €/kW
 VariableCost(r,'OIL_GEN',m,y) = 1e-5;
 FixedCost(r,'OIL_GEN',y) = 10;
@@ -192,29 +175,14 @@ ResidualCapacity(r,"OIL_GEN","2047") = 0;
 ResidualCapacity(r,"OIL_GEN","2048") = 0;
 ResidualCapacity(r,"OIL_GEN","2049") = 0;
 ResidualCapacity(r,"OIL_GEN","2050") = 0;
-=======
-CapitalCost(r,'OIL_GEN',y) = 1400;  # Unit: €/kW
-VariableCost(r,'OIL_GEN',m,y) = 1e-5;
-FixedCost(r,'OIL_GEN',y) = 80;
-ResidualCapacity(r,"OIL_GEN",y) = 4.44;  # Unit: GW
-EmissionActivityRatio(r,'OIL_GEN','CO2_PP','1',y) = 0.075/0.2;  # Unit: kg CO2 per GJ
->>>>>>> 55d9d2d67569b4b76b0939101265696726085881
 
 # Characterize ELECTRIC GRID technology
 OperationalLife(r,'GRID_ELC') = 40;
 AvailabilityFactor(r,'GRID_ELC',y) = 0.85;
-<<<<<<< HEAD
 CapitalCost(r,'GRID_ELC',y) = 1.5;        # €/kW - Based on midpoint of 2023 cost range
 VariableCost(r,'GRID_ELC',m,y) = 0.00001; # €/kWh - minor O&M
 FixedCost(r,'GRID_ELC',y) = 0.02;         # €/kW/year - 1.5% of CAPEX as fixed O&M
 ResidualCapacity(r,"GRID_ELC",y) = 1.55;  # GW 
-=======
-CapitalCost(r,'GRID_ELC',y) = 0;  # Unit: €/kW
-VariableCost(r,'GRID_ELC',m,y) = 1e-5;
-FixedCost(r,'GRID_ELC',y) = 0;
-ResidualCapacity(r,"GRID_ELC",y) = 0;  # Unit: GW
-
->>>>>>> 55d9d2d67569b4b76b0939101265696726085881
 
 ** ----------------------------------------------------------------
 $elseif.ph %phase%=='popol'
