@@ -71,14 +71,20 @@ scalar BEES_monthly_discharge / 0.02 /;
 * Per-time-slice self-discharge rate
 loop(l,
     SelfDischargeRate('BATTERIES', l) = 
-        1 - (1 - BEES_monthly_discharge) ** (12 * YearSplit(l, yfirst));
+        1 - (1 - BEES_monthly_discharge) ** (12 * YearSplit(l,'2024'));
 );
 
 * Seasonal aggregated self-discharge rate
-loop(ls,
-    SeasonSelfDischargeRate('BATTERIES', ls) = 
-        1 - product(l$(Conversionls(l, ls)), 1 - SelfDischargeRate('BATTERIES', l));
-);
+parameter SeasonSelfDischargeRate(STORAGE, SEASON);
+
+SeasonSelfDischargeRate('BATTERIES', 1) = 1 - (1 - SelfDischargeRate('BATTERIES','WD')) 
+                                               * (1 - SelfDischargeRate('BATTERIES','WN'));
+
+SeasonSelfDischargeRate('BATTERIES', 2) = 1 - (1 - SelfDischargeRate('BATTERIES','ID')) 
+                                               * (1 - SelfDischargeRate('BATTERIES','IN'));
+
+SeasonSelfDischargeRate('BATTERIES', 3) = 1 - (1 - SelfDischargeRate('BATTERIES','SD')) 
+                                               * (1 - SelfDischargeRate('BATTERIES','SN'));
 
 ** ------------------------------------------------
 $elseif.ph %phase%=='popol'

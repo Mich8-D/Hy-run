@@ -15,7 +15,7 @@ set     SEASON / 1, 2, 3 /;
 set     DAYTYPE / 1 /;
 set     DAILYTIMEBRACKET / 1, 2 /;
 
-scalar yfirst / %yearstart% /;
+scalar yfirst / 2024 /;
 
 # characterize technologies 
 set power_plants(TECHNOLOGY);
