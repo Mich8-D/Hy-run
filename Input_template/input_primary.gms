@@ -61,7 +61,6 @@ AvailabilityFactor(r,'IMPOIL1',y) = 1;  # Unit: dimensionless
 EmissionActivityRatio(r,'IMPOIL1','CO2','1',y) = 0.075;  # Unit: Mton CO2 per PJ
 ResidualCapacity(r,"IMPOIL1",y) = 999;  # Unit: GW
 
-<<<<<<< HEAD
 CapitalCost(r,'GRIDGAS',y) = 0.7;            # €/kW - Based on midpoint of 2023 cost range
 VariableCost(r,'GRIDGAS',m,y) = 0.00001;     # €/MWh - Minor O&M cost
 FixedCost(r,'GRIDGAS',y) = 0.01;             # €/kW-year - ~1.5% of CAPEX
@@ -69,15 +68,6 @@ OperationalLife(r,'GRIDGAS') = 40;           # Years
 AvailabilityFactor(r,'GRIDGAS',y) = 1;       # Dimensionless
 EmissionActivityRatio(r,'GRIDGAS','CO2','1',y) = 0.055;  # kton CO2 per PJ (infra ops)
 ResidualCapacity(r,"GRIDGAS",y) = 60;        # GW - National-scale gas grid capacity (assumed constant)
-=======
-CapitalCost(r,'GRIDGAS',y) = 0;  # Unit: €/kW
-VariableCost(r,'GRIDGAS',m,y) = 1e-5;  
-FixedCost(r,'GRIDGAS',y) = 0;  # Unit: €/GJ <-> mln€/PJ
-OperationalLife(r,'GRIDGAS') = 40;  # Unit: years
-AvailabilityFactor(r,'GRIDGAS',y) = 1;  # Unit: dimensionless
-# EmissionActivityRatio(r,'GRIDGAS','CO2','1',y) = 0.055;  # Unit: kg CO2 per PJ
-ResidualCapacity(r,"GRIDGAS",y) = 999;  # Unit: GW
->>>>>>> 55d9d2d67569b4b76b0939101265696726085881
 
 
 ###RENEWABLES
