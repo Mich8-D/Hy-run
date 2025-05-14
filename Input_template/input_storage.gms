@@ -17,6 +17,7 @@ set TECHNOLOGY /
 * Technology subsets
 set storage_plants(TECHNOLOGY) / BEES, STOR_HYDRO /;
 set batteries(STORAGE)         / BATTERIES /;
+set modular_storages(STORAGE) / /;
 
 ** ------------------------------------------------
 $elseif.ph %phase%=='data'

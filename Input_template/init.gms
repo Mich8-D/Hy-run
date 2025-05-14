@@ -184,4 +184,11 @@ AvailabilityFactor(r,t,y)$(AvailabilityFactor(r,t,y) = 0) = 1;
 
 ReserveMarginTagFuel(r,"ELC1",y) = 1;  #electricity
 
+*------------------------------------------------------------------------
+* Parameters - Storage
+*------------------------------------------------------------------------
+
+StorageUnitSize(r, s, y)$(not modular_storages(s)) = eps;
+
+
 $endif.ph
