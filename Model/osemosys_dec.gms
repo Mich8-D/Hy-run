@@ -302,7 +302,11 @@ parameter StorageDuration(TECHNOLOGY);
 * Fraction of stored energy lost per time slice
 parameter SelfDischargeRate(STORAGE,l);
 
+* Fraction of stored energy lost per season
 parameter SeasonSelfDischargeRate(STORAGE, SEASON);
+
+* capacity of min storage unit 
+parameter StorageUnitSize(REGION, STORAGE, YEAR);
 
 
 *------------------------------------------------------------------------	
@@ -556,7 +560,10 @@ positive variable DiscountedSalvageValueStorage(REGION,STORAGE,YEAR);
 * year y. [Monetary units]
 positive variable TotalDiscountedStorageCost(REGION,STORAGE,YEAR);
 
-
+* NumberOfNewStorageUnits[r,t,y]>=0, integer: Number of newly installed
+* units of storage s in year y, as a function of the parameter
+* StorageUnitSize. [No unit]
+$if set mip integer variable NumberOfNewStorageUnits(REGION, STORAGE, YEAR);
 *------------------------------------------------------------------------
 * * Capacity variables
 *------------------------------------------------------------------------

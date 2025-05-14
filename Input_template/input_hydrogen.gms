@@ -24,6 +24,7 @@ set storage_plants(TECHNOLOGY) / UHS_CHARGE, TANKS_CHARGE /;
 set hydrogen_production_tech(TECHNOLOGY) / HEL, SMR_CCS /;
 set hydrogen_consumption_tech(TECHNOLOGY) / IHH, FC /;
 set hydrogen_storages(STORAGE) / UHS , TANKS /;
+set modular_storages(STORAGE) / UHS /;
 
 ** ------------------------------------------------
 $elseif.ph %phase%=='data'
@@ -220,6 +221,8 @@ CapitalCostStorage(r,'UHS','2047') = 10250;
 CapitalCostStorage(r,'UHS','2048') = 9917;
 CapitalCostStorage(r,'UHS','2049') = 9583;
 CapitalCostStorage(r,'UHS','2050') = 9333;
+
+StorageUnitSize(r, 'UHS', y) = 200;  # Unit: PJ
 
 
 # Hydrogen Tanks (TANKS)

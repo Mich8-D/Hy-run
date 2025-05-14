@@ -347,6 +347,11 @@ SC6_MaxDischargeConstraint(r,s,ls,ld,lh,y)..
 * Calculates the total discounted capital costs expenditure for each
 * storage technology in each year.
 
+
+equation SI0_Enforce_ModularStorageInvestments(REGION, STORAGE, YEAR);
+SI0_Enforce_ModularStorageInvestments(r, s, y)$(modular_storages(s))..
+    NewStorageCapacity(r, s, y) =e= StorageUnitSize(r, s, y) * NumberOfNewStorageUnits(r, s, y);
+
 equation SI1_StorageUpperLimit(REGION,STORAGE,YEAR);
 SI1_StorageUpperLimit(r,s,y)..
     AccumulatedNewStorageCapacity(r,s,y)+ResidualStorageCapacity(r,s,y) =e= StorageUpperLimit(r,s,y);
