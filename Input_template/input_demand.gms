@@ -3,7 +3,7 @@ $set phase %1
 $ifthen.ph %phase%=='sets'
 
 set     TECHNOLOGY      /
-        FEU 'Final Electricity Usages'
+        FEU 'Final Electricity Usages' #just accounting for the demand
         IHE 'Industrial heating - electric'
         IHG 'Industrial heating - gas'
         IHC 'Industrial heating - coal' /;
@@ -11,6 +11,8 @@ set     TECHNOLOGY      /
 set    FUEL            /
         ED 'Demand for electricity'
         IH 'Demand for industrial heating'/;
+
+set fuel_cosumption(TECHNOLOGY) / IHE, IHG, IHC /;
 
 $elseif.ph %phase%=='data' 
 *------------------------------------------------------------------------	
@@ -72,12 +74,14 @@ AccumulatedAnnualDemand(r,f,y) = 0;
 ##### END-USE TECHNOLOGIES
 
 * electricity 
-CapitalCost(r,"FEU",y) = 1000;
+CapitalCost(r,"FEU",y) = 0;
 VariableCost(r,"FEU",m,y) = 1e-5;
 FixedCost(r,"FEU",y) = 0.1;
 OperationalLife(r,"FEU") = 10;
+ResidualCapacity(r,"FEU",y) = 76;  
 
 ** industrial heating technologies
+<<<<<<< HEAD
 CapitalCost(r,"IHE",y) = 900;          # €/kW - Typical CAPEX for industrial electric resistance heaters
 VariableCost(r,"IHE",m,y) = 0.002;     # €/kWh - O&M cost (electricity price handled separately)
 FixedCost(r,"IHE",y) = 15;             # €/kW/year - Fixed O&M (~1.5% of CAPEX)
@@ -92,6 +96,24 @@ CapitalCost(r,"IHC",y) = 1100;         # €/kW - CAPEX for industrial coal-fire
 VariableCost(r,"IHC",m,y) = 0.005;     # €/kWh - O&M excluding fuel (coal cost modeled separately)
 FixedCost(r,"IHC",y) = 25;             # €/kW/year - Fixed O&M (~2.3% of CAPEX)
 OperationalLife(r,"IHC") = 20;         # Years - Longer lifetime due to robust industrial build
+=======
+CapitalCost(r,"IHE",y) = 0;
+VariableCost(r,"IHE",m,y) = 1e-5;
+FixedCost(r,"IHE",y) = 0.1;
+OperationalLife(r,"IHE") = 10;
+
+CapitalCost(r,"IHG",y) = 0;
+VariableCost(r,"IHG",m,y) = 1e-5;
+FixedCost(r,"IHG",y) = 0.1;
+OperationalLife(r,"IHG") = 10;
+EmissionActivityRatio(r,"IHG","CO2_TH","1",y) = 0.055*1.1;  # Unit: Mton CO2 per PJ
+
+CapitalCost(r,"IHC",y) = 0;
+VariableCost(r,"IHC",m,y) = 1e-5;
+FixedCost(r,"IHC",y) = 0.1;
+OperationalLife(r,"IHC") = 10;
+EmissionActivityRatio(r,"IHC","CO2_TH","1",y) = 0.089*1.1;  # Unit: Mton CO2 per PJ
+>>>>>>> 55d9d2d67569b4b76b0939101265696726085881
 
 *------------------------------------------------------------------------
 $elseif.ph %phase%=='popol'
@@ -103,9 +125,15 @@ InputActivityRatio(r,"FEU","ELC2","1",y) = 1;
 OutputActivityRatio(r,"FEU","ED","1",y) = 1;
 
 ** industrial heating technologies
+<<<<<<< HEAD
 InputActivityRatio(r,"IHE","ELC2","1",y) = 1;      # 100% efficiency
 InputActivityRatio(r,"IHG","GAS2","1",y) = 1.11;   # ~90% efficiency
 InputActivityRatio(r,"IHC","HCO","1",y) = 1.25;    # ~80% efficiency
+=======
+InputActivityRatio(r,"IHE","ELC2","1",y) = 1;
+InputActivityRatio(r,"IHG","GAS2","1",y) = 1.1;
+InputActivityRatio(r,"IHC","HCO","1",y) = 1.1;
+>>>>>>> 55d9d2d67569b4b76b0939101265696726085881
 # demand for industrial heating is thermal
 OutputActivityRatio(r,"IHE","IH","1",y) = 1;
 OutputActivityRatio(r,"IHG","IH","1",y) = 1;

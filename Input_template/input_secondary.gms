@@ -30,70 +30,72 @@ set secondary_carrier(FUEL) / ELC1, ELC2 /;
 $elseif.ph %phase%=='data'
 
 # Characterize SOLAR technology
-OperationalLife(r,'SPV') = 15;
-CapacityFactor(r,'SPV','ID',y) = 0.4;
+OperationalLife(r,'SPV') = 25;
+CapacityFactor(r,'SPV','ID',y) = 0.2;
 CapacityFactor(r,'SPV','IN',y) = 0;
-CapacityFactor(r,'SPV','SD',y) = 0.8;
+CapacityFactor(r,'SPV','SD',y) = 0.3;
 CapacityFactor(r,'SPV','SN',y) = 0;
-CapacityFactor(r,'SPV','WD',y) = 0.1;
+CapacityFactor(r,'SPV','WD',y) = 0.08;
 CapacityFactor(r,'SPV','WN',y) = 0;
-CapitalCost(r,'SPV',y) = 1000;
-VariableCost(r,'SPV',m,y) = 1e-5;
-FixedCost(r,'SPV',y) = 5;
+CapitalCost(r,'SPV',y) = 900;  # Unit: €/kW
+VariableCost(r,'SPV',m,y) = 1e-5; # Unit: €/GJ
+FixedCost(r,'SPV',y) = 15; # Unit: €/kW/y
 ResidualCapacity(r,"SPV",y) = 102.3;  # Unit: GW (from Excel)
 
 # Characterize WIND-ONSHORE technology
-OperationalLife(r,'WPP_ON') = 15;
-CapacityFactor(r,'WPP_ON','ID',y) = 0.2;
-CapacityFactor(r,'WPP_ON','IN',y) = 0.3;
-CapacityFactor(r,'WPP_ON','SD',y) = 0.1;
-CapacityFactor(r,'WPP_ON','SN',y) = 0.15;
-CapacityFactor(r,'WPP_ON','WD',y) = 0.3;
-CapacityFactor(r,'WPP_ON','WN',y) = 0.4;
-CapitalCost(r,'WPP_ON',y) = 1200;
+OperationalLife(r,'WPP_ON') = 25;
+CapacityFactor(r,'WPP_ON','ID',y) = 0.18;
+CapacityFactor(r,'WPP_ON','IN',y) = 0.21;
+CapacityFactor(r,'WPP_ON','SD',y) = 0.12;
+CapacityFactor(r,'WPP_ON','SN',y) = 0.12;
+CapacityFactor(r,'WPP_ON','WD',y) = 0.31;
+CapacityFactor(r,'WPP_ON','WN',y) = 0.33;
+CapitalCost(r,'WPP_ON',y) = 1100;  # Unit: €/kW
 VariableCost(r,'WPP_ON',m,y) = 1e-5;
-FixedCost(r,'WPP_ON',y) = 7;
-ResidualCapacity(r,"WPP_ON",y) = 66.3;  # Unit: GW (from Excel)
+FixedCost(r,'WPP_ON',y) = 48;  # Unit: €/kW/y
+ResidualCapacity(r,"WPP_ON",y) = 63.6;  # Unit: GW (from Excel)
 
 # Characterize WIND-OFFSHORE technology
-OperationalLife(r,'WPP_OFF') = 15;
-CapacityFactor(r,'WPP_OFF','ID',y) = 0.2;
-CapacityFactor(r,'WPP_OFF','IN',y) = 0.3;
-CapacityFactor(r,'WPP_OFF','SD',y) = 0.1;
-CapacityFactor(r,'WPP_OFF','SN',y) = 0.15;
-CapacityFactor(r,'WPP_OFF','WD',y) = 0.3;
-CapacityFactor(r,'WPP_OFF','WN',y) = 0.4;
-CapitalCost(r,'WPP_OFF',y) = 1200;
+OperationalLife(r,'WPP_OFF') = 25;
+CapacityFactor(r,'WPP_OFF','ID',y) = 0.31;
+CapacityFactor(r,'WPP_OFF','IN',y) = 0.34;
+CapacityFactor(r,'WPP_OFF','SD',y) = 0.21;
+CapacityFactor(r,'WPP_OFF','SN',y) = 0.26;
+CapacityFactor(r,'WPP_OFF','WD',y) = 0.42;
+CapacityFactor(r,'WPP_OFF','WN',y) = 0.43;
+CapitalCost(r,'WPP_OFF',y) = 2550;  # Unit: €/kW
 VariableCost(r,'WPP_OFF',m,y) = 1e-5;
-FixedCost(r,'WPP_OFF',y) = 7;
-ResidualCapacity(r,"WPP_OFF",y) = 12;
+FixedCost(r,'WPP_OFF',y) = 100;  # Unit: €/kW/y
+ResidualCapacity(r,"WPP_OFF",y) = 9.2;
 
 # Characterize BIOMASS technology
 OperationalLife(r,'BIO') = 25;
 AvailabilityFactor(r,'BIO',y) = 0.85;
-CapitalCost(r,'BIO',y) = 2000;
+CapitalCost(r,'BIO',y) = 4000;
 VariableCost(r,'BIO',m,y) = 1e-5;
-FixedCost(r,'BIO',y) = 10;
+FixedCost(r,'BIO',y) = 50; # Unit: €/kW
 ResidualCapacity(r,"BIO",y) = 9.19;  # Unit: GW (from Excel)
 
 # Characterize GEOTHERMAL technology
 OperationalLife(r,'GEO') = 25;
-CapitalCost(r,'GEO',y) = 2000;
+CapitalCost(r,'GEO',y) = 4000;  # Unit: €/kW
+AvailabilityFactor(r,'GEO',y) = 0.9;
 VariableCost(r,'GEO',m,y) = 1e-5;
-FixedCost(r,'GEO',y) = 10;
+FixedCost(r,'GEO',y) = 70;
 ResidualCapacity(r,"GEO",y) = 42;  # Unit: GW (from Excel)
 
 # Characterize RUN-OF-RIVER technology
 OperationalLife(r,'ROR') = 80;
-AvailabilityFactor(r,'ROR',y) = 0.27;
+CapacityFactor(r,'ROR',l,y) = 0.31;
 CapitalCost(r,'ROR',y) = 3000;
 VariableCost(r,'ROR',m,y) = 1e-5;
-FixedCost(r,'ROR',y) = 10;
+FixedCost(r,'ROR',y) = 50;
 ResidualCapacity(r,"ROR",y) = 6.4;  # Unit: GW (from Excel)
 
 # Characterize COAL technology
 OperationalLife(r,'COAL') = 50;
 AvailabilityFactor(r,'COAL',y) = 0.8;
+<<<<<<< HEAD
 CapitalCost(r,'COAL',y) = 1200;             # €/kW
 VariableCost(r,'COAL',m,y) = 1e-5;
 FixedCost(r,'COAL',y) = 10;
@@ -118,10 +120,18 @@ ResidualCapacity(r,"COAL","2047") = 2.84;
 ResidualCapacity(r,"COAL","2048") = 1.89;
 ResidualCapacity(r,"COAL","2049") = 0.95;
 ResidualCapacity(r,"COAL","2050") = 0.0;
+=======
+CapitalCost(r,'COAL',y) = 1200;  # Unit: €/kW
+VariableCost(r,'COAL',m,y) = 0.25; # Unit: €/GJ
+FixedCost(r,'COAL',y) = 50;
+ResidualCapacity(r,"COAL",y) = 16;  # Unit: GW
+EmissionActivityRatio(r,'COAL','CO2_PP','1',y) = 0.089/0.45;  # Unit: kg CO2 per GJ
+>>>>>>> 55d9d2d67569b4b76b0939101265696726085881
 
 # Characterize GFPP technology
 OperationalLife(r,'GFPP') = 25;
 AvailabilityFactor(r,'GFPP',y) = 0.75;
+<<<<<<< HEAD
 CapitalCost(r,'GFPP',y) = 2000;             # €/kW
 VariableCost(r,'GFPP',m,y) = 1e-5;
 FixedCost(r,'GFPP',y) = 10;
@@ -146,10 +156,18 @@ ResidualCapacity(r,"GFPP","2047") = 22.5;
 ResidualCapacity(r,"GFPP","2048") = 22.5;
 ResidualCapacity(r,"GFPP","2049") = 22.5;
 ResidualCapacity(r,"GFPP","2050") = 22.5;
+=======
+CapitalCost(r,'GFPP',y) = 600;  # Unit: €/kW
+VariableCost(r,'GFPP',m,y) = 1e-5;
+FixedCost(r,'GFPP',y) = 20;
+ResidualCapacity(r,"GFPP",y) = 37;  # Unit: GW
+EmissionActivityRatio(r,'GFPP','CO2_PP','1',y) = 0.055/0.35;  # Unit: kg CO2 per GJ
+>>>>>>> 55d9d2d67569b4b76b0939101265696726085881
 
 # Characterize OIL technology
 OperationalLife(r,'OIL_GEN') = 40;
 AvailabilityFactor(r,'OIL_GEN',y) = 0.85;
+<<<<<<< HEAD
 CapitalCost(r,'OIL_GEN',y) = 2000;          // €/kW
 VariableCost(r,'OIL_GEN',m,y) = 1e-5;
 FixedCost(r,'OIL_GEN',y) = 10;
@@ -174,14 +192,29 @@ ResidualCapacity(r,"OIL_GEN","2047") = 0;
 ResidualCapacity(r,"OIL_GEN","2048") = 0;
 ResidualCapacity(r,"OIL_GEN","2049") = 0;
 ResidualCapacity(r,"OIL_GEN","2050") = 0;
+=======
+CapitalCost(r,'OIL_GEN',y) = 1400;  # Unit: €/kW
+VariableCost(r,'OIL_GEN',m,y) = 1e-5;
+FixedCost(r,'OIL_GEN',y) = 80;
+ResidualCapacity(r,"OIL_GEN",y) = 4.44;  # Unit: GW
+EmissionActivityRatio(r,'OIL_GEN','CO2_PP','1',y) = 0.075/0.2;  # Unit: kg CO2 per GJ
+>>>>>>> 55d9d2d67569b4b76b0939101265696726085881
 
 # Characterize ELECTRIC GRID technology
 OperationalLife(r,'GRID_ELC') = 40;
 AvailabilityFactor(r,'GRID_ELC',y) = 0.85;
+<<<<<<< HEAD
 CapitalCost(r,'GRID_ELC',y) = 1.5;        # €/kW - Based on midpoint of 2023 cost range
 VariableCost(r,'GRID_ELC',m,y) = 0.00001; # €/kWh - minor O&M
 FixedCost(r,'GRID_ELC',y) = 0.02;         # €/kW/year - 1.5% of CAPEX as fixed O&M
 ResidualCapacity(r,"GRID_ELC",y) = 1.55;  # GW 
+=======
+CapitalCost(r,'GRID_ELC',y) = 0;  # Unit: €/kW
+VariableCost(r,'GRID_ELC',m,y) = 1e-5;
+FixedCost(r,'GRID_ELC',y) = 0;
+ResidualCapacity(r,"GRID_ELC",y) = 0;  # Unit: GW
+
+>>>>>>> 55d9d2d67569b4b76b0939101265696726085881
 
 ** ----------------------------------------------------------------
 $elseif.ph %phase%=='popol'
@@ -198,7 +231,7 @@ OutputActivityRatio(r,'WPP_OFF','ELC1',"1",y) = 1;
 InputActivityRatio(r,'BIO','WBM',"1",y) = 1/0.25;
 OutputActivityRatio(r,'BIO','ELC1',"1",y) = 1;
 
-InputActivityRatio(r,'GEO','GTH',"1",y) = 1/0.25;
+InputActivityRatio(r,'GEO','GTH',"1",y) = 1;
 OutputActivityRatio(r,'GEO','ELC1',"1",y) = 1;
 
 InputActivityRatio(r,'COAL','HCO',"1",y) = 1/0.45;
@@ -216,7 +249,7 @@ InputActivityRatio(r,'OIL_GEN','OIL',"1",y) = 1/0.2;
 OutputActivityRatio(r,'OIL_GEN','ELC1',"1",y) = 1;
 
 ** electric grid
-InputActivityRatio(r,'GRID_ELC','ELC1',"1",y) = 1;
+InputActivityRatio(r,'GRID_ELC','ELC1',"1",y) = 1/0.93;
 OutputActivityRatio(r,'GRID_ELC','ELC2',"1",y) = 1;
 
 $endif.ph

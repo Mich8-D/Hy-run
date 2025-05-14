@@ -29,6 +29,7 @@ set     FUEL    /
         WBM 'Biomass energy'
 /;
 
+set fuel_transmission(TECHNOLOGY) / GRIDGAS /;
 set renewable_fuel(FUEL) /GTH, SUN, WIN, HYD, WBM/;
 ** ----------------------------------------------------------------
 $elseif.ph %phase%=='data'
@@ -37,29 +38,30 @@ $elseif.ph %phase%=='data'
 
 #FOSSIL FUELS
 CapitalCost(r,'IMPGAS',y) = 0;  # Unit: €/kW
-VariableCost(r,'IMPGAS',m,y) = 20;  # Unit: €/MWh # cost of imported natural gas in €/MWh
+VariableCost(r,'IMPGAS',m,y) = 10;  # Unit: €/GJ <-> mln€/PJ
 FixedCost(r,'IMPGAS',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'IMPGAS') = 999;  # Unit: years
 AvailabilityFactor(r,'IMPGAS',y) = 1;  # Unit: dimensionless
-EmissionActivityRatio(r,'IMPGAS','CO2','1',y) = 0.075;  # Unit: kton CO2 per PJ
+EmissionActivityRatio(r,'IMPGAS','CO2','1',y) = 0.055;  # Unit: Mton CO2 per PJ
 ResidualCapacity(r,"IMPGAS",y) = 999;  # Unit: GW
 
 CapitalCost(r,'IMPHCO1',y) = 0;  # Unit: €/kW
-VariableCost(r,'IMPHCO1',m,y) = 15;  # Unit: €/MWh # cost of imported coal in €/MWh
+VariableCost(r,'IMPHCO1',m,y) = 3.5;  # Unit: €/GJ <-> mln€/PJ
 FixedCost(r,'IMPHCO1',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'IMPHCO1') = 999;  # Unit: years
 AvailabilityFactor(r,'IMPHCO1',y) = 1;  # Unit: dimensionless
-EmissionActivityRatio(r,'IMPHCO1','CO2','1',y) = 0.089;  # Unit: kton CO2 per PJ
+EmissionActivityRatio(r,'IMPHCO1','CO2','1',y) = 0.089;  # Unit: Mton CO2 per PJ
 ResidualCapacity(r,"IMPHCO1",y) = 999;  # Unit: GW
 
 CapitalCost(r,'IMPOIL1',y) = 0;  # Unit: €/kW
-VariableCost(r,'IMPOIL1',m,y) = 35;  # Unit: €/MWh # cost of imported oil in €/MWh
+VariableCost(r,'IMPOIL1',m,y) = 8.5;  # Unit: €/GJ <-> mln€/PJ
 FixedCost(r,'IMPOIL1',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'IMPOIL1') = 999;  # Unit: years
 AvailabilityFactor(r,'IMPOIL1',y) = 1;  # Unit: dimensionless
-EmissionActivityRatio(r,'IMPOIL1','CO2','1',y) = 0.075;  # Unit: kton CO2 per PJ
+EmissionActivityRatio(r,'IMPOIL1','CO2','1',y) = 0.075;  # Unit: Mton CO2 per PJ
 ResidualCapacity(r,"IMPOIL1",y) = 999;  # Unit: GW
 
+<<<<<<< HEAD
 CapitalCost(r,'GRIDGAS',y) = 0.7;            # €/kW - Based on midpoint of 2023 cost range
 VariableCost(r,'GRIDGAS',m,y) = 0.00001;     # €/MWh - Minor O&M cost
 FixedCost(r,'GRIDGAS',y) = 0.01;             # €/kW-year - ~1.5% of CAPEX
@@ -67,11 +69,20 @@ OperationalLife(r,'GRIDGAS') = 40;           # Years
 AvailabilityFactor(r,'GRIDGAS',y) = 1;       # Dimensionless
 EmissionActivityRatio(r,'GRIDGAS','CO2','1',y) = 0.055;  # kton CO2 per PJ (infra ops)
 ResidualCapacity(r,"GRIDGAS",y) = 60;        # GW - National-scale gas grid capacity (assumed constant)
+=======
+CapitalCost(r,'GRIDGAS',y) = 0;  # Unit: €/kW
+VariableCost(r,'GRIDGAS',m,y) = 1e-5;  
+FixedCost(r,'GRIDGAS',y) = 0;  # Unit: €/GJ <-> mln€/PJ
+OperationalLife(r,'GRIDGAS') = 40;  # Unit: years
+AvailabilityFactor(r,'GRIDGAS',y) = 1;  # Unit: dimensionless
+# EmissionActivityRatio(r,'GRIDGAS','CO2','1',y) = 0.055;  # Unit: kg CO2 per PJ
+ResidualCapacity(r,"GRIDGAS",y) = 999;  # Unit: GW
+>>>>>>> 55d9d2d67569b4b76b0939101265696726085881
 
 
 ###RENEWABLES
 CapitalCost(r,'IMPBIO1',y) = 0;  # Unit: €/kW
-VariableCost(r,'IMPBIO1',m,y) = 5;  # Unit: €/MWh # estimated cost of biomass (€/MWh)  
+VariableCost(r,'IMPBIO1',m,y) = 3;  # Unit: €/GJ <-> mln€/PJ  
 FixedCost(r,'IMPBIO1',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'IMPBIO1') = 999;  # Unit: years
 AvailabilityFactor(r,'IMPBIO1',y) = 1;  # Unit: dimensionless
@@ -80,7 +91,7 @@ ResidualCapacity(r,"IMPBIO1",y) = 999;  # Unit: GW
 
 #SUN
 CapitalCost(r,'VIR_SUN',y) = 0;  # Unit: €/kW
-VariableCost(r,'VIR_SUN',m,y) = 0;  # Unit: €/MWh 
+VariableCost(r,'VIR_SUN',m,y) = 0;  # Unit: €/GJ <-> mln€/PJ 
 FixedCost(r,'VIR_SUN',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'VIR_SUN') = 999;  # Unit: years
 AvailabilityFactor(r,'VIR_SUN',y) = 1;  # Unit: dimensionless
@@ -88,7 +99,7 @@ ResidualCapacity(r,"VIR_SUN",y) = 999;  # Unit: GW
 
 #WIN
 CapitalCost(r,'VIR_WIN',y) = 0;  # Unit: €/kW
-VariableCost(r,'VIR_WIN',m,y) = 0;  # Unit: €/MWh 
+VariableCost(r,'VIR_WIN',m,y) = 0;  # Unit: €/GJ <-> mln€/PJ 
 FixedCost(r,'VIR_WIN',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'VIR_WIN') = 999;  # Unit: years
 AvailabilityFactor(r,'VIR_WIN',y) = 1;  # Unit: dimensionless
@@ -96,7 +107,7 @@ ResidualCapacity(r,"VIR_WIN",y) = 999;  # Unit: GW
 
 #HYD (technology non existent in previous files)
 CapitalCost(r,'VIR_HYD',y) = 0;  # Unit: €/kW
-VariableCost(r,'VIR_HYD',m,y) = 0;  # Unit: €/MWh 
+VariableCost(r,'VIR_HYD',m,y) = 0;  # Unit: €/GJ <-> mln€/PJ 
 FixedCost(r,'VIR_HYD',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'VIR_HYD') = 999;  # Unit: years
 AvailabilityFactor(r,'VIR_HYD',y) = 1;  # Unit: dimensionless
@@ -104,7 +115,7 @@ ResidualCapacity(r,"VIR_HYD",y) = 999;  # Unit: GW
 
 #GTH (Geothermal)
 CapitalCost(r,'VIR_GTH',y) = 0;  # Unit: €/kW
-VariableCost(r,'VIR_GTH',m,y) = 0;  # Unit: €/MWh 
+VariableCost(r,'VIR_GTH',m,y) = 0;  # Unit: €/GJ <-> mln€/PJ 
 FixedCost(r,'VIR_GTH',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'VIR_GTH') = 999;  # Unit: years
 AvailabilityFactor(r,'VIR_GTH',y) = 1;  # Unit: dimensionless
