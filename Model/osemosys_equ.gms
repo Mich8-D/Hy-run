@@ -257,6 +257,7 @@ S8_StorageLevelYearFinish(r,s,y)$(ord(y) eq card(yy))..
 equation S9_StorageLevelSeasonStart(REGION,STORAGE,SEASON,YEAR);
 S9_StorageLevelSeasonStart(r,s,ls,y)$(ord(ls) eq 1)..
     StorageLevelSeasonStart(r,s,ls,y) =e= StorageLevelYearStart(r,s,y);
+equation S10_StorageLevelSeasonStart(REGION,STORAGE,SEASON,YEAR);
 S10_StorageLevelSeasonStart(r,s,ls,y)$(ord(ls) > 1)..
     StorageLevelSeasonStart(r,s,ls,y) =e=
     (1 - SeasonSelfDischargeRate(s,ls-1)) * StorageLevelSeasonStart(r,s,ls-1,y)

@@ -77,13 +77,13 @@ loop(l,
 * Seasonal aggregated self-discharge rate
 parameter SeasonSelfDischargeRate(STORAGE, SEASON);
 
-SeasonSelfDischargeRate('BATTERIES', 1) = 1 - (1 - SelfDischargeRate('BATTERIES','WD')) 
+SeasonSelfDischargeRate('BATTERIES', '1') = 1 - (1 - SelfDischargeRate('BATTERIES','WD')) 
                                                * (1 - SelfDischargeRate('BATTERIES','WN'));
 
-SeasonSelfDischargeRate('BATTERIES', 2) = 1 - (1 - SelfDischargeRate('BATTERIES','ID')) 
+SeasonSelfDischargeRate('BATTERIES', '2') = 1 - (1 - SelfDischargeRate('BATTERIES','ID')) 
                                                * (1 - SelfDischargeRate('BATTERIES','IN'));
 
-SeasonSelfDischargeRate('BATTERIES', 3) = 1 - (1 - SelfDischargeRate('BATTERIES','SD')) 
+SeasonSelfDischargeRate('BATTERIES', '3') = 1 - (1 - SelfDischargeRate('BATTERIES','SD')) 
                                                * (1 - SelfDischargeRate('BATTERIES','SN'));
 
 ** ------------------------------------------------
