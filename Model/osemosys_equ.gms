@@ -283,7 +283,7 @@ S15_StorageLevelDayTypeFinish(r,s,ls,ld,y)$(ord(ld) lt card(ldld))..
 Equation StoragePowerEnergyLink(r, t, s, y);
 
 StoragePowerEnergyLink(r, t, s, y)$TechnologyToStorageMap(t,s)..
-    AccumulatedNewStorageCapacity(r,s,y)+ResidualStorageCapacity(r,s,y) =l= StorageDuration(t) * PowerToEnergyConversion * TotalCapacityAnnual(r,r,y);
+    AccumulatedNewStorageCapacity(r,s,y)+ResidualStorageCapacity(r,s,y) =l= StorageDuration(t) * PowerToEnergyConversion * TotalCapacityAnnual(r,t,y);
 
 *------------------------------------------------------------------------	
 * Storage Constraints       
