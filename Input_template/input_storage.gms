@@ -30,7 +30,7 @@ AvailabilityFactor(r,'BEES',y) = 0.9;
 OperationalLife(r,'BEES') = 10;
 VariableCost(r,'BEES',m,y) = 0;
 FixedCost(r,'BEES',y) = 0;
-StorageDuration('BEES') = 4;  * in hours
+StorageDuration('BEES') = 4;  # in hours
 
 * Pumped Hydro Storage (STOR_HYDRO)
 CapacityFactor(r,'STOR_HYDRO',"ID",y) = 0.7;
@@ -52,14 +52,14 @@ StorageDuration('STOR_HYDRO') = 500;
 * ------------------------
 
 * BATTERIES (BEES)
-CapitalCostStorage(r,'BATTERIES',y)         = 30000000;  * €/PJ
-ResidualStorageCapacity(r,'BATTERIES',y)    = 0;         * PJ
-StorageLevelStart(r,'BATTERIES')            = 0;         * PJ
+CapitalCostStorage(r,'BATTERIES',y)         = 30000000;  # €/PJ
+ResidualStorageCapacity(r,'BATTERIES',y)    = 0;         # PJ
+StorageLevelStart(r,'BATTERIES')            = 0;         # PJ
 
 * DAM (STOR_HYDRO)
-CapitalCostStorage(r,'DAM',y)               = 10000000;  * €/PJ
-ResidualStorageCapacity(r,'DAM',y)          = 3.596;     * PJ
-StorageLevelStart(r,'DAM')                  = 3.596;     * PJ
+CapitalCostStorage(r,'DAM',y)               = 10000000;  # €/PJ
+ResidualStorageCapacity(r,'DAM',y)          = 3.596;     # PJ
+StorageLevelStart(r,'DAM')                  = 3.596;     # PJ
 
 * ------------------------
 * SELF-DISCHARGE MODELING
@@ -92,7 +92,7 @@ InputActivityRatio(r,'BEES','ELC2',"1",y)  = 1 / 0.95;
 OutputActivityRatio(r,'BEES','ELC1',"2",y) = 1;
 
 * STOR_HYDRO (Pumped Hydro)
-InputActivityRatio(r,'STOR_HYDRO','ELC2',"1",y)  = 1 / 0.75;  * IEA convention
+InputActivityRatio(r,'STOR_HYDRO','ELC2',"1",y)  = 1 / 0.75;  # IEA convention
 OutputActivityRatio(r,'STOR_HYDRO','ELC1',"2",y) = 1;
 
 * ------------------------
