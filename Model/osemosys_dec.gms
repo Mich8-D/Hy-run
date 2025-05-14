@@ -102,6 +102,9 @@ alias (lh,DAILYTIMEBRACKET,lhlh);
 set STORAGE;
 alias (s,STORAGE);
 
+* Mapping between storages and charging/discharging technologies
+set TechnologyToStorageMap(TECHNOLOGY,STORAGE);
+
 * SUBSETS TO CHARACTERIZE TECHNOLOGIES AND FUEL (FOR REPORTING)
 set power_plants(TECHNOLOGY);
 set storage_plants(TECHNOLOGY);
@@ -293,6 +296,8 @@ parameter CapitalCostStorage(REGION,STORAGE,YEAR);
 * ResidualStorageCapacity[r,s,y]: Exogenously defined storage capacities.
 parameter ResidualStorageCapacity(REGION,STORAGE,YEAR);
 
+* Defines fastest discharge duration in hours for each technology
+parameter StorageDuration(TECHNOLOGY);
 
 
 *------------------------------------------------------------------------	

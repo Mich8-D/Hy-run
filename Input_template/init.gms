@@ -129,6 +129,10 @@ ModelPeriodExogenousEmission(r,e) = 0;
 
 ModelPeriodEmissionLimit(r,e) = 9999;
 
+*------------------------------------------------------------------------
+
+Scalar PowerToEnergyConversion / 0.0036 /;  # PJ per GW-hour
+
 
 ****** POST-DATA POPULATION 
 
