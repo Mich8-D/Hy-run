@@ -168,6 +168,8 @@ CapacityToActivityUnit(r,t)$(fuel_cosumption(t)) = 31.536;
 
 CapacityToActivityUnit(r,t)$(fuel_transmission(t)) = 31.536;
 
+CapacityToActivityUnit(r,t)$(storage_plants(t)) = 31.536;
+
 CapacityToActivityUnit(r,t)$(CapacityToActivityUnit(r,t) = 0) = 1;
 
 *OperationalLife(r,t)$(OperationalLife(r,t) = 0) = 1;

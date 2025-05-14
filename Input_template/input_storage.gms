@@ -9,7 +9,7 @@ SET TECHNOLOGY /BEES "Battery Energy Storage System"
                 STOR_HYDRO 'Pumped storage'/;
 
 set storage_plants(TECHNOLOGY) / BEES, STOR_HYDRO /;
-set batteries(TECHNOLOGY) / BEES /;
+set batteries(STORAGE) / BATTERIES /;
 
 
 
@@ -50,10 +50,10 @@ StorageLevelStart(r,'DAM') = 3.596;  # Match capacity to avoid validation issues
 $elseif.ph %phase%=='popol'
 
 
-InputActivityRatio(r,'BEES','ELC2',"1",y) = 1;
-OutputActivityRatio(r,'BEES','ELC1',"2",y) = 0.9;
+InputActivityRatio(r,'BEES','ELC2',"1",y) = 1/0.95;
+OutputActivityRatio(r,'BEES','ELC1',"2",y) = 1;
 
-InputActivityRatio(r,'STOR_HYDRO','ELC2',"1",y) = 1; #IEA convention
+InputActivityRatio(r,'STOR_HYDRO','ELC2',"1",y) = 1/0.75; #IEA convention
 OutputActivityRatio(r,'STOR_HYDRO','ELC1',"2",y) = 1; #IEA convention
 
 TechnologyToStorage(r,"1",'BEES','BATTERIES') = 1;
