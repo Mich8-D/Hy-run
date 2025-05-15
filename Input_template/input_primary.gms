@@ -82,7 +82,7 @@ ResidualCapacity(r,"IMPBIO1",y) = 999;  # Unit: GW
 #SUN
 CapitalCost(r,'VIR_SUN',y) = 0;  # Unit: €/kW
 VariableCost(r,'VIR_SUN',m,y) = 0;  # Unit: €/GJ <-> mln€/PJ 
-FixedCost(r,'VIR_SUN',y) = 15;  # Unit: €/kW-year
+FixedCost(r,'VIR_SUN',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'VIR_SUN') = 25;  # Unit: years
 AvailabilityFactor(r,'VIR_SUN',y) = 0.2;  # Unit: dimensionless
 ResidualCapacity(r,"VIR_SUN",y) = 999;  # Unit: GW
@@ -90,7 +90,7 @@ ResidualCapacity(r,"VIR_SUN",y) = 999;  # Unit: GW
 #WIN
 CapitalCost(r,'VIR_WIN',y) = 0;  # Unit: €/kW
 VariableCost(r,'VIR_WIN',m,y) = 0;  # Unit: €/GJ <-> mln€/PJ 
-FixedCost(r,'VIR_WIN',y) = 25;  # Unit: €/kW-year
+FixedCost(r,'VIR_WIN',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'VIR_WIN') = 25;  # Unit: years
 AvailabilityFactor(r,'VIR_WIN',y) = 0.3;  # Unit: dimensionless
 ResidualCapacity(r,"VIR_WIN",y) = 999;  # Unit: GW
@@ -98,7 +98,7 @@ ResidualCapacity(r,"VIR_WIN",y) = 999;  # Unit: GW
 #HYD (technology non existent in previous files)
 CapitalCost(r,'VIR_HYD',y) = 0;  # Unit: €/kW
 VariableCost(r,'VIR_HYD',m,y) = 0;  # Unit: €/GJ <-> mln€/PJ 
-FixedCost(r,'VIR_HYD',y) = 50;  # Unit: €/kW-year
+FixedCost(r,'VIR_HYD',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'VIR_HYD') = 80;  # Unit: years
 AvailabilityFactor(r,'VIR_HYD',y) = 0.45;  # Unit: dimensionless
 ResidualCapacity(r,"VIR_HYD",y) = 999;  # Unit: GW
@@ -106,7 +106,7 @@ ResidualCapacity(r,"VIR_HYD",y) = 999;  # Unit: GW
 #GTH (Geothermal)
 CapitalCost(r,'VIR_GTH',y) = 0;  # Unit: €/kW
 VariableCost(r,'VIR_GTH',m,y) = 0;  # Unit: €/GJ <-> mln€/PJ 
-FixedCost(r,'VIR_GTH',y) = 70;  # Unit: €/kW-year
+FixedCost(r,'VIR_GTH',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'VIR_GTH') = 30;  # Unit: years
 AvailabilityFactor(r,'VIR_GTH',y) = 0.9;  # Unit: dimensionless
 ResidualCapacity(r,"VIR_GTH",y) = 999;  # Unit: GW
