@@ -1,0 +1,1737 @@
+- GDXReader:
+    file: /Users/hugosmart/Documents/Github/Hy-run/Results/results_SCENparametrised_py_DATAtemplate_STORyes.gdx
+    symbols: 
+      - name: YEAR
+      - name: YEAR
+      - name: YEAR
+      - name: YEAR
+      - name: TECHNOLOGY
+      - name: TECHNOLOGY
+      - name: TIMESLICE
+      - name: TIMESLICE
+      - name: FUEL
+      - name: FUEL
+      - name: EMISSION
+      - name: EMISSION
+      - name: MODE_OF_OPERATION
+      - name: MODE_OF_OPERATION
+      - name: REGION
+      - name: REGION
+      - name: REGION
+      - name: SEASON
+      - name: SEASON
+      - name: SEASON
+      - name: DAYTYPE
+      - name: DAYTYPE
+      - name: DAYTYPE
+      - name: DAILYTIMEBRACKET
+      - name: DAILYTIMEBRACKET
+      - name: DAILYTIMEBRACKET
+      - name: STORAGE
+      - name: STORAGE
+      - name: TechnologyToStorageMap
+      - name: power_plants
+      - name: storage_plants
+      - name: fuel_transformation
+      - name: appliances
+      - name: unmet_demand
+      - name: transport
+      - name: primary_imports
+      - name: secondary_imports
+      - name: fuel_production
+      - name: fuel_production_fict
+      - name: secondary_production
+      - name: renewable_tech
+      - name: primary_fuel
+      - name: secondary_carrier
+      - name: final_demand
+      - name: renewable_fuel
+      - name: YearSplit
+      - name: DiscountRate
+      - name: DaySplit
+      - name: Conversionls
+      - name: Conversionld
+      - name: Conversionlh
+      - name: DaysInDayType
+      - name: TradeRoute
+      - name: DepreciationMethod
+      - name: SpecifiedAnnualDemand
+      - name: SpecifiedDemandProfile
+      - name: AccumulatedAnnualDemand
+      - name: CapacityToActivityUnit
+      - name: CapacityFactor
+      - name: AvailabilityFactor
+      - name: OperationalLife
+      - name: ContinousDepreciation
+      - name: ResidualCapacity
+      - name: InputActivityRatio
+      - name: OutputActivityRatio
+      - name: CapitalCost
+      - name: VariableCost
+      - name: FixedCost
+      - name: TechnologyToStorage
+      - name: TechnologyFromStorage
+      - name: StorageLevelStart
+      - name: StorageMaxChargeRate
+      - name: StorageMaxDischargeRate
+      - name: MinStorageCharge
+      - name: OperationalLifeStorage
+      - name: CapitalCostStorage
+      - name: ResidualStorageCapacity
+      - name: StorageDuration
+      - name: SelfDischargeRate
+      - name: SeasonSelfDischargeRate
+      - name: StorageUnitSize
+      - name: CapacityOfOneTechnologyUnit
+      - name: TotalAnnualMaxCapacity
+      - name: TotalAnnualMinCapacity
+      - name: TotalAnnualMaxCapacityInvestment
+      - name: TotalAnnualMinCapacityInvestment
+      - name: TotalTechnologyAnnualActivityUpperLimit
+      - name: TotalTechnologyAnnualActivityLowerLimit
+      - name: TotalTechnologyModelPeriodActivityUpperLimit
+      - name: TotalTechnologyModelPeriodActivityLowerLimit
+      - name: ReserveMarginTagTechnology
+      - name: ReserveMarginTagFuel
+      - name: ReserveMargin
+      - name: RETagTechnology
+      - name: RETagFuel
+      - name: REMinProductionTarget
+      - name: EmissionActivityRatio
+      - name: EmissionsPenalty
+      - name: AnnualExogenousEmission
+      - name: AnnualEmissionLimit
+      - name: ModelPeriodExogenousEmission
+      - name: ModelPeriodEmissionLimit
+      - name: RateOfDemand
+      - name: Demand
+      - name: RateOfStorageCharge
+      - name: RateOfStorageDischarge
+      - name: NetChargeWithinYear
+      - name: NetChargeWithinDay
+      - name: StorageLevelYearStart
+      - name: StorageLevelYearFinish
+      - name: StorageLevelSeasonStart
+      - name: StorageLevelDayTypeStart
+      - name: StorageLevelDayTypeFinish
+      - name: StorageLowerLimit
+      - name: StorageUpperLimit
+      - name: AccumulatedNewStorageCapacity
+      - name: NewStorageCapacity
+      - name: CapitalInvestmentStorage
+      - name: DiscountedCapitalInvestmentStorage
+      - name: SalvageValueStorage
+      - name: DiscountedSalvageValueStorage
+      - name: TotalDiscountedStorageCost
+      - name: NumberOfNewStorageUnits
+      - name: NumberOfNewTechnologyUnits
+      - name: NewCapacity
+      - name: AccumulatedNewCapacity
+      - name: TotalCapacityAnnual
+      - name: RateOfActivity
+      - name: RateOfTotalActivity
+      - name: TotalTechnologyAnnualActivity
+      - name: TotalAnnualTechnologyActivityByMode
+      - name: RateOfProductionByTechnologyByMode
+      - name: RateOfProductionByTechnology
+      - name: ProductionByTechnology
+      - name: ProductionByTechnologyAnnual
+      - name: RateOfProduction
+      - name: Production
+      - name: RateOfUseByTechnologyByMode
+      - name: RateOfUseByTechnology
+      - name: UseByTechnologyAnnual
+      - name: RateOfUse
+      - name: UseByTechnology
+      - name: Use
+      - name: Trade
+      - name: TradeAnnual
+      - name: ProductionAnnual
+      - name: UseAnnual
+      - name: CapitalInvestment
+      - name: DiscountedCapitalInvestment
+      - name: SalvageValue
+      - name: DiscountedSalvageValue
+      - name: OperatingCost
+      - name: DiscountedOperatingCost
+      - name: AnnualVariableOperatingCost
+      - name: AnnualFixedOperatingCost
+      - name: TotalDiscountedCostByTechnology
+      - name: TotalDiscountedCost
+      - name: ModelPeriodCostByRegion
+      - name: TotalCapacityInReserveMargin
+      - name: DemandNeedingReserveMargin
+      - name: TotalREProductionAnnual
+      - name: RETotalProductionOfTargetFuelAnnual
+      - name: TotalTechnologyModelPeriodActivity
+      - name: AnnualTechnologyEmissionByMode
+      - name: AnnualTechnologyEmission
+      - name: AnnualTechnologyEmissionPenaltyByEmission
+      - name: AnnualTechnologyEmissionsPenalty
+      - name: DiscountedTechnologyEmissionsPenalty
+      - name: AnnualEmissions
+      - name: ModelPeriodEmissions
+      - name: yfirst
+      - name: fuel_transmission
+      - name: batteries
+      - name: modular_storages
+      - name: fuel_cosumption
+      - name: PowerToEnergyConversion
+      - name: BEES_monthly_discharge
+      - name: fel_2024
+      - name: a_fel
+      - name: b_fel
+      - name: c_fel
+      - name: d_fel
+      - name: fith_2024
+      - name: a_fith
+      - name: b_fith
+      - name: c_fith
+      - name: d_fith
+      - name: z
+      - name: Objective
+      - name: EQ_SpecifiedDemand1
+      - name: CAa1_TotalNewCapacity
+      - name: CAa2_TotalAnnualCapacity
+      - name: CAa3_TotalActivityOfEachTechnology
+      - name: CAa4_Constraint_Capacity
+      - name: CAa5_TotalNewCapacity
+      - name: CAb1_PlannedMaintenance
+      - name: EBa1_RateOfFuelProduction1
+      - name: EBa2_RateOfFuelProduction2
+      - name: EBa3_RateOfFuelProduction3
+      - name: EBa4_RateOfFuelUse1
+      - name: EBa5_RateOfFuelUse2
+      - name: EBa6_RateOfFuelUse3
+      - name: EBa7_EnergyBalanceEachTS1
+      - name: EBa8_EnergyBalanceEachTS2
+      - name: EBa9_EnergyBalanceEachTS3
+      - name: EBa10_EnergyBalanceEachTS4
+      - name: EBa11_EnergyBalanceEachTS5
+      - name: EBb1_EnergyBalanceEachYear1
+      - name: EBb2_EnergyBalanceEachYear2
+      - name: EBb3_EnergyBalanceEachYear3
+      - name: EBb4_EnergyBalanceEachYear4
+      - name: Acc1_FuelProductionByTechnology
+      - name: Acc2_FuelUseByTechnology
+      - name: Acc3_AverageAnnualRateOfActivity
+      - name: Acc4_ModelPeriodCostByRegion
+      - name: S1_RateOfStorageCharge
+      - name: S2_RateOfStorageDischarge
+      - name: S3_NetChargeWithinYear
+      - name: S4_NetChargeWithinDay
+      - name: S5_StorageLeveYearStart
+      - name: S7_StorageLevelYearFinish
+      - name: S8_StorageLevelYearFinish
+      - name: S9_StorageLevelSeasonStart
+      - name: S10_StorageLevelSeasonStart
+      - name: S11_StorageLevelDayTypeStart
+      - name: S12_StorageLevelDayTypeStart
+      - name: S13_StorageLevelDayTypeFinish
+      - name: S14_StorageLevelDayTypeFinish
+      - name: S15_StorageLevelDayTypeFinish
+      - name: StoragePowerEnergyLink
+      - name: SC1_LowerLimit
+      - name: SC1_UpperLimit
+      - name: SC2_LowerLimit
+      - name: SC2_UpperLimit
+      - name: SC3_LowerLimit
+      - name: SC3_UpperLimit
+      - name: SC4_LowerLimit
+      - name: SC4_UpperLimit
+      - name: SC5_MaxChargeConstraint
+      - name: SC6_MaxDischargeConstraint
+      - name: SI0_Enforce_ModularStorageInvestments
+      - name: SI1_StorageUpperLimit
+      - name: SI2_StorageLowerLimit
+      - name: SI3_TotalNewStorage
+      - name: SI4_UndiscountedCapitalInvestmentStorage
+      - name: SI5_DiscountingCapitalInvestmentStorage
+      - name: SI6_SalvageValueStorageAtEndOfPeriod1
+      - name: SI7_SalvageValueStorageAtEndOfPeriod2
+      - name: SI8_SalvageValueStorageAtEndOfPeriod3
+      - name: SI9_SalvageValueStorageDiscountedToStartYear
+      - name: SI10_TotalDiscountedCostByStorage
+      - name: CC1_UndiscountedCapitalInvestment
+      - name: CC2_DiscountingCapitalInvestmenta
+      - name: SV1_SalvageValueAtEndOfPeriod1
+      - name: SV2_SalvageValueAtEndOfPeriod2
+      - name: SV3_SalvageValueAtEndOfPeriod3
+      - name: SV4_SalvageValueDiscToStartYr
+      - name: OC1_OperatingCostsVariable
+      - name: OC2_OperatingCostsFixedAnnual
+      - name: OC3_OperatingCostsTotalAnnual
+      - name: OC4_DiscountedOperatingCostsTotalAnnual
+      - name: TDC1_TotalDiscountedCostByTechnology
+      - name: TDC2_TotalDiscountedCostByTechnology
+      - name: TCC1_TotalAnnualMaxCapacityConstraint
+      - name: TCC2_TotalAnnualMinCapacityConstraint
+      - name: NCC1_TotalAnnualMaxNewCapacityConstraint
+      - name: NCC2_TotalAnnualMinNewCapacityConstraint
+      - name: AAC1_TotalAnnualTechnologyActivity
+      - name: AAC2_TotalAnnualTechnologyActivityUpperLimit
+      - name: AAC3_TotalAnnualTechnologyActivityLowerLimit
+      - name: TAC1_TotalModelHorizenTechnologyActivity
+      - name: TAC2_TotalModelHorizenTechnologyActivityUpperLimit
+      - name: TAC3_TotalModelHorizenTechnologyActivityLowerLimit
+      - name: RM1_ReserveMargin_TechologiesIncluded_In_Activity_Units
+      - name: RM2_ReserveMargin_FuelsIncluded
+      - name: RM3_ReserveMargin_Constraint
+      - name: RE1_FuelProductionByTechnologyAnnual
+      - name: RE2_TechIncluded
+      - name: RE3_FuelIncluded
+      - name: RE4_EnergyConstraint
+      - name: RE5_FuelUseByTechnologyAnnual
+      - name: E1_AnnualEmissionProductionByMode
+      - name: E2_AnnualEmissionProduction
+      - name: E3_EmissionsPenaltyByTechAndEmission
+      - name: E4_EmissionsPenaltyByTechnology
+      - name: E5_DiscountedEmissionsPenaltyByTechnology
+      - name: E6_EmissionsAccounting1
+      - name: E7_EmissionsAccounting2
+      - name: E8_AnnualEmissionsLimit
+      - name: E9_ModelPeriodEmissionsLimit
+- Projection:
+    name: YEAR(0)
+    newName: y(0)
+- Projection:
+    name: YEAR(0)
+    newName: yy(0)
+- Projection:
+    name: YEAR(0)
+    newName: yyy(0)
+- Projection:
+    name: TECHNOLOGY(0)
+    newName: t(0)
+- Projection:
+    name: TIMESLICE(0)
+    newName: l(0)
+- Projection:
+    name: FUEL(0)
+    newName: f(0)
+- Projection:
+    name: EMISSION(0)
+    newName: e(0)
+- Projection:
+    name: MODE_OF_OPERATION(0)
+    newName: m(0)
+- Projection:
+    name: REGION(0)
+    newName: r(0)
+- Projection:
+    name: REGION(0)
+    newName: rr(0)
+- Projection:
+    name: SEASON(0)
+    newName: ls(0)
+- Projection:
+    name: SEASON(0)
+    newName: lsls(0)
+- Projection:
+    name: DAYTYPE(0)
+    newName: ld(0)
+- Projection:
+    name: DAYTYPE(0)
+    newName: ldld(0)
+- Projection:
+    name: DAILYTIMEBRACKET(0)
+    newName: lh(0)
+- Projection:
+    name: DAILYTIMEBRACKET(0)
+    newName: lhlh(0)
+- Projection:
+    name: STORAGE(0)
+    newName: s(0)
+- Projection:
+    name: RateOfDemand.all(0,1,2,3)
+    newName: RateOfDemand_proj_(0,1,2,3)
+- Projection:
+    name: Demand.all(0,1,2,3)
+    newName: Demand_proj_(0,1,2,3)
+- Projection:
+    name: RateOfStorageCharge.all(0,1,2,3,4,5)
+    newName: RateOfStorageCharge_proj_(0,1,2,3,4,5)
+- Projection:
+    name: RateOfStorageDischarge.all(0,1,2,3,4,5)
+    newName: RateOfStorageDischarge_proj_(0,1,2,3,4,5)
+- Projection:
+    name: NetChargeWithinYear.all(0,1,2,3,4,5)
+    newName: NetChargeWithinYear_proj_(0,1,2,3,4,5)
+- Projection:
+    name: NetChargeWithinDay.all(0,1,2,3,4,5)
+    newName: NetChargeWithinDay_proj_(0,1,2,3,4,5)
+- Projection:
+    name: StorageLevelYearStart.all(0,1,2)
+    newName: StorageLevelYearStart_proj_(0,1,2)
+- Projection:
+    name: StorageLevelYearFinish.all(0,1,2)
+    newName: StorageLevelYearFinish_proj_(0,1,2)
+- Projection:
+    name: StorageLevelSeasonStart.all(0,1,2,3)
+    newName: StorageLevelSeasonStart_proj_(0,1,2,3)
+- Projection:
+    name: StorageLevelDayTypeStart.all(0,1,2,3,4)
+    newName: StorageLevelDayTypeStart_proj_(0,1,2,3,4)
+- Projection:
+    name: StorageLevelDayTypeFinish.all(0,1,2,3,4)
+    newName: StorageLevelDayTypeFinish_proj_(0,1,2,3,4)
+- Projection:
+    name: StorageLowerLimit.all(0,1,2)
+    newName: StorageLowerLimit_proj_(0,1,2)
+- Projection:
+    name: StorageUpperLimit.all(0,1,2)
+    newName: StorageUpperLimit_proj_(0,1,2)
+- Projection:
+    name: AccumulatedNewStorageCapacity.all(0,1,2)
+    newName: AccumulatedNewStorageCapacity_proj_(0,1,2)
+- Projection:
+    name: NewStorageCapacity.all(0,1,2)
+    newName: NewStorageCapacity_proj_(0,1,2)
+- Projection:
+    name: CapitalInvestmentStorage.all(0,1,2)
+    newName: CapitalInvestmentStorage_proj_(0,1,2)
+- Projection:
+    name: DiscountedCapitalInvestmentStorage.all(0,1,2)
+    newName: DiscountedCapitalInvestmentStorage_proj_(0,1,2)
+- Projection:
+    name: SalvageValueStorage.all(0,1,2)
+    newName: SalvageValueStorage_proj_(0,1,2)
+- Projection:
+    name: DiscountedSalvageValueStorage.all(0,1,2)
+    newName: DiscountedSalvageValueStorage_proj_(0,1,2)
+- Projection:
+    name: TotalDiscountedStorageCost.all(0,1,2)
+    newName: TotalDiscountedStorageCost_proj_(0,1,2)
+- Projection:
+    name: NumberOfNewStorageUnits.all(0,1,2)
+    newName: NumberOfNewStorageUnits_proj_(0,1,2)
+- Projection:
+    name: NumberOfNewTechnologyUnits.all(0,1,2)
+    newName: NumberOfNewTechnologyUnits_proj_(0,1,2)
+- Projection:
+    name: NewCapacity.all(0,1,2)
+    newName: NewCapacity_proj_(0,1,2)
+- Projection:
+    name: AccumulatedNewCapacity.all(0,1,2)
+    newName: AccumulatedNewCapacity_proj_(0,1,2)
+- Projection:
+    name: TotalCapacityAnnual.all(0,1,2)
+    newName: TotalCapacityAnnual_proj_(0,1,2)
+- Projection:
+    name: RateOfActivity.all(0,1,2,3,4)
+    newName: RateOfActivity_proj_(0,1,2,3,4)
+- Projection:
+    name: RateOfTotalActivity.all(0,1,2,3)
+    newName: RateOfTotalActivity_proj_(0,1,2,3)
+- Projection:
+    name: TotalTechnologyAnnualActivity.all(0,1,2)
+    newName: TotalTechnologyAnnualActivity_proj_(0,1,2)
+- Projection:
+    name: TotalAnnualTechnologyActivityByMode.all(0,1,2,3)
+    newName: TotalAnnualTechnologyActivityByMode_proj_(0,1,2,3)
+- Projection:
+    name: RateOfProductionByTechnologyByMode.all(0,1,2,3,4,5)
+    newName: RateOfProductionByTechnologyByMode_proj_(0,1,2,3,4,5)
+- Projection:
+    name: RateOfProductionByTechnology.all(0,1,2,3,4)
+    newName: RateOfProductionByTechnology_proj_(0,1,2,3,4)
+- Projection:
+    name: ProductionByTechnology.all(0,1,2,3,4)
+    newName: ProductionByTechnology_proj_(0,1,2,3,4)
+- Projection:
+    name: ProductionByTechnologyAnnual.all(0,1,2,3)
+    newName: ProductionByTechnologyAnnual_proj_(0,1,2,3)
+- Projection:
+    name: RateOfProduction.all(0,1,2,3)
+    newName: RateOfProduction_proj_(0,1,2,3)
+- Projection:
+    name: Production.all(0,1,2,3)
+    newName: Production_proj_(0,1,2,3)
+- Projection:
+    name: RateOfUseByTechnologyByMode.all(0,1,2,3,4,5)
+    newName: RateOfUseByTechnologyByMode_proj_(0,1,2,3,4,5)
+- Projection:
+    name: RateOfUseByTechnology.all(0,1,2,3,4)
+    newName: RateOfUseByTechnology_proj_(0,1,2,3,4)
+- Projection:
+    name: UseByTechnologyAnnual.all(0,1,2,3)
+    newName: UseByTechnologyAnnual_proj_(0,1,2,3)
+- Projection:
+    name: RateOfUse.all(0,1,2,3)
+    newName: RateOfUse_proj_(0,1,2,3)
+- Projection:
+    name: UseByTechnology.all(0,1,2,3,4)
+    newName: UseByTechnology_proj_(0,1,2,3,4)
+- Projection:
+    name: Use.all(0,1,2,3)
+    newName: Use_proj_(0,1,2,3)
+- Projection:
+    name: Trade.all(0,1,2,3,4)
+    newName: Trade_proj_(0,1,2,3,4)
+- Projection:
+    name: TradeAnnual.all(0,1,2,3)
+    newName: TradeAnnual_proj_(0,1,2,3)
+- Projection:
+    name: ProductionAnnual.all(0,1,2)
+    newName: ProductionAnnual_proj_(0,1,2)
+- Projection:
+    name: UseAnnual.all(0,1,2)
+    newName: UseAnnual_proj_(0,1,2)
+- Projection:
+    name: CapitalInvestment.all(0,1,2)
+    newName: CapitalInvestment_proj_(0,1,2)
+- Projection:
+    name: DiscountedCapitalInvestment.all(0,1,2)
+    newName: DiscountedCapitalInvestment_proj_(0,1,2)
+- Projection:
+    name: SalvageValue.all(0,1,2)
+    newName: SalvageValue_proj_(0,1,2)
+- Projection:
+    name: DiscountedSalvageValue.all(0,1,2)
+    newName: DiscountedSalvageValue_proj_(0,1,2)
+- Projection:
+    name: OperatingCost.all(0,1,2)
+    newName: OperatingCost_proj_(0,1,2)
+- Projection:
+    name: DiscountedOperatingCost.all(0,1,2)
+    newName: DiscountedOperatingCost_proj_(0,1,2)
+- Projection:
+    name: AnnualVariableOperatingCost.all(0,1,2)
+    newName: AnnualVariableOperatingCost_proj_(0,1,2)
+- Projection:
+    name: AnnualFixedOperatingCost.all(0,1,2)
+    newName: AnnualFixedOperatingCost_proj_(0,1,2)
+- Projection:
+    name: TotalDiscountedCostByTechnology.all(0,1,2)
+    newName: TotalDiscountedCostByTechnology_proj_(0,1,2)
+- Projection:
+    name: TotalDiscountedCost.all(0,1)
+    newName: TotalDiscountedCost_proj_(0,1)
+- Projection:
+    name: ModelPeriodCostByRegion.all(0)
+    newName: ModelPeriodCostByRegion_proj_(0)
+- Projection:
+    name: TotalCapacityInReserveMargin.all(0,1)
+    newName: TotalCapacityInReserveMargin_proj_(0,1)
+- Projection:
+    name: DemandNeedingReserveMargin.all(0,1,2)
+    newName: DemandNeedingReserveMargin_proj_(0,1,2)
+- Projection:
+    name: TotalREProductionAnnual.all(0,1)
+    newName: TotalREProductionAnnual_proj_(0,1)
+- Projection:
+    name: RETotalProductionOfTargetFuelAnnual.all(0,1)
+    newName: RETotalProductionOfTargetFuelAnnual_proj_(0,1)
+- Projection:
+    name: TotalTechnologyModelPeriodActivity.all(0,1)
+    newName: TotalTechnologyModelPeriodActivity_proj_(0,1)
+- Projection:
+    name: AnnualTechnologyEmissionByMode.all(0,1,2,3,4)
+    newName: AnnualTechnologyEmissionByMode_proj_(0,1,2,3,4)
+- Projection:
+    name: AnnualTechnologyEmission.all(0,1,2,3)
+    newName: AnnualTechnologyEmission_proj_(0,1,2,3)
+- Projection:
+    name: AnnualTechnologyEmissionPenaltyByEmission.all(0,1,2,3)
+    newName: AnnualTechnologyEmissionPenaltyByEmission_proj_(0,1,2,3)
+- Projection:
+    name: AnnualTechnologyEmissionsPenalty.all(0,1,2)
+    newName: AnnualTechnologyEmissionsPenalty_proj_(0,1,2)
+- Projection:
+    name: DiscountedTechnologyEmissionsPenalty.all(0,1,2)
+    newName: DiscountedTechnologyEmissionsPenalty_proj_(0,1,2)
+- Projection:
+    name: AnnualEmissions.all(0,1,2)
+    newName: AnnualEmissions_proj_(0,1,2)
+- Projection:
+    name: ModelPeriodEmissions.all(0,1)
+    newName: ModelPeriodEmissions_proj_(0,1)
+- Projection:
+    name: z.all
+    newName: z_proj_
+- Projection:
+    name: Objective.all
+    newName: Objective_proj_
+- Projection:
+    name: EQ_SpecifiedDemand1.all(0,1,2,3)
+    newName: EQ_SpecifiedDemand1_proj_(0,1,2,3)
+- Projection:
+    name: CAa1_TotalNewCapacity.all(0,1,2)
+    newName: CAa1_TotalNewCapacity_proj_(0,1,2)
+- Projection:
+    name: CAa2_TotalAnnualCapacity.all(0,1,2)
+    newName: CAa2_TotalAnnualCapacity_proj_(0,1,2)
+- Projection:
+    name: CAa3_TotalActivityOfEachTechnology.all(0,1,2,3)
+    newName: CAa3_TotalActivityOfEachTechnology_proj_(0,1,2,3)
+- Projection:
+    name: CAa4_Constraint_Capacity.all(0,1,2,3)
+    newName: CAa4_Constraint_Capacity_proj_(0,1,2,3)
+- Projection:
+    name: CAa5_TotalNewCapacity.all(0,1,2)
+    newName: CAa5_TotalNewCapacity_proj_(0,1,2)
+- Projection:
+    name: CAb1_PlannedMaintenance.all(0,1,2)
+    newName: CAb1_PlannedMaintenance_proj_(0,1,2)
+- Projection:
+    name: EBa1_RateOfFuelProduction1.all(0,1,2,3,4,5)
+    newName: EBa1_RateOfFuelProduction1_proj_(0,1,2,3,4,5)
+- Projection:
+    name: EBa2_RateOfFuelProduction2.all(0,1,2,3,4)
+    newName: EBa2_RateOfFuelProduction2_proj_(0,1,2,3,4)
+- Projection:
+    name: EBa3_RateOfFuelProduction3.all(0,1,2,3)
+    newName: EBa3_RateOfFuelProduction3_proj_(0,1,2,3)
+- Projection:
+    name: EBa4_RateOfFuelUse1.all(0,1,2,3,4,5)
+    newName: EBa4_RateOfFuelUse1_proj_(0,1,2,3,4,5)
+- Projection:
+    name: EBa5_RateOfFuelUse2.all(0,1,2,3,4)
+    newName: EBa5_RateOfFuelUse2_proj_(0,1,2,3,4)
+- Projection:
+    name: EBa6_RateOfFuelUse3.all(0,1,2,3)
+    newName: EBa6_RateOfFuelUse3_proj_(0,1,2,3)
+- Projection:
+    name: EBa7_EnergyBalanceEachTS1.all(0,1,2,3)
+    newName: EBa7_EnergyBalanceEachTS1_proj_(0,1,2,3)
+- Projection:
+    name: EBa8_EnergyBalanceEachTS2.all(0,1,2,3)
+    newName: EBa8_EnergyBalanceEachTS2_proj_(0,1,2,3)
+- Projection:
+    name: EBa9_EnergyBalanceEachTS3.all(0,1,2,3)
+    newName: EBa9_EnergyBalanceEachTS3_proj_(0,1,2,3)
+- Projection:
+    name: EBa10_EnergyBalanceEachTS4.all(0,1,2,3,4)
+    newName: EBa10_EnergyBalanceEachTS4_proj_(0,1,2,3,4)
+- Projection:
+    name: EBa11_EnergyBalanceEachTS5.all(0,1,2,3)
+    newName: EBa11_EnergyBalanceEachTS5_proj_(0,1,2,3)
+- Projection:
+    name: EBb1_EnergyBalanceEachYear1.all(0,1,2)
+    newName: EBb1_EnergyBalanceEachYear1_proj_(0,1,2)
+- Projection:
+    name: EBb2_EnergyBalanceEachYear2.all(0,1,2)
+    newName: EBb2_EnergyBalanceEachYear2_proj_(0,1,2)
+- Projection:
+    name: EBb3_EnergyBalanceEachYear3.all(0,1,2,3)
+    newName: EBb3_EnergyBalanceEachYear3_proj_(0,1,2,3)
+- Projection:
+    name: EBb4_EnergyBalanceEachYear4.all(0,1,2)
+    newName: EBb4_EnergyBalanceEachYear4_proj_(0,1,2)
+- Projection:
+    name: Acc1_FuelProductionByTechnology.all(0,1,2,3,4)
+    newName: Acc1_FuelProductionByTechnology_proj_(0,1,2,3,4)
+- Projection:
+    name: Acc2_FuelUseByTechnology.all(0,1,2,3,4)
+    newName: Acc2_FuelUseByTechnology_proj_(0,1,2,3,4)
+- Projection:
+    name: Acc3_AverageAnnualRateOfActivity.all(0,1,2,3)
+    newName: Acc3_AverageAnnualRateOfActivity_proj_(0,1,2,3)
+- Projection:
+    name: Acc4_ModelPeriodCostByRegion.all(0)
+    newName: Acc4_ModelPeriodCostByRegion_proj_(0)
+- Projection:
+    name: S1_RateOfStorageCharge.all(0,1,2,3,4,5)
+    newName: S1_RateOfStorageCharge_proj_(0,1,2,3,4,5)
+- Projection:
+    name: S2_RateOfStorageDischarge.all(0,1,2,3,4,5)
+    newName: S2_RateOfStorageDischarge_proj_(0,1,2,3,4,5)
+- Projection:
+    name: S3_NetChargeWithinYear.all(0,1,2,3,4,5)
+    newName: S3_NetChargeWithinYear_proj_(0,1,2,3,4,5)
+- Projection:
+    name: S4_NetChargeWithinDay.all(0,1,2,3,4,5)
+    newName: S4_NetChargeWithinDay_proj_(0,1,2,3,4,5)
+- Projection:
+    name: S5_StorageLeveYearStart.all(0,1,2)
+    newName: S5_StorageLeveYearStart_proj_(0,1,2)
+- Projection:
+    name: S7_StorageLevelYearFinish.all(0,1,2)
+    newName: S7_StorageLevelYearFinish_proj_(0,1,2)
+- Projection:
+    name: S8_StorageLevelYearFinish.all(0,1,2)
+    newName: S8_StorageLevelYearFinish_proj_(0,1,2)
+- Projection:
+    name: S9_StorageLevelSeasonStart.all(0,1,2,3)
+    newName: S9_StorageLevelSeasonStart_proj_(0,1,2,3)
+- Projection:
+    name: S10_StorageLevelSeasonStart.all(0,1,2,3)
+    newName: S10_StorageLevelSeasonStart_proj_(0,1,2,3)
+- Projection:
+    name: S11_StorageLevelDayTypeStart.all(0,1,2,3,4)
+    newName: S11_StorageLevelDayTypeStart_proj_(0,1,2,3,4)
+- Projection:
+    name: S12_StorageLevelDayTypeStart.all(0,1,2,3,4)
+    newName: S12_StorageLevelDayTypeStart_proj_(0,1,2,3,4)
+- Projection:
+    name: S13_StorageLevelDayTypeFinish.all(0,1,2,3,4)
+    newName: S13_StorageLevelDayTypeFinish_proj_(0,1,2,3,4)
+- Projection:
+    name: S14_StorageLevelDayTypeFinish.all(0,1,2,3,4)
+    newName: S14_StorageLevelDayTypeFinish_proj_(0,1,2,3,4)
+- Projection:
+    name: S15_StorageLevelDayTypeFinish.all(0,1,2,3,4)
+    newName: S15_StorageLevelDayTypeFinish_proj_(0,1,2,3,4)
+- Projection:
+    name: StoragePowerEnergyLink.all(0,1,2,3)
+    newName: StoragePowerEnergyLink_proj_(0,1,2,3)
+- Projection:
+    name: SC1_LowerLimit.all(0,1,2,3,4,5)
+    newName: SC1_LowerLimit_proj_(0,1,2,3,4,5)
+- Projection:
+    name: SC1_UpperLimit.all(0,1,2,3,4,5)
+    newName: SC1_UpperLimit_proj_(0,1,2,3,4,5)
+- Projection:
+    name: SC2_LowerLimit.all(0,1,2,3,4,5)
+    newName: SC2_LowerLimit_proj_(0,1,2,3,4,5)
+- Projection:
+    name: SC2_UpperLimit.all(0,1,2,3,4,5)
+    newName: SC2_UpperLimit_proj_(0,1,2,3,4,5)
+- Projection:
+    name: SC3_LowerLimit.all(0,1,2,3,4,5)
+    newName: SC3_LowerLimit_proj_(0,1,2,3,4,5)
+- Projection:
+    name: SC3_UpperLimit.all(0,1,2,3,4,5)
+    newName: SC3_UpperLimit_proj_(0,1,2,3,4,5)
+- Projection:
+    name: SC4_LowerLimit.all(0,1,2,3,4,5)
+    newName: SC4_LowerLimit_proj_(0,1,2,3,4,5)
+- Projection:
+    name: SC4_UpperLimit.all(0,1,2,3,4,5)
+    newName: SC4_UpperLimit_proj_(0,1,2,3,4,5)
+- Projection:
+    name: SC5_MaxChargeConstraint.all(0,1,2,3,4,5)
+    newName: SC5_MaxChargeConstraint_proj_(0,1,2,3,4,5)
+- Projection:
+    name: SC6_MaxDischargeConstraint.all(0,1,2,3,4,5)
+    newName: SC6_MaxDischargeConstraint_proj_(0,1,2,3,4,5)
+- Projection:
+    name: SI0_Enforce_ModularStorageInvestments.all(0,1,2)
+    newName: SI0_Enforce_ModularStorageInvestments_proj_(0,1,2)
+- Projection:
+    name: SI1_StorageUpperLimit.all(0,1,2)
+    newName: SI1_StorageUpperLimit_proj_(0,1,2)
+- Projection:
+    name: SI2_StorageLowerLimit.all(0,1,2)
+    newName: SI2_StorageLowerLimit_proj_(0,1,2)
+- Projection:
+    name: SI3_TotalNewStorage.all(0,1,2)
+    newName: SI3_TotalNewStorage_proj_(0,1,2)
+- Projection:
+    name: SI4_UndiscountedCapitalInvestmentStorage.all(0,1,2)
+    newName: SI4_UndiscountedCapitalInvestmentStorage_proj_(0,1,2)
+- Projection:
+    name: SI5_DiscountingCapitalInvestmentStorage.all(0,1,2)
+    newName: SI5_DiscountingCapitalInvestmentStorage_proj_(0,1,2)
+- Projection:
+    name: SI6_SalvageValueStorageAtEndOfPeriod1.all(0,1,2)
+    newName: SI6_SalvageValueStorageAtEndOfPeriod1_proj_(0,1,2)
+- Projection:
+    name: SI7_SalvageValueStorageAtEndOfPeriod2.all(0,1,2)
+    newName: SI7_SalvageValueStorageAtEndOfPeriod2_proj_(0,1,2)
+- Projection:
+    name: SI8_SalvageValueStorageAtEndOfPeriod3.all(0,1,2)
+    newName: SI8_SalvageValueStorageAtEndOfPeriod3_proj_(0,1,2)
+- Projection:
+    name: SI9_SalvageValueStorageDiscountedToStartYear.all(0,1,2)
+    newName: SI9_SalvageValueStorageDiscountedToStartYear_proj_(0,1,2)
+- Projection:
+    name: SI10_TotalDiscountedCostByStorage.all(0,1,2)
+    newName: SI10_TotalDiscountedCostByStorage_proj_(0,1,2)
+- Projection:
+    name: CC1_UndiscountedCapitalInvestment.all(0,1,2)
+    newName: CC1_UndiscountedCapitalInvestment_proj_(0,1,2)
+- Projection:
+    name: CC2_DiscountingCapitalInvestmenta.all(0,1,2)
+    newName: CC2_DiscountingCapitalInvestmenta_proj_(0,1,2)
+- Projection:
+    name: SV1_SalvageValueAtEndOfPeriod1.all(0,1,2)
+    newName: SV1_SalvageValueAtEndOfPeriod1_proj_(0,1,2)
+- Projection:
+    name: SV2_SalvageValueAtEndOfPeriod2.all(0,1,2)
+    newName: SV2_SalvageValueAtEndOfPeriod2_proj_(0,1,2)
+- Projection:
+    name: SV3_SalvageValueAtEndOfPeriod3.all(0,1,2)
+    newName: SV3_SalvageValueAtEndOfPeriod3_proj_(0,1,2)
+- Projection:
+    name: SV4_SalvageValueDiscToStartYr.all(0,1,2)
+    newName: SV4_SalvageValueDiscToStartYr_proj_(0,1,2)
+- Projection:
+    name: OC1_OperatingCostsVariable.all(0,1,2,3)
+    newName: OC1_OperatingCostsVariable_proj_(0,1,2,3)
+- Projection:
+    name: OC2_OperatingCostsFixedAnnual.all(0,1,2)
+    newName: OC2_OperatingCostsFixedAnnual_proj_(0,1,2)
+- Projection:
+    name: OC3_OperatingCostsTotalAnnual.all(0,1,2)
+    newName: OC3_OperatingCostsTotalAnnual_proj_(0,1,2)
+- Projection:
+    name: OC4_DiscountedOperatingCostsTotalAnnual.all(0,1,2)
+    newName: OC4_DiscountedOperatingCostsTotalAnnual_proj_(0,1,2)
+- Projection:
+    name: TDC1_TotalDiscountedCostByTechnology.all(0,1,2)
+    newName: TDC1_TotalDiscountedCostByTechnology_proj_(0,1,2)
+- Projection:
+    name: TDC2_TotalDiscountedCostByTechnology.all(0,1)
+    newName: TDC2_TotalDiscountedCostByTechnology_proj_(0,1)
+- Projection:
+    name: TCC1_TotalAnnualMaxCapacityConstraint.all(0,1,2)
+    newName: TCC1_TotalAnnualMaxCapacityConstraint_proj_(0,1,2)
+- Projection:
+    name: TCC2_TotalAnnualMinCapacityConstraint.all(0,1,2)
+    newName: TCC2_TotalAnnualMinCapacityConstraint_proj_(0,1,2)
+- Projection:
+    name: NCC1_TotalAnnualMaxNewCapacityConstraint.all(0,1,2)
+    newName: NCC1_TotalAnnualMaxNewCapacityConstraint_proj_(0,1,2)
+- Projection:
+    name: NCC2_TotalAnnualMinNewCapacityConstraint.all(0,1,2)
+    newName: NCC2_TotalAnnualMinNewCapacityConstraint_proj_(0,1,2)
+- Projection:
+    name: AAC1_TotalAnnualTechnologyActivity.all(0,1,2)
+    newName: AAC1_TotalAnnualTechnologyActivity_proj_(0,1,2)
+- Projection:
+    name: AAC2_TotalAnnualTechnologyActivityUpperLimit.all(0,1,2)
+    newName: AAC2_TotalAnnualTechnologyActivityUpperLimit_proj_(0,1,2)
+- Projection:
+    name: AAC3_TotalAnnualTechnologyActivityLowerLimit.all(0,1,2)
+    newName: AAC3_TotalAnnualTechnologyActivityLowerLimit_proj_(0,1,2)
+- Projection:
+    name: TAC1_TotalModelHorizenTechnologyActivity.all(0,1)
+    newName: TAC1_TotalModelHorizenTechnologyActivity_proj_(0,1)
+- Projection:
+    name: TAC2_TotalModelHorizenTechnologyActivityUpperLimit.all(0,1,2)
+    newName: TAC2_TotalModelHorizenTechnologyActivityUpperLimit_proj_(0,1,2)
+- Projection:
+    name: TAC3_TotalModelHorizenTechnologyActivityLowerLimit.all(0,1,2)
+    newName: TAC3_TotalModelHorizenTechnologyActivityLowerLimit_proj_(0,1,2)
+- Projection:
+    name: RM1_ReserveMargin_TechologiesIncluded_In_Activity_Units.all(0,1,2)
+    newName: RM1_ReserveMargin_TechologiesIncluded_In_Activity_Units_proj_(0,1,2)
+- Projection:
+    name: RM2_ReserveMargin_FuelsIncluded.all(0,1,2)
+    newName: RM2_ReserveMargin_FuelsIncluded_proj_(0,1,2)
+- Projection:
+    name: RM3_ReserveMargin_Constraint.all(0,1,2)
+    newName: RM3_ReserveMargin_Constraint_proj_(0,1,2)
+- Projection:
+    name: RE1_FuelProductionByTechnologyAnnual.all(0,1,2,3)
+    newName: RE1_FuelProductionByTechnologyAnnual_proj_(0,1,2,3)
+- Projection:
+    name: RE2_TechIncluded.all(0,1)
+    newName: RE2_TechIncluded_proj_(0,1)
+- Projection:
+    name: RE3_FuelIncluded.all(0,1)
+    newName: RE3_FuelIncluded_proj_(0,1)
+- Projection:
+    name: RE4_EnergyConstraint.all(0,1)
+    newName: RE4_EnergyConstraint_proj_(0,1)
+- Projection:
+    name: RE5_FuelUseByTechnologyAnnual.all(0,1,2,3)
+    newName: RE5_FuelUseByTechnologyAnnual_proj_(0,1,2,3)
+- Projection:
+    name: E1_AnnualEmissionProductionByMode.all(0,1,2,3,4)
+    newName: E1_AnnualEmissionProductionByMode_proj_(0,1,2,3,4)
+- Projection:
+    name: E2_AnnualEmissionProduction.all(0,1,2,3)
+    newName: E2_AnnualEmissionProduction_proj_(0,1,2,3)
+- Projection:
+    name: E3_EmissionsPenaltyByTechAndEmission.all(0,1,2,3)
+    newName: E3_EmissionsPenaltyByTechAndEmission_proj_(0,1,2,3)
+- Projection:
+    name: E4_EmissionsPenaltyByTechnology.all(0,1,2)
+    newName: E4_EmissionsPenaltyByTechnology_proj_(0,1,2)
+- Projection:
+    name: E5_DiscountedEmissionsPenaltyByTechnology.all(0,1,2)
+    newName: E5_DiscountedEmissionsPenaltyByTechnology_proj_(0,1,2)
+- Projection:
+    name: E6_EmissionsAccounting1.all(0,1,2)
+    newName: E6_EmissionsAccounting1_proj_(0,1,2)
+- Projection:
+    name: E7_EmissionsAccounting2.all(0,1)
+    newName: E7_EmissionsAccounting2_proj_(0,1)
+- Projection:
+    name: E8_AnnualEmissionsLimit.all(0,1,2)
+    newName: E8_AnnualEmissionsLimit_proj_(0,1,2)
+- Projection:
+    name: E9_ModelPeriodEmissionsLimit.all(0,1)
+    newName: E9_ModelPeriodEmissionsLimit_proj_(0,1)
+- ExcelWriter:
+    file: /Users/hugosmart/Documents/Github/Hy-run/Results/results_SCENparametrised_py_DATAtemplate_STORyes_export.xlsx
+    valueSubstitutions: {
+      EPS: EPS,
+      INF: INF,
+      -INF: -INF,
+      UNDEF: UNDEF,
+      NA: NA
+    }
+    symbols:
+      - name: YEAR
+        range: YEAR!A1
+        columnDimension: 0
+      - name: y
+        range: y!A1
+        columnDimension: 0
+      - name: yy
+        range: yy!A1
+        columnDimension: 0
+      - name: yyy
+        range: yyy!A1
+        columnDimension: 0
+      - name: TECHNOLOGY
+        range: TECHNOLOGY!A1
+        columnDimension: 0
+      - name: t
+        range: t!A1
+        columnDimension: 0
+      - name: TIMESLICE
+        range: TIMESLICE!A1
+        columnDimension: 0
+      - name: l
+        range: l!A1
+        columnDimension: 0
+      - name: FUEL
+        range: FUEL!A1
+        columnDimension: 0
+      - name: f
+        range: f!A1
+        columnDimension: 0
+      - name: EMISSION
+        range: EMISSION!A1
+        columnDimension: 0
+      - name: e
+        range: e!A1
+        columnDimension: 0
+      - name: MODE_OF_OPERATION
+        range: MODE_OF_OPERATION!A1
+        columnDimension: 0
+      - name: m
+        range: m!A1
+        columnDimension: 0
+      - name: REGION
+        range: REGION!A1
+        columnDimension: 0
+      - name: r
+        range: r!A1
+        columnDimension: 0
+      - name: rr
+        range: rr!A1
+        columnDimension: 0
+      - name: SEASON
+        range: SEASON!A1
+        columnDimension: 0
+      - name: ls
+        range: ls!A1
+        columnDimension: 0
+      - name: lsls
+        range: lsls!A1
+        columnDimension: 0
+      - name: DAYTYPE
+        range: DAYTYPE!A1
+        columnDimension: 0
+      - name: ld
+        range: ld!A1
+        columnDimension: 0
+      - name: ldld
+        range: ldld!A1
+        columnDimension: 0
+      - name: DAILYTIMEBRACKET
+        range: DAILYTIMEBRACKET!A1
+        columnDimension: 0
+      - name: lh
+        range: lh!A1
+        columnDimension: 0
+      - name: lhlh
+        range: lhlh!A1
+        columnDimension: 0
+      - name: STORAGE
+        range: STORAGE!A1
+        columnDimension: 0
+      - name: s
+        range: s!A1
+        columnDimension: 0
+      - name: TechnologyToStorageMap
+        range: TechnologyToStorageMap!A1
+        columnDimension: 0
+      - name: power_plants
+        range: power_plants!A1
+        columnDimension: 0
+      - name: storage_plants
+        range: storage_plants!A1
+        columnDimension: 0
+      - name: fuel_transformation
+        range: fuel_transformation!A1
+        columnDimension: 0
+      - name: appliances
+        range: appliances!A1
+        columnDimension: 0
+      - name: unmet_demand
+        range: unmet_demand!A1
+        columnDimension: 0
+      - name: transport
+        range: transport!A1
+        columnDimension: 0
+      - name: primary_imports
+        range: primary_imports!A1
+        columnDimension: 0
+      - name: secondary_imports
+        range: secondary_imports!A1
+        columnDimension: 0
+      - name: fuel_production
+        range: fuel_production!A1
+        columnDimension: 0
+      - name: fuel_production_fict
+        range: fuel_production_fict!A1
+        columnDimension: 0
+      - name: secondary_production
+        range: secondary_production!A1
+        columnDimension: 0
+      - name: renewable_tech
+        range: renewable_tech!A1
+        columnDimension: 0
+      - name: primary_fuel
+        range: primary_fuel!A1
+        columnDimension: 0
+      - name: secondary_carrier
+        range: secondary_carrier!A1
+        columnDimension: 0
+      - name: final_demand
+        range: final_demand!A1
+        columnDimension: 0
+      - name: renewable_fuel
+        range: renewable_fuel!A1
+        columnDimension: 0
+      - name: YearSplit
+        range: YearSplit!A1
+        columnDimension: 0
+      - name: DiscountRate
+        range: DiscountRate!A1
+        columnDimension: 0
+      - name: DaySplit
+        range: DaySplit!A1
+        columnDimension: 0
+      - name: Conversionls
+        range: Conversionls!A1
+        columnDimension: 0
+      - name: Conversionld
+        range: Conversionld!A1
+        columnDimension: 0
+      - name: Conversionlh
+        range: Conversionlh!A1
+        columnDimension: 0
+      - name: DaysInDayType
+        range: DaysInDayType!A1
+        columnDimension: 0
+      - name: TradeRoute
+        range: TradeRoute!A1
+        columnDimension: 0
+      - name: DepreciationMethod
+        range: DepreciationMethod!A1
+        columnDimension: 0
+      - name: SpecifiedAnnualDemand
+        range: SpecifiedAnnualDemand!A1
+        columnDimension: 0
+      - name: SpecifiedDemandProfile
+        range: SpecifiedDemandProfile!A1
+        columnDimension: 0
+      - name: AccumulatedAnnualDemand
+        range: AccumulatedAnnualDemand!A1
+        columnDimension: 0
+      - name: CapacityToActivityUnit
+        range: CapacityToActivityUnit!A1
+        columnDimension: 0
+      - name: CapacityFactor
+        range: CapacityFactor!A1
+        columnDimension: 0
+      - name: AvailabilityFactor
+        range: AvailabilityFactor!A1
+        columnDimension: 0
+      - name: OperationalLife
+        range: OperationalLife!A1
+        columnDimension: 0
+      - name: ContinousDepreciation
+        range: ContinousDepreciation!A1
+        columnDimension: 0
+      - name: ResidualCapacity
+        range: ResidualCapacity!A1
+        columnDimension: 0
+      - name: InputActivityRatio
+        range: InputActivityRatio!A1
+        columnDimension: 0
+      - name: OutputActivityRatio
+        range: OutputActivityRatio!A1
+        columnDimension: 0
+      - name: CapitalCost
+        range: CapitalCost!A1
+        columnDimension: 0
+      - name: VariableCost
+        range: VariableCost!A1
+        columnDimension: 0
+      - name: FixedCost
+        range: FixedCost!A1
+        columnDimension: 0
+      - name: TechnologyToStorage
+        range: TechnologyToStorage!A1
+        columnDimension: 0
+      - name: TechnologyFromStorage
+        range: TechnologyFromStorage!A1
+        columnDimension: 0
+      - name: StorageLevelStart
+        range: StorageLevelStart!A1
+        columnDimension: 0
+      - name: StorageMaxChargeRate
+        range: StorageMaxChargeRate!A1
+        columnDimension: 0
+      - name: StorageMaxDischargeRate
+        range: StorageMaxDischargeRate!A1
+        columnDimension: 0
+      - name: MinStorageCharge
+        range: MinStorageCharge!A1
+        columnDimension: 0
+      - name: OperationalLifeStorage
+        range: OperationalLifeStorage!A1
+        columnDimension: 0
+      - name: CapitalCostStorage
+        range: CapitalCostStorage!A1
+        columnDimension: 0
+      - name: ResidualStorageCapacity
+        range: ResidualStorageCapacity!A1
+        columnDimension: 0
+      - name: StorageDuration
+        range: StorageDuration!A1
+        columnDimension: 0
+      - name: SelfDischargeRate
+        range: SelfDischargeRate!A1
+        columnDimension: 0
+      - name: SeasonSelfDischargeRate
+        range: SeasonSelfDischargeRate!A1
+        columnDimension: 0
+      - name: StorageUnitSize
+        range: StorageUnitSize!A1
+        columnDimension: 0
+      - name: CapacityOfOneTechnologyUnit
+        range: CapacityOfOneTechnologyUnit!A1
+        columnDimension: 0
+      - name: TotalAnnualMaxCapacity
+        range: TotalAnnualMaxCapacity!A1
+        columnDimension: 0
+      - name: TotalAnnualMinCapacity
+        range: TotalAnnualMinCapacity!A1
+        columnDimension: 0
+      - name: TotalAnnualMaxCapacityInvestment
+        range: TotalAnnualMaxCapacityInvestment!A1
+        columnDimension: 0
+      - name: TotalAnnualMinCapacityInvestment
+        range: TotalAnnualMinCapacityInvestment!A1
+        columnDimension: 0
+      - name: TotalTechnologyAnnualActivityUpperLimit
+        range: TotalTechnologyAnnualActivityUpperLimit!A1
+        columnDimension: 0
+      - name: TotalTechnologyAnnualActivityLowerLimit
+        range: TotalTechnologyAnnualActivityLowerLimit!A1
+        columnDimension: 0
+      - name: TotalTechnologyModelPeriodActivityUpperLimit
+        range: TotalTechnologyModelPeriodActivityUpperLimit!A1
+        columnDimension: 0
+      - name: TotalTechnologyModelPeriodActivityLowerLimit
+        range: TotalTechnologyModelPeriodActivityLowerLimit!A1
+        columnDimension: 0
+      - name: ReserveMarginTagTechnology
+        range: ReserveMarginTagTechnology!A1
+        columnDimension: 0
+      - name: ReserveMarginTagFuel
+        range: ReserveMarginTagFuel!A1
+        columnDimension: 0
+      - name: ReserveMargin
+        range: ReserveMargin!A1
+        columnDimension: 0
+      - name: RETagTechnology
+        range: RETagTechnology!A1
+        columnDimension: 0
+      - name: RETagFuel
+        range: RETagFuel!A1
+        columnDimension: 0
+      - name: REMinProductionTarget
+        range: REMinProductionTarget!A1
+        columnDimension: 0
+      - name: EmissionActivityRatio
+        range: EmissionActivityRatio!A1
+        columnDimension: 0
+      - name: EmissionsPenalty
+        range: EmissionsPenalty!A1
+        columnDimension: 0
+      - name: AnnualExogenousEmission
+        range: AnnualExogenousEmission!A1
+        columnDimension: 0
+      - name: AnnualEmissionLimit
+        range: AnnualEmissionLimit!A1
+        columnDimension: 0
+      - name: ModelPeriodExogenousEmission
+        range: ModelPeriodExogenousEmission!A1
+        columnDimension: 0
+      - name: ModelPeriodEmissionLimit
+        range: ModelPeriodEmissionLimit!A1
+        columnDimension: 0
+      - name: RateOfDemand_proj_
+        range: RateOfDemand!A1
+        columnDimension: 1
+      - name: Demand_proj_
+        range: Demand!A1
+        columnDimension: 1
+      - name: RateOfStorageCharge_proj_
+        range: RateOfStorageCharge!A1
+        columnDimension: 1
+      - name: RateOfStorageDischarge_proj_
+        range: RateOfStorageDischarge!A1
+        columnDimension: 1
+      - name: NetChargeWithinYear_proj_
+        range: NetChargeWithinYear!A1
+        columnDimension: 1
+      - name: NetChargeWithinDay_proj_
+        range: NetChargeWithinDay!A1
+        columnDimension: 1
+      - name: StorageLevelYearStart_proj_
+        range: StorageLevelYearStart!A1
+        columnDimension: 1
+      - name: StorageLevelYearFinish_proj_
+        range: StorageLevelYearFinish!A1
+        columnDimension: 1
+      - name: StorageLevelSeasonStart_proj_
+        range: StorageLevelSeasonStart!A1
+        columnDimension: 1
+      - name: StorageLevelDayTypeStart_proj_
+        range: StorageLevelDayTypeStart!A1
+        columnDimension: 1
+      - name: StorageLevelDayTypeFinish_proj_
+        range: StorageLevelDayTypeFinish!A1
+        columnDimension: 1
+      - name: StorageLowerLimit_proj_
+        range: StorageLowerLimit!A1
+        columnDimension: 1
+      - name: StorageUpperLimit_proj_
+        range: StorageUpperLimit!A1
+        columnDimension: 1
+      - name: AccumulatedNewStorageCapacity_proj_
+        range: AccumulatedNewStorageCapacity!A1
+        columnDimension: 1
+      - name: NewStorageCapacity_proj_
+        range: NewStorageCapacity!A1
+        columnDimension: 1
+      - name: CapitalInvestmentStorage_proj_
+        range: CapitalInvestmentStorage!A1
+        columnDimension: 1
+      - name: DiscountedCapitalInvestmentStorage_proj_
+        range: DiscountedCapitalInvestmentStorage!A1
+        columnDimension: 1
+      - name: SalvageValueStorage_proj_
+        range: SalvageValueStorage!A1
+        columnDimension: 1
+      - name: DiscountedSalvageValueStorage_proj_
+        range: DiscountedSalvageValueStorage!A1
+        columnDimension: 1
+      - name: TotalDiscountedStorageCost_proj_
+        range: TotalDiscountedStorageCost!A1
+        columnDimension: 1
+      - name: NumberOfNewStorageUnits_proj_
+        range: NumberOfNewStorageUnits!A1
+        columnDimension: 1
+      - name: NumberOfNewTechnologyUnits_proj_
+        range: NumberOfNewTechnologyUnits!A1
+        columnDimension: 1
+      - name: NewCapacity_proj_
+        range: NewCapacity!A1
+        columnDimension: 1
+      - name: AccumulatedNewCapacity_proj_
+        range: AccumulatedNewCapacity!A1
+        columnDimension: 1
+      - name: TotalCapacityAnnual_proj_
+        range: TotalCapacityAnnual!A1
+        columnDimension: 1
+      - name: RateOfActivity_proj_
+        range: RateOfActivity!A1
+        columnDimension: 1
+      - name: RateOfTotalActivity_proj_
+        range: RateOfTotalActivity!A1
+        columnDimension: 1
+      - name: TotalTechnologyAnnualActivity_proj_
+        range: TotalTechnologyAnnualActivity!A1
+        columnDimension: 1
+      - name: TotalAnnualTechnologyActivityByMode_proj_
+        range: TotalAnnualTechnologyActivityByMode!A1
+        columnDimension: 1
+      - name: RateOfProductionByTechnologyByMode_proj_
+        range: RateOfProductionByTechnologyByMode!A1
+        columnDimension: 1
+      - name: RateOfProductionByTechnology_proj_
+        range: RateOfProductionByTechnology!A1
+        columnDimension: 1
+      - name: ProductionByTechnology_proj_
+        range: ProductionByTechnology!A1
+        columnDimension: 1
+      - name: ProductionByTechnologyAnnual_proj_
+        range: ProductionByTechnologyAnnual!A1
+        columnDimension: 1
+      - name: RateOfProduction_proj_
+        range: RateOfProduction!A1
+        columnDimension: 1
+      - name: Production_proj_
+        range: Production!A1
+        columnDimension: 1
+      - name: RateOfUseByTechnologyByMode_proj_
+        range: RateOfUseByTechnologyByMode!A1
+        columnDimension: 1
+      - name: RateOfUseByTechnology_proj_
+        range: RateOfUseByTechnology!A1
+        columnDimension: 1
+      - name: UseByTechnologyAnnual_proj_
+        range: UseByTechnologyAnnual!A1
+        columnDimension: 1
+      - name: RateOfUse_proj_
+        range: RateOfUse!A1
+        columnDimension: 1
+      - name: UseByTechnology_proj_
+        range: UseByTechnology!A1
+        columnDimension: 1
+      - name: Use_proj_
+        range: Use!A1
+        columnDimension: 1
+      - name: Trade_proj_
+        range: Trade!A1
+        columnDimension: 1
+      - name: TradeAnnual_proj_
+        range: TradeAnnual!A1
+        columnDimension: 1
+      - name: ProductionAnnual_proj_
+        range: ProductionAnnual!A1
+        columnDimension: 1
+      - name: UseAnnual_proj_
+        range: UseAnnual!A1
+        columnDimension: 1
+      - name: CapitalInvestment_proj_
+        range: CapitalInvestment!A1
+        columnDimension: 1
+      - name: DiscountedCapitalInvestment_proj_
+        range: DiscountedCapitalInvestment!A1
+        columnDimension: 1
+      - name: SalvageValue_proj_
+        range: SalvageValue!A1
+        columnDimension: 1
+      - name: DiscountedSalvageValue_proj_
+        range: DiscountedSalvageValue!A1
+        columnDimension: 1
+      - name: OperatingCost_proj_
+        range: OperatingCost!A1
+        columnDimension: 1
+      - name: DiscountedOperatingCost_proj_
+        range: DiscountedOperatingCost!A1
+        columnDimension: 1
+      - name: AnnualVariableOperatingCost_proj_
+        range: AnnualVariableOperatingCost!A1
+        columnDimension: 1
+      - name: AnnualFixedOperatingCost_proj_
+        range: AnnualFixedOperatingCost!A1
+        columnDimension: 1
+      - name: TotalDiscountedCostByTechnology_proj_
+        range: TotalDiscountedCostByTechnology!A1
+        columnDimension: 1
+      - name: TotalDiscountedCost_proj_
+        range: TotalDiscountedCost!A1
+        columnDimension: 1
+      - name: ModelPeriodCostByRegion_proj_
+        range: ModelPeriodCostByRegion!A1
+        columnDimension: 1
+      - name: TotalCapacityInReserveMargin_proj_
+        range: TotalCapacityInReserveMargin!A1
+        columnDimension: 1
+      - name: DemandNeedingReserveMargin_proj_
+        range: DemandNeedingReserveMargin!A1
+        columnDimension: 1
+      - name: TotalREProductionAnnual_proj_
+        range: TotalREProductionAnnual!A1
+        columnDimension: 1
+      - name: RETotalProductionOfTargetFuelAnnual_proj_
+        range: RETotalProductionOfTargetFuelAnnual!A1
+        columnDimension: 1
+      - name: TotalTechnologyModelPeriodActivity_proj_
+        range: TotalTechnologyModelPeriodActivity!A1
+        columnDimension: 1
+      - name: AnnualTechnologyEmissionByMode_proj_
+        range: AnnualTechnologyEmissionByMode!A1
+        columnDimension: 1
+      - name: AnnualTechnologyEmission_proj_
+        range: AnnualTechnologyEmission!A1
+        columnDimension: 1
+      - name: AnnualTechnologyEmissionPenaltyByEmission_proj_
+        range: AnnualTechnologyEmissionPenaltyByEmission!A1
+        columnDimension: 1
+      - name: AnnualTechnologyEmissionsPenalty_proj_
+        range: AnnualTechnologyEmissionsPenalty!A1
+        columnDimension: 1
+      - name: DiscountedTechnologyEmissionsPenalty_proj_
+        range: DiscountedTechnologyEmissionsPenalty!A1
+        columnDimension: 1
+      - name: AnnualEmissions_proj_
+        range: AnnualEmissions!A1
+        columnDimension: 1
+      - name: ModelPeriodEmissions_proj_
+        range: ModelPeriodEmissions!A1
+        columnDimension: 1
+      - name: yfirst
+        range: yfirst!A1
+        columnDimension: 0
+      - name: fuel_transmission
+        range: fuel_transmission!A1
+        columnDimension: 0
+      - name: batteries
+        range: batteries!A1
+        columnDimension: 0
+      - name: modular_storages
+        range: modular_storages!A1
+        columnDimension: 0
+      - name: fuel_cosumption
+        range: fuel_cosumption!A1
+        columnDimension: 0
+      - name: PowerToEnergyConversion
+        range: PowerToEnergyConversion!A1
+        columnDimension: 0
+      - name: BEES_monthly_discharge
+        range: BEES_monthly_discharge!A1
+        columnDimension: 0
+      - name: fel_2024
+        range: fel_2024!A1
+        columnDimension: 0
+      - name: a_fel
+        range: a_fel!A1
+        columnDimension: 0
+      - name: b_fel
+        range: b_fel!A1
+        columnDimension: 0
+      - name: c_fel
+        range: c_fel!A1
+        columnDimension: 0
+      - name: d_fel
+        range: d_fel!A1
+        columnDimension: 0
+      - name: fith_2024
+        range: fith_2024!A1
+        columnDimension: 0
+      - name: a_fith
+        range: a_fith!A1
+        columnDimension: 0
+      - name: b_fith
+        range: b_fith!A1
+        columnDimension: 0
+      - name: c_fith
+        range: c_fith!A1
+        columnDimension: 0
+      - name: d_fith
+        range: d_fith!A1
+        columnDimension: 0
+      - name: z_proj_
+        range: z!A1
+        columnDimension: 1
+      - name: Objective_proj_
+        range: Objective!A1
+        columnDimension: 1
+      - name: EQ_SpecifiedDemand1_proj_
+        range: EQ_SpecifiedDemand1!A1
+        columnDimension: 1
+      - name: CAa1_TotalNewCapacity_proj_
+        range: CAa1_TotalNewCapacity!A1
+        columnDimension: 1
+      - name: CAa2_TotalAnnualCapacity_proj_
+        range: CAa2_TotalAnnualCapacity!A1
+        columnDimension: 1
+      - name: CAa3_TotalActivityOfEachTechnology_proj_
+        range: CAa3_TotalActivityOfEachTechnology!A1
+        columnDimension: 1
+      - name: CAa4_Constraint_Capacity_proj_
+        range: CAa4_Constraint_Capacity!A1
+        columnDimension: 1
+      - name: CAa5_TotalNewCapacity_proj_
+        range: CAa5_TotalNewCapacity!A1
+        columnDimension: 1
+      - name: CAb1_PlannedMaintenance_proj_
+        range: CAb1_PlannedMaintenance!A1
+        columnDimension: 1
+      - name: EBa1_RateOfFuelProduction1_proj_
+        range: EBa1_RateOfFuelProduction1!A1
+        columnDimension: 1
+      - name: EBa2_RateOfFuelProduction2_proj_
+        range: EBa2_RateOfFuelProduction2!A1
+        columnDimension: 1
+      - name: EBa3_RateOfFuelProduction3_proj_
+        range: EBa3_RateOfFuelProduction3!A1
+        columnDimension: 1
+      - name: EBa4_RateOfFuelUse1_proj_
+        range: EBa4_RateOfFuelUse1!A1
+        columnDimension: 1
+      - name: EBa5_RateOfFuelUse2_proj_
+        range: EBa5_RateOfFuelUse2!A1
+        columnDimension: 1
+      - name: EBa6_RateOfFuelUse3_proj_
+        range: EBa6_RateOfFuelUse3!A1
+        columnDimension: 1
+      - name: EBa7_EnergyBalanceEachTS1_proj_
+        range: EBa7_EnergyBalanceEachTS1!A1
+        columnDimension: 1
+      - name: EBa8_EnergyBalanceEachTS2_proj_
+        range: EBa8_EnergyBalanceEachTS2!A1
+        columnDimension: 1
+      - name: EBa9_EnergyBalanceEachTS3_proj_
+        range: EBa9_EnergyBalanceEachTS3!A1
+        columnDimension: 1
+      - name: EBa10_EnergyBalanceEachTS4_proj_
+        range: EBa10_EnergyBalanceEachTS4!A1
+        columnDimension: 1
+      - name: EBa11_EnergyBalanceEachTS5_proj_
+        range: EBa11_EnergyBalanceEachTS5!A1
+        columnDimension: 1
+      - name: EBb1_EnergyBalanceEachYear1_proj_
+        range: EBb1_EnergyBalanceEachYear1!A1
+        columnDimension: 1
+      - name: EBb2_EnergyBalanceEachYear2_proj_
+        range: EBb2_EnergyBalanceEachYear2!A1
+        columnDimension: 1
+      - name: EBb3_EnergyBalanceEachYear3_proj_
+        range: EBb3_EnergyBalanceEachYear3!A1
+        columnDimension: 1
+      - name: EBb4_EnergyBalanceEachYear4_proj_
+        range: EBb4_EnergyBalanceEachYear4!A1
+        columnDimension: 1
+      - name: Acc1_FuelProductionByTechnology_proj_
+        range: Acc1_FuelProductionByTechnology!A1
+        columnDimension: 1
+      - name: Acc2_FuelUseByTechnology_proj_
+        range: Acc2_FuelUseByTechnology!A1
+        columnDimension: 1
+      - name: Acc3_AverageAnnualRateOfActivity_proj_
+        range: Acc3_AverageAnnualRateOfActivity!A1
+        columnDimension: 1
+      - name: Acc4_ModelPeriodCostByRegion_proj_
+        range: Acc4_ModelPeriodCostByRegion!A1
+        columnDimension: 1
+      - name: S1_RateOfStorageCharge_proj_
+        range: S1_RateOfStorageCharge!A1
+        columnDimension: 1
+      - name: S2_RateOfStorageDischarge_proj_
+        range: S2_RateOfStorageDischarge!A1
+        columnDimension: 1
+      - name: S3_NetChargeWithinYear_proj_
+        range: S3_NetChargeWithinYear!A1
+        columnDimension: 1
+      - name: S4_NetChargeWithinDay_proj_
+        range: S4_NetChargeWithinDay!A1
+        columnDimension: 1
+      - name: S5_StorageLeveYearStart_proj_
+        range: S5_StorageLeveYearStart!A1
+        columnDimension: 1
+      - name: S7_StorageLevelYearFinish_proj_
+        range: S7_StorageLevelYearFinish!A1
+        columnDimension: 1
+      - name: S8_StorageLevelYearFinish_proj_
+        range: S8_StorageLevelYearFinish!A1
+        columnDimension: 1
+      - name: S9_StorageLevelSeasonStart_proj_
+        range: S9_StorageLevelSeasonStart!A1
+        columnDimension: 1
+      - name: S10_StorageLevelSeasonStart_proj_
+        range: S10_StorageLevelSeasonStart!A1
+        columnDimension: 1
+      - name: S11_StorageLevelDayTypeStart_proj_
+        range: S11_StorageLevelDayTypeStart!A1
+        columnDimension: 1
+      - name: S12_StorageLevelDayTypeStart_proj_
+        range: S12_StorageLevelDayTypeStart!A1
+        columnDimension: 1
+      - name: S13_StorageLevelDayTypeFinish_proj_
+        range: S13_StorageLevelDayTypeFinish!A1
+        columnDimension: 1
+      - name: S14_StorageLevelDayTypeFinish_proj_
+        range: S14_StorageLevelDayTypeFinish!A1
+        columnDimension: 1
+      - name: S15_StorageLevelDayTypeFinish_proj_
+        range: S15_StorageLevelDayTypeFinish!A1
+        columnDimension: 1
+      - name: StoragePowerEnergyLink_proj_
+        range: StoragePowerEnergyLink!A1
+        columnDimension: 1
+      - name: SC1_LowerLimit_proj_
+        range: SC1_LowerLimit!A1
+        columnDimension: 1
+      - name: SC1_UpperLimit_proj_
+        range: SC1_UpperLimit!A1
+        columnDimension: 1
+      - name: SC2_LowerLimit_proj_
+        range: SC2_LowerLimit!A1
+        columnDimension: 1
+      - name: SC2_UpperLimit_proj_
+        range: SC2_UpperLimit!A1
+        columnDimension: 1
+      - name: SC3_LowerLimit_proj_
+        range: SC3_LowerLimit!A1
+        columnDimension: 1
+      - name: SC3_UpperLimit_proj_
+        range: SC3_UpperLimit!A1
+        columnDimension: 1
+      - name: SC4_LowerLimit_proj_
+        range: SC4_LowerLimit!A1
+        columnDimension: 1
+      - name: SC4_UpperLimit_proj_
+        range: SC4_UpperLimit!A1
+        columnDimension: 1
+      - name: SC5_MaxChargeConstraint_proj_
+        range: SC5_MaxChargeConstraint!A1
+        columnDimension: 1
+      - name: SC6_MaxDischargeConstraint_proj_
+        range: SC6_MaxDischargeConstraint!A1
+        columnDimension: 1
+      - name: SI0_Enforce_ModularStorageInvestments_proj_
+        range: SI0_Enforce_ModularStorageInvestments!A1
+        columnDimension: 1
+      - name: SI1_StorageUpperLimit_proj_
+        range: SI1_StorageUpperLimit!A1
+        columnDimension: 1
+      - name: SI2_StorageLowerLimit_proj_
+        range: SI2_StorageLowerLimit!A1
+        columnDimension: 1
+      - name: SI3_TotalNewStorage_proj_
+        range: SI3_TotalNewStorage!A1
+        columnDimension: 1
+      - name: SI4_UndiscountedCapitalInvestmentStorage_proj_
+        range: SI4_UndiscountedCapitalInvestmentStorage!A1
+        columnDimension: 1
+      - name: SI5_DiscountingCapitalInvestmentStorage_proj_
+        range: SI5_DiscountingCapitalInvestmentStorage!A1
+        columnDimension: 1
+      - name: SI6_SalvageValueStorageAtEndOfPeriod1_proj_
+        range: SI6_SalvageValueStorageAtEndOfPeriod1!A1
+        columnDimension: 1
+      - name: SI7_SalvageValueStorageAtEndOfPeriod2_proj_
+        range: SI7_SalvageValueStorageAtEndOfPeriod2!A1
+        columnDimension: 1
+      - name: SI8_SalvageValueStorageAtEndOfPeriod3_proj_
+        range: SI8_SalvageValueStorageAtEndOfPeriod3!A1
+        columnDimension: 1
+      - name: SI9_SalvageValueStorageDiscountedToStartYear_proj_
+        range: SI9_SalvageValueStorageDiscountedToStartYear!A1
+        columnDimension: 1
+      - name: SI10_TotalDiscountedCostByStorage_proj_
+        range: SI10_TotalDiscountedCostByStorage!A1
+        columnDimension: 1
+      - name: CC1_UndiscountedCapitalInvestment_proj_
+        range: CC1_UndiscountedCapitalInvestment!A1
+        columnDimension: 1
+      - name: CC2_DiscountingCapitalInvestmenta_proj_
+        range: CC2_DiscountingCapitalInvestmenta!A1
+        columnDimension: 1
+      - name: SV1_SalvageValueAtEndOfPeriod1_proj_
+        range: SV1_SalvageValueAtEndOfPeriod1!A1
+        columnDimension: 1
+      - name: SV2_SalvageValueAtEndOfPeriod2_proj_
+        range: SV2_SalvageValueAtEndOfPeriod2!A1
+        columnDimension: 1
+      - name: SV3_SalvageValueAtEndOfPeriod3_proj_
+        range: SV3_SalvageValueAtEndOfPeriod3!A1
+        columnDimension: 1
+      - name: SV4_SalvageValueDiscToStartYr_proj_
+        range: SV4_SalvageValueDiscToStartYr!A1
+        columnDimension: 1
+      - name: OC1_OperatingCostsVariable_proj_
+        range: OC1_OperatingCostsVariable!A1
+        columnDimension: 1
+      - name: OC2_OperatingCostsFixedAnnual_proj_
+        range: OC2_OperatingCostsFixedAnnual!A1
+        columnDimension: 1
+      - name: OC3_OperatingCostsTotalAnnual_proj_
+        range: OC3_OperatingCostsTotalAnnual!A1
+        columnDimension: 1
+      - name: OC4_DiscountedOperatingCostsTotalAnnual_proj_
+        range: OC4_DiscountedOperatingCostsTotalAnnual!A1
+        columnDimension: 1
+      - name: TDC1_TotalDiscountedCostByTechnology_proj_
+        range: TDC1_TotalDiscountedCostByTechnology!A1
+        columnDimension: 1
+      - name: TDC2_TotalDiscountedCostByTechnology_proj_
+        range: TDC2_TotalDiscountedCostByTechnology!A1
+        columnDimension: 1
+      - name: TCC1_TotalAnnualMaxCapacityConstraint_proj_
+        range: TCC1_TotalAnnualMaxCapacityConstraint!A1
+        columnDimension: 1
+      - name: TCC2_TotalAnnualMinCapacityConstraint_proj_
+        range: TCC2_TotalAnnualMinCapacityConstraint!A1
+        columnDimension: 1
+      - name: NCC1_TotalAnnualMaxNewCapacityConstraint_proj_
+        range: NCC1_TotalAnnualMaxNewCapacityConstraint!A1
+        columnDimension: 1
+      - name: NCC2_TotalAnnualMinNewCapacityConstraint_proj_
+        range: NCC2_TotalAnnualMinNewCapacityConstraint!A1
+        columnDimension: 1
+      - name: AAC1_TotalAnnualTechnologyActivity_proj_
+        range: AAC1_TotalAnnualTechnologyActivity!A1
+        columnDimension: 1
+      - name: AAC2_TotalAnnualTechnologyActivityUpperLimit_proj_
+        range: AAC2_TotalAnnualTechnologyActivityUpperLimit!A1
+        columnDimension: 1
+      - name: AAC3_TotalAnnualTechnologyActivityLowerLimit_proj_
+        range: AAC3_TotalAnnualTechnologyActivityLowerLimit!A1
+        columnDimension: 1
+      - name: TAC1_TotalModelHorizenTechnologyActivity_proj_
+        range: TAC1_TotalModelHorizenTechnologyActivity!A1
+        columnDimension: 1
+      - name: TAC2_TotalModelHorizenTechnologyActivityUpperLimit_proj_
+        range: TAC2_TotalModelHorizenTechnologyActivityUpperLimit!A1
+        columnDimension: 1
+      - name: TAC3_TotalModelHorizenTechnologyActivityLowerLimit_proj_
+        range: TAC3_TotalModelHorizenTechnologyActivityLowerLimit!A1
+        columnDimension: 1
+      - name: RM1_ReserveMargin_TechologiesIncluded_In_Activity_Units_proj_
+        range: RM1_ReserveMargin_TechologiesIncluded_In_Activity_Units!A1
+        columnDimension: 1
+      - name: RM2_ReserveMargin_FuelsIncluded_proj_
+        range: RM2_ReserveMargin_FuelsIncluded!A1
+        columnDimension: 1
+      - name: RM3_ReserveMargin_Constraint_proj_
+        range: RM3_ReserveMargin_Constraint!A1
+        columnDimension: 1
+      - name: RE1_FuelProductionByTechnologyAnnual_proj_
+        range: RE1_FuelProductionByTechnologyAnnual!A1
+        columnDimension: 1
+      - name: RE2_TechIncluded_proj_
+        range: RE2_TechIncluded!A1
+        columnDimension: 1
+      - name: RE3_FuelIncluded_proj_
+        range: RE3_FuelIncluded!A1
+        columnDimension: 1
+      - name: RE4_EnergyConstraint_proj_
+        range: RE4_EnergyConstraint!A1
+        columnDimension: 1
+      - name: RE5_FuelUseByTechnologyAnnual_proj_
+        range: RE5_FuelUseByTechnologyAnnual!A1
+        columnDimension: 1
+      - name: E1_AnnualEmissionProductionByMode_proj_
+        range: E1_AnnualEmissionProductionByMode!A1
+        columnDimension: 1
+      - name: E2_AnnualEmissionProduction_proj_
+        range: E2_AnnualEmissionProduction!A1
+        columnDimension: 1
+      - name: E3_EmissionsPenaltyByTechAndEmission_proj_
+        range: E3_EmissionsPenaltyByTechAndEmission!A1
+        columnDimension: 1
+      - name: E4_EmissionsPenaltyByTechnology_proj_
+        range: E4_EmissionsPenaltyByTechnology!A1
+        columnDimension: 1
+      - name: E5_DiscountedEmissionsPenaltyByTechnology_proj_
+        range: E5_DiscountedEmissionsPenaltyByTechnology!A1
+        columnDimension: 1
+      - name: E6_EmissionsAccounting1_proj_
+        range: E6_EmissionsAccounting1!A1
+        columnDimension: 1
+      - name: E7_EmissionsAccounting2_proj_
+        range: E7_EmissionsAccounting2!A1
+        columnDimension: 1
+      - name: E8_AnnualEmissionsLimit_proj_
+        range: E8_AnnualEmissionsLimit!A1
+        columnDimension: 1
+      - name: E9_ModelPeriodEmissionsLimit_proj_
+        range: E9_ModelPeriodEmissionsLimit!A1
+        columnDimension: 1
