@@ -29,6 +29,7 @@
       - name: DAILYTIMEBRACKET
       - name: STORAGE
       - name: STORAGE
+      - name: TechnologyToStorageMap
       - name: power_plants
       - name: storage_plants
       - name: fuel_transformation
@@ -77,6 +78,10 @@
       - name: OperationalLifeStorage
       - name: CapitalCostStorage
       - name: ResidualStorageCapacity
+      - name: StorageDuration
+      - name: SelfDischargeRate
+      - name: SeasonSelfDischargeRate
+      - name: StorageUnitSize
       - name: CapacityOfOneTechnologyUnit
       - name: TotalAnnualMaxCapacity
       - name: TotalAnnualMinCapacity
@@ -118,6 +123,7 @@
       - name: SalvageValueStorage
       - name: DiscountedSalvageValueStorage
       - name: TotalDiscountedStorageCost
+      - name: NumberOfNewStorageUnits
       - name: NumberOfNewTechnologyUnits
       - name: NewCapacity
       - name: AccumulatedNewCapacity
@@ -165,8 +171,13 @@
       - name: DiscountedTechnologyEmissionsPenalty
       - name: AnnualEmissions
       - name: ModelPeriodEmissions
+      - name: yfirst
       - name: fuel_transmission
       - name: batteries
+      - name: modular_storages
+      - name: fuel_cosumption
+      - name: PowerToEnergyConversion
+      - name: BEES_monthly_discharge
       - name: fel_2024
       - name: a_fel
       - name: b_fel
@@ -219,6 +230,7 @@
       - name: S13_StorageLevelDayTypeFinish
       - name: S14_StorageLevelDayTypeFinish
       - name: S15_StorageLevelDayTypeFinish
+      - name: StoragePowerEnergyLink
       - name: SC1_LowerLimit
       - name: SC1_UpperLimit
       - name: SC2_LowerLimit
@@ -229,6 +241,7 @@
       - name: SC4_UpperLimit
       - name: SC5_MaxChargeConstraint
       - name: SC6_MaxDischargeConstraint
+      - name: SI0_Enforce_ModularStorageInvestments
       - name: SI1_StorageUpperLimit
       - name: SI2_StorageLowerLimit
       - name: SI3_TotalNewStorage
@@ -389,6 +402,9 @@
 - Projection:
     name: TotalDiscountedStorageCost.all(0,1,2)
     newName: TotalDiscountedStorageCost_proj_(0,1,2)
+- Projection:
+    name: NumberOfNewStorageUnits.all(0,1,2)
+    newName: NumberOfNewStorageUnits_proj_(0,1,2)
 - Projection:
     name: NumberOfNewTechnologyUnits.all(0,1,2)
     newName: NumberOfNewTechnologyUnits_proj_(0,1,2)
@@ -657,6 +673,9 @@
     name: S15_StorageLevelDayTypeFinish.all(0,1,2,3,4)
     newName: S15_StorageLevelDayTypeFinish_proj_(0,1,2,3,4)
 - Projection:
+    name: StoragePowerEnergyLink.all(0,1,2,3)
+    newName: StoragePowerEnergyLink_proj_(0,1,2,3)
+- Projection:
     name: SC1_LowerLimit.all(0,1,2,3,4,5)
     newName: SC1_LowerLimit_proj_(0,1,2,3,4,5)
 - Projection:
@@ -686,6 +705,9 @@
 - Projection:
     name: SC6_MaxDischargeConstraint.all(0,1,2,3,4,5)
     newName: SC6_MaxDischargeConstraint_proj_(0,1,2,3,4,5)
+- Projection:
+    name: SI0_Enforce_ModularStorageInvestments.all(0,1,2)
+    newName: SI0_Enforce_ModularStorageInvestments_proj_(0,1,2)
 - Projection:
     name: SI1_StorageUpperLimit.all(0,1,2)
     newName: SI1_StorageUpperLimit_proj_(0,1,2)
@@ -927,6 +949,9 @@
       - name: s
         range: s!A1
         columnDimension: 0
+      - name: TechnologyToStorageMap
+        range: TechnologyToStorageMap!A1
+        columnDimension: 0
       - name: power_plants
         range: power_plants!A1
         columnDimension: 0
@@ -1071,6 +1096,18 @@
       - name: ResidualStorageCapacity
         range: ResidualStorageCapacity!A1
         columnDimension: 0
+      - name: StorageDuration
+        range: StorageDuration!A1
+        columnDimension: 0
+      - name: SelfDischargeRate
+        range: SelfDischargeRate!A1
+        columnDimension: 0
+      - name: SeasonSelfDischargeRate
+        range: SeasonSelfDischargeRate!A1
+        columnDimension: 0
+      - name: StorageUnitSize
+        range: StorageUnitSize!A1
+        columnDimension: 0
       - name: CapacityOfOneTechnologyUnit
         range: CapacityOfOneTechnologyUnit!A1
         columnDimension: 0
@@ -1193,6 +1230,9 @@
         columnDimension: 1
       - name: TotalDiscountedStorageCost_proj_
         range: TotalDiscountedStorageCost!A1
+        columnDimension: 1
+      - name: NumberOfNewStorageUnits_proj_
+        range: NumberOfNewStorageUnits!A1
         columnDimension: 1
       - name: NumberOfNewTechnologyUnits_proj_
         range: NumberOfNewTechnologyUnits!A1
@@ -1335,11 +1375,26 @@
       - name: ModelPeriodEmissions_proj_
         range: ModelPeriodEmissions!A1
         columnDimension: 1
+      - name: yfirst
+        range: yfirst!A1
+        columnDimension: 0
       - name: fuel_transmission
         range: fuel_transmission!A1
         columnDimension: 0
       - name: batteries
         range: batteries!A1
+        columnDimension: 0
+      - name: modular_storages
+        range: modular_storages!A1
+        columnDimension: 0
+      - name: fuel_cosumption
+        range: fuel_cosumption!A1
+        columnDimension: 0
+      - name: PowerToEnergyConversion
+        range: PowerToEnergyConversion!A1
+        columnDimension: 0
+      - name: BEES_monthly_discharge
+        range: BEES_monthly_discharge!A1
         columnDimension: 0
       - name: fel_2024
         range: fel_2024!A1
@@ -1497,6 +1552,9 @@
       - name: S15_StorageLevelDayTypeFinish_proj_
         range: S15_StorageLevelDayTypeFinish!A1
         columnDimension: 1
+      - name: StoragePowerEnergyLink_proj_
+        range: StoragePowerEnergyLink!A1
+        columnDimension: 1
       - name: SC1_LowerLimit_proj_
         range: SC1_LowerLimit!A1
         columnDimension: 1
@@ -1526,6 +1584,9 @@
         columnDimension: 1
       - name: SC6_MaxDischargeConstraint_proj_
         range: SC6_MaxDischargeConstraint!A1
+        columnDimension: 1
+      - name: SI0_Enforce_ModularStorageInvestments_proj_
+        range: SI0_Enforce_ModularStorageInvestments!A1
         columnDimension: 1
       - name: SI1_StorageUpperLimit_proj_
         range: SI1_StorageUpperLimit!A1
