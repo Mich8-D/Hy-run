@@ -1500,7 +1500,7 @@
         columnDimension: 1
       - name: Acc1_FuelProductionByTechnology_proj_
         range: Acc1_FuelProductionByTechnology!A1
-        columnDimension: 1
+        columnDimension: 2
       - name: Acc2_FuelUseByTechnology_proj_
         range: Acc2_FuelUseByTechnology!A1
         columnDimension: 1
