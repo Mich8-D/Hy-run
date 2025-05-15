@@ -152,7 +152,7 @@ ResidualCapacity(r,"GFPP","2050") = 22.5;
 # Characterize OIL technology
 OperationalLife(r,'OIL_GEN') = 40;
 AvailabilityFactor(r,'OIL_GEN',y) = 0.85;
-CapitalCost(r,'OIL_GEN',y) = 2000;          # €/kW
+CapitalCost(r,'OIL_GEN',y) = 2000;          // €/kW
 VariableCost(r,'OIL_GEN',m,y) = 1e-5;
 FixedCost(r,'OIL_GEN',y) = 10;
 ResidualCapacity(r,"OIL_GEN","2030") = 0;

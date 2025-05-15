@@ -51,7 +51,7 @@ ggplot(Demand %>%
          filter((str_detect(scen,paste(select_multiple_scens,collapse="|") )|scen=="base") & 
                   data==data_select & 
                   storage==want_storage & 
-                  YEAR==2050) %>% 
+                  YEAR==2025) %>% 
          inner_join(hourly_split) %>%
          filter(yearly_hours <= 8760)) +
   geom_line(aes(x=yearly_hours,
@@ -65,7 +65,7 @@ ggplot(Demand %>%
          filter((str_detect(scen,paste(select_multiple_scens,collapse="|") )|scen=="base") & 
                   data==data_select & 
                   storage==want_storage & 
-                  YEAR==2025) %>% 
+                  YEAR==2010) %>% 
          inner_join(hourly_split %>%
                       group_by(season) %>%
                       slice(1:24) %>% mutate(hours=row_number()) ) ) +
@@ -81,7 +81,7 @@ ggplot(Activity %>%
                   data==data_select & 
                   TECHNOLOGY %in% techs & 
                   storage==want_storage & 
-                  YEAR==2025 & 
+                  YEAR==2010 & 
                   MODE_OF_OPERATION=="1") %>% 
          inner_join(hourly_split) %>%
          filter(yearly_hours <= 8760)) +
@@ -97,7 +97,7 @@ ggplot(Activity %>%
                   data==data_select & 
                   TECHNOLOGY %in% techs & 
                   storage==want_storage & 
-                  YEAR==2025 & 
+                  YEAR==2010 & 
                   MODE_OF_OPERATION=="1") ) +
   geom_line(aes(x=TIMESLICE,
                 y=value,
