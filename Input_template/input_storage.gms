@@ -32,6 +32,7 @@ OperationalLife(r,'BEES') = 10;
 VariableCost(r,'BEES',m,y) = 0;
 FixedCost(r,'BEES',y) = 0;
 StorageDuration('BEES') = 4;  # in hours
+CapitalCost(r,'BEES',y) = 0;
 
 * Pumped Hydro Storage (STOR_HYDRO)
 CapacityFactor(r,'STOR_HYDRO',"ID",y) = 0.7;
@@ -47,6 +48,7 @@ OperationalLife(r,'STOR_HYDRO') = 60;
 ResidualCapacity(r,'STOR_HYDRO',y) = 7.25;
 TotalAnnualMaxCapacityInvestment(r,'STOR_HYDRO',y) = 0;
 StorageDuration('STOR_HYDRO') = 500;
+CapitalCost(r,'STOR_HYDRO',y) = 400;
 
 * ------------------------
 * STORAGE PARAMETERS

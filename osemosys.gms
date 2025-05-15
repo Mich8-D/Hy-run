@@ -74,6 +74,8 @@ CapitalCost(r,t,y)$renewable_tech(t) = %value%/100 * CapitalCost(r,t,y);
 $elseif.scen %scen%=="cheapH2tech"
 CapitalCost(r,t,y)$hydrogen_tech(t) = %value%/100 * CapitalCost(r,t,y);
 CapitalCostStorage(r,s,y)$hydrogen_storages(s) = %value%/100 * CapitalCostStorage(r,s,y);
+$elseif.scen %scen%=="cheapbatteries"
+CapitalCost(r,t,y)$batteries(s) = %value%/100 * CapitalCostStorage(r,s,y);
 $elseif.scen %scen%=="parametrised_py"
 $include "Model/parametrised_py.gms"
 $endif.scen

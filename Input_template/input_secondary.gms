@@ -119,6 +119,7 @@ ResidualCapacity(r,"COAL","2047") = 2.84;
 ResidualCapacity(r,"COAL","2048") = 1.89;
 ResidualCapacity(r,"COAL","2049") = 0.95;
 ResidualCapacity(r,"COAL","2050") = 0.0;
+EmissionActivityRatio(r,'COAL','CO2','1',y) = 0.089/0.45; # Unit: Mton CO2 per PJ
 
 # Characterize GFPP technology
 OperationalLife(r,'GFPP') = 25;
