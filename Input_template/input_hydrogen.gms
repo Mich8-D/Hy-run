@@ -111,7 +111,7 @@ CapitalCost(r,'SMR_CCS','2049') = 1880;
 CapitalCost(r,'SMR_CCS','2050') = 1850;  
 VariableCost(r,'SMR_CCS',m,y) = 1e-5;
 FixedCost(r,'SMR_CCS',y) = 0;
-EmissionActivityRatio(r,'SMR_CCS','CO2','1',y) = - 0.075; # Unit: kg CO₂ per PJ of H₂ produced (negative = captured)
+EmissionActivityRatio(r,'SMR_CCS','CO2','1',y) = - 0.075/0.8; # Unit: kg CO₂ per PJ of H₂ produced (negative = captured)
 
 *--------------------H2 CONSUMPTION TECHNOLOGIES-------------------
 
@@ -276,7 +276,7 @@ InputActivityRatio(r,'HEL','ELC2','1',y) = 1;   # IEA convention
 OutputActivityRatio(r,'HEL','H2','1',y) = 1;   # IEA convention
 
 # SMR_CCS: Gas to Hydrogen
-InputActivityRatio(r,'SMR_CCS','GAS2','1',y) = 1;
+InputActivityRatio(r,'SMR_CCS','GAS2','1',y) = 1/0.8;
 OutputActivityRatio(r,'SMR_CCS','H2','1',y) = 1;
 
 # Storage flows for UHS
