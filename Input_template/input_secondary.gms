@@ -82,7 +82,7 @@ CapitalCost(r,'GEO',y) = 4241;  # Unit: €/kW
 AvailabilityFactor(r,'GEO',y) = 0.9;
 VariableCost(r,'GEO',m,y) = 1e-5;
 FixedCost(r,'GEO',y) = 70;
-ResidualCapacity(r,"GEO",y) = 42;  # Unit: GW (from Excel)
+ResidualCapacity(r,"GEO",y) = 0.015;  # Unit: GW (from Excel)
 
 # Characterize RUN-OF-RIVER technology
 OperationalLife(r,'ROR') = 80;
