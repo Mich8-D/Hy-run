@@ -58,9 +58,9 @@ CapacityFactor(r,'WPP_ON','WD',y) = 0.31;
 CapacityFactor(r,'WPP_ON','WN',y) = 0.33;
 
 SCALAR 
-    a_WON /2453/,
-    b_WON /-0.09/,
-    c_WON /311/;
+    a_WON /1940/,
+    b_WON /-0.02/,
+    c_WON /-140/;
 
 CapitalCost(r,'WPP_ON', y) = a_WON * exp(b_WON * (ord(y)-1)) + c_WON; # Unit: €/kW
 VariableCost(r,'WPP_ON',m,y) = 1e-5;
@@ -77,9 +77,9 @@ CapacityFactor(r,'WPP_OFF','WD',y) = 0.42;
 CapacityFactor(r,'WPP_OFF','WN',y) = 0.43;
 
 SCALAR 
-    a_WOFF /1940/,
-    b_WOFF /-0.02/,
-    c_WOFF /-140/;
+    a_WOFF /2453/,
+    b_WOFF /-0.09/,
+    c_WOFF /311/;
 
 CapitalCost(r,'WPP_ON', y) = a_WOFF * exp(b_WOFF * (ord(y)-1)) + c_WOFF; # Unit: €/kW
 CapitalCost(r,'WPP_OFF',y) = 2588;  # Unit: €/kW
