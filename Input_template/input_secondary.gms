@@ -89,8 +89,8 @@ ResidualCapacity(r,"WPP_OFF",y) = 9.2;
 # Characterize BIOMASS technology
 OperationalLife(r,'BIO') = 25;
 AvailabilityFactor(r,'BIO',y) = 0.81;
-CapitalCost(r,'BIO','2024') = 4200;  # Unit: €/kW
-VariableCost(r,'BIO',m,y) = 1e-5;
+CapitalCost(r,'BIO',y) = 4000 - 5 * (y.val - 2024); # Unit: €/kW
+VariableCost(r,'BIO',m,y) = 0.05; 
 FixedCost(r,'BIO',y) = 50; # Unit: €/kW
 ResidualCapacity(r,"BIO",y) = 9.19;  # Unit: GW (from Excel)
 
@@ -114,7 +114,7 @@ ResidualCapacity(r,"ROR",y) = 6.4;  # Unit: GW (from Excel)
 OperationalLife(r,'COAL') = 50;
 AvailabilityFactor(r,'COAL',y) = 0.8;
 CapitalCost(r,'COAL',y) = 1200;             # €/kW
-VariableCost(r,'COAL',m,y) = 1e-5;
+VariableCost(r,'COAL',m,y) = 0.1;
 FixedCost(r,'COAL',y) = 10;
 # From 2024 to 2029 (inclusive) interrolation via the following formula:
 # m = (0 - 18.9) / (2050 - 2024) = -0.945
