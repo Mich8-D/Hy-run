@@ -1,13 +1,1 @@
-AnnualEmissionLimit('GERMANY','0','y') = 0;
-AnnualEmissionLimit('GERMANY','0','y') = 0;
-AnnualEmissionLimit('GERMANY','0','y') = 0;
-AnnualEmissionLimit('GERMANY','0','y') = 0;
-AnnualEmissionLimit('GERMANY','0','y') = 0;
-AnnualEmissionLimit('GERMANY','6333','y') = 6333;
-AnnualEmissionLimit('GERMANY','12666','y') = 12666;
-AnnualEmissionLimit('GERMANY','18999','y') = 18999;
-AnnualEmissionLimit('GERMANY','0','y') = 0;
-AnnualEmissionLimit('GERMANY','0','y') = 0;
-AnnualEmissionLimit('GERMANY','6333','y') = 6333;
-AnnualEmissionLimit('GERMANY','12666','y') = 12666;
-AnnualEmissionLimit('GERMANY','18999','y') = 18999;
+AnnualEmissionLimit('GERMANY',e,y) = 599;

@@ -1,4 +1,3 @@
-
 *.gdx
 *.csv
 *.log~3
@@ -8,15 +7,13 @@
 *.lst
 *.lxi
 .Rproj.user
-
 *.Rproj
-
 *./225*/*
-
 .Rhistory
 ./Results/*
-
 .RData
 .DS_Store
-
 fitting_eqs.ipynb
+*.xlsx
+
+
