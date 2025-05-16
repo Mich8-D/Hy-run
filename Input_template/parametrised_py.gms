@@ -1,1 +1,1 @@
-AnnualEmissionLimit('GERMANY',e,y) = 599;
+CapitalCost('GERMANY','GEO',y) = 10000;
