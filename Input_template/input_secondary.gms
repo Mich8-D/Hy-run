@@ -79,7 +79,7 @@ CapacityFactor(r,'WPP_OFF','WN',y) = 0.43;
 SCALAR 
     a_WOFF /528/,
     b_WOFF /-0.22/,
-    c_WOFF /2500/;
+    c_WOFF /2600/;
 
 CapitalCost(r,'WPP_OFF', y) = a_WOFF * exp(b_WOFF * (ord(y)-1)) + c_WOFF; # Unit: €/kW
 VariableCost(r,'WPP_OFF',m,y) = 1e-5;
