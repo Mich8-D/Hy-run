@@ -37,7 +37,13 @@ CapacityFactor(r,'SPV','SD',y) = 0.3;
 CapacityFactor(r,'SPV','SN',y) = 0;
 CapacityFactor(r,'SPV','WD',y) = 0.08;
 CapacityFactor(r,'SPV','WN',y) = 0;
-CapitalCost(r,'SPV',y) = 701;  # Unit: €/kW
+
+SCALAR 
+    a_SPV /269.66/,
+    b_SPV /-0.21/,
+    c_SPV /450.03/;
+
+CapitalCost(r, 'SPV', y) = a_SPV * exp(b_SPV * (ord(y) - yfirst)) + c_SPV; # Unit: €/kW
 VariableCost(r,'SPV',m,y) = 1e-5; # Unit: €/GJ
 FixedCost(r,'SPV',y) = 15; # Unit: €/kW/y
 ResidualCapacity(r,"SPV",y) = 102.3;  # Unit: GW (from Excel)
