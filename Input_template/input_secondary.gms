@@ -206,7 +206,7 @@ InputActivityRatio(r,'OIL_GEN','OIL',"1",y) = 1/0.35;
 OutputActivityRatio(r,'OIL_GEN','ELC1',"1",y) = 1;
 
 ** electric grid
-InputActivityRatio(r,'GRID_ELC','ELC1',"1",y) = 1/0.93;
+InputActivityRatio(r,'GRID_ELC','ELC1',"1",y) = 1/0.95;
 OutputActivityRatio(r,'GRID_ELC','ELC2',"1",y) = 1;
 
 $endif.ph

@@ -82,23 +82,25 @@ ResidualCapacity(r,"FEU",y) = 76;
 
 ** industrial heating technologies
 CapitalCost(r,"IHE",y) = 900;          # €/kW - Typical CAPEX for industrial electric resistance heaters
-VariableCost(r,"IHE",m,y) = 0.002;     # €/kWh - O&M cost (electricity price handled separately)
+VariableCost(r,"IHE",m,y) = 0.002;     # mln€/PJ - O&M cost (electricity price handled separately)
 FixedCost(r,"IHE",y) = 15;             # €/kW/year - Fixed O&M (~1.5% of CAPEX)
 OperationalLife(r,"IHE") = 15;         # Years - Longer life due to fewer moving parts
 EmissionActivityRatio(r,"IHE","CO2_TH","1",y) = 0.00;
+ResidualCapacity(r,"IHE",y) = 50;   # GW - Residual capacity for electric resistance heaters
 
 CapitalCost(r,"IHG",y) = 1015;         # €/kW - Investment cost for gas heater
-VariableCost(r,"IHG",m,y) = 0.001;     # €/kWh - Variable O&M cost (fuel cost modeled separately)
+VariableCost(r,"IHG",m,y) = 0.001;     # mln€/PJ - Variable O&M cost (fuel cost modeled separately)
 FixedCost(r,"IHG",y) = 20;             # €/kW/year - Fixed O&M cost
 OperationalLife(r,"IHG") = 10;         # Years - Expected lifetime of the equipment
 EmissionActivityRatio(r,"IHG","CO2_TH","1",y) = 0.055*1.11;
+ResidualCapacity(r,"IHG",y) = 50;   # GW - Residual capacity for gas heater
 
 CapitalCost(r,"IHC",y) = 1100;         # €/kW - CAPEX for industrial coal-fired heat systems
-VariableCost(r,"IHC",m,y) = 0.005;     # €/kWh - O&M excluding fuel (coal cost modeled separately)
+VariableCost(r,"IHC",m,y) = 0.005;     # mln€/PJ - O&M excluding fuel (coal cost modeled separately)
 FixedCost(r,"IHC",y) = 25;             # €/kW/year - Fixed O&M (~2.3% of CAPEX)
 OperationalLife(r,"IHC") = 20;         # Years - Longer lifetime due to robust industrial build
 EmissionActivityRatio(r,"IHC","CO2_TH","1",y) = 0.089*1.25;
-
+ResidualCapacity(r,"IHC",y) = 50;   # GW - Residual capacity for coal-fired heat systems
 *------------------------------------------------------------------------
 $elseif.ph %phase%=='popol'
 
