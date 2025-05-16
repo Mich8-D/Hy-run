@@ -155,9 +155,7 @@ CapitalCost(r,'GFPP',y) = 2000;             # €/kW
 VariableCost(r,'GFPP',m,y) = 1e-5;
 FixedCost(r,'GFPP',y) = 15;
 ResidualCapacity(r,"GFPP","2024") = 36.7; # Unit: GW
-LOOP(y$(ORD(y) >= ORD("2030")),
-    ResidualCapacity(r, "GFPP", y) = 22.5;
-);
+ResidualCapacity(r, "GFPP", y)$(y.val >= 2030) = 22.5;
 
 # Characterize OIL technology
 OperationalLife(r,'OIL_GEN') = 40;
@@ -165,9 +163,7 @@ AvailabilityFactor(r,'OIL_GEN',y) = 0.85;
 CapitalCost(r,'OIL_GEN',y) = 2000;          # €/kW
 VariableCost(r,'OIL_GEN',m,y) = 1e-5;
 FixedCost(r,'OIL_GEN',y) = 10;
-LOOP(y$(ORD(y) >= ORD("2030")),
-    ResidualCapacity(r, "OIL_GEN", y) = 0;
-);
+ResidualCapacity(r, "OIL_GEN", y)$(y.val >= 2030) = 22.5;
 
 # Characterize ELECTRIC GRID technology
 OperationalLife(r,'GRID_ELC') = 40;
