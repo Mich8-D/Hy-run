@@ -82,7 +82,6 @@ SCALAR
     c_WOFF /311/;
 
 CapitalCost(r,'WPP_ON', y) = a_WOFF * exp(b_WOFF * (ord(y)-1)) + c_WOFF; # Unit: €/kW
-CapitalCost(r,'WPP_OFF',y) = 2588;  # Unit: €/kW
 VariableCost(r,'WPP_OFF',m,y) = 1e-5;
 FixedCost(r,'WPP_OFF',y) = 100;  # Unit: €/kW/y
 ResidualCapacity(r,"WPP_OFF",y) = 9.2;
