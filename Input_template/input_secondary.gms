@@ -119,7 +119,7 @@ FixedCost(r,'COAL',y) = 15;
 # From 2024 to 2029 (inclusive) interrolation via the following formula:
 # m = (0 - 18.9) / (2050 - 2024) = -0.945
 # And thus for any year y:
-ResidualCapacity(r,"COAL",y) = -0.945 * (y - 2030) + 18.9
+ResidualCapacity(r,"COAL",y) = -0.945 * (y.val - 2030) + 18.9;
 
 # Characterize GFPP technology
 OperationalLife(r,'GFPP') = 30;
