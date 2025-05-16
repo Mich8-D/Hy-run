@@ -154,6 +154,7 @@ AvailabilityFactor(r,'GFPP',y) = 0.75;
 CapitalCost(r,'GFPP',y) = 2000;             # €/kW
 VariableCost(r,'GFPP',m,y) = 1e-5;
 FixedCost(r,'GFPP',y) = 15;
+ResidualCapacity(r,"GFPP","2024") = 36.7; # Unit: GW
 ResidualCapacity(r,"GFPP","2030") = 22.5;
 ResidualCapacity(r,"GFPP","2031") = 22.5;
 ResidualCapacity(r,"GFPP","2032") = 22.5;
