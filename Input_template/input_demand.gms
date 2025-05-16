@@ -87,6 +87,7 @@ FixedCost(r,"IHE",y) = 15;             # €/kW/year - Fixed O&M (~1.5% of CAPEX
 OperationalLife(r,"IHE") = 15;         # Years - Longer life due to fewer moving parts
 EmissionActivityRatio(r,"IHE","CO2_TH","1",y) = 0.00;
 ResidualCapacity(r,"IHE",y) = 50;   # GW - Residual capacity for electric resistance heaters
+TotalTechnologyAnnualActivityLowerLimit(r,'IHE',y) = 0;
 
 CapitalCost(r,"IHG",y) = 0;         # €/kW - Investment cost for gas heater
 VariableCost(r,"IHG",m,y) = 1e-5;     # mln€/PJ - Variable O&M cost (fuel cost modeled separately)

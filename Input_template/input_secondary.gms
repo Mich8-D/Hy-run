@@ -31,12 +31,13 @@ $elseif.ph %phase%=='data'
 
 # Characterize SOLAR technology
 OperationalLife(r,'SPV') = 25;
-CapacityFactor(r,'SPV','ID',y) = 0.15;
+CapacityFactor(r,'SPV','ID',y) = 0.13;
 CapacityFactor(r,'SPV','IN',y) = 0;
 CapacityFactor(r,'SPV','SD',y) = 0.22;
 CapacityFactor(r,'SPV','SN',y) = 0;
-CapacityFactor(r,'SPV','WD',y) = 0.05;
+CapacityFactor(r,'SPV','WD',y) = 0.04;
 CapacityFactor(r,'SPV','WN',y) = 0;
+
 
 SCALAR 
     a_SPV /269.66/,
@@ -47,6 +48,7 @@ CapitalCost(r, 'SPV', y) = a_SPV * exp(b_SPV * (ord(y) - 1)) + c_SPV; # Unit: �
 VariableCost(r,'SPV',m,y) = 1e-5; # Unit: €/GJ
 FixedCost(r,'SPV',y) = 15; # Unit: €/kW/y
 ResidualCapacity(r,"SPV",y) = 102.3;  # Unit: GW (from Excel)
+TotalAnnualMaxCapacityInvestment(r,'SPV',y) = 20;
 
 # Characterize WIND-ONSHORE technology
 OperationalLife(r,'WPP_ON') = 25;
