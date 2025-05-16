@@ -230,7 +230,8 @@
                 "--data = template",
                 "--data=template",
                 "--data=template --storage=1",
-                "--data=template --storage=1 --solvermode=mip"
+                "--data=template --storage=1 --solvermode=mip",
+                "--data=template --storage=1 --solvermode=lp"
             ],
             "type": "gms"
         },
@@ -297,7 +298,8 @@
         "--data = template",
         "--data=template",
         "--data=template --storage=1",
-        "--data=template --storage=1 --solvermode=mip"
+        "--data=template --storage=1 --solvermode=mip",
+        "--data=template --storage=1 --solvermode=lp"
     ],
     "path": ".",
     "pf": "",

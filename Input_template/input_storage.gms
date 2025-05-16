@@ -27,6 +27,7 @@ $elseif.ph %phase%=='data'
 * ------------------------
 
 * Battery Energy Storage System (BEES)
+CapitalCost(r,'BEES',y) = 0;  # Unit: €/kW
 AvailabilityFactor(r,'BEES',y) = 0.9;
 OperationalLife(r,'BEES') = 10;
 VariableCost(r,'BEES',m,y) = 0;
@@ -41,6 +42,7 @@ CapacityFactor(r,'STOR_HYDRO',"SN",y) = 0.3;
 CapacityFactor(r,'STOR_HYDRO',"WD",y) = 0.5;
 CapacityFactor(r,'STOR_HYDRO',"WN",y) = 0.5;
 
+CapitalCost(r,'STOR_HYDRO',y) = 0;  # Unit: €/kW
 VariableCost(r,'STOR_HYDRO',m,y) = 1e-6;
 FixedCost(r,'STOR_HYDRO',y) = 0;
 OperationalLife(r,'STOR_HYDRO') = 60;
@@ -53,16 +55,16 @@ StorageDuration('STOR_HYDRO') = 500;
 * ------------------------
 
 * BATTERIES (BEES)
-scalar a_BATT / 335    /,
-       b_BATT / -0.7   /,
-       c_BATT / 239444 /;
-
-CapitalCostStorage(r,'BATTERIES',y)  = a_BATT*exp(b_BATT*(ord(y)-1)) + c_BATT;  # mln€/PJ
+#scalar a_BATT / 335    /,
+#      b_BATT / -0.7   /,
+#       c_BATT / 239444 /;
+#CapitalCostStorage(r,'BATTERIES',y)  = a_BATT*exp(b_BATT*(ord(y)-1)) + c_BATT;  # mln€/PJ
+CapitalCostStorage(r,'BATTERIES',y)  = 0;  # mln€/PJ
 ResidualStorageCapacity(r,'BATTERIES',y)    = 0;         # PJ
 StorageLevelStart(r,'BATTERIES')            = 0;         # PJ
 
 * DAM (STOR_HYDRO)
-CapitalCostStorage(r,'DAM',y)               = 10000000;  # mln€/PJ (?)
+CapitalCostStorage(r,'DAM',y)               = 0;  # mln€/PJ (?)
 ResidualStorageCapacity(r,'DAM',y)          = 3.596;     # PJ
 StorageLevelStart(r,'DAM')                  = 3.596;     # PJ
 
