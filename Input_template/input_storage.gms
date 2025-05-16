@@ -53,7 +53,11 @@ StorageDuration('STOR_HYDRO') = 500;
 * ------------------------
 
 * BATTERIES (BEES)
-CapitalCostStorage(r,'BATTERIES',y)         = 30000000;  # €/PJ
+scalar a_BATT / 335 /,
+       b_BATT / -0.72 /,
+       c_BATT / 239444 /;
+
+CapitalCostStorage(r,'BATTERIES',y)  = a_BATT*exp(b_BATT*(ord(y)-1)) + c_BATT;  # mln€/PJ
 ResidualStorageCapacity(r,'BATTERIES',y)    = 0;         # PJ
 StorageLevelStart(r,'BATTERIES')            = 0;         # PJ
 

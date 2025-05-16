@@ -50,18 +50,18 @@ Loop(y,
 
 
 parameter SpecifiedDemandProfile(r,f,l,y) /
-  GERMANY.ED.ID.(%yearstart%*%yearend% )  .15
-  GERMANY.ED.IN.(%yearstart%*%yearend% )  .05
-  GERMANY.ED.SD.(%yearstart%*%yearend% )  .15
-  GERMANY.ED.SN.(%yearstart%*%yearend% )  .05
-  GERMANY.ED.WD.(%yearstart%*%yearend% )  .5
-  GERMANY.ED.WN.(%yearstart%*%yearend% )  .1
-  GERMANY.IH.ID.(%yearstart%*%yearend% )  .3
-  GERMANY.IH.IN.(%yearstart%*%yearend% )  .033
-  GERMANY.IH.SD.(%yearstart%*%yearend% )  .3
-  GERMANY.IH.SN.(%yearstart%*%yearend% )  .033
-  GERMANY.IH.WD.(%yearstart%*%yearend% )  .3
-  GERMANY.IH.WN.(%yearstart%*%yearend% )  .034
+  GERMANY.ED.ID.(%yearstart%*%yearend% )  .35
+  GERMANY.ED.IN.(%yearstart%*%yearend% )  .14
+  GERMANY.ED.SD.(%yearstart%*%yearend% )  .17
+  GERMANY.ED.SN.(%yearstart%*%yearend% )  .7
+  GERMANY.ED.WD.(%yearstart%*%yearend% )  .19
+  GERMANY.ED.WN.(%yearstart%*%yearend% )  .08
+  GERMANY.IH.ID.(%yearstart%*%yearend% )  .33
+  GERMANY.IH.IN.(%yearstart%*%yearend% )  .17
+  GERMANY.IH.SD.(%yearstart%*%yearend% )  .17
+  GERMANY.IH.SN.(%yearstart%*%yearend% )  .08
+  GERMANY.IH.WD.(%yearstart%*%yearend% )  .17
+  GERMANY.IH.WN.(%yearstart%*%yearend% )  .08
 /;
 
 

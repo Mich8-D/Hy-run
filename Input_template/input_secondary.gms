@@ -31,11 +31,11 @@ $elseif.ph %phase%=='data'
 
 # Characterize SOLAR technology
 OperationalLife(r,'SPV') = 25;
-CapacityFactor(r,'SPV','ID',y) = 0.2;
+CapacityFactor(r,'SPV','ID',y) = 0.15;
 CapacityFactor(r,'SPV','IN',y) = 0;
-CapacityFactor(r,'SPV','SD',y) = 0.3;
+CapacityFactor(r,'SPV','SD',y) = 0.22;
 CapacityFactor(r,'SPV','SN',y) = 0;
-CapacityFactor(r,'SPV','WD',y) = 0.08;
+CapacityFactor(r,'SPV','WD',y) = 0.05;
 CapacityFactor(r,'SPV','WN',y) = 0;
 
 SCALAR 
@@ -88,15 +88,15 @@ ResidualCapacity(r,"WPP_OFF",y) = 9.2;
 
 # Characterize BIOMASS technology
 OperationalLife(r,'BIO') = 25;
-AvailabilityFactor(r,'BIO',y) = 0.85;
-CapitalCost(r,'BIO',y) = 2523;  # Unit: €/kW
+AvailabilityFactor(r,'BIO',y) = 0.81;
+CapitalCost(r,'BIO','2024') = 4200;  # Unit: €/kW
 VariableCost(r,'BIO',m,y) = 1e-5;
 FixedCost(r,'BIO',y) = 50; # Unit: €/kW
 ResidualCapacity(r,"BIO",y) = 9.19;  # Unit: GW (from Excel)
 
 # Characterize GEOTHERMAL technology
 OperationalLife(r,'GEO') = 25;
-CapitalCost(r,'GEO',y) = 4241;  # Unit: €/kW
+CapitalCost(r,'GEO',y) = 4200;  # Unit: €/kW
 AvailabilityFactor(r,'GEO',y) = 0.9;
 VariableCost(r,'GEO',m,y) = 1e-5;
 FixedCost(r,'GEO',y) = 70;
@@ -104,7 +104,7 @@ ResidualCapacity(r,"GEO",y) = 0.015;  # Unit: GW (from Excel)
 
 # Characterize RUN-OF-RIVER technology
 OperationalLife(r,'ROR') = 80;
-CapacityFactor(r,'ROR',l,y) = 0.6445;
+CapacityFactor(r,'ROR',l,y) = 0.31;
 CapitalCost(r,'ROR',y) = 3000;
 VariableCost(r,'ROR',m,y) = 1e-5;
 FixedCost(r,'ROR',y) = 50;
@@ -150,32 +150,14 @@ ResidualCapacity(r,"COAL","2050") = 0.0;
 
 # Characterize GFPP technology
 OperationalLife(r,'GFPP') = 30;
-AvailabilityFactor(r,'GFPP',y) = 0.75;
+AvailabilityFactor(r,'GFPP',y) = 0.90;
 CapitalCost(r,'GFPP',y) = 2000;             # €/kW
 VariableCost(r,'GFPP',m,y) = 1e-5;
 FixedCost(r,'GFPP',y) = 15;
 ResidualCapacity(r,"GFPP","2024") = 36.7; # Unit: GW
-ResidualCapacity(r,"GFPP","2030") = 22.5;
-ResidualCapacity(r,"GFPP","2031") = 22.5;
-ResidualCapacity(r,"GFPP","2032") = 22.5;
-ResidualCapacity(r,"GFPP","2033") = 22.5;
-ResidualCapacity(r,"GFPP","2034") = 22.5;
-ResidualCapacity(r,"GFPP","2035") = 22.5;
-ResidualCapacity(r,"GFPP","2036") = 22.5;
-ResidualCapacity(r,"GFPP","2037") = 22.5;
-ResidualCapacity(r,"GFPP","2038") = 22.5;
-ResidualCapacity(r,"GFPP","2039") = 22.5;
-ResidualCapacity(r,"GFPP","2040") = 22.5;
-ResidualCapacity(r,"GFPP","2041") = 22.5;
-ResidualCapacity(r,"GFPP","2042") = 22.5;
-ResidualCapacity(r,"GFPP","2043") = 22.5;
-ResidualCapacity(r,"GFPP","2044") = 22.5;
-ResidualCapacity(r,"GFPP","2045") = 22.5;
-ResidualCapacity(r,"GFPP","2046") = 22.5;
-ResidualCapacity(r,"GFPP","2047") = 22.5;
-ResidualCapacity(r,"GFPP","2048") = 22.5;
-ResidualCapacity(r,"GFPP","2049") = 22.5;
-ResidualCapacity(r,"GFPP","2050") = 22.5;
+LOOP(y$(ORD(y) >= ORD("2030")),
+    ResidualCapacity(r, "GFPP", y) = 22.5;
+);
 
 # Characterize OIL technology
 OperationalLife(r,'OIL_GEN') = 40;
@@ -183,27 +165,9 @@ AvailabilityFactor(r,'OIL_GEN',y) = 0.85;
 CapitalCost(r,'OIL_GEN',y) = 2000;          # €/kW
 VariableCost(r,'OIL_GEN',m,y) = 1e-5;
 FixedCost(r,'OIL_GEN',y) = 10;
-ResidualCapacity(r,"OIL_GEN","2030") = 0;
-ResidualCapacity(r,"OIL_GEN","2031") = 0;
-ResidualCapacity(r,"OIL_GEN","2032") = 0;
-ResidualCapacity(r,"OIL_GEN","2033") = 0;
-ResidualCapacity(r,"OIL_GEN","2034") = 0;
-ResidualCapacity(r,"OIL_GEN","2035") = 0;
-ResidualCapacity(r,"OIL_GEN","2036") = 0;
-ResidualCapacity(r,"OIL_GEN","2037") = 0;
-ResidualCapacity(r,"OIL_GEN","2038") = 0;
-ResidualCapacity(r,"OIL_GEN","2039") = 0;
-ResidualCapacity(r,"OIL_GEN","2040") = 0;
-ResidualCapacity(r,"OIL_GEN","2041") = 0;
-ResidualCapacity(r,"OIL_GEN","2042") = 0;
-ResidualCapacity(r,"OIL_GEN","2043") = 0;
-ResidualCapacity(r,"OIL_GEN","2044") = 0;
-ResidualCapacity(r,"OIL_GEN","2045") = 0;
-ResidualCapacity(r,"OIL_GEN","2046") = 0;
-ResidualCapacity(r,"OIL_GEN","2047") = 0;
-ResidualCapacity(r,"OIL_GEN","2048") = 0;
-ResidualCapacity(r,"OIL_GEN","2049") = 0;
-ResidualCapacity(r,"OIL_GEN","2050") = 0;
+LOOP(y$(ORD(y) >= ORD("2030")),
+    ResidualCapacity(r, "OIL_GEN", y) = 0;
+);
 
 # Characterize ELECTRIC GRID technology
 OperationalLife(r,'GRID_ELC') = 40;
