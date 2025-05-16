@@ -155,7 +155,7 @@ AvailabilityFactor(r,'GFPP',y) = 0.90;
 CapitalCost(r,'GFPP',y) = 2000;             # €/kW
 VariableCost(r,'GFPP',m,y) = 1e-5;
 FixedCost(r,'GFPP',y) = 15;
-ResidualCapacity(r,"GFPP","2024") = 36.7 - 2*(y.val - 2024); # Unit: GW
+ResidualCapacity(r,"GFPP",y)$(y.val < 2030) = 36.7 - 2*(y.val - 2024); # Unit: GW
 ResidualCapacity(r, "GFPP", y)$(y.val >= 2030) = 22.5;
 EmissionActivityRatio(r,'GFPP','CO2_PP','1',y) = 0.0561/0.35; # Unit: kton CO2 per PJ (infra ops)
 
