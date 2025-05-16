@@ -62,7 +62,7 @@ ResidualStorageCapacity(r,'BATTERIES',y)    = 0;         # PJ
 StorageLevelStart(r,'BATTERIES')            = 0;         # PJ
 
 * DAM (STOR_HYDRO)
-CapitalCostStorage(r,'DAM',y)               = 10000000;  # €/PJ
+CapitalCostStorage(r,'DAM',y)               = 10000000;  # mln€/PJ (?)
 ResidualStorageCapacity(r,'DAM',y)          = 3.596;     # PJ
 StorageLevelStart(r,'DAM')                  = 3.596;     # PJ
 
