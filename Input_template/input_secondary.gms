@@ -147,6 +147,7 @@ ResidualCapacity(r,"COAL","2047") = 2.84;
 ResidualCapacity(r,"COAL","2048") = 1.89;
 ResidualCapacity(r,"COAL","2049") = 0.95;
 ResidualCapacity(r,"COAL","2050") = 0.0;
+EmissionActivityRatio(r,'COAL','CO2_PP','1',y) = 0.0895/0.45; # Unit: kton CO2 per PJ (infra ops)
 
 # Characterize GFPP technology
 OperationalLife(r,'GFPP') = 30;
@@ -156,6 +157,7 @@ VariableCost(r,'GFPP',m,y) = 1e-5;
 FixedCost(r,'GFPP',y) = 15;
 ResidualCapacity(r,"GFPP","2024") = 36.7; # Unit: GW
 ResidualCapacity(r, "GFPP", y)$(y.val >= 2030) = 22.5;
+EmissionActivityRatio(r,'GFPP','CO2_PP','1',y) = 0.0561/0.35; # Unit: kton CO2 per PJ (infra ops)
 
 # Characterize OIL technology
 OperationalLife(r,'OIL_GEN') = 40;
@@ -164,6 +166,7 @@ CapitalCost(r,'OIL_GEN',y) = 2000;          # €/kW
 VariableCost(r,'OIL_GEN',m,y) = 1e-5;
 FixedCost(r,'OIL_GEN',y) = 10;
 ResidualCapacity(r, "OIL_GEN", y)$(y.val >= 2030) = 22.5;
+EmissionActivityRatio(r,'OIL_GEN','CO2_PP','1',y) = 0.073/0.35; # Unit: kton CO2 per PJ (infra ops)
 
 # Characterize ELECTRIC GRID technology
 OperationalLife(r,'GRID_ELC') = 40;
