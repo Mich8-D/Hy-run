@@ -329,7 +329,6 @@ OperationalLifeStorage(r,'UHS') = 30;
 
 # Source: H2 Storage Cost Assessment file, aligned with IEA/IRENA/Hydrogen Council reports
 # Units: €/PJ of working gas capacity
-CapitalCostStorage(r,'UHS','2023') = 17833;
 CapitalCostStorage(r,'UHS','2024') = 17500;
 CapitalCostStorage(r,'UHS','2025') = 17167;
 CapitalCostStorage(r,'UHS','2026') = 16917;
@@ -370,7 +369,6 @@ MinStorageCharge(r,'TANKS',y) = 0.1;
 OperationalLifeStorage(r,'TANKS') = 20; 
 
 # CapitalCostStorage defined yearly in €/PJ
-CapitalCostStorage(r,'TANKS','2023') = 77500;
 CapitalCostStorage(r,'TANKS','2024') = 76333;
 CapitalCostStorage(r,'TANKS','2025') = 75167;
 CapitalCostStorage(r,'TANKS','2026') = 74083;
