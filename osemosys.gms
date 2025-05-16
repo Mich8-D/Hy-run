@@ -75,7 +75,7 @@ $elseif.scen %scen%=="cheapH2tech"
 CapitalCost(r,t,y)$hydrogen_tech(t) = %value%/100 * CapitalCost(r,t,y);
 CapitalCostStorage(r,s,y)$hydrogen_storages(s) = %value%/100 * CapitalCostStorage(r,s,y);
 $elseif.scen %scen%=="parametrised_py"
-$include parametrised_py.gms
+$include "Input_template/parametrised_py.gms"
 $endif.scen
 
 * solve the model with the constraints

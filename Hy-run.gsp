@@ -82,6 +82,13 @@
         {
             "codecMib": 106,
             "encoding": "UTF-8",
+            "file": "Input_template/parametrised_py.gms",
+            "name": "parametrised_py.gms",
+            "type": "gms"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
             "file": "Input_template/template_data.gms",
             "name": "template_data.gms",
             "type": "gms"
@@ -194,13 +201,6 @@
         {
             "codecMib": 106,
             "encoding": "UTF-8",
-            "file": "gams1.gdx",
-            "name": "gams1.gdx",
-            "type": "gdx"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
             "file": "Hy-run.gsp",
             "name": "Hy-run.gsp",
             "type": "gsp"
@@ -230,8 +230,7 @@
                 "--data = template",
                 "--data=template",
                 "--data=template --storage=1",
-                "--data=template --storage=1 --solvermode=mip",
-                "--data=template --storage=1 --solvermode=lp"
+                "--data=template --storage=1 --scen=parametrised_py"
             ],
             "type": "gms"
         },
@@ -248,13 +247,6 @@
             "file": "osemosys.lxi",
             "name": "osemosys.lxi",
             "type": "lxi"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "osemosys1.log",
-            "name": "osemosys1.log",
-            "type": "txt"
         },
         {
             "codecMib": 106,
@@ -298,8 +290,7 @@
         "--data = template",
         "--data=template",
         "--data=template --storage=1",
-        "--data=template --storage=1 --solvermode=mip",
-        "--data=template --storage=1 --solvermode=lp"
+        "--data=template --storage=1 --scen=parametrised_py"
     ],
     "path": ".",
     "pf": "",
