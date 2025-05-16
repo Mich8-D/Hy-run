@@ -45,7 +45,7 @@ VariableCost(r,'STOR_HYDRO',m,y) = 1e-6;
 FixedCost(r,'STOR_HYDRO',y) = 0;
 OperationalLife(r,'STOR_HYDRO') = 60;
 ResidualCapacity(r,'STOR_HYDRO',y) = 7.25;
-TotalAnnualMaxCapacityInvestment(r,'STOR_HYDRO',y) = 0;
+#TotalAnnualMaxCapacityInvestment(r,'STOR_HYDRO',y) = 0;
 StorageDuration('STOR_HYDRO') = 500;
 
 * ------------------------

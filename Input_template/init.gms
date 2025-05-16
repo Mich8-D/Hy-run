@@ -123,7 +123,7 @@ EmissionsPenalty(r,e,y) = 0;
 
 AnnualExogenousEmission(r,e,y) = 0;
 
-AnnualEmissionLimit(r,'CO2_PP',y)$(y.val >= 2035) = 0;
+AnnualEmissionLimit(r,'CO2_PP',y)$(y.val >= 2045) = 0;
 
 ModelPeriodExogenousEmission(r,e) = 0;
 
