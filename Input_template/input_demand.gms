@@ -77,31 +77,31 @@ AccumulatedAnnualDemand(r,f,y) = 0;
 CapitalCost(r,"FEU",y) = 0;
 VariableCost(r,"FEU",m,y) = 1e-5;
 FixedCost(r,"FEU",y) = 0.1;
-OperationalLife(r,"FEU") = 10;
+OperationalLife(r,"FEU") = 30;
 ResidualCapacity(r,"FEU",y) = 76;  
 
 ** industrial heating technologies
 CapitalCost(r,"IHE",y) = 0;          # €/kW - Typical CAPEX for industrial electric resistance heaters
 VariableCost(r,"IHE",m,y) = 1e-5;     # mln€/PJ - O&M cost (electricity price handled separately)
 FixedCost(r,"IHE",y) = 15;             # €/kW/year - Fixed O&M (~1.5% of CAPEX)
-OperationalLife(r,"IHE") = 15;         # Years - Longer life due to fewer moving parts
+OperationalLife(r,"IHE") = 30;         # Years - Longer life due to fewer moving parts
 EmissionActivityRatio(r,"IHE","CO2_TH","1",y) = 0.00;
-ResidualCapacity(r,"IHE",y) = 50;   # GW - Residual capacity for electric resistance heaters
+ResidualCapacity(r,"IHE",y) = 0;   # GW - Residual capacity for electric resistance heaters
 TotalTechnologyAnnualActivityLowerLimit(r,'IHE',y) = 0;
 
 CapitalCost(r,"IHG",y) = 0;         # €/kW - Investment cost for gas heater
 VariableCost(r,"IHG",m,y) = 1e-5;     # mln€/PJ - Variable O&M cost (fuel cost modeled separately)
 FixedCost(r,"IHG",y) = 20;             # €/kW/year - Fixed O&M cost
-OperationalLife(r,"IHG") = 10;         # Years - Expected lifetime of the equipment
+OperationalLife(r,"IHG") = 30;         # Years - Expected lifetime of the equipment
 EmissionActivityRatio(r,"IHG","CO2_TH","1",y) = 0.055*1.11;
-ResidualCapacity(r,"IHG",y) = 50;   # GW - Residual capacity for gas heater
+ResidualCapacity(r,"IHG",y) = 0;   # GW - Residual capacity for gas heater
 
 CapitalCost(r,"IHC",y) = 0;         # €/kW - CAPEX for industrial coal-fired heat systems
 VariableCost(r,"IHC",m,y) = 1e-5;     # mln€/PJ - O&M excluding fuel (coal cost modeled separately)
 FixedCost(r,"IHC",y) = 25;             # €/kW/year - Fixed O&M (~2.3% of CAPEX)
 OperationalLife(r,"IHC") = 20;         # Years - Longer lifetime due to robust industrial build
 EmissionActivityRatio(r,"IHC","CO2_TH","1",y) = 0.089*1.25;
-ResidualCapacity(r,"IHC",y) = 50;   # GW - Residual capacity for coal-fired heat systems
+ResidualCapacity(r,"IHC",y) = 0;   # GW - Residual capacity for coal-fired heat systems
 *------------------------------------------------------------------------
 $elseif.ph %phase%=='popol'
 
