@@ -142,33 +142,7 @@ AvailabilityFactor(r,'IHH',y) = 0.9;
 OperationalLife(r,'IHH') = 15;
 
 # Capital Cost trajectory (€/kW)
-CapitalCost(r,'IHH','2024') = 1200;
-CapitalCost(r,'IHH','2025') = 1180;
-CapitalCost(r,'IHH','2026') = 1160;
-CapitalCost(r,'IHH','2027') = 1140;
-CapitalCost(r,'IHH','2028') = 1120;
-CapitalCost(r,'IHH','2029') = 1100;
-CapitalCost(r,'IHH','2030') = 1080;
-CapitalCost(r,'IHH','2031') = 1060;
-CapitalCost(r,'IHH','2032') = 1040;
-CapitalCost(r,'IHH','2033') = 1020;
-CapitalCost(r,'IHH','2034') = 1000;
-CapitalCost(r,'IHH','2035') = 980;
-CapitalCost(r,'IHH','2036') = 960;
-CapitalCost(r,'IHH','2037') = 940;
-CapitalCost(r,'IHH','2038') = 920;
-CapitalCost(r,'IHH','2039') = 900;
-CapitalCost(r,'IHH','2040') = 880;
-CapitalCost(r,'IHH','2041') = 860;
-CapitalCost(r,'IHH','2042') = 840;
-CapitalCost(r,'IHH','2043') = 820;
-CapitalCost(r,'IHH','2044') = 800;
-CapitalCost(r,'IHH','2045') = 800;
-CapitalCost(r,'IHH','2046') = 800;
-CapitalCost(r,'IHH','2047') = 800;
-CapitalCost(r,'IHH','2048') = 800;
-CapitalCost(r,'IHH','2049') = 800;
-CapitalCost(r,'IHH','2050') = 800;
+CapitalCost(r,'IHH',y) = 0;
 
 # O&M Costs
 VariableCost(r,'IHH',m,y) = 0.56;                      # €/GJ (minor O&M, excludes H₂ cost)
