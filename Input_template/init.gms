@@ -129,10 +129,6 @@ ModelPeriodExogenousEmission(r,e) = 0;
 
 ModelPeriodEmissionLimit(r,e) = 9999;
 
-*------------------------------------------------------------------------
-
-Scalar PowerToEnergyConversion / 0.0036 /;  # PJ per GW-hour
-
 
 ****** POST-DATA POPULATION 
 
@@ -168,8 +164,6 @@ CapacityToActivityUnit(r,t)$(fuel_cosumption(t)) = 31.536;
 
 CapacityToActivityUnit(r,t)$(fuel_transmission(t)) = 31.536;
 
-CapacityToActivityUnit(r,t)$(storage_plants(t)) = 31.536;
-
 CapacityToActivityUnit(r,t)$(CapacityToActivityUnit(r,t) = 0) = 1;
 
 *OperationalLife(r,t)$(OperationalLife(r,t) = 0) = 1;
@@ -183,12 +177,5 @@ CapacityFactor(r,t,l,y)$(CapacityFactor(r,t,l,y) = 0) = 1;
 AvailabilityFactor(r,t,y)$(AvailabilityFactor(r,t,y) = 0) = 1;
 
 ReserveMarginTagFuel(r,"ELC1",y) = 1;  #electricity
-
-*------------------------------------------------------------------------
-* Parameters - Storage
-*------------------------------------------------------------------------
-
-StorageUnitSize(r, s, y)$(not modular_storages(s)) = eps;
-
 
 $endif.ph

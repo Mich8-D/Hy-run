@@ -259,9 +259,8 @@ S9_StorageLevelSeasonStart(r,s,ls,y)$(ord(ls) eq 1)..
     StorageLevelSeasonStart(r,s,ls,y) =e= StorageLevelYearStart(r,s,y);
 equation S10_StorageLevelSeasonStart(REGION,STORAGE,SEASON,YEAR);
 S10_StorageLevelSeasonStart(r,s,ls,y)$(ord(ls) > 1)..
-    StorageLevelSeasonStart(r,s,ls,y) =e=
-    (1 - SeasonSelfDischargeRate(s,ls-1)) * StorageLevelSeasonStart(r,s,ls-1,y)
-  + sum((ld,lh), NetChargeWithinYear(r,s,ls-1,ld,lh,y));
+    StorageLevelSeasonStart(r,s,ls,y) =e= StorageLevelSeasonStart(r,s,ls-1,y) + sum((ld,lh), NetChargeWithinYear(r,s,ls-1,ld,lh,y)) ;
+
 
 equation S11_StorageLevelDayTypeStart(REGION,STORAGE,SEASON,DAYTYPE,YEAR);
 S11_StorageLevelDayTypeStart(r,s,ls,ld,y)$(ord(ld) eq 1)..
@@ -281,10 +280,7 @@ equation S15_StorageLevelDayTypeFinish(REGION,STORAGE,SEASON,DAYTYPE,YEAR);
 S15_StorageLevelDayTypeFinish(r,s,ls,ld,y)$(ord(ld) lt card(ldld))..
     StorageLevelDayTypeFinish(r,s,ls,ld+1,y) - sum(lh,  NetChargeWithinDay(r,s,ls,ld+1,lh,y)  * DaysInDayType(y,ls,ld+1) ) =e= StorageLevelDayTypeFinish(r,s,ls,ld,y);
 
-Equation StoragePowerEnergyLink(r, t, s, y);
 
-StoragePowerEnergyLink(r, t, s, y)$TechnologyToStorageMap(t,s)..
-    AccumulatedNewStorageCapacity(r,s,y)+ResidualStorageCapacity(r,s,y) =e= StorageDuration(t) * PowerToEnergyConversion * TotalCapacityAnnual(r,t,y);
 
 *------------------------------------------------------------------------	
 * Storage Constraints       
@@ -346,11 +342,6 @@ SC6_MaxDischargeConstraint(r,s,ls,ld,lh,y)..
 
 * Calculates the total discounted capital costs expenditure for each
 * storage technology in each year.
-
-
-equation SI0_Enforce_ModularStorageInvestments(REGION, STORAGE, YEAR);
-SI0_Enforce_ModularStorageInvestments(r, s, y)$(modular_storages(s))..
-    NewStorageCapacity(r, s, y) =e= StorageUnitSize(r, s, y) * NumberOfNewStorageUnits(r, s, y);
 
 equation SI1_StorageUpperLimit(REGION,STORAGE,YEAR);
 SI1_StorageUpperLimit(r,s,y)..
