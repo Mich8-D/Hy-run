@@ -281,10 +281,10 @@ equation S15_StorageLevelDayTypeFinish(REGION,STORAGE,SEASON,DAYTYPE,YEAR);
 S15_StorageLevelDayTypeFinish(r,s,ls,ld,y)$(ord(ld) lt card(ldld))..
     StorageLevelDayTypeFinish(r,s,ls,ld+1,y) - sum(lh,  NetChargeWithinDay(r,s,ls,ld+1,lh,y)  * DaysInDayType(y,ls,ld+1) ) =e= StorageLevelDayTypeFinish(r,s,ls,ld,y);
 
-Equation StoragePowerEnergyLink(r, t, s, y);
+#Equation StoragePowerEnergyLink(r, t, s, y);
 
-StoragePowerEnergyLink(r, t, s, y)$TechnologyToStorageMap(t,s)..
-    AccumulatedNewStorageCapacity(r,s,y)+ResidualStorageCapacity(r,s,y) =e= StorageDuration(t) * PowerToEnergyConversion * TotalCapacityAnnual(r,t,y);
+#StoragePowerEnergyLink(r, t, s, y)$TechnologyToStorageMap(t,s)..
+#    AccumulatedNewStorageCapacity(r,s,y)+ResidualStorageCapacity(r,s,y) =e= StorageDuration(t) * PowerToEnergyConversion * TotalCapacityAnnual(r,t,y);
 
 *------------------------------------------------------------------------	
 * Storage Constraints       
@@ -348,9 +348,9 @@ SC6_MaxDischargeConstraint(r,s,ls,ld,lh,y)..
 * storage technology in each year.
 
 
-equation SI0_Enforce_ModularStorageInvestments(REGION, STORAGE, YEAR);
-SI0_Enforce_ModularStorageInvestments(r, s, y)$(modular_storages(s))..
-    NewStorageCapacity(r, s, y) =e= StorageUnitSize(r, s, y) * NumberOfNewStorageUnits(r, s, y);
+#equation SI0_Enforce_ModularStorageInvestments(REGION, STORAGE, YEAR);
+#SI0_Enforce_ModularStorageInvestments(r, s, y)$(modular_storages(s))..
+#    NewStorageCapacity(r, s, y) =e= StorageUnitSize(r, s, y) * NumberOfNewStorageUnits(r, s, y);
 
 equation SI1_StorageUpperLimit(REGION,STORAGE,YEAR);
 SI1_StorageUpperLimit(r,s,y)..
