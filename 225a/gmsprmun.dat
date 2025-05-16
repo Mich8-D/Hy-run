@@ -1,0 +1,8 @@
+Input=osemosys.gms
+ScrDir=225a
+SysDir=/Library/Frameworks/GAMS.framework/Versions/49/Resources
+ScriptNext=225a/gamsnext.sh
+NetLicense=225a/gamslice.dat
+--scen=parametrised_py
+--data=template
+--stor=yes
