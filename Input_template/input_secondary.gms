@@ -43,7 +43,7 @@ SCALAR
     b_SPV /-0.21/,
     c_SPV /450.03/;
 
-CapitalCost(r, 'SPV', y) = a_SPV * exp(b_SPV * (ord(y) - yfirst)) + c_SPV; # Unit: €/kW
+CapitalCost(r, 'SPV', y) = a_SPV * exp(b_SPV * (ord(y))) + c_SPV; # Unit: €/kW
 VariableCost(r,'SPV',m,y) = 1e-5; # Unit: €/GJ
 FixedCost(r,'SPV',y) = 15; # Unit: €/kW/y
 ResidualCapacity(r,"SPV",y) = 102.3;  # Unit: GW (from Excel)
