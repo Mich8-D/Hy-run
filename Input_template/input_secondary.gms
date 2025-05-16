@@ -62,8 +62,7 @@ SCALAR
     b_WON /-0.02/,
     c_WON /-140/;
 
-CapitalCost(r, 'WPP_ON', y) = a_WON * exp(b_WON * (ord(y))) + c_WON; # Unit: €/kW
-CapitalCost(r,'WPP_ON',y) = 1072;  # Unit: €/kW
+CapitalCost(r,'WPP_ON', y) = a_WON * exp(b_WON * (ord(y)-1)) + c_WON; # Unit: €/kW
 VariableCost(r,'WPP_ON',m,y) = 1e-5;
 FixedCost(r,'WPP_ON',y) = 48;  # Unit: €/kW/y
 ResidualCapacity(r,"WPP_ON",y) = 63.6;  # Unit: GW (from Excel)
