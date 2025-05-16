@@ -59,9 +59,9 @@ DepreciationMethod(r) = 1;
 
 StorageLevelStart(r,s) = 1;
 
-StorageMaxChargeRate(r,s) = 99;
+StorageMaxChargeRate(r,s) = 99999;
 
-StorageMaxDischargeRate(r,s) = 99;
+StorageMaxDischargeRate(r,s) = 999999;
 
 MinStorageCharge(r,s,y) = 0;
 
