@@ -49,7 +49,6 @@ FixedCost(r,'STOR_HYDRO',y) = 0;
 OperationalLife(r,'STOR_HYDRO') = 60;
 ResidualCapacity(r,'STOR_HYDRO',y) = 7.25;
 #TotalAnnualMaxCapacityInvestment(r,'STOR_HYDRO',y) = 0;
-StorageDuration('STOR_HYDRO') = 500;
 
 * ------------------------
 * STORAGE PARAMETERS
@@ -66,8 +65,9 @@ StorageLevelStart(r,'BATTERIES')            = 0;         # PJ
 
 * DAM (STOR_HYDRO)
 CapitalCostStorage(r,'DAM',y)               = 10000000;  # mln€/PJ (?)
-ResidualStorageCapacity(r,'DAM',y)          = 3.596;     # PJ
-StorageLevelStart(r,'DAM')                  = 3.596;     # PJ
+ResidualStorageCapacity(r,'DAM',y)          = 0.18;     # PJ
+StorageLevelStart(r,'DAM')                  = 0.18;     # PJ
+MinStorageCharge(r,'DAM',y) = 0;
 
 * ------------------------
 * SELF-DISCHARGE MODELING
