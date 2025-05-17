@@ -30,7 +30,6 @@ set     FUEL    /
 /;
 
 set fuel_transmission(TECHNOLOGY) / GRIDGAS /;
-set renewable_fuel(FUEL) /GTH, SUN, WIN, HYD, WBM/;
 ** ----------------------------------------------------------------
 $elseif.ph %phase%=='data'
 

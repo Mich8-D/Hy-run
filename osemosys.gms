@@ -66,7 +66,7 @@ $if set storage execute_unload 'Results/results_SCENbase_DATA%data%_STORyes.gdx'
 $ifthen.scen %scen%=="ctax" 
 EmissionsPenalty(r,'CO2',y) = %value%;
 $elseif.scen %scen%=="emicap" 
-AnnualEmissionLimit(r,'CO2',y)$(ord(y) ge 10) = %value%;
+$include "Climate_Scenarios/emi_cap_pledges.gms"
 $elseif.scen %scen%=="nocoal" 
 TotalAnnualMaxCapacity(r,'COAL',y) = .5;
 $elseif.scen %scen%=="cheapres" 

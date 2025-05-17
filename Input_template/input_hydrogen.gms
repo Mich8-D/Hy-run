@@ -25,6 +25,7 @@ set hydrogen_production_tech(TECHNOLOGY) / HEL, SMR_CCS /;
 set hydrogen_consumption_tech(TECHNOLOGY) / IHH, FC /;
 set hydrogen_storages(STORAGE) / UHS , TANKS /;
 set modular_storages(STORAGE) / UHS /;
+set renewable_tech(TECHNOLOGY) /FC/;
 
 # ------------------------------------------------
 $elseif.ph %phase%=='data'
