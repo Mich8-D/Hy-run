@@ -17,7 +17,7 @@ set TECHNOLOGY /
 * Technology subsets
 set storage_plants(TECHNOLOGY) / BEES, STOR_HYDRO /;
 set batteries(STORAGE)         / BATTERIES /;
-set modular_storages(STORAGE)  //;
+set modular_storages(STORAGE)  / /;
 set renewable_tech(TECHNOLOGY) / STOR_HYDRO, BEES /;
 
 ** ------------------------------------------------
@@ -57,10 +57,10 @@ StorageDuration('STOR_HYDRO') = 500;
 
 * BATTERIES (BEES)
 scalar a_BATT / 335    /,
-      b_BATT / -0.7   /,
+       b_BATT / -0.7   /,
        c_BATT / 239444 /;
 CapitalCostStorage(r,'BATTERIES',y)  = a_BATT*exp(b_BATT*(ord(y)-1)) + c_BATT;  # mln€/PJ
-#CapitalCostStorage(r,'BATTERIES',y)  = 0;  # mln€/PJ
+CapitalCostStorage(r,'BATTERIES',y)  = 0;  # mln€/PJ
 ResidualStorageCapacity(r,'BATTERIES',y)    = 0;         # PJ
 StorageLevelStart(r,'BATTERIES')            = 0;         # PJ
 

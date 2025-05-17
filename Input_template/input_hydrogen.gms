@@ -16,7 +16,7 @@ SET TECHNOLOGY /
     FC           "Fuel Cells" /;
 
 set FUEL / 
-    H2,      "Hydrogen",
+    H2      "Hydrogen",
     H2_TH    "Hydrogen Thermal Usages" /;
 
 set hydrogen_tech(TECHNOLOGY) / HEL, SMR_CCS, IHH, GRID_H2, FC /;

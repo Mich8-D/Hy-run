@@ -284,10 +284,9 @@ equation S15_StorageLevelDayTypeFinish(REGION,STORAGE,SEASON,DAYTYPE,YEAR);
 S15_StorageLevelDayTypeFinish(r,s,ls,ld,y)$(ord(ld) lt card(ldld))..
     StorageLevelDayTypeFinish(r,s,ls,ld+1,y) - sum(lh,  NetChargeWithinDay(r,s,ls,ld+1,lh,y)  * DaysInDayType(y,ls,ld+1) ) =e= StorageLevelDayTypeFinish(r,s,ls,ld,y);
 
-#Equation StoragePowerEnergyLink(r, t, s, y);
-
-#StoragePowerEnergyLink(r, t, s, y)$TechnologyToStorageMap(t,s)..
-#    AccumulatedNewStorageCapacity(r,s,y)+ResidualStorageCapacity(r,s,y) =e= StorageDuration(t) * PowerToEnergyConversion * TotalCapacityAnnual(r,t,y);
+Equation StoragePowerEnergyLink(r, t, s, y);
+StoragePowerEnergyLink(r, t, s, y)$TechnologyToStorageMap(t,s)..
+    AccumulatedNewStorageCapacity(r,s,y)+ResidualStorageCapacity(r,s,y) =e= StorageDuration(t) * PowerToEnergyConversion * TotalCapacityAnnual(r,t,y);
 
 *------------------------------------------------------------------------	
 * Storage Constraints       

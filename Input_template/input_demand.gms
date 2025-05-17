@@ -18,11 +18,11 @@ $elseif.ph %phase%=='data'
 *------------------------------------------------------------------------	
 * Parameters - Demands       
 *------------------------------------------------------------------------
-scalar fel_2024 /1677.6/;  # Converted from 466 TWh to PJ   # Final electricity demand: Industrial, residential
+scalar fel_2024 /1677/;#Converted from 466 TWh to PJ   # Final electricity demand: Industrial, residential 1677
 scalar a_fel /-0.083/;
 scalar b_fel /2.673/;
 scalar c_fel /3.604/;
-scalar d_fel /6.914/;
+scalar d_fel /6.914/;        
 
 # Demand is in PJ as per unit standardization guide
 Loop(y,
@@ -53,7 +53,7 @@ parameter SpecifiedDemandProfile(r,f,l,y) /
   GERMANY.ED.ID.(%yearstart%*%yearend% )  .35
   GERMANY.ED.IN.(%yearstart%*%yearend% )  .14
   GERMANY.ED.SD.(%yearstart%*%yearend% )  .17
-  GERMANY.ED.SN.(%yearstart%*%yearend% )  .7
+  GERMANY.ED.SN.(%yearstart%*%yearend% )  .07
   GERMANY.ED.WD.(%yearstart%*%yearend% )  .19
   GERMANY.ED.WN.(%yearstart%*%yearend% )  .08
   GERMANY.IH.ID.(%yearstart%*%yearend% )  .33
