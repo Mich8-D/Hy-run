@@ -125,10 +125,6 @@ AnnualExogenousEmission(r,e,y) = 0;
 
 AnnualEmissionLimit(r,e,y) = 9999;
 
-AnnualEmissionLimit(r,'CO2_PP',y)$(y.val <2045) = 9999;
-
-AnnualEmissionLimit(r,'CO2_PP',y)$(y.val >= 2045) = 0;
-
 ModelPeriodExogenousEmission(r,e) = 0;
 
 ModelPeriodEmissionLimit(r,e) = 9999;
@@ -156,7 +152,8 @@ ContinousDepreciation(r,t) = 0;
 
 *** define the renewable technology and fuel tags
 RETagTechnology(r,t,y)$renewable_tech(t) = 1;
-*RETagFuel(r,f,y)$renewable_fuel(f) = 1;
+
+RETagFuel(r,'ELC1',y) = 1;
 
 ReserveMarginTagTechnology(r,t,y)$(not renewable_tech(t)) = 1;
 
