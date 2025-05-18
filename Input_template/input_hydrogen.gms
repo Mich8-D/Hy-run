@@ -17,7 +17,9 @@ SET TECHNOLOGY /
 
 set FUEL / 
     H2      "Hydrogen",
-    H2_TH    "Hydrogen Thermal Usages" /;
+    H2_TH    "Hydrogen Thermal Usages" ,
+    ELC_ACC_H2 "accounting for imposing a demand on FC",
+    IH_ACC_H2  "accounting for imposing a demand on IHH"/;
 
 set hydrogen_tech(TECHNOLOGY) / HEL, SMR_CCS, IHH, GRID_H2, FC /;
 set storage_plants(TECHNOLOGY) / UHS_CHARGE, TANKS_CHARGE /;
@@ -26,6 +28,8 @@ set hydrogen_consumption_tech(TECHNOLOGY) / IHH, FC /;
 set hydrogen_storages(STORAGE) / UHS , TANKS /;
 set modular_storages(STORAGE) / UHS /;
 set renewable_tech(TECHNOLOGY) /FC/;
+set fuel_cosumption(TECHNOLOGY) / IHH /;
+set power_plants(TECHNOLOGY) /FC/;
 
 # ------------------------------------------------
 $elseif.ph %phase%=='data'
@@ -81,7 +85,7 @@ CapitalCost(r,'HEL','2049') = 425;
 CapitalCost(r,'HEL','2050') = 400;
   
 # Units: VariableCost = €/GJ, FixedCost = €/kW/year
-VariableCost(r,'HEL',m,y) = 0.5;
+VariableCost(r,'HEL',m,y) = 0;
 FixedCost(r,'HEL',y) = 0.03 * CapitalCost(r,'HEL',y);
 
 # Steam Methane Reforming with CCS (SMR_CCS)
@@ -119,7 +123,7 @@ CapitalCost(r,'SMR_CCS','2049') = 1000;
 CapitalCost(r,'SMR_CCS','2050') = 1000;
 
 # Units: VariableCost = €/GJ, FixedCost = €/kW/year 
-VariableCost(r,'SMR_CCS',m,y) = 12;
+VariableCost(r,'SMR_CCS',m,y) = 0;
 FixedCost(r,'SMR_CCS',y) = 0.03 * CapitalCost(r,'SMR_CCS',y);
 
 # EmissionActivityRatio for SMR + CCS
@@ -127,7 +131,7 @@ FixedCost(r,'SMR_CCS',y) = 0.03 * CapitalCost(r,'SMR_CCS',y);
 # Assumes 75 kg CO₂ captured per GJ H₂ output = 0.075 Mt/PJ
 # Based on 90% capture rate from ~83 kg CO₂/GJ emission baseline (IEA, IPCC)
 
-EmissionActivityRatio(r,'SMR_CCS','CO2','1',y) = -0.075;
+EmissionActivityRatio(r,'SMR_CCS','CO2','1',y) = -0.075*0.78;
 
 #--------------------H2 CONSUMPTION TECHNOLOGIES-------------------
 
@@ -146,7 +150,7 @@ OperationalLife(r,'IHH') = 15;
 CapitalCost(r,'IHH',y) = 0;
 
 # O&M Costs
-VariableCost(r,'IHH',m,y) = 0.56;                      # €/GJ (minor O&M, excludes H₂ cost)
+VariableCost(r,'IHH',m,y) = 0;                      # €/GJ (minor O&M, excludes H₂ cost)
 FixedCost(r,'IHH',y) = 0.017 * CapitalCost(r,'IHH',y); #€/kW/year 
 
 
@@ -160,6 +164,7 @@ FixedCost(r,'IHH',y) = 0.017 * CapitalCost(r,'IHH',y); #€/kW/year
 
 AvailabilityFactor(r,'FC',y) = 0.9;
 OperationalLife(r,'FC') = 10;
+CapacityFactor(r,'FC',l,y) = 1;
 
 # Capital cost trajectory (€/kW)
 CapitalCost(r,'FC','2024') = 1600;
@@ -191,7 +196,7 @@ CapitalCost(r,'FC','2049') = 800;
 CapitalCost(r,'FC','2050') = 800;
 
 # O&M Costs
-VariableCost(r,'FC',m,y) = 2;                        # €/GJ
+VariableCost(r,'FC',m,y) = 0;                        # €/GJ
 FixedCost(r,'FC',y) = 0.025 * CapitalCost(r,'FC',y); # 2.5% of CAPEX
 
 
@@ -234,7 +239,7 @@ CapitalCost(r,'GRID_H2','2048') = 56;
 CapitalCost(r,'GRID_H2','2049') = 52;
 CapitalCost(r,'GRID_H2','2050') = 48;
 
-VariableCost(r,'GRID_H2',m,y) = 0.3;                         # €/GJ
+VariableCost(r,'GRID_H2',m,y) = 0;                         # €/GJ
 FixedCost(r,'GRID_H2',y) = 0.03 * CapitalCost(r,'GRID_H2',y); # €/kW/year
 
 
@@ -276,7 +281,7 @@ CapitalCost(r,'UHS_CHARGE','2049') = 150;
 CapitalCost(r,'UHS_CHARGE','2050') = 150;
 
 # O&M Costs
-VariableCost(r,'UHS_CHARGE',m,y) = 1;                               # €/GJ (compression energy)
+VariableCost(r,'UHS_CHARGE',m,y) = 0;                               # €/GJ (compression energy)
 FixedCost(r,'UHS_CHARGE',y) = 0.03 * CapitalCost(r,'UHS_CHARGE',y); # €/kW/year
 
 
@@ -316,16 +321,16 @@ CapitalCost(r,'TANKS_CHARGE','2049') = 150;
 CapitalCost(r,'TANKS_CHARGE','2050') = 150;
 
 # O&M Costs
-VariableCost(r,'TANKS_CHARGE',m,y) = 0.8;                           # €/GJ
+VariableCost(r,'TANKS_CHARGE',m,y) = 0;                           # €/GJ
 FixedCost(r,'TANKS_CHARGE',y) = 0.03 * CapitalCost(r,'TANKS_CHARGE',y);  # €/kW/year
 
 
 # UHS storage Technology
-ResidualStorageCapacity(r,'UHS',y) = 0;  # Unit: PJ (explicitly zero)
+ResidualStorageCapacity(r,'UHS',y) = 10;  # Unit: PJ (explicitly zero)
 StorageLevelStart(r,'UHS') = 0;          # Unit: PJ (explicitly zero)
-StorageMaxChargeRate(r,'UHS') = 1;       # Charge/discharge rates set to 1 since UHS_CHARGE tech models actual flow constraints
-StorageMaxDischargeRate(r,'UHS') = 1;
-MinStorageCharge(r,'UHS',y) = 0.1;
+#StorageMaxChargeRate(r,'UHS') = 1;       # Charge/discharge rates set to 1 since UHS_CHARGE tech models actual flow constraints
+#StorageMaxDischargeRate(r,'UHS') = 1;
+# MinStorageCharge(r,'UHS',y) = 0.1;
 OperationalLifeStorage(r,'UHS') = 30;
 
 # Source: H2 Storage Cost Assessment file, aligned with IEA/IRENA/Hydrogen Council reports
@@ -358,15 +363,16 @@ CapitalCostStorage(r,'UHS','2048') = 9917;
 CapitalCostStorage(r,'UHS','2049') = 9583;
 CapitalCostStorage(r,'UHS','2050') = 9333;
 
-StorageUnitSize(r, 'UHS', y) = 200;  # Unit: PJ
+StorageUnitSize(r, 'UHS', y) = 0.5;  # Unit: PJ
+TotalAnnualMaxStorageCapacity(r,'UHS',y) = 126;  # Unit: PJ
 
 
 # Hydrogen Tanks (TANKS)
-ResidualStorageCapacity(r,'TANKS',y) = 0;  # Unit: PJ (explicitly zero)
+ResidualStorageCapacity(r,'TANKS',y) = 10;  # Unit: PJ (explicitly zero)
 StorageLevelStart(r,'TANKS') = 0;          # Unit: PJ (explicitly zero)
-StorageMaxChargeRate(r,'TANKS') = 1;
-StorageMaxDischargeRate(r,'TANKS') = 1;
-MinStorageCharge(r,'TANKS',y) = 0.1;
+# StorageMaxChargeRate(r,'TANKS') = 1;
+# StorageMaxDischargeRate(r,'TANKS') = 1;
+# MinStorageCharge(r,'TANKS',y) = 0.1;
 OperationalLifeStorage(r,'TANKS') = 20; 
 
 # CapitalCostStorage defined yearly in €/PJ
@@ -418,21 +424,27 @@ OutputActivityRatio(r,'SMR_CCS','H2','1',y) = 0.78;   # ~78% conversion
 InputActivityRatio(r,'UHS_CHARGE','H2','1',y) = 1;
 OutputActivityRatio(r,'UHS_CHARGE','H2','2',y) = 1;
 TechnologyToStorage(r,'1','UHS_CHARGE','UHS') = 1;
-TechnologyFromStorage(r,'2','UHS_CHARGE','UHS') = 0.9;
+TechnologyFromStorage(r,'2','UHS_CHARGE','UHS') = 1;
 
 # Storage flows for TANKS
 InputActivityRatio(r,'TANKS_CHARGE','H2','1',y) = 1;
 OutputActivityRatio(r,'TANKS_CHARGE','H2','2',y) = 1;
 TechnologyToStorage(r,'1','TANKS_CHARGE','TANKS') = 1;
-TechnologyFromStorage(r,'2','TANKS_CHARGE','TANKS') = 0.9;
+TechnologyFromStorage(r,'2','TANKS_CHARGE','TANKS') = 1;
 
 # Industrial Heating with Hydrogen
 InputActivityRatio(r,'IHH','H2_TH','1',y) = 1.11;   # ~90% efficiency
 OutputActivityRatio(r,'IHH','IH','1',y) = 1;
+OutputActivityRatio(r,'IHH','IH_ACC_H2','1',y) = 1;   # Redistributes H2 without loss
 
 # Hydrogen Grid (GRID_H2)
 InputActivityRatio(r,'GRID_H2','H2','1',y) = 1;
 OutputActivityRatio(r,'GRID_H2','H2_TH','1',y) = 1;   # Redistributes H2 without loss
+
+# Fuel Cells (FC)
+InputActivityRatio(r,'FC','H2','1',y) = 1;
+OutputActivityRatio(r,'FC','ELC1','1',y) = 0.6; 
+OutputActivityRatio(r,'FC','ELC_ACC_H2','1',y) = 0.6;   # Redistributes H2 without loss  
 
 $endif.ph
 

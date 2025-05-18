@@ -71,6 +71,10 @@ CapitalCostStorage(r,s,y) = 0;
 
 ResidualStorageCapacity(r,s,y) = 999;
 
+TotalAnnualMaxStorageCapacity(r,s,y) = 99999;
+
+TotalAnnualMaxStorageCapacityInvestment(r,s,y) = 99999;
+
 *------------------------------------------------------------------------	
 * Parameters - Capacity and investment constraints       
 *------------------------------------------------------------------------
@@ -158,6 +162,17 @@ RETagFuel(r,'ELC1',y) = 1;
 ReserveMarginTagTechnology(r,t,y)$(not renewable_tech(t)) = 1;
 
 *------------------------------------------------------------------------	
+* COST SCALING      
+*------------------------------------------------------------------------
+
+scalar cost_scaling /1000/;
+
+CapitalCost(r,t,y)          = CapitalCost(r,t,y) / cost_scaling;
+CapitalCostStorage(r,s,y)   = CapitalCostStorage(r,s,y) / cost_scaling;
+FixedCost(r,t,y)            = FixedCost(r,t,y) / cost_scaling;
+VariableCost(r,t,m,y)       = VariableCost(r,t,m,y) / cost_scaling;
+
+*------------------------------------------------------------------------	
 * Parameters - Performance       
 *------------------------------------------------------------------------
 
@@ -171,6 +186,8 @@ CapacityToActivityUnit(r,t)$(fuel_transmission(t)) = 31.536;
 
 CapacityToActivityUnit(r,t)$(storage_plants(t)) = 31.536;
 
+CapacityToActivityUnit(r,t)$hydrogen_production_tech(t) = 31.536;
+
 CapacityToActivityUnit(r,t)$(CapacityToActivityUnit(r,t) = 0) = 1;
 
 *OperationalLife(r,t)$(OperationalLife(r,t) = 0) = 1;
@@ -179,7 +196,7 @@ CapacityToActivityUnit(r,t)$(CapacityToActivityUnit(r,t) = 0) = 1;
 * Parameters - Capacity factors       
 *------------------------------------------------------------------------
 
-CapacityFactor(r,t,l,y)$(CapacityFactor(r,t,l,y) = 0) = 1;
+CapacityFactor(r,t,l,y)$((not renewable_tech(t)) and (CapacityFactor(r,t,l,y) eq 0)) = 1;
 
 AvailabilityFactor(r,t,y)$(AvailabilityFactor(r,t,y) = 0) = 1;
 

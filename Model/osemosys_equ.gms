@@ -288,6 +288,13 @@ Equation StoragePowerEnergyLink(r, t, s, y);
 StoragePowerEnergyLink(r, t, s, y)$TechnologyToStorageMap(t,s)..
     AccumulatedNewStorageCapacity(r,s,y)+ResidualStorageCapacity(r,s,y) =e= StorageDuration(t) * PowerToEnergyConversion * TotalCapacityAnnual(r,t,y);
 
+equation TSCC1_TotalAnnualMaxStorageCapacityConstraint(REGION,STORAGE,YEAR);
+TSCC1_TotalAnnualMaxStorageCapacityConstraint(r,s,y)..
+    StorageUpperLimit(r,s,y) =l= TotalAnnualMaxStorageCapacity(r,s,y);
+
+equation NSCC1_TotalAnnualMaxNewStorageCapacityConstraint(REGION,STORAGE,YEAR);
+NSCC1_TotalAnnualMaxNewStorageCapacityConstraint(r,s,y)..
+    AccumulatedNewStorageCapacity(r,s,y) =l= TotalAnnualMaxStorageCapacityInvestment(r,s,y);
 *------------------------------------------------------------------------	
 * Storage Constraints       
 *------------------------------------------------------------------------
@@ -350,9 +357,9 @@ SC6_MaxDischargeConstraint(r,s,ls,ld,lh,y)..
 * storage technology in each year.
 
 
-#equation SI0_Enforce_ModularStorageInvestments(REGION, STORAGE, YEAR);
-#SI0_Enforce_ModularStorageInvestments(r, s, y)$(modular_storages(s))..
-#    NewStorageCapacity(r, s, y) =e= StorageUnitSize(r, s, y) * NumberOfNewStorageUnits(r, s, y);
+equation SI0_Enforce_ModularStorageInvestments(REGION, STORAGE, YEAR);
+SI0_Enforce_ModularStorageInvestments(r, s, y)$(modular_storages(s))..
+   NewStorageCapacity(r, s, y) =e= StorageUnitSize(r, s, y) * NumberOfNewStorageUnits(r, s, y);
 
 equation SI1_StorageUpperLimit(REGION,STORAGE,YEAR);
 SI1_StorageUpperLimit(r,s,y)..

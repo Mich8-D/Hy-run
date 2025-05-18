@@ -46,9 +46,10 @@ SCALAR
 
 CapitalCost(r, 'SPV', y) = a_SPV * exp(b_SPV * (ord(y) - 1)) + c_SPV; # Unit: €/kW
 VariableCost(r,'SPV',m,y) = 1e-5; # Unit: €/GJ
-FixedCost(r,'SPV',y) = 15; # Unit: €/kW/y
+FixedCost(r,'SPV',y) = 10; # Unit: €/kW/y
 ResidualCapacity(r,"SPV",y) = 102.3;  # Unit: GW (from Excel)
 TotalAnnualMaxCapacityInvestment(r,'SPV',y) = 20;
+TotalAnnualMinCapacityInvestment(r,'SPV',y) = 9;
 
 # Characterize WIND-ONSHORE technology
 OperationalLife(r,'WPP_ON') = 25;
@@ -66,9 +67,10 @@ SCALAR
 
 CapitalCost(r,'WPP_ON', y) = a_WON * exp(b_WON * (ord(y)-1)) + c_WON; # Unit: €/kW
 VariableCost(r,'WPP_ON',m,y) = 1e-5;
-FixedCost(r,'WPP_ON',y) = 48;  # Unit: €/kW/y
+FixedCost(r,'WPP_ON',y) = 40;  # Unit: €/kW/y
 ResidualCapacity(r,"WPP_ON",y) = 63.6;  # Unit: GW (from Excel)
 TotalAnnualMaxCapacityInvestment(r,'WPP_ON',y) = 20;
+TotalAnnualMaxCapacity(r,'WPP_ON',y) = 250; # Unit: GW (from Excel)
 
 # Characterize WIND-OFFSHORE technology
 OperationalLife(r,'WPP_OFF') = 25;
@@ -88,7 +90,8 @@ CapitalCost(r,'WPP_OFF', y) = a_WOFF * exp(b_WOFF * (ord(y)-1)) + c_WOFF; # Unit
 VariableCost(r,'WPP_OFF',m,y) = 1e-5;
 FixedCost(r,'WPP_OFF',y) = 100;  # Unit: €/kW/y
 ResidualCapacity(r,"WPP_OFF",y) = 9.2;
-TotalAnnualMaxCapacityInvestment(r,'WPP_OFF',y) = 8;
+TotalAnnualMaxCapacityInvestment(r,'WPP_OFF',y) = 10;
+TotalAnnualMaxCapacity(r,'WPP_OFF',y) = 100; 
 
 # Characterize BIOMASS technology
 OperationalLife(r,'BIO') = 25;

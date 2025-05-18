@@ -30,7 +30,8 @@ $onmulti
 $onrecurse
 $setglobal mip
 $if not set scen $setglobal scen base
-$if not set data $setglobal data germany_no_ren
+$if not set cost $setglobal cost real
+$if not set data $setglobal data template
 $if not set value $setglobal value ""
 $include "Model/osemosys_dec.gms"
 * specify Model data
@@ -52,31 +53,37 @@ option mip = copt;
 option lp = conopt;
 
 * first, solve the model without any constraints
-$ifthen.solvermode set mip
-solve osemosys minimizing z using mip; 
-$else.solvermode
-solve osemosys minimizing z using lp;
-$endif.solvermode
+*$ifthen.solvermode set mip
+*solve osemosys minimizing z using mip; 
+*$else.solvermode
+*solve osemosys minimizing z using lp;
+*$endif.solvermode
 
-$include "Model/osemosys_res.gms"
+*$include "Model/osemosys_res.gms"
 *$include "Model/report.gms"
-$if not set storage execute_unload 'Results/results_SCENbase_DATA%data%_STORno.gdx';
-$if set storage execute_unload 'Results/results_SCENbase_DATA%data%_STORyes.gdx';
+*$if not set storage execute_unload 'Results/results_SCENbase_DATA%data%_STORno.gdx';
+*$if set storage execute_unload 'Results/results_SCENbase_DATA%data%_STORyes.gdx';
 
 $ifthen.scen %scen%=="ctax" 
-EmissionsPenalty(r,'CO2',y) = %value%;
+$include "Climate_Scenarios/carb_tax.gms"
 $elseif.scen %scen%=="emicap" 
 $include "Climate_Scenarios/emi_cap_pledges.gms"
+$elseif.scen %scen%=="forecastH2" 
+$include "Climate_Scenarios/hydrogen_forecast.gms"
 $elseif.scen %scen%=="nocoal" 
 TotalAnnualMaxCapacity(r,'COAL',y) = .5;
-$elseif.scen %scen%=="cheapres" 
-CapitalCost(r,t,y)$renewable_tech(t) = %value%/100 * CapitalCost(r,t,y);
-$elseif.scen %scen%=="cheapH2tech"
-CapitalCost(r,t,y)$hydrogen_tech(t) = %value%/100 * CapitalCost(r,t,y);
-CapitalCostStorage(r,s,y)$hydrogen_storages(s) = %value%/100 * CapitalCostStorage(r,s,y);
 $elseif.scen %scen%=="parametrised_py"
 $include "Input_template/parametrised_py.gms"
 $endif.scen
+
+$ifthen.cost %cost%=="cheapres"
+CapitalCost(r,t,y)$renewable_tech(t) = %value%/100 * CapitalCost(r,t,y);
+$elseif.cost %cost%=="cheapH2tech"
+CapitalCost(r,t,y)$hydrogen_tech(t) = %value%/100 * CapitalCost(r,t,y);
+CapitalCostStorage(r,s,y)$hydrogen_storages(s) = %value%/100 * CapitalCostStorage(r,s,y);
+$elseif.cost %cost%=="cheapbees"
+CapitalCostStorage(r,'BATTERIES',y) = %value%/100 * CapitalCostStorage(r,'BATTERIES',y);
+$endif.cost
 
 * solve the model with the constraints
 $ifthen.notbase not %scen%=="base" 
@@ -84,13 +91,13 @@ $ifthen.notbase not %scen%=="base"
 $ifthen.solvermode set mip
 solve osemosys minimizing z using mip;
 $else.solvermode
-solve osemosys minimizing z using lp;
+solve osemosys minimizing z using nlp;
 $endif.solvermode
 
 * create results in file SelResults.CSV
 $include "Model/osemosys_res.gms"
 *$include "Model/report.gms"
-$if not set storage execute_unload 'Results/results_SCEN%scen%%value%_DATA%data%_STORno.gdx';
-$if set storage execute_unload 'Results/results_SCEN%scen%%value%_DATA%data%_STORyes.gdx';
+$if not set storage execute_unload 'Results/results_SCEN%scen%%value%_DATA%data%_COST%cost%_STORno.gdx';
+$if set storage execute_unload 'Results/results_SCEN%scen%%value%_DATA%data%_COST%cost%STORyes.gdx';
 
 $endif.notbase

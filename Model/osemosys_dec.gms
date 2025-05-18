@@ -308,6 +308,15 @@ parameter SeasonSelfDischargeRate(STORAGE, SEASON);
 * capacity of min storage unit 
 parameter StorageUnitSize(REGION, STORAGE, YEAR);
 
+* TotalAnnualMaxStorageCapacity[r,t,y]: Total maximum existing (residual plus
+* cumulatively installed) storage capacity allowed for a technology in a specified
+* year.
+parameter TotalAnnualMaxStorageCapacity(REGION,STORAGE,YEAR); 
+
+* TotalAnnualMaxCapacityInvestment[r,t,y]: Maximum capacity of a
+* technology, expressed in power units.
+parameter TotalAnnualMaxStorageCapacityInvestment(REGION,STORAGE,YEAR);
+
 
 *------------------------------------------------------------------------	
 * * Capacity constraints       
