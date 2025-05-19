@@ -75,6 +75,16 @@ $elseif.scen %scen%=="nocoal"
 TotalAnnualMaxCapacity(r,'COAL',y) = .5;
 $elseif.scen %scen%=="parametrised_py"
 $include "Input_template/parametrised_py.gms"
+$elseif.scen %scen%=="ssp1"
+$include "ssp1.gms"
+$elseif.scen %scen%=="ssp2"
+$include "ssp2.gms"
+$elseif.scen %scen%=="ssp3"
+$include "ssp3.gms"
+$elseif.scen %scen%=="ssp4"
+$include "ssp4.gms"
+$elseif.scen %scen%=="ssp5"
+$include "ssp5.gms"
 $endif.scen
 
 $ifthen.cost %cost%=="cheapres"
