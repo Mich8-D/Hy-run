@@ -334,13 +334,6 @@
         {
             "codecMib": 106,
             "encoding": "UTF-8",
-            "file": "Results/base_emission_results_SCENbase_DATAtemplate_STORyes.gdx",
-            "name": "base_emission_results_SCENbase_DATAtemplate_STORyes.gdx",
-            "type": "gdx"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
             "file": "Results/firsttryneverlie.xlsx",
             "name": "firsttryneverlie.xlsx",
             "type": ""
@@ -348,71 +341,8 @@
         {
             "codecMib": 106,
             "encoding": "UTF-8",
-            "file": "Results/input_emission_results_SCENbase_DATAtemplate_STORyes.gdx",
-            "name": "input_emission_results_SCENbase_DATAtemplate_STORyes.gdx",
-            "type": "gdx"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
             "file": "Results/results_SCENbase_DATAtemplate_STORyes.gdx",
             "name": "results_SCENbase_DATAtemplate_STORyes.gdx",
-            "type": "gdx"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "Results/results_SCENctax0_DATAtemplate_COSTcheapbeesSTORyes.gdx",
-            "name": "results_SCENctax0_DATAtemplate_COSTcheapbeesSTORyes.gdx",
-            "type": "gdx"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "Results/results_SCENctax_DATAtemplate_STORyes.gdx",
-            "name": "results_SCENctax_DATAtemplate_STORyes.gdx",
-            "type": "gdx"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "Results/results_SCENemicap0_DATAtemplate_COSTcheapbeesSTORyes.gdx",
-            "name": "results_SCENemicap0_DATAtemplate_COSTcheapbeesSTORyes.gdx",
-            "type": "gdx"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "Results/results_SCENemicap0_DATAtemplate_COSTcheapresSTORyes.gdx",
-            "name": "results_SCENemicap0_DATAtemplate_COSTcheapresSTORyes.gdx",
-            "type": "gdx"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "Results/results_SCENemicap_DATAtemplate_STORyes.gdx",
-            "name": "results_SCENemicap_DATAtemplate_STORyes.gdx",
-            "type": "gdx"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "Results/results_SCENforecastH20_DATAtemplate_COSTcheapbeesSTORyes.gdx",
-            "name": "results_SCENforecastH20_DATAtemplate_COSTcheapbeesSTORyes.gdx",
-            "type": "gdx"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "Results/results_SCENforecastH2_DATAtemplate_COSTrealSTORyes.gdx",
-            "name": "results_SCENforecastH2_DATAtemplate_COSTrealSTORyes.gdx",
-            "type": "gdx"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "Results/results_SCENforecastH2_DATAtemplate_STORyes.gdx",
-            "name": "results_SCENforecastH2_DATAtemplate_STORyes.gdx",
             "type": "gdx"
         },
         {
@@ -488,13 +418,6 @@
         {
             "codecMib": 106,
             "encoding": "UTF-8",
-            "file": "gams1.gdx",
-            "name": "gams1.gdx",
-            "type": "gdx"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
             "file": "Hy-run.gsp",
             "name": "Hy-run.gsp",
             "type": "gsp"
@@ -533,7 +456,9 @@
                 "--data=template --storage=1 --solvermode=mip --scen=ctax --cost=cheapbees --value=0",
                 "--data=template --storage=1 --solvermode=mip --scen=emicap --cost=cheapbees --value=0",
                 "--data=template --storage=1 --solvermode=mip --scen=forecastH2 --cost=cheapbees --value=0",
-                "--data=template --storage=1 --solvermode=mip --scen=forecastH2"
+                "--data=template --storage=1 --solvermode=mip --scen=forecastH2",
+                "--data=template --storage=1 --solvermode=mip --scen=ssp1",
+                "--data=template --storage=yes --solvermode=mip --scen=ssp1"
             ],
             "type": "gms"
         },
@@ -550,13 +475,6 @@
             "file": "osemosys.lxi",
             "name": "osemosys.lxi",
             "type": "lxi"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "osemosys1.log",
-            "name": "osemosys1.log",
-            "type": "txt"
         },
         {
             "codecMib": 106,
@@ -603,6 +521,13 @@
         {
             "codecMib": 106,
             "encoding": "UTF-8",
+            "file": "ssp1.gms",
+            "name": "ssp1.gms",
+            "type": "gms"
+        },
+        {
+            "codecMib": 106,
+            "encoding": "UTF-8",
             "file": "total_cost_by_tech.png",
             "name": "total_cost_by_tech.png",
             "type": ""
@@ -630,7 +555,9 @@
         "--data=template --storage=1 --solvermode=mip --scen=ctax --cost=cheapbees --value=0",
         "--data=template --storage=1 --solvermode=mip --scen=emicap --cost=cheapbees --value=0",
         "--data=template --storage=1 --solvermode=mip --scen=forecastH2 --cost=cheapbees --value=0",
-        "--data=template --storage=1 --solvermode=mip --scen=forecastH2"
+        "--data=template --storage=1 --solvermode=mip --scen=forecastH2",
+        "--data=template --storage=1 --solvermode=mip --scen=ssp1",
+        "--data=template --storage=yes --solvermode=mip --scen=ssp1"
     ],
     "path": ".",
     "pf": "",
