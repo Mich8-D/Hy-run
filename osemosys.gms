@@ -89,9 +89,10 @@ $endif.scen
 
 $ifthen.cost %cost%=="cheapres"
 CapitalCost(r,t,y)$renewable_tech(t) = %value%/100 * CapitalCost(r,t,y);
-$elseif.cost %cost%=="cheapH2tech"
-CapitalCost(r,t,y)$hydrogen_tech(t) = %value%/100 * CapitalCost(r,t,y);
+$elseif.cost %cost%=="cheapH2store"
 CapitalCostStorage(r,s,y)$hydrogen_storages(s) = %value%/100 * CapitalCostStorage(r,s,y);
+$elseif.cost %cost%=="cheapH2prod"
+CapitalCost(r,t,y)$hydrogen_tech(t) = %value%/100 * CapitalCost(r,t,y);
 $elseif.cost %cost%=="cheapbees"
 CapitalCostStorage(r,'BATTERIES',y) = %value%/100 * CapitalCostStorage(r,'BATTERIES',y);
 $endif.cost

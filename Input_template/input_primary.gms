@@ -68,7 +68,7 @@ OperationalLife(r,'GRIDGAS') = 40;           # Years
 #AvailabilityFactor(r,'GRIDGAS',y) = 1;       # Dimensionless
 ResidualCapacity(r,"GRIDGAS",y) = 100;        # GW - National-scale gas grid capacity (assumed constant)
 EmissionActivityRatio(r,'GRIDGAS','CO2','1',y) = 0.0561;  # kton CO2 per PJ (infra ops)
-EmissionActivityRatio(r,'IMPGAS_SMR','CO2','2',y) = 0.0561*0.08;  # Unit: Mton CO2 per PJ
+EmissionActivityRatio(r,'GRIDGAS','CO2','2',y) = 0.0561*0.08;  # Unit: Mton CO2 per PJ
 
 ###RENEWABLES
 CapitalCost(r,'IMPBIO1',y) = 0;  # Unit: €/kW
