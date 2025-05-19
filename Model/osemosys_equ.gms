@@ -257,14 +257,12 @@ S8_StorageLevelYearFinish(r,s,y)$(ord(y) eq card(yy))..
 equation S9_StorageLevelSeasonStart(REGION,STORAGE,SEASON,YEAR);
 S9_StorageLevelSeasonStart(r,s,ls,y)$(ord(ls) eq 1)..
     StorageLevelSeasonStart(r,s,ls,y) =e= StorageLevelYearStart(r,s,y);
-#equation S10_StorageLevelSeasonStart(REGION,STORAGE,SEASON,YEAR);
-#S10_StorageLevelSeasonStart(r,s,ls,y)$(ord(ls) > 1)..
-#    StorageLevelSeasonStart(r,s,ls,y) =e= StorageLevelSeasonStart(r,s,ls-1,y) + sum((ld,lh), NetChargeWithinYear(r,s,ls-1,ld,lh,y)) ;
 equation S10_StorageLevelSeasonStart(REGION,STORAGE,SEASON,YEAR);
 S10_StorageLevelSeasonStart(r,s,ls,y)$(ord(ls) > 1)..
-    StorageLevelSeasonStart(r,s,ls,y) =e=
+StorageLevelSeasonStart(r,s,ls,y) =e=
     (1 - SeasonSelfDischargeRate(s,ls-1)) * StorageLevelSeasonStart(r,s,ls-1,y)
   + sum((ld,lh), NetChargeWithinYear(r,s,ls-1,ld,lh,y));
+
 
 equation S11_StorageLevelDayTypeStart(REGION,STORAGE,SEASON,DAYTYPE,YEAR);
 S11_StorageLevelDayTypeStart(r,s,ls,ld,y)$(ord(ld) eq 1)..
@@ -284,17 +282,8 @@ equation S15_StorageLevelDayTypeFinish(REGION,STORAGE,SEASON,DAYTYPE,YEAR);
 S15_StorageLevelDayTypeFinish(r,s,ls,ld,y)$(ord(ld) lt card(ldld))..
     StorageLevelDayTypeFinish(r,s,ls,ld+1,y) - sum(lh,  NetChargeWithinDay(r,s,ls,ld+1,lh,y)  * DaysInDayType(y,ls,ld+1) ) =e= StorageLevelDayTypeFinish(r,s,ls,ld,y);
 
-Equation StoragePowerEnergyLink(r, t, s, y);
-StoragePowerEnergyLink(r, t, s, y)$TechnologyToStorageMap(t,s)..
-    AccumulatedNewStorageCapacity(r,s,y)+ResidualStorageCapacity(r,s,y) =e= StorageDuration(t) * PowerToEnergyConversion * TotalCapacityAnnual(r,t,y);
 
-equation TSCC1_TotalAnnualMaxStorageCapacityConstraint(REGION,STORAGE,YEAR);
-TSCC1_TotalAnnualMaxStorageCapacityConstraint(r,s,y)..
-    StorageUpperLimit(r,s,y) =l= TotalAnnualMaxStorageCapacity(r,s,y);
 
-equation NSCC1_TotalAnnualMaxNewStorageCapacityConstraint(REGION,STORAGE,YEAR);
-NSCC1_TotalAnnualMaxNewStorageCapacityConstraint(r,s,y)..
-    AccumulatedNewStorageCapacity(r,s,y) =l= TotalAnnualMaxStorageCapacityInvestment(r,s,y);
 *------------------------------------------------------------------------	
 * Storage Constraints       
 *------------------------------------------------------------------------
@@ -347,7 +336,26 @@ equation SC6_MaxDischargeConstraint(REGION,STORAGE,SEASON,DAYTYPE,DAILYTIMEBRACK
 SC6_MaxDischargeConstraint(r,s,ls,ld,lh,y)..
     RateOfStorageDischarge(r,s,ls,ld,lh,y) =l= StorageMaxDischargeRate(r,s);
 
+Equation StoragePowerEnergyLink(REGION, TECHNOLOGY, STORAGE, YEAR);
+StoragePowerEnergyLink(r, 'BEES', 'BATTERIES', y)..
+    AccumulatedNewStorageCapacity(r,'BATTERIES',y)+ResidualStorageCapacity(r,'BATTERIES',y)
+    =e= StorageDuration('BATTERIES') * PowerToEnergyConversion * TotalCapacityAnnual(r,'BEES',y);
 
+equation TSCC1_TotalAnnualMaxStorageCapacityConstraint(REGION,STORAGE,YEAR);
+TSCC1_TotalAnnualMaxStorageCapacityConstraint(r,s,y)..
+    StorageUpperLimit(r,s,y) =l= TotalAnnualMaxStorageCapacity(r,s,y);
+
+equation TSCC2_TotalAnnualMinStorageCapacityConstraint(REGION,STORAGE,YEAR);
+TSCC2_TotalAnnualMinStorageCapacityConstraint(r,s,y)$(TotalAnnualMinStorageCapacity(r,s,y)>0)..
+    StorageLowerLimit(r,s,y) =g= TotalAnnualMinStorageCapacity(r,s,y);
+
+equation NSCC1_TotalAnnualMaxNewStorageCapacityConstraint(REGION,STORAGE,YEAR);
+NSCC1_TotalAnnualMaxNewStorageCapacityConstraint(r,s,y)..
+    NewStorageCapacity(r,s,y) =l= TotalAnnualMaxStorageCapacityInvestment(r,s,y);
+
+equation NSCC2_TotalAnnualMinNewStorageCapacityConstraint(REGION,STORAGE,YEAR);
+NSCC2_TotalAnnualMinNewStorageCapacityConstraint(r,s,y)$(TotalAnnualMinStorageCapacityInvestment(r,s,y) > 0)..
+    NewStorageCapacity(r,s,y) =g= TotalAnnualMinStorageCapacityInvestment(r,s,y);
 
 *------------------------------------------------------------------------	
 * Storage investments       
@@ -356,10 +364,9 @@ SC6_MaxDischargeConstraint(r,s,ls,ld,lh,y)..
 * Calculates the total discounted capital costs expenditure for each
 * storage technology in each year.
 
-
 equation SI0_Enforce_ModularStorageInvestments(REGION, STORAGE, YEAR);
-SI0_Enforce_ModularStorageInvestments(r, s, y)$(modular_storages(s))..
-   NewStorageCapacity(r, s, y) =e= StorageUnitSize(r, s, y) * NumberOfNewStorageUnits(r, s, y);
+SI0_Enforce_ModularStorageInvestments(r, 'UHS', y)..
+   NewStorageCapacity(r, 'UHS', y) =e= StorageUnitSize(r, 'UHS', y) * NumberOfNewStorageUnits(r, 'UHS', y);
 
 equation SI1_StorageUpperLimit(REGION,STORAGE,YEAR);
 SI1_StorageUpperLimit(r,s,y)..
@@ -400,6 +407,27 @@ SI9_SalvageValueStorageDiscountedToStartYear(r,s,y)..
 equation SI10_TotalDiscountedCostByStorage(REGION,STORAGE,YEAR);
 SI10_TotalDiscountedCostByStorage(r,s,y)..
     DiscountedCapitalInvestmentStorage(r,s,y)-DiscountedSalvageValueStorage(r,s,y) =e= TotalDiscountedStorageCost(r,s,y);
+
+Equation StorageDur_UHS(REGION, YEAR);
+
+StorageDur_UHS(r,y)..
+     AccumulatedNewStorageCapacity(r,'UHS',y)
+   + ResidualStorageCapacity     (r,'UHS',y)
+   =g=
+     StorageDuration('UHS') * PowerToEnergyConversion *
+     (  TotalCapacityAnnual(r,'GRID_H2_UHS',y)
+      + TotalCapacityAnnual(r,'FC_UHS',y)         );
+
+Equation StorageDur_TANKS(REGION, YEAR);
+
+StorageDur_TANKS(r,y)..
+     AccumulatedNewStorageCapacity(r,'TANKS',y)
+   + ResidualStorageCapacity     (r,'TANKS',y)
+   =g=
+     StorageDuration('TANKS') * PowerToEnergyConversion *
+     (  TotalCapacityAnnual(r,'GRID_H2_TANKS',y)
+      + TotalCapacityAnnual(r,'FC_TANKS',y)       );
+
 $endif.storage
 
 

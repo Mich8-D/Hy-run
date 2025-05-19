@@ -2,16 +2,38 @@
 * Parameters - RE Generation Target    <==>    Pledges on Power Sector   
 *------------------------------------------------------------------------
 
-
+*
 REMinProductionTarget(r,y)$(y.val >= 2030) = 0.8 + 0.04*(y.val - 2030);
 
 REMinProductionTarget(r,y)$(y.val >= 2035) = 1.0;
 
 
+
 *------------------------------------------------------------------------   
 * Parameters - Emissions       <==>    from 2045 Germany committed to be net zero
 *------------------------------------------------------------------------
+*AnnualEmissionLimit(r,'CO2_TH',y)$(ord(y) >= 4) = 150;
+
+*AnnualEmissionLimit(r,'CO2_TH',y)$(y.val >= 2030) = 150 - 10*(y.val - 2030);
+
+*AnnualEmissionLimit(r,'CO2_TH',y)$(y.val >= 2045) = 0;
+
+*AnnualEmissionLimit(r,'CO2_PP',y)$(y.val >= 2035) = 0;
+
+*ResidualCapacity(r,'GFPP',y)$(y.val >= 2035) = 0;
+
+*TotalTechnologyAnnualActivityUpperLimit(r,'GFPP',y)$(y.val > 2035) = 0
 
 
-AnnualEmissionLimit(r,e,y)$(y.val >= 2045) = 0;
+*-------------------------------
+*           CARBON TAX
+*-------------------------------
+
+*
+*SCALAR
+*    a_tax /0.42/
+*    b_tax /0.32/
+*    c_tax /75/;
+*
+*EmissionsPenalty(r,'CO2',y) = a_tax * exp(b_tax * (y.val - 2024)) + c_tax;
 

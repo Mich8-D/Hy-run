@@ -46,21 +46,22 @@ $include "Model/compute_data.gms"
 $include "Model/osemosys_equ.gms"
 
 
+
 * some model options
 model osemosys /all/;
 option limrow=0, limcol=0, solprint=on;
 option mip = copt;
 option lp = conopt;
 
-* first, solve the model without any constraints
+** first, solve the model without any constraints
 *$ifthen.solvermode set mip
 *solve osemosys minimizing z using mip; 
 *$else.solvermode
 *solve osemosys minimizing z using lp;
 *$endif.solvermode
-
-*$include "Model/osemosys_res.gms"
-*$include "Model/report.gms"
+*
+**$include "Model/osemosys_res.gms"
+**$include "Model/report.gms"
 *$if not set storage execute_unload 'Results/results_SCENbase_DATA%data%_STORno.gdx';
 *$if set storage execute_unload 'Results/results_SCENbase_DATA%data%_STORyes.gdx';
 
@@ -85,6 +86,12 @@ $elseif.cost %cost%=="cheapbees"
 CapitalCostStorage(r,'BATTERIES',y) = %value%/100 * CapitalCostStorage(r,'BATTERIES',y);
 $endif.cost
 
+$ONTEXT
+option limrow = 50;     #Mostra fino a 50 equazioni più violate
+option solprint = on;   #Stampa i livelli delle variabili
+option decimals = 6;    #Mostra più cifre decimali nei report
+$offText
+
 * solve the model with the constraints
 $ifthen.notbase not %scen%=="base" 
 
@@ -94,6 +101,8 @@ $else.solvermode
 solve osemosys minimizing z using nlp;
 $endif.solvermode
 
+
+
 * create results in file SelResults.CSV
 $include "Model/osemosys_res.gms"
 *$include "Model/report.gms"
@@ -101,3 +110,13 @@ $if not set storage execute_unload 'Results/results_SCEN%scen%%value%_DATA%data%
 $if set storage execute_unload 'Results/results_SCEN%scen%%value%_DATA%data%_COST%cost%STORyes.gdx';
 
 $endif.notbase
+
+$ONTEXT
+* Mostra equazioni sospette (modifica se ne hai altre sospette)
+display
+  RE4_EnergyConstraint.l, RE4_EnergyConstraint.m,
+  EBa11_EnergyBalanceEachTS5.l, EBa11_EnergyBalanceEachTS5.m,
+  EBb4_EnergyBalanceEachYear4.l, EBb4_EnergyBalanceEachYear4.m,
+  SI1_StorageUpperLimit.l, SI1_StorageUpperLimit.m,
+  RM3_ReserveMargin_Constraint.l, RM3_ReserveMargin_Constraint.m;
+$offText

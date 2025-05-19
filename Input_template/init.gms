@@ -9,10 +9,10 @@ $ifthen.ph %phase%=='pre'
 
 parameter YearSplit(l,y) /
   ID.(%yearstart%*%yearend%)  .3333
-  IN.(%yearstart%*%yearend%)  .1667
-  SD.(%yearstart%*%yearend%)  .1667
+  IN.(%yearstart%*%yearend%)  .1666
+  SD.(%yearstart%*%yearend%)  .1666
   SN.(%yearstart%*%yearend%)  .0833
-  WD.(%yearstart%*%yearend%)  .1667
+  WD.(%yearstart%*%yearend%)  .1666
   WN.(%yearstart%*%yearend%)  .0833
 /;
 
@@ -59,9 +59,9 @@ DepreciationMethod(r) = 1;
 
 StorageLevelStart(r,s) = 1;
 
-StorageMaxChargeRate(r,s) = 99;
+StorageMaxChargeRate(r,s) = 200;
 
-StorageMaxDischargeRate(r,s) = 99;
+StorageMaxDischargeRate(r,s) = 200;
 
 MinStorageCharge(r,s,y) = 0;
 
@@ -69,11 +69,15 @@ OperationalLifeStorage(r,s) = 99;
 
 CapitalCostStorage(r,s,y) = 0;
 
-ResidualStorageCapacity(r,s,y) = 999;
+ResidualStorageCapacity(r,s,y) = 0;
 
 TotalAnnualMaxStorageCapacity(r,s,y) = 99999;
 
 TotalAnnualMaxStorageCapacityInvestment(r,s,y) = 99999;
+
+TotalAnnualMinStorageCapacityInvestment(r,s,y) = 0;
+
+TotalAnnualMinStorageCapacity(r,s,y) = 0;
 
 *------------------------------------------------------------------------	
 * Parameters - Capacity and investment constraints       
@@ -155,11 +159,23 @@ ContinousDepreciation(r,t)$(ContinousDepreciation(r,t) > 1) = 1;
 ContinousDepreciation(r,t) = 0;
 
 *** define the renewable technology and fuel tags
+
+RETagTechnology(r,t,y)$(storage_plants(t)) = 1;
+
 RETagTechnology(r,t,y)$renewable_tech(t) = 1;
 
-RETagFuel(r,'ELC1',y) = 1;
+RETagFuel(r,'ELC',y) = 1;
+
 
 ReserveMarginTagTechnology(r,t,y)$(not renewable_tech(t)) = 1;
+ReserveMarginTagTechnology(r,'BIO',y) = 1;
+ReserveMarginTagTechnology(r,'GEO',y) = 1;
+ReserveMarginTagTechnology(r,'FC_UHS',y) = 1;
+ReserveMarginTagTechnology(r,'FC_TANKS',y) = 1;
+ReserveMarginTagTechnology(r,'STOR_HYDRO',y) = 1;
+ReserveMarginTagTechnology(r,'BEES',y) = 1;
+
+
 
 *------------------------------------------------------------------------	
 * COST SCALING      
@@ -172,6 +188,18 @@ CapitalCostStorage(r,s,y)   = CapitalCostStorage(r,s,y) / cost_scaling;
 FixedCost(r,t,y)            = FixedCost(r,t,y) / cost_scaling;
 VariableCost(r,t,m,y)       = VariableCost(r,t,m,y) / cost_scaling;
 
+*------------------------------------------------------------------------
+*No investments in year 0
+*------------------------------------------------------------------------
+
+TotalAnnualMaxCapacityInvestment(r,'WPP_ON','2024') = 0;
+TotalAnnualMaxCapacityInvestment(r,'WPP_OFF','2024') = 0; 
+TotalAnnualMaxCapacityInvestment(r,'BIO','2024') = 0;
+TotalAnnualMaxCapacityInvestment(r,'GEO','2024') = 0;
+TotalAnnualMaxCapacityInvestment(r,'ROR','2024') = 0;
+TotalAnnualMaxCapacityInvestment(r,'GFPP','2024') = 0;
+TotalAnnualMaxCapacityInvestment(r,'OIL_GEN','2024') = 0;
+
 *------------------------------------------------------------------------	
 * Parameters - Performance       
 *------------------------------------------------------------------------
@@ -180,17 +208,15 @@ $if set no_initial_capacity ResidualCapacity(r,t,y) = 0;
 
 CapacityToActivityUnit(r,t)$power_plants(t) = 31.536;
 
-CapacityToActivityUnit(r,t)$(fuel_cosumption(t)) = 31.536;
-
 CapacityToActivityUnit(r,t)$(fuel_transmission(t)) = 31.536;
 
 CapacityToActivityUnit(r,t)$(storage_plants(t)) = 31.536;
 
-CapacityToActivityUnit(r,t)$hydrogen_production_tech(t) = 31.536;
+CapacityToActivityUnit(r,t)$hydrogen_tech(t) = 31.536;
 
 CapacityToActivityUnit(r,t)$(CapacityToActivityUnit(r,t) = 0) = 1;
 
-*OperationalLife(r,t)$(OperationalLife(r,t) = 0) = 1;
+OperationalLife(r,t)$(OperationalLife(r,t) = 0) = 1;
 
 *------------------------------------------------------------------------	
 * Parameters - Capacity factors       
@@ -200,7 +226,7 @@ CapacityFactor(r,t,l,y)$((not renewable_tech(t)) and (CapacityFactor(r,t,l,y) eq
 
 AvailabilityFactor(r,t,y)$(AvailabilityFactor(r,t,y) = 0) = 1;
 
-ReserveMarginTagFuel(r,"ELC1",y) = 1;  #electricity
+ReserveMarginTagFuel(r,"ELC",y) = 1;  #electricity
 
 *------------------------------------------------------------------------
 * Parameters - Storage

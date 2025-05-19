@@ -27,6 +27,7 @@ set     FUEL    /
         WIN 'Wind energy'
         HYD 'Hydro energy'
         WBM 'Biomass energy'
+        GAS_SMR 'Gas for SMR + CCS'
 /;
 
 set fuel_transmission(TECHNOLOGY) / GRIDGAS /;
@@ -40,12 +41,12 @@ CapitalCost(r,'IMPGAS',y) = 0;  # based on mid-point 2023 | Unit: €/kW
 VariableCost(r,'IMPGAS',m,y) = 7.5;  # Unit: €/GJ <-> mln€/PJ
 FixedCost(r,'IMPGAS',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'IMPGAS') = 40;  # Unit: years
-#AvailabilityFactor(r,'IMPGAS',y) = 1;  # Unit: dimensionless
-EmissionActivityRatio(r,'IMPGAS','CO2','1',y) = 0.0561;  # Unit: Mton CO2 per PJ
+# AvailabilityFactor(r,'IMPGAS',y) = 1;  # Unit: dimensionless
+# EmissionActivityRatio(r,'IMPGAS','CO2','1',y) = 0.0561;  # Unit: Mton CO2 per PJ
 ResidualCapacity(r,"IMPGAS",y) = 999;  # Unit: GW
 
 CapitalCost(r,'IMPHCO1',y) = 0;  # Unit: €/kW
-VariableCost(r,'IMPHCO1',m,y) = 1.3;  # Unit: €/GJ <-> mln€/PJ
+VariableCost(r,'IMPHCO1',m,y) = 1.30;  # Unit: €/GJ <-> mln€/PJ
 FixedCost(r,'IMPHCO1',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'IMPHCO1') = 999;  # Unit: years
 #AvailabilityFactor(r,'IMPHCO1',y) = 1;  # Unit: dimensionless
@@ -65,13 +66,13 @@ VariableCost(r,'GRIDGAS',m,y) = 0.00001;     # €/MWh - Minor O&M cost
 FixedCost(r,'GRIDGAS',y) = 0.01;             # €/kW-year - ~1.5% of CAPEX
 OperationalLife(r,'GRIDGAS') = 40;           # Years
 #AvailabilityFactor(r,'GRIDGAS',y) = 1;       # Dimensionless
+ResidualCapacity(r,"GRIDGAS",y) = 100;        # GW - National-scale gas grid capacity (assumed constant)
 EmissionActivityRatio(r,'GRIDGAS','CO2','1',y) = 0.0561;  # kton CO2 per PJ (infra ops)
-ResidualCapacity(r,"GRIDGAS",y) = 60;        # GW - National-scale gas grid capacity (assumed constant)
-
+EmissionActivityRatio(r,'IMPGAS_SMR','CO2','2',y) = 0.0561*0.08;  # Unit: Mton CO2 per PJ
 
 ###RENEWABLES
 CapitalCost(r,'IMPBIO1',y) = 0;  # Unit: €/kW
-VariableCost(r,'IMPBIO1',m,y) = 9;  # Unit: €/GJ <-> mln€/PJ  
+VariableCost(r,'IMPBIO1',m,y) = 9.0;  # Unit: €/GJ <-> mln€/PJ  
 FixedCost(r,'IMPBIO1',y) = 0;  # Unit: €/kW-year
 OperationalLife(r,'IMPBIO1') = 999;  # Unit: years
 #AvailabilityFactor(r,'IMPBIO1',y) = 1;  # Unit: dimensionless
@@ -110,6 +111,8 @@ OperationalLife(r,'VIR_GTH') = 30;  # Unit: years
 #AvailabilityFactor(r,'VIR_GTH',y) = 0.9;  # Unit: dimensionless
 ResidualCapacity(r,"VIR_GTH",y) = 999;  # Unit: GW
 
+
+
 ** ----------------------------------------------------------------
 $elseif.ph %phase%=="popol"
 #Fossil fuels + gas grid
@@ -119,7 +122,8 @@ InputActivityRatio(r, 'GRIDGAS', 'GAS', "1", y) = 1; # gas is routed through the
 OutputActivityRatio(r, "GRIDGAS", 'GAS2', "1", y) = 1; #conversion to gas usable from gas grid
 OutputActivityRatio(r, "IMPOIL1", "OIL", "1", y) = 1;  # oil is directly available from imports (no input fuel) #conversion to oil
 OutputActivityRatio(r, 'IMPBIO1','WBM',"1",y) = 1; #conversion to bio energy
-
+InputActivityRatio(r, 'GRIDGAS','GAS','2',y) = 1; # gas is routed through the grid, converted from GAS to GAS_SMR
+OutputActivityRatio(r, 'GRIDGAS','GAS_SMR','2',y) = 1; #conversion to gas for SMR + CCS
 #Renewables
 OutputActivityRatio(r,'VIR_SUN','SUN',"1",y) = 1;
 OutputActivityRatio(r,'VIR_WIN','WIN',"1",y) = 1;

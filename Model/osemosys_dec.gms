@@ -103,7 +103,7 @@ set STORAGE;
 alias (s,STORAGE);
 
 * Mapping between storages and charging/discharging technologies
-set TechnologyToStorageMap(TECHNOLOGY,STORAGE);
+set TechnologyToStorageMap(REGION,TECHNOLOGY,STORAGE,YEAR);
 
 * SUBSETS TO CHARACTERIZE TECHNOLOGIES AND FUEL (FOR REPORTING)
 set power_plants(TECHNOLOGY);
@@ -297,7 +297,7 @@ parameter CapitalCostStorage(REGION,STORAGE,YEAR);
 parameter ResidualStorageCapacity(REGION,STORAGE,YEAR);
 
 * Defines fastest discharge duration in hours for each technology
-parameter StorageDuration(TECHNOLOGY);
+parameter StorageDuration(STORAGE);
 
 * Fraction of stored energy lost per time slice
 parameter SelfDischargeRate(STORAGE,l);
@@ -316,6 +316,10 @@ parameter TotalAnnualMaxStorageCapacity(REGION,STORAGE,YEAR);
 * TotalAnnualMaxCapacityInvestment[r,t,y]: Maximum capacity of a
 * technology, expressed in power units.
 parameter TotalAnnualMaxStorageCapacityInvestment(REGION,STORAGE,YEAR);
+
+parameter TotalAnnualMinStorageCapacityInvestment(REGION,STORAGE,YEAR);
+
+parameter TotalAnnualMinStorageCapacity(REGION,STORAGE,YEAR);
 
 
 *------------------------------------------------------------------------	
