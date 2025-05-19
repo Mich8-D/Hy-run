@@ -2,10 +2,10 @@
 *--------------------------------
 *          INDUSTRIAL THERMAL
 *--------------------------------
-*SpecifiedAnnualDemand('GERMANY','IH_ACC_H2','2030') = 25*3.6/10;
-*SpecifiedAnnualDemand('GERMANY','IH_ACC_H2','2035') = 36*3.6/10;
-*SpecifiedAnnualDemand('GERMANY','IH_ACC_H2','2040') = 59*3.6/10;
-*SpecifiedAnnualDemand('GERMANY','IH_ACC_H2','2045') = 85*3.6/10;
+*SpecifiedAnnualDemand('GERMANY','IH_ACC_H2','2030') = 25;
+*SpecifiedAnnualDemand('GERMANY','IH_ACC_H2','2035') = 36;
+*SpecifiedAnnualDemand('GERMANY','IH_ACC_H2','2040') = 59;
+*SpecifiedAnnualDemand('GERMANY','IH_ACC_H2','2045') = 85;
 *
 *
 *parameter SpecifiedDemandProfile(r,f,l,y) /
@@ -19,10 +19,10 @@
 *--------------------------------
 *           POWER SECTOR
 *--------------------------------
-SpecifiedAnnualDemand("GERMANY","ELC_ACC_H2","2030") = 1*3.6/10;
-SpecifiedAnnualDemand("GERMANY","ELC_ACC_H2","2035") = 4*3.6/10;
-SpecifiedAnnualDemand("GERMANY","ELC_ACC_H2","2040") = 21*3.6/10;
-SpecifiedAnnualDemand("GERMANY","ELC_ACC_H2","2045") = 71*3.6/10;
+SpecifiedAnnualDemand("GERMANY","ELC_ACC_H2","2030") = 1*2.5;
+SpecifiedAnnualDemand("GERMANY","ELC_ACC_H2","2035") = 4*2.5;
+SpecifiedAnnualDemand("GERMANY","ELC_ACC_H2","2040") = 21*2.5;
+SpecifiedAnnualDemand("GERMANY","ELC_ACC_H2","2045") = 71*2.5;
 
 
 parameter SpecifiedDemandProfile(r,f,l,y) /

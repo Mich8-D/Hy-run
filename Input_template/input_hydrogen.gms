@@ -25,7 +25,7 @@ set FUEL /
 /;
 
 set hydrogen_tech(TECHNOLOGY) / HEL_UHS, HEL_TANKS, SMR_UHS, SMR_TANKS, FC_UHS, FC_TANKS, GRID_H2_UHS, GRID_H2_TANKS /;
-set storage_plants(TECHNOLOGY) / HEL_UHS, HEL_TANKS, SMR_UHS, SMR_TANKS, FC_UHS, FC_TANKS, GRID_H2_UHS, GRID_H2_TANKS /;
+set storage_plants(TECHNOLOGY) / HEL_UHS, HEL_TANKS, FC_UHS, FC_TANKS /;
 set hydrogen_storages(STORAGE) / UHS, TANKS /;
 set modular_storages(STORAGE) / UHS /;
 set fuel_consumption(TECHNOLOGY) / IHH /;
