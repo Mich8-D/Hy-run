@@ -13,6 +13,7 @@ AnnualEmissionLimit(r, 'CO2_PP', y)$(y.val >= 2035) = 0;
 * Parameters - Emissions       <==>    from 2045 Germany committed to be net zero
 *------------------------------------------------------------------------
 
+AnnualEmissionLimit(r,'CO2_TH',y)$(y.val >= 2040) = 10;
 AnnualEmissionLimit(r,'CO2_TH',y)$(y.val >= 2045) = 0;
 
 
@@ -36,3 +37,9 @@ TotalAnnualMaxCapacity(r,t,y)$renewable_tech(t) = 900;
 TotalAnnualMaxCapacity(r,'SPV',y) = 500;
 TotalAnnualMaxCapacity(r,'WPP_OFF',y) = 160;
 TotalAnnualMaxCapacity(r,'WPP_ON',y) = 300;
+
+
+*TotalTechnologyAnnualActivityLowerLimit(r,'FC_UHS',y)$(y.val >= 2038) = 0;
+**TotalTechnologyAnnualActivityLowerLimit(r,'FC_TANKS',y)
+*TotalTechnologyAnnualActivityLowerLimit(r,'GRID_H2_UHS',y)$(y.val >= 2038) = 0;
+ 

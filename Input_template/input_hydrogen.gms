@@ -17,8 +17,6 @@ set TECHNOLOGY /
 /;
 
 set FUEL /
-    H2_GREEN "Green Hydrogen",
-    H2_BLUE  "Blue Hydrogen",
     H2_TH    "Hydrogen Thermal",
     ELC_ACC_H2 "Electricity from Hydrogen",
     IH_ACC_H2 "Industrial Heating from Hydrogen"
@@ -26,10 +24,12 @@ set FUEL /
 
 set hydrogen_tech(TECHNOLOGY) / HEL_UHS, HEL_TANKS, SMR_UHS, SMR_TANKS, FC_UHS, FC_TANKS, GRID_H2_UHS, GRID_H2_TANKS /;
 set storage_plants(TECHNOLOGY) / HEL_UHS, HEL_TANKS, FC_UHS, FC_TANKS /;
+set hydrogen_production(TECHNOLOGY) / HEL_UHS, HEL_TANKS, SMR_TANKS, SMR_UHS /;
 set hydrogen_storages(STORAGE) / UHS, TANKS /;
 set modular_storages(STORAGE) / UHS /;
 set fuel_consumption(TECHNOLOGY) / IHH /;
 set power_plants(TECHNOLOGY) / FC_UHS, FC_TANKS /;
+set fuel_cells(TECHNOLOGY) / FC_UHS, FC_TANKS /;
 
 $elseif.ph %phase%=='data'
 
@@ -116,8 +116,8 @@ TotalAnnualMaxCapacityInvestment(r,'IHH',y) = 10;
 # UHS storage Technology
 ResidualStorageCapacity(r,'UHS',y) = 0;  # Unit: PJ (explicitly zero)
 StorageLevelStart(r,'UHS') = 0;          # Unit: PJ (explicitly zero)
-StorageMaxChargeRate(r,'UHS') = 60;       # Charge/discharge rates set to 1 since UHS_CHARGE tech models actual flow constraints
-StorageMaxDischargeRate(r,'UHS') = 60;
+StorageMaxChargeRate(r,'UHS') = 400;       # Charge/discharge rates set to 1 since UHS_CHARGE tech models actual flow constraints
+StorageMaxDischargeRate(r,'UHS') = 400;
 #MinStorageCharge(r,'UHS',y) = 0.1;
 OperationalLifeStorage(r,'UHS') = 30;
 StorageDuration('UHS')   = 720 ;   # 30 days
@@ -160,8 +160,8 @@ TotalAnnualMaxStorageCapacityInvestment(r,'UHS',y)$(y.val > 2030) = 0.5;  # Unit
 # Hydrogen Tanks (TANKS)
 ResidualStorageCapacity(r,'TANKS',y) = 0;  # Unit: PJ (explicitly zero)
 StorageLevelStart(r,'TANKS') = 0;          # Unit: PJ (explicitly zero)
-StorageMaxChargeRate(r,'TANKS') = 100;
-StorageMaxDischargeRate(r,'TANKS') = 100;
+StorageMaxChargeRate(r,'TANKS') = 400;
+StorageMaxDischargeRate(r,'TANKS') = 400;
 #MinStorageCharge(r,'TANKS',y) = 0.1;
 OperationalLifeStorage(r,'TANKS') = 20; 
 StorageDuration('TANKS') = 240 ;   # 10 days

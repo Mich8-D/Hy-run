@@ -65,7 +65,7 @@ option lp = conopt;
 *$if not set storage execute_unload 'Results/results_SCENbase_DATA%data%_STORno.gdx';
 *$if set storage execute_unload 'Results/results_SCENbase_DATA%data%_STORyes.gdx';
 
-$ifthen.scen %scen%=="ctax" 
+$ifthen.scen %scen%=="co2tax" 
 $include "Climate_Scenarios/carb_tax.gms"
 $elseif.scen %scen%=="emicap" 
 $include "Climate_Scenarios/emi_cap_pledges.gms"
@@ -77,20 +77,26 @@ $elseif.scen %scen%=="net0by45"
 $include "ssp1.gms"
 $elseif.scen %scen%=="ctax"
 $include "ssp2.gms"
-$elseif.scen %scen%=="BAU"
+$elseif.scen %scen%=="sectpledges"
 $include "ssp3.gms"
 $endif.scen
 
 $ifthen.cost %cost%=="cheapres"
 CapitalCost(r,t,y)$renewable_tech(t) = %value%/100 * CapitalCost(r,t,y);
 $elseif.cost %cost%=="extratax"
-EmissionPenalty(r,'CO2',y) = %value%/100 * EmissionPenalty(r,'CO2',y);
+EmissionsPenalty(r,'CO2',y) = %value%/100 * EmissionsPenalty(r,'CO2',y);
 $elseif.cost %cost%=="cheapH2store"
 CapitalCostStorage(r,s,y)$hydrogen_storages(s) = %value%/100 * CapitalCostStorage(r,s,y);
 $elseif.cost %cost%=="cheapUHSstore"
 CapitalCostStorage(r,'UHS',y) = %value%/100 * CapitalCostStorage(r,'UHS',y);
 $elseif.cost %cost%=="cheapH2prod"
 CapitalCost(r,t,y)$hydrogen_tech(t) = %value%/100 * CapitalCost(r,t,y);
+$elseif.cost %cost%=="cheapH2"
+CapitalCost(r,t,y)$hydrogen_tech(t) = %value%/100 * CapitalCost(r,t,y);
+CapitalCostStorage(r,'UHS',y) = %value%/100 * CapitalCostStorage(r,'UHS',y);
+$elseif.cost %cost%=="efficientH2"
+InputActivityRatio(r,t,f,m,y)$hydrogen_production(t) = 100/%value% * InputActivityRatio(r,t,f,m,y);
+OutputActivityRatio(r,t,f,m,y)$fuel_cells(t) = %value%/100 * OutputActivityRatio(r,t,f,m,y);
 $elseif.cost %cost%=="cheapbees"
 CapitalCostStorage(r,'BATTERIES',y) = %value%/100 * CapitalCostStorage(r,'BATTERIES',y);
 $endif.cost
