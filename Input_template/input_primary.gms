@@ -31,7 +31,7 @@ set     FUEL    /
 /;
 
 set fuel_transmission(TECHNOLOGY) / GRIDGAS /;
-set imports_tech(TECHNOLOGY) / IMPGAS, IMPHCO1, IMPOIL1, VIR_GTH, VIR_HYD, VIR_SUN, VIR_WIN /;
+set imports_tech(TECHNOLOGY) / IMPGAS, IMPHCO1, IMPOIL1, IMPBIO1, VIR_GTH, VIR_HYD, VIR_SUN, VIR_WIN /;
 ** ----------------------------------------------------------------
 $elseif.ph %phase%=='data'
 
@@ -69,8 +69,8 @@ FixedCost(r,'GRIDGAS',y) = 0.01;             # €/kW-year - ~1.5% of CAPEX
 OperationalLife(r,'GRIDGAS') = 40;           # Years
 #AvailabilityFactor(r,'GRIDGAS',y) = 1;       # Dimensionless
 ResidualCapacity(r,"GRIDGAS",y) = 100;        # GW - National-scale gas grid capacity (assumed constant)
-EmissionActivityRatio(r,'GRIDGAS','CO2','1',y) = 0.0561;  # kton CO2 per PJ (infra ops)
-EmissionActivityRatio(r,'GRIDGAS','CO2','2',y) = 0.0561*0.08;  # Unit: Mton CO2 per PJ
+EmissionActivityRatio(r,'GRIDGAS','CO2','1',y) = 0.0561/0.98;  # kton CO2 per PJ (infra ops)
+EmissionActivityRatio(r,'GRIDGAS','CO2','2',y) = 0.0561*0.08/0.98;  # Unit: Mton CO2 per PJ
 
 ###RENEWABLES
 CapitalCost(r,'IMPBIO1',y) = 0;  # Unit: €/kW
@@ -120,11 +120,11 @@ $elseif.ph %phase%=="popol"
 #Fossil fuels + gas grid
 OutputActivityRatio(r,'IMPHCO1','HCO',"1",y) = 1;
 OutputActivityRatio(r,'IMPGAS','GAS',"1",y) = 1; #imported gas turns into gas
-InputActivityRatio(r, 'GRIDGAS', 'GAS', "1", y) = 1; # gas is routed through the grid, converted from GAS to GAS2
+InputActivityRatio(r, 'GRIDGAS', 'GAS', "1", y) = 1/0.98; # gas is routed through the grid, converted from GAS to GAS2
 OutputActivityRatio(r, "GRIDGAS", 'GAS2', "1", y) = 1; #conversion to gas usable from gas grid
 OutputActivityRatio(r, "IMPOIL1", "OIL", "1", y) = 1;  # oil is directly available from imports (no input fuel) #conversion to oil
 OutputActivityRatio(r, 'IMPBIO1','WBM',"1",y) = 1; #conversion to bio energy
-InputActivityRatio(r, 'GRIDGAS','GAS','2',y) = 1; # gas is routed through the grid, converted from GAS to GAS_SMR
+InputActivityRatio(r, 'GRIDGAS','GAS','2',y) = 1/0.98; # gas is routed through the grid, converted from GAS to GAS_SMR
 OutputActivityRatio(r, 'GRIDGAS','GAS_SMR','2',y) = 1; #conversion to gas for SMR + CCS
 #Renewables
 OutputActivityRatio(r,'VIR_SUN','SUN',"1",y) = 1;

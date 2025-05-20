@@ -46,9 +46,9 @@ CapitalCost(r, 'SPV', y) = a_SPV * exp(b_SPV * (ord(y) - 1)) + c_SPV; # Unit: �
 VariableCost(r,'SPV',m,y) = 1e-5; # Unit: €/GJ
 FixedCost(r,'SPV',y) = 10; # Unit: €/kW/y
 ResidualCapacity(r,"SPV",y) = 83;  # Unit: GW (from Excel)
-TotalAnnualMaxCapacityInvestment(r,'SPV',y) = 18;
-TotalAnnualMinCapacityInvestment(r,'SPV',y) = 9;
-TotalAnnualMaxCapacity(r,'SPV',y) = 450; 
+TotalAnnualMaxCapacityInvestment(r,'SPV',y) = 20;
+TotalAnnualMinCapacityInvestment(r,'SPV',y) = 10;
+TotalAnnualMaxCapacity(r,'SPV',y) = 500; 
 # Characterize WIND-ONSHORE technology
 OperationalLife(r,'WPP_ON') = 25;
 CapacityFactor(r,'WPP_ON','ID',y) = 0.19;
@@ -68,7 +68,7 @@ VariableCost(r,'WPP_ON',m,y) = 1e-5;
 FixedCost(r,'WPP_ON',y) = 48;  # Unit: €/kW/y
 ResidualCapacity(r,"WPP_ON",y) = 61;  # Unit: GW (from Excel)
 TotalAnnualMaxCapacityInvestment(r,'WPP_ON',y) = 16;
-TotalAnnualMaxCapacity(r,'WPP_ON',y) = 200; # Unit: GW (from Excel)
+TotalAnnualMaxCapacity(r,'WPP_ON',y) = 250; # Unit: GW (from Excel)
 
 # Characterize WIND-OFFSHORE technology
 OperationalLife(r,'WPP_OFF') = 25;
@@ -98,7 +98,7 @@ CapitalCost(r,'BIO',y) = 4000 - 5 * (y.val - 2024); # Unit: €/kW
 VariableCost(r,'BIO',m,y) = 0.005; 
 FixedCost(r,'BIO',y) = 50; # Unit: €/kW
 ResidualCapacity(r,"BIO",y) = 9.19;  # Unit: GW (from Excel)
-TotalAnnualMaxCapacity(r,'BIO',y)$(y.val <= 2034) = 19;
+TotalAnnualMaxCapacity(r,'BIO',y)$(y.val >= 2034) = 19;
 TotalAnnualMaxCapacityInvestment(r,'BIO',y)$(y.val > 2034) = 1.2;
 
 # Characterize GEOTHERMAL technology
@@ -190,7 +190,7 @@ InputActivityRatio(r,'ROR','HYD',"1",y) = 1;
 OutputActivityRatio(r,'ROR','ELC',"1",y) = 1;
 
 ** open cycle gas turbines
-InputActivityRatio(r,'GFPP','GAS2',"1",y) = 1/0.55;
+InputActivityRatio(r,'GFPP','GAS2',"1",y) = 1/0.57;
 OutputActivityRatio(r,'GFPP','ELC',"1",y) = 1;
 
 ** oil power plants

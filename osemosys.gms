@@ -69,26 +69,22 @@ $ifthen.scen %scen%=="ctax"
 $include "Climate_Scenarios/carb_tax.gms"
 $elseif.scen %scen%=="emicap" 
 $include "Climate_Scenarios/emi_cap_pledges.gms"
-$elseif.scen %scen%=="forecastH2" 
-$include "Climate_Scenarios/hydrogen_forecast.gms"
 $elseif.scen %scen%=="nocoal" 
 TotalAnnualMaxCapacity(r,'COAL',y) = .5;
 $elseif.scen %scen%=="parametrised_py"
 $include "Input_template/parametrised_py.gms"
-$elseif.scen %scen%=="ssp1"
+$elseif.scen %scen%=="net0by45"
 $include "ssp1.gms"
-$elseif.scen %scen%=="ssp2"
+$elseif.scen %scen%=="ctax"
 $include "ssp2.gms"
-$elseif.scen %scen%=="ssp3"
+$elseif.scen %scen%=="BAU"
 $include "ssp3.gms"
-$elseif.scen %scen%=="ssp4"
-$include "ssp4.gms"
-$elseif.scen %scen%=="ssp5"
-$include "ssp5.gms"
 $endif.scen
 
 $ifthen.cost %cost%=="cheapres"
 CapitalCost(r,t,y)$renewable_tech(t) = %value%/100 * CapitalCost(r,t,y);
+$elseif.cost %cost%=="extratax"
+EmissionPenalty(r,'CO2',y) = %value%/100 * EmissionPenalty(r,'CO2',y);
 $elseif.cost %cost%=="cheapH2store"
 CapitalCostStorage(r,s,y)$hydrogen_storages(s) = %value%/100 * CapitalCostStorage(r,s,y);
 $elseif.cost %cost%=="cheapUHSstore"

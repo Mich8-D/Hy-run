@@ -62,8 +62,6 @@ CapitalCostStorage(r,'BATTERIES',y)  = a_BATT*exp(b_BATT*(ord(y)-1)) + c_BATT;  
 ResidualStorageCapacity(r,'BATTERIES',y)    = 0.065;         # PJ
 StorageLevelStart(r,'BATTERIES')            = 0;             # PJ
 TotalAnnualMaxStorageCapacity(r,'BATTERIES',y) = 10;        # PJ
-#TotalAnnualMaxStorageCapacityInvestment(r,'BATTERIES',y)$(y.val < 2027) = 0.00;
-#TotalAnnualMaxStorageCapacityInvestment(r,'BATTERIES',y)$(y.val >= 2028) = 0.144;  # PJ
 TotalAnnualMaxStorageCapacityInvestment(r,'BATTERIES',y) = 0.144;  # PJ
 StorageDuration('BATTERIES') = 4;  # in hours
 

@@ -107,8 +107,9 @@ VariableCost(r,'IHH',m,y)         = 0;
 
 
 * ---------- Max Capacity Investments
-TotalAnnualMaxCapacityInvestment(r,'HEL_UHS',y) = 5;
-TotalAnnualMaxCapacityInvestment(r,'HEL_TANKS',y) = 5;
+TotalAnnualMaxCapacityInvestment(r,'HEL_UHS',y) = 3;
+TotalAnnualMaxCapacityInvestment(r,'HEL_TANKS',y) = 3;
+TotalAnnualMaxCapacityInvestment(r,'IHH',y) = 10;
 
 *------------ Storage Parameters -----------
 
@@ -153,8 +154,8 @@ CapitalCostStorage(r,'UHS','2050') = 9333;
 
 StorageUnitSize(r, 'UHS', y) = 0.5;  # Unit: PJ
 TotalAnnualMaxStorageCapacity(r,'UHS',y) = 126;  # Unit: PJ
+TotalAnnualMaxStorageCapacityInvestment(r,'UHS',y)$(y.val <= 2030) = 0;  # Unit: PJ
 TotalAnnualMaxStorageCapacityInvestment(r,'UHS',y)$(y.val > 2030) = 0.5;  # Unit: PJ
-
 
 # Hydrogen Tanks (TANKS)
 ResidualStorageCapacity(r,'TANKS',y) = 0;  # Unit: PJ (explicitly zero)
@@ -194,8 +195,7 @@ CapitalCostStorage(r,'TANKS','2048') = 48833;
 CapitalCostStorage(r,'TANKS','2049') = 47667;
 CapitalCostStorage(r,'TANKS','2050') = 46500;
 
-# TotalAnnualMaxStorageCapacity(r,'UHS',y) = 126;  # Unit: PJ
-TotalAnnualMaxStorageCapacityInvestment(r,'UHS',y)$(y.val > 2030) = 1;  # Unit: PJ
+TotalAnnualMaxStorageCapacityInvestment(r,'TANKS',y)$(y.val > 2030) = 1;  # Unit: PJ
 
 
 * Monthly self-discharge rate (2%)
