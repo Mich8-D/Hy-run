@@ -33,8 +33,12 @@ set power_plants(TECHNOLOGY) / FC_UHS, FC_TANKS /;
 
 $elseif.ph %phase%=='data'
 
+
+
 * ----------- Tech Parameters (Availability, Life) ----------
 AvailabilityFactor(r,t,y)$hydrogen_tech(t) = 0.95;
+AvailabilityFactor(r,'HEL_UHS',y) = 0.3;
+AvailabilityFactor(r,'HEL_TANKS',y) = 0.3;
 CapacityFactor(r,t,l,y)$hydrogen_tech(t) = 1;
 
 OperationalLife(r,'HEL_UHS') = 10;
@@ -83,6 +87,7 @@ loop(y,
 
 CapitalCost(r,'IHH',y) = 0;
 
+
 * ---------- Fixed Costs ----------
 FixedCost(r,t,y) = 0.03 * CapitalCost(r,t,y);
 FixedCost(r,'FC_UHS',y) = FixedCost(r,'FC_TANKS',y) = 0.025 * CapitalCost(r,'FC_UHS',y);
@@ -110,8 +115,8 @@ TotalAnnualMaxCapacityInvestment(r,'HEL_TANKS',y) = 5;
 # UHS storage Technology
 ResidualStorageCapacity(r,'UHS',y) = 0;  # Unit: PJ (explicitly zero)
 StorageLevelStart(r,'UHS') = 0;          # Unit: PJ (explicitly zero)
-StorageMaxChargeRate(r,'UHS') = 200;       # Charge/discharge rates set to 1 since UHS_CHARGE tech models actual flow constraints
-StorageMaxDischargeRate(r,'UHS') = 200;
+StorageMaxChargeRate(r,'UHS') = 60;       # Charge/discharge rates set to 1 since UHS_CHARGE tech models actual flow constraints
+StorageMaxDischargeRate(r,'UHS') = 60;
 #MinStorageCharge(r,'UHS',y) = 0.1;
 OperationalLifeStorage(r,'UHS') = 30;
 StorageDuration('UHS')   = 720 ;   # 30 days
@@ -154,8 +159,8 @@ TotalAnnualMaxStorageCapacityInvestment(r,'UHS',y)$(y.val > 2030) = 0.5;  # Unit
 # Hydrogen Tanks (TANKS)
 ResidualStorageCapacity(r,'TANKS',y) = 0;  # Unit: PJ (explicitly zero)
 StorageLevelStart(r,'TANKS') = 0;          # Unit: PJ (explicitly zero)
-StorageMaxChargeRate(r,'TANKS') = 200;
-StorageMaxDischargeRate(r,'TANKS') = 200;
+StorageMaxChargeRate(r,'TANKS') = 100;
+StorageMaxDischargeRate(r,'TANKS') = 100;
 #MinStorageCharge(r,'TANKS',y) = 0.1;
 OperationalLifeStorage(r,'TANKS') = 20; 
 StorageDuration('TANKS') = 240 ;   # 10 days

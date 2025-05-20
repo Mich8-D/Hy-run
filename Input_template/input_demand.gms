@@ -70,7 +70,7 @@ AccumulatedAnnualDemand(r,f,y) = 0;
 *------------------------------------------------------------------------
 
 ##### END-USE TECHNOLOGIES
-
+TotalAnnualMaxCapacityInvestment(r,t,y)$fuel_consumption(t) = 999999; # GW - Maximum capacity for final electricity usage
 * electricity 
 CapitalCost(r,"FEU",y) = 0;
 VariableCost(r,"FEU",m,y) = 1e-5;
@@ -100,6 +100,7 @@ FixedCost(r,"IHC",y) = 0;             # €/kW/year - Fixed O&M (~2.3% of CAPEX)
 OperationalLife(r,"IHC") = 30;         # Years - Longer lifetime due to robust industrial build
 EmissionActivityRatio(r,"IHC","CO2_TH","1",y) = 0.089*1.25;
 ResidualCapacity(r,"IHC",y) = 0;   # GW - Residual capacity for coal-fired heat systems
+
 *------------------------------------------------------------------------
 $elseif.ph %phase%=='popol'
 

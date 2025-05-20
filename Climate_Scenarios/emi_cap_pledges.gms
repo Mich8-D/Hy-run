@@ -33,8 +33,8 @@ AnnualEmissionLimit(r,'CO2_TH',y)$(y.val >= 2045) = 0;
 *-----------------------------------------
 
 TotalAnnualMaxCapacity(r,t,y)$renewable_tech(t) = 900;
-TotalAnnualMaxCapacity(r,'SPV',y) = 450;
+TotalAnnualMaxCapacity(r,'SPV',y) = 600;
 TotalAnnualMaxCapacity(r,'WPP_OFF',y) = 160;
-TotalAnnualMaxCapacity(r,'WPP_ON',y) = 240;
+TotalAnnualMaxCapacity(r,'WPP_ON',y) = 300;
 
 

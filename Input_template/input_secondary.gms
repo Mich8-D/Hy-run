@@ -121,17 +121,18 @@ TotalAnnualMaxCapacityInvestment(r,'ROR',y) = 0;
 
 # Characterize COAL technology
 OperationalLife(r,'COAL') = 50;
-AvailabilityFactor(r,'COAL',y) = 0.9;
+#AvailabilityFactor(r,'COAL',y) = 0.9;
 CapitalCost(r,'COAL',y) = 2000;             # €/kW
 VariableCost(r,'COAL',m,y) = 0.001;
 FixedCost(r,'COAL',y) = 10;
+CapacityFactor(r,'COAL',l,y) = 0.12;
 # From 2024 to 2029 (inclusive) interrolation via the following formula:
 # m = (0 - 18.9) / (2050 - 2024) = -0.945
 # And thus for any year y:
-# ResidualCapacity(r,"COAL",y)$(y.val < 2035) = 31.2 - 3.12 * (y.val - 2024);
+ResidualCapacity(r,"COAL",y)$(y.val < 2038) = 31.2 - 1 * (y.val - 2024);
 # TotalAnnualMaxCapacityInvestment(r,'COAL',y) = 0;
-ResidualCapacity(r,"COAL",y) = 31.2; # Unit: GW (from Excel)
 EmissionActivityRatio(r,'COAL','CO2_PP','1',y) = 0.0895/0.45; # Unit: kton CO2 per PJ (infra ops)
+TotalTechnologyAnnualActivityUpperLimit(r,'COAL',y)$(y.val >= 2038) = 0.0; # Unit: PJ/y
 
 # Characterize GFPP technology
 OperationalLife(r,'GFPP') = 30;

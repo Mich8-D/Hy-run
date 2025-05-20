@@ -31,9 +31,11 @@ set     FUEL    /
 /;
 
 set fuel_transmission(TECHNOLOGY) / GRIDGAS /;
+set imports_tech(TECHNOLOGY) / IMPGAS, IMPHCO1, IMPOIL1, VIR_GTH, VIR_HYD, VIR_SUN, VIR_WIN /;
 ** ----------------------------------------------------------------
 $elseif.ph %phase%=='data'
 
+TotalAnnualMaxCapacityInvestment(r,t,y)$imports_tech(t) = 999999; # No investments in year 0
 *** characterize technologies
 
 #FOSSIL FUELS

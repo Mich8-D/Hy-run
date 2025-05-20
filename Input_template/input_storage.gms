@@ -73,8 +73,8 @@ ResidualStorageCapacity(r,'DAM',y) = 0.144;        # Unit: PJ
 StorageLevelStart(r,'DAM') = 0.144;  # Match capacity to avoid validation issues
 MinStorageCharge(r,'DAM',y) = 0;
 TotalAnnualMaxStorageCapacityInvestment(r,'DAM',y) = 0.00;  # PJ
-StorageMaxChargeRate(r,'DAM') = 200;  # Unit: PJ/y
-StorageMaxDischargeRate(r,'DAM') = 200;  # Unit: PJ/y
+StorageMaxChargeRate(r,'DAM') = 100;  # Unit: PJ/y
+StorageMaxDischargeRate(r,'DAM') = 100;  # Unit: PJ/y
 
 * ------------------------
 * SELF-DISCHARGE MODELING

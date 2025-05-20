@@ -87,7 +87,7 @@ CapacityOfOneTechnologyUnit(r,t,y) = 0;
 
 TotalAnnualMaxCapacity(r,t,y) = 99999;
 
-TotalAnnualMaxCapacityInvestment(r,t,y) = 99999;
+TotalAnnualMaxCapacityInvestment(r,t,y) = 50;
 
 TotalAnnualMinCapacityInvestment(r,t,y) = 0;
 
