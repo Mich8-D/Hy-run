@@ -5,174 +5,6 @@
         {
             "codecMib": 106,
             "encoding": "UTF-8",
-            "file": "225a/gamscntr.dat",
-            "name": "gamscntr.dat",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225a/gamsdict.dat",
-            "name": "gamsdict.dat",
-            "type": "gdx"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225a/gamslice.dat",
-            "name": "gamslice.dat",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225a/gamsmatr.dat",
-            "name": "gamsmatr.dat",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225a/gamsnext.sh",
-            "name": "gamsnext.sh",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225a/gamssolu.dat",
-            "name": "gamssolu.dat",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225a/gamsstat.dat",
-            "name": "gamsstat.dat",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225a/gmsprmun.dat",
-            "name": "gmsprmun.dat",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225b/gamscntr.dat",
-            "name": "gamscntr.dat",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225b/gamsdict.dat",
-            "name": "gamsdict.dat",
-            "type": "gdx"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225b/gamslice.dat",
-            "name": "gamslice.dat",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225b/gamsmatr.dat",
-            "name": "gamsmatr.dat",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225b/gamsnext.sh",
-            "name": "gamsnext.sh",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225b/gamssolu.dat",
-            "name": "gamssolu.dat",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225b/gamsstat.dat",
-            "name": "gamsstat.dat",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225b/gmsprmun.dat",
-            "name": "gmsprmun.dat",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225c/gamscntr.dat",
-            "name": "gamscntr.dat",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225c/gamsdict.dat",
-            "name": "gamsdict.dat",
-            "type": "gdx"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225c/gamslice.dat",
-            "name": "gamslice.dat",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225c/gamsmatr.dat",
-            "name": "gamsmatr.dat",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225c/gamsnext.sh",
-            "name": "gamsnext.sh",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225c/gamssolu.dat",
-            "name": "gamssolu.dat",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225c/gamsstat.dat",
-            "name": "gamsstat.dat",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "225c/gmsprmun.dat",
-            "name": "gmsprmun.dat",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
             "file": "Climate_Scenarios/carb_tax.gms",
             "name": "carb_tax.gms",
             "type": "gms"
@@ -189,41 +21,6 @@
             "encoding": "UTF-8",
             "file": "Climate_Scenarios/hydrogen_forecast.gms",
             "name": "hydrogen_forecast.gms",
-            "type": "gms"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "Data/batteries_data.gms",
-            "name": "batteries_data.gms",
-            "type": "gms"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "Data/germany_no_ren_data.gms",
-            "name": "germany_no_ren_data.gms",
-            "type": "gms"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "Data/hydrogen_data.gms",
-            "name": "hydrogen_data.gms",
-            "type": "gms"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "Data/renewables_data.gms",
-            "name": "renewables_data.gms",
-            "type": "gms"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "Data/storage_trad_data.gms",
-            "name": "storage_trad_data.gms",
             "type": "gms"
         },
         {
@@ -266,13 +63,6 @@
             "encoding": "UTF-8",
             "file": "Input_template/input_storage.gms",
             "name": "input_storage.gms",
-            "type": "gms"
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "Input_template/parametrised_py.gms",
-            "name": "parametrised_py.gms",
             "type": "gms"
         },
         {
@@ -334,13 +124,6 @@
         {
             "codecMib": 106,
             "encoding": "UTF-8",
-            "file": "Results/firsttryneverlie.xlsx",
-            "name": "firsttryneverlie.xlsx",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
             "file": "Results/results_SCENbase_DATAtemplate_STORyes.gdx",
             "name": "results_SCENbase_DATAtemplate_STORyes.gdx",
             "type": "gdx"
@@ -376,13 +159,6 @@
         {
             "codecMib": 106,
             "encoding": "UTF-8",
-            "file": "19_23 11_05_2025.xlsx",
-            "name": "19_23 11_05_2025.xlsx",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
             "file": "baseline.R",
             "name": "baseline.R",
             "type": ""
@@ -399,13 +175,6 @@
             "encoding": "UTF-8",
             "file": "compare_scenarios.R",
             "name": "compare_scenarios.R",
-            "type": ""
-        },
-        {
-            "codecMib": 106,
-            "encoding": "UTF-8",
-            "file": "Data Scource",
-            "name": "Data Scource",
             "type": ""
         },
         {
@@ -458,7 +227,14 @@
                 "--data=template --storage=1 --solvermode=mip --scen=forecastH2 --cost=cheapbees --value=0",
                 "--data=template --storage=1 --solvermode=mip --scen=forecastH2",
                 "--data=template --storage=1 --solvermode=mip --scen=ssp1",
-                "--data=template --storage=yes --solvermode=mip --scen=ssp1"
+                "--data=template --storage=yes --solvermode=mip --scen=ssp1",
+                "--data=template --storage=yes --solvermode=mip --cost=cheapbees --scen=base",
+                "--data=template --storage=yes --solvermode=mip --cost=cheapbees --value=50 --scen=base",
+                "--data=template --storage=1 --solvermode=mip --cost=cheapbees --value=50 --scen=base",
+                "--data=template --storage=1 --solvermode=mip --cost=cheapbees --value=0 --scen=emicap",
+                "--data=template --storage=1 --solvermode=mip --cost=cheapH2prod --value=0 --scen=emicap",
+                "--data=template --storage=1 --solvermode=mip --cost=cheapUHStore --value=0 --scen=emicap",
+                "--data=template --storage=1 --solvermode=mip --cost=cheapres --value=0 --scen=emicap"
             ],
             "type": "gms"
         },
@@ -557,7 +333,14 @@
         "--data=template --storage=1 --solvermode=mip --scen=forecastH2 --cost=cheapbees --value=0",
         "--data=template --storage=1 --solvermode=mip --scen=forecastH2",
         "--data=template --storage=1 --solvermode=mip --scen=ssp1",
-        "--data=template --storage=yes --solvermode=mip --scen=ssp1"
+        "--data=template --storage=yes --solvermode=mip --scen=ssp1",
+        "--data=template --storage=yes --solvermode=mip --cost=cheapbees --scen=base",
+        "--data=template --storage=yes --solvermode=mip --cost=cheapbees --value=50 --scen=base",
+        "--data=template --storage=1 --solvermode=mip --cost=cheapbees --value=50 --scen=base",
+        "--data=template --storage=1 --solvermode=mip --cost=cheapbees --value=0 --scen=emicap",
+        "--data=template --storage=1 --solvermode=mip --cost=cheapH2prod --value=0 --scen=emicap",
+        "--data=template --storage=1 --solvermode=mip --cost=cheapUHStore --value=0 --scen=emicap",
+        "--data=template --storage=1 --solvermode=mip --cost=cheapres --value=0 --scen=emicap"
     ],
     "path": ".",
     "pf": "",
