@@ -190,7 +190,7 @@ CapitalCostStorage(r,'TANKS','2049') = 47667;
 CapitalCostStorage(r,'TANKS','2050') = 46500;
 
 # TotalAnnualMaxStorageCapacity(r,'UHS',y) = 126;  # Unit: PJ
-TotalAnnualMaxStorageCapacityInvestment(r,'UHS',y)$(y.val > 2030) = 10;  # Unit: PJ
+TotalAnnualMaxStorageCapacityInvestment(r,'UHS',y)$(y.val > 2030) = 1;  # Unit: PJ
 
 
 * Monthly self-discharge rate (2%)

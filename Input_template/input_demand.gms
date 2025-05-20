@@ -34,7 +34,7 @@ Loop(y,
 );
 
 scalar fith_2024 /1750/;  # Converted from 520 TWh to PJ   # Industrial thermal demand 
-scalar a_fith /0.0320/;
+scalar a_fith /0.0160/;
 scalar b_fith /-0.4780/;
 scalar c_fith /-28.6400/;
 
