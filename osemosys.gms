@@ -118,7 +118,7 @@ $endif.solvermode
 $include "Model/osemosys_res.gms"
 *$include "Model/report.gms"
 $if not set storage execute_unload 'Results/results_SCEN%scen%%value%_DATA%data%_COST%cost%_STORno.gdx';
-$if set storage execute_unload 'Results/results_SCEN%scen%%value%_DATA%data%_COST%cost%STORyes.gdx';
+$if set storage execute_unload 'Results/results_SCEN%scen%%value%_DATA%data%_COST%cost%_STORyes.gdx';
 
 $endif.notbase
 
