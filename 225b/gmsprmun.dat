@@ -1,8 +1,0 @@
-Input=/Users/hugosmart/Documents/Github/Hy-run/osemosys.gms
-ScrDir=225b
-SysDir=/Library/Frameworks/GAMS.framework/Versions/49/Resources
-ScriptNext=225b/gamsnext.sh
-NetLicense=225b/gamslice.dat
---scen=parametrised_py
---data=template
---stor=yes
