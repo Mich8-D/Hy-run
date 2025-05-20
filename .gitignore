@@ -13,11 +13,6 @@
 ./Results/*
 .RData
 .DS_Store
-fitting_eqs.ipynb
-<<<<<<< HEAD
 *.xlsx
 
 
-=======
-main.ipynb
->>>>>>> 7e2a65e (prep for move to main branch)
